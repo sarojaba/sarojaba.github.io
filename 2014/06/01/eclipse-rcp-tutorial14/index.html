@@ -1,0 +1,43 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> eclipse-rcp-tutorial14 · 사로자바의 블로그</title><meta name="description" content="eclipse-rcp-tutorial14 - 사로자바"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://sarojaba.github.io/atom.xml" title="사로자바의 블로그"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li><li class="nav-list-item"><a href="https://www.facebook.com/sarojaba" target="_blank" class="nav-list-link">FACKBOOK</a></li><li class="nav-list-item"><a href="https://github.com/sarojaba" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="http://codepen.io/sarojaba" target="_blank" class="nav-list-link">CODEPEN</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">eclipse-rcp-tutorial14</h1><div class="post-info">Jun 1, 2014</div><div class="post-content"><p>작성일: 2010. 10. 27.</p>
+<p>원문: <a href="http://www.vogella.de/articles/EclipseRCP/article.html" target="_blank" rel="external">http://www.vogella.de/articles/EclipseRCP/article.html</a> Version 5.1</p>
+<h1 id="제품-배포하기"><a href="#제품-배포하기" class="headerlink" title="제품 배포하기"></a>제품 배포하기</h1><p>제품 설정은 독립형 RCP 어플리케이션을 생성하는데 사용된다. 제품을 추출하고 다른 사용자들과 결과를 공유할 수 있다. 이클립스는 자동적으로 빌드 경로로 컴파일된 클래스를 포함한다. 다른 파일들은 수동으로 관리해야한다. 만약 아이콘이나 스플래시 화면 이미지 등을 사용한다면 빌드 경로에 추가해줘야 한다.</p>
+<p>빌드에 포함된 것은 &ldquo;plugin.xml&rdquo; 파일을 통해 정의된다. &lsquo;plugin.xml&quot; 을 선택하고 &ldquo;Build&rdquo; 탭을 선택한다. &ldquo;META-INF&rdquo; 디렉토리와 &ldquo;plugin.xml&rdquo; 파일, 그리고 아이콘, splash.bmp 와 같은 다른 정적 파일들은 출력에 포함되어야 한다.</p>
+<p>제품 설정 파일로 변경하고 &ldquo;Overview&rdquo; 탭을 선택한다. 제품을 추출하기 위해 &ldquo;Eclipse Product export wizard&rdquo; 를 클릭한다.</p>
+<p>목표 디렉토리를 기입하고 &ldquo;Finish&rdquo; 를 누른다.</p>
+<p>특정 장소에 애플리케이션을 실행하는 &ldquo;eclipse.exe&rdquo; 파일을 포함하는 &ldquo;eclipse&rdquo; 디렉토리를 생성할 것이다. 애플리케이션을 실행하기위해 더블 클릭한다.</p>
+<p>다른 기계(자바가 설치되어 있는)에서 이 디렉토리의 내용을 얻거나 압축을 푼다면 프로그램은 거기서도 동작해야 한다. 추출 대화창은 당신의 사용자에게 직접 전송할 수 있는 아카이브 파일을 생성한다.</p>
+<p>제품 생성을 자동화하는 방법은 Eclipse PDE Build 를 참고하라.</p>
+<h1 id="팁과-트릭"><a href="#팁과-트릭" class="headerlink" title="팁과 트릭"></a>팁과 트릭</h1><h2 id="사용자-레이아웃을-저장하기"><a href="#사용자-레이아웃을-저장하기" class="headerlink" title="사용자 레이아웃을 저장하기"></a>사용자 레이아웃을 저장하기</h2><p>애플리케이션의 다음 실행을 위해 사용자 레이아웃과 윈도우 크기를 저장하려면 ApplicationWorkbenchAdvisor 의 초기화 메소드에 configurer.setSaveAndRestore(true); 를 추가한다.</p>
+<pre><code>package addactiontoview;
+import org.eclipse.ui.application.IWorkbenchConfigurer;
+import org.eclipse.ui.application.IWorkbenchWindowConfigurer;
+import org.eclipse.ui.application.WorkbenchAdvisor;
+import org.eclipse.ui.application.WorkbenchWindowAdvisor;
+public class ApplicationWorkbenchAdvisor extends WorkbenchAdvisor {
+private static final String PERSPECTIVE_ID = &quot;AddActiontoView.perspective&quot;;
+public WorkbenchWindowAdvisor createWorkbenchWindowAdvisor(
+IWorkbenchWindowConfigurer configurer) {
+return new ApplicationWorkbenchWindowAdvisor(configurer);
+}
+public String getInitialWindowPerspectiveId() {
+return PERSPECTIVE_ID;
+}
+@Override
+public void initialize(IWorkbenchConfigurer configurer) {
+super.initialize(configurer);
+configurer.setSaveAndRestore(true);
+}
+}
+</code></pre><p>이클립스는 퍼스펙티브를 리셋하기 위한 미리 정의된 명령을 가진다. Eclipse Commands 를 참고하라.</p>
+<h2 id="사용하지-않는-종속성-찾기"><a href="#사용하지-않는-종속성-찾기" class="headerlink" title="사용하지 않는 종속성 찾기"></a>사용하지 않는 종속성 찾기</h2><p>&ldquo;plugin.xml&rdquo; 파일의 &ldquo;Dependencies&rdquo; 탭에서 어느 플러그인에 당신의 플러그인이 종속적인지 정의한다. 물론 단지 필요한 플러그인만 여기 정의해야 한다. 어떤 종속성이라도 가지고 있다면 Dependency Analysis -&gt; Find unused dependencies 를 선택하여 실제로 사용하지 않는 것을 검사할 수 있다.</p>
+<h2 id="RCP-애플리케이션을-자신의-JRE-와-함께-배포하기"><a href="#RCP-애플리케이션을-자신의-JRE-와-함께-배포하기" class="headerlink" title="RCP 애플리케이션을 자신의 JRE 와 함께 배포하기"></a>RCP 애플리케이션을 자신의 JRE 와 함께 배포하기</h2><p>특정 JRE 가 사용됨을 보장하기 위해 자신의 RCP 애플리케이션과 함께 배포할 수 있다. 이클립스 RCP 애플리케이션은 가장 먼저 설치 디렉토리에 &ldquo;jre&rdquo; 폴더가 있는지 자바 가상머신이 있는지 검사한다. 만약 발견되면 그 JRE 는 이클립스 RCP 애플리케이션에 사용된다.</p>
+<h2 id="다수의-사용자-설정하기"><a href="#다수의-사용자-설정하기" class="headerlink" title="다수의 사용자 설정하기"></a>다수의 사용자 설정하기</h2><p>이클립스 RCP 애플리케이션은 설정 파일들을 &ldquo;.metadata&rdquo; 폴더에 저장한다. 표준 설정에 있는 이클립스 RCP 설치 디렉토리는 이 폴더를 위해 사용될 것이다. 만약 둘 이상의 사용자가 같은 설치 폴더를 사용한다면, 대안의 장소를 명시하기 위해 &ldquo;-data&rdquo; 인자를 제공해야 한다. &ldquo;@user.home/applicationname&rdquo; 값을 설정했다면 설정은 사용자가 명시한 폴더에 저장될 것이다.</p>
+</div></article></div></main><footer><div class="paginator"><a href="/2014/06/01/eclipse-rcp-tutorial13/" class="prev">PREV</a><a href="/2014/06/01/c-알고리즘-수행시간-측정하기/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'sarojaba';
+var disqus_identifier = '2014/06/01/eclipse-rcp-tutorial14/';
+var disqus_title = 'eclipse-rcp-tutorial14';
+var disqus_url = 'http://sarojaba.github.io/2014/06/01/eclipse-rcp-tutorial14/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//sarojaba.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2017 <a href="http://sarojaba.github.io">사로자바</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>

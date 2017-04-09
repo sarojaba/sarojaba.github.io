@@ -1,0 +1,277 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> sum-of-the-angles-of-a-triangle · 사로자바의 블로그</title><meta name="description" content="sum-of-the-angles-of-a-triangle - 사로자바"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://sarojaba.github.io/atom.xml" title="사로자바의 블로그"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li><li class="nav-list-item"><a href="https://www.facebook.com/sarojaba" target="_blank" class="nav-list-link">FACKBOOK</a></li><li class="nav-list-item"><a href="https://github.com/sarojaba" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="http://codepen.io/sarojaba" target="_blank" class="nav-list-link">CODEPEN</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">sum-of-the-angles-of-a-triangle</h1><div class="post-info">Aug 5, 2013</div><div class="post-content"><script src="https://github.com/downloads/processing-js/processing-js/processing-1.4.1.min.js"></script><script type="text/processing" data-processing-target="processing-canvas-triangle">
+Triangle t;
+
+void setup() {
+
+  size(480, 270);
+
+  t = new Triangle(200, 30, 300, 200, 40, 200);
+}
+
+void draw() {
+
+  background(255);
+
+  t.draw();
+
+  int sum = 0;
+  String s = "";
+  for (int i = 0; i < t.nodes.length; i++) {
+    Node n = t.nodes[i];
+    int a = int(round(degrees(n.getAngle())));
+    sum += a;
+    s += a + "+";
+  }
+  s.substring(s.length() - 1);
+  s += "=" + sum;
+
+  fill(0);
+  textAlign(RIGHT, TOP);
+  text(s, width - 10, 10);
+}
+
+void mouseDragged() {
+  t.mouseDragged();
+}
+
+class Triangle {
+
+  Node[] nodes;
+
+  boolean editable; // show handle;
+  boolean angle; // show angle;
+
+  Triangle(float x1, float y1, float x2, float y2, float x3, float y3) {
+    this(new PVector(x1, y1), new PVector(x2, y2), new PVector(x3, y3));
+  }
+
+  Triangle(PVector p1, PVector p2, PVector p3) {
+    nodes = new Node[3];
+
+    Node v1 = new Node(p1);
+    Node v2 = new Node(p2);
+    Node v3 = new Node(p3);
+
+    v1.pre = v3;
+    v1.next = v2;
+
+    v2.pre = v1;
+    v2.next = v3;
+
+    v3.pre = v2;
+    v3.next = v1;
+
+    nodes[0] = v1;
+    nodes[1] = v2;
+    nodes[2] = v3;
+
+    editable = true;
+    angle = true;
+  }
+
+  void draw() {
+    // draw shape
+    pushStyle();
+    fill(255);
+    beginShape();
+    for (int i = 0; i < nodes.length; i++) {
+      Node n = nodes[i];
+      vertex(n.pos.x, n.pos.y);
+    }
+    endShape(CLOSE);
+    popStyle();
+
+    // draw handle
+    pushStyle();
+    if (editable) {
+      noStroke();
+      fill(color(128, 128, 128, 63));
+      for (int i = 0; i < nodes.length; i++) {
+        Node n = nodes[i];
+        ellipse(n.pos.x, n.pos.y, 20, 20);
+      }
+    }
+    popStyle();
+
+    if (angle) {
+      pushStyle();
+      colorMode(HSB);
+      int h = 0;
+
+      // angle arc
+      for (int i = 0; i < nodes.length; i++) {
+        Node n = nodes[i];
+
+        PVector v = PVector.sub(n.pre.pos, n.pos);
+        PVector w = PVector.sub(n.next.pos, n.pos);
+
+        float vh = heading(v);
+        float wh = heading(w);
+
+        // map heading to radians
+        if (vh < 0) {
+          vh += PI * 2;
+        }
+        if (wh < 0) {
+          wh += PI * 2;
+        }
+
+        // determine face(clockwise)
+        PVector c = v.cross(w);
+        boolean face = c.z < 0;
+        float a = face ? vh : wh;
+        float b = face ? wh : vh;
+
+        fill(color(h, 255, 255, 127));
+        h += 85;
+
+        if (a > b) {
+          arc(n.pos.x, n.pos.y, 40, 40, b, a);
+        }
+        else {
+          arc(n.pos.x, n.pos.y, 40, 40, b, 2 * PI);
+          arc(n.pos.x, n.pos.y, 40, 40, 0, a);
+        }
+      }
+      popStyle();
+
+      // angle value
+      pushStyle();
+      for (int i = 0; i < nodes.length; i++) {
+        Node n = nodes[i];
+        PVector v = PVector.sub(n.pre.pos, n.pos);
+        PVector w = PVector.sub(n.next.pos, n.pos);
+        PVector z = PVector.add(v, w);
+        z.limit(30);
+        z.add(n.pos);
+        fill(0);
+        textAlign(CENTER, CENTER);
+        text(int(round(degrees(n.getAngle()))), z.x, z.y);
+      }
+      popStyle();
+    }
+  }
+
+  void mouseDragged() {
+    if (editable) {
+      for (int i = 0; i < nodes.length; i++) {
+        Node n = nodes[i];
+        Circle c = new Circle(n.pos.x, n.pos.y, 30);
+        if (c.isInner(mouseX, mouseY)) {
+          n.pos.x = mouseX;
+          n.pos.y = mouseY;
+          return;
+        }
+      }
+    }
+  }
+
+  // function to accomplish PVector.heading() [not avaiable in Processing.js] 
+  float heading(PVector vector) {
+    return atan2(vector.y, vector.x);
+  }
+}
+
+class Node {
+  PVector pos; // position
+  Node pre;
+  Node next;
+
+  Node(PVector p) {
+    pos = p;
+  }
+
+  float getAngle() {
+    PVector v = PVector.sub(pre.pos, pos);
+    PVector w = PVector.sub(next.pos, pos);
+
+    return PVector.angleBetween(v, w);
+  }
+}
+
+class Circle {
+
+  // the point equidistant from the points on the circle.
+  PVector centre;
+
+  // a line segment joining the centre of the circle to any point on the circle itself; or the length of such a segment, which is half a diameter.
+  float radius;
+
+  Circle(PVector c, float r) {
+    centre = c;
+    radius = r;
+  }
+
+  Circle(float x, float y, float r) {
+    this(new PVector(x, y), r);
+  }
+
+  float diameter() {
+    return 2 * radius;
+  }
+
+  float circumference() {    
+    // 2 * PI * radius
+    return PI * diameter();
+  }
+
+  // area enclosed
+  float area() {    
+    return PI * sq(radius);
+  }
+
+  // t: theta radian
+  PVector cartesian(float t) {
+
+    float x = centre.x + radius * cos(t);
+    float y = centre.y + radius * sin(t);
+
+    return new PVector(x, y);
+  }
+
+  float polar(PVector p) {
+    return atan(p.y - centre.y / p.x - centre.x);
+  }
+
+  PVector[] tangentLine(PVector p) {
+
+    PVector[] lines = new PVector[2];
+
+    PVector v = PVector.sub(centre, p);
+    float m = v.mag();
+    float t = asin(radius / m);
+    float m2 = cos(t) * m;
+
+    PVector v2 = v.get();
+    v2.rotate(t);
+    v2.setMag(m2);
+    lines[0] = PVector.add(v2, p);
+
+    v2 = v.get();
+    v2.rotate(-t);
+    v2.setMag(m2);    
+    lines[1] = PVector.add(v2, p);
+
+    return lines;
+  }
+
+  boolean isInner(float x, float y) {
+    PVector p = new PVector(x, y);
+    return PVector.dist(centre, p) < radius;
+  }
+
+  void draw() {
+    ellipse(centre.x, centre.y, radius * 2, radius * 2);
+  }
+}
+</script>
+
+<canvas id="processing-canvas-triangle"></canvas></div></article></div></main><footer><div class="paginator"><a href="/2013/07/31/the-host/" class="prev">PREV</a><a href="/2013/08/05/남자사용설명서/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'sarojaba';
+var disqus_identifier = '2013/08/05/sum-of-the-angles-of-a-triangle/';
+var disqus_title = 'sum-of-the-angles-of-a-triangle';
+var disqus_url = 'http://sarojaba.github.io/2013/08/05/sum-of-the-angles-of-a-triangle/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//sarojaba.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2017 <a href="http://sarojaba.github.io">사로자바</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>

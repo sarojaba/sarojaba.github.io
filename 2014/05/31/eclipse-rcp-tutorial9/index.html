@@ -1,0 +1,69 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> eclipse-rcp-tutorial9 · 사로자바의 블로그</title><meta name="description" content="eclipse-rcp-tutorial9 - 사로자바"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://sarojaba.github.io/atom.xml" title="사로자바의 블로그"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li><li class="nav-list-item"><a href="https://www.facebook.com/sarojaba" target="_blank" class="nav-list-link">FACKBOOK</a></li><li class="nav-list-item"><a href="https://github.com/sarojaba" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="http://codepen.io/sarojaba" target="_blank" class="nav-list-link">CODEPEN</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">eclipse-rcp-tutorial9</h1><div class="post-info">May 31, 2014</div><div class="post-content"><p>작성일: 2010. 10. 27.</p>
+<p>원문: <a href="http://www.vogella.de/articles/EclipseRCP/article.html" target="_blank" rel="external">http://www.vogella.de/articles/EclipseRCP/article.html</a> Version 5.1</p>
+<h1 id="필드-어시스트와-레이블-데코레이터"><a href="#필드-어시스트와-레이블-데코레이터" class="headerlink" title="필드 어시스트와 레이블 데코레이터"></a>필드 어시스트와 레이블 데코레이터</h1><p>필드 어시스트는 텍스트 필드나 콤보 박스와 같이 단순 필드의 가능한 입력과 상태에 대한 정보를 제공하는데 사용될 수 있다. &ldquo;org.eclipse.jface.fieldassist&rdquo; 패키지는 ControlDecorations 와 Content Proposals 두 가지 방법으로 도움을 제공한다.</p>
+<p>콘트롤 장식은 콘트롤에 대한 부가적인 정보를 보여주기 위해 SWT 컨트롤에 이미지 장식을 두도록 한다. 이 장식은 사용자가 마우스를 올려 놓았을때 한번 보여지는 내용을 가지고 있을 수 있다. 화면 배치 중에 이 장식들을 보여주기 위한 충반한 공간이 있다고 확신해야 한다.</p>
+<p>컨텐트 제안은 필드에 사용자 입력에 대해 가능한 선택을 도와주도록 한다.</p>
+<p>&ldquo;de.vogella.rcp.intro.fieldassist&rdquo; 로 새 프로젝트를 생성한다. 예제로 &ldquo;RCP application with a view&rdquo; 를 사용한다. 예제에서 컨텐트 제안은 &ldquo;Cntrl+Space&rdquo; 키 조합으로 특정 키(&ldquo;.&rdquo;, &ldquo;#&rdquo;)를 통해 활성화된다.</p>
+<p>다음으로 View.java를 바꾼다.</p>
+<pre><code>package de.vogella.rcp.intro.fieldassist;
+import org.eclipse.jface.bindings.keys.KeyStroke;
+import org.eclipse.jface.bindings.keys.ParseException;
+import org.eclipse.jface.fieldassist.ContentProposalAdapter;
+import org.eclipse.jface.fieldassist.ControlDecoration;
+import org.eclipse.jface.fieldassist.FieldDecorationRegistry;
+import org.eclipse.jface.fieldassist.SimpleContentProposalProvider;
+import org.eclipse.jface.fieldassist.TextContentAdapter;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Text;
+import org.eclipse.ui.part.ViewPart;
+public class View extends ViewPart {
+public static final String ID = &quot;de.vogella.rcp.intro.fieldassist.view&quot;;
+public void createPartControl(Composite parent) {
+GridLayout layout = new GridLayout(2,false);
+parent.setLayout(layout);
+Label label = new Label(parent, SWT.NONE);
+label.setText(&quot;Please select a value:   &quot;);
+Text text = new Text(parent, SWT.BORDER);
+createDeco(text, &quot;Use CNTL + SPACE to see possible values&quot;);
+GridData data = new GridData(GridData.FILL_HORIZONTAL);
+text.setLayoutData(data);
+ControlDecoration deco = new ControlDecoration(text, SWT.LEFT);
+deco.setDescriptionText(&quot;Use CNTL + SPACE to see possible values&quot;);
+deco.setImage(FieldDecorationRegistry.getDefault().getFieldDecoration(FieldDecorationRegistry.DEC_INFORMATION).getImage());
+deco.setShowOnlyOnFocus(false);
+// Help the user with the possible inputs
+// &quot;.&quot; and &quot;#&quot; will also activate the content proposals
+char[] autoActivationCharacters = new char[] { &apos;.&apos;, &apos;#&apos; };
+KeyStroke keyStroke;
+try {
+// 
+keyStroke = KeyStroke.getInstance(&quot;Ctrl+Space&quot;);
+// assume that myTextControl has already been created in some way
+ContentProposalAdapter adapter = new ContentProposalAdapter(text,
+new TextContentAdapter(),
+new SimpleContentProposalProvider(new String[] {
+&quot;ProposalOne&quot;, &quot;ProposalTwo&quot;, &quot;ProposalThree&quot; }),
+keyStroke, autoActivationCharacters);
+} catch (ParseException e) {
+e.printStackTrace();
+}
+}
+public void setFocus() {
+}
+private void createDeco(Text text, String s){
+}
+}
+</code></pre><p>애플리케이션을 실행하고 콘트롤 장식과 컨텐트 제안이 작동하는지 확인한다.</p>
+</div></article></div></main><footer><div class="paginator"><a href="/2014/05/31/eclipse-rcp-tutorial8/" class="prev">PREV</a><a href="/2014/05/31/eclipse-rcp-tutorial10/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'sarojaba';
+var disqus_identifier = '2014/05/31/eclipse-rcp-tutorial9/';
+var disqus_title = 'eclipse-rcp-tutorial9';
+var disqus_url = 'http://sarojaba.github.io/2014/05/31/eclipse-rcp-tutorial9/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//sarojaba.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2017 <a href="http://sarojaba.github.io">사로자바</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>

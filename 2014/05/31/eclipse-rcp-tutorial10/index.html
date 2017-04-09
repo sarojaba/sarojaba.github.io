@@ -1,0 +1,89 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> eclipse-rcp-tutorial10 · 사로자바의 블로그</title><meta name="description" content="eclipse-rcp-tutorial10 - 사로자바"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://sarojaba.github.io/atom.xml" title="사로자바의 블로그"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li><li class="nav-list-item"><a href="https://www.facebook.com/sarojaba" target="_blank" class="nav-list-link">FACKBOOK</a></li><li class="nav-list-item"><a href="https://github.com/sarojaba" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="http://codepen.io/sarojaba" target="_blank" class="nav-list-link">CODEPEN</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">eclipse-rcp-tutorial10</h1><div class="post-info">May 31, 2014</div><div class="post-content"><p>작성일: 2010. 10. 27.</p>
+<p>원문: <a href="http://www.vogella.de/articles/EclipseRCP/article.html" target="_blank" rel="external">http://www.vogella.de/articles/EclipseRCP/article.html</a> Version 5.1</p>
+<h1 id="JFace-뷰어"><a href="#JFace-뷰어" class="headerlink" title="JFace 뷰어"></a>JFace 뷰어</h1><h2 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h2><p>JFace는 사용자 인터페이스를 생성시 자바 객체를 바로 사용할 수 있는 뷰어를 제공한다. 뷰어는 트리, 테이블, 리스트와 콤보박스가 가능하다. 다음에서 콤보 뷰어의 사용 예를 보여줄 것이다. 테이블 뷰어의 자세한 사용법은 Eclipse JFaces Tables 에서 찾을 수 있다.</p>
+<p>트리 뷰어의 간략한 사용 예는 JFace Tree Viewer 에서 찾을 수 있다.</p>
+<h2 id="콤보뷰어"><a href="#콤보뷰어" class="headerlink" title="콤보뷰어"></a>콤보뷰어</h2><p>새로운 RCP 프로젝트 &ldquo;de.vogella.rcp.intro.jfaceviewer&rdquo; 를 만들고 &ldquo;RCP application with a view&rdquo; 템플릿을 선택한다. 다음의 자바 클래스를 생성한다.</p>
+<pre><code>package de.vogella.rcp.intro.jfaceviewer;
+public class Person {
+private String firstName;
+private String lastName;
+public Person(String firstName, String lastName){
+this.firstName = firstName;
+this.lastName = lastName;
+}
+public String getFirstName() {
+return firstName;
+}
+public void setFirstName(String firstName) {
+this.firstName = firstName;
+}
+public String getLastName() {
+return lastName;
+}
+public void setLastName(String lastName) {
+this.lastName = lastName;
+}
+}
+`&lt;/pre&gt;
+
+View.java 를 다음과 같이 변경한다.
+
+&lt;pre&gt;`package de.vogella.rcp.intro.jfaceviewer;
+import org.eclipse.jface.viewers.ArrayContentProvider;
+public class View extends ViewPart {
+public static final String ID = &quot;de.vogella.rcp.intro.jfaceviewer.view&quot;;
+private ComboViewer viewer;
+public void createPartControl(Composite parent) {
+GridLayout layout = new GridLayout(2, false);
+parent.setLayout(layout);
+Label label = new Label(parent, SWT.NONE);
+label.setText(&quot;Select a person:&quot;);
+viewer = new ComboViewer(parent, SWT.READ_ONLY);
+viewer.setContentProvider(new ArrayContentProvider());
+viewer.setLabelProvider(new LabelProvider() {
+@Override
+public String getText(Object element) {
+if (element instanceof Person) {
+Person person = (Person) element;
+return person.getFirstName();
+}
+return super.getText(element);
+}
+});
+Person[] persons = new Person[] { new Person(&quot;Lars&quot;, &quot;Vogel&quot;),
+new Person(&quot;Tim&quot;, &quot;Taler&quot;), new Person(&quot;Jim&quot;, &quot;Knopf&quot;) };
+// Set set the input to the viewer this input will be send to the
+// content provider
+viewer.setInput(persons);
+// React to the selection of the viewer
+// Note that the viewer return the real object and not just a string
+// representation
+viewer.addSelectionChangedListener(new ISelectionChangedListener() {
+@Override
+public void selectionChanged(SelectionChangedEvent event) {
+IStructuredSelection selection = (IStructuredSelection) event
+.getSelection();
+System.out.println(((Person) selection.getFirstElement())
+.getLastName());
+}
+});
+// You can select a object directly via the domain object
+Person person = persons[0];
+viewer.setSelection(new StructuredSelection(person));
+}
+/**
+* Passing the focus request to the viewer&apos;s control.
+*/
+public void setFocus() {
+viewer.getControl().setFocus();
+}
+}
+</code></pre></div></article></div></main><footer><div class="paginator"><a href="/2014/05/31/eclipse-rcp-tutorial9/" class="prev">PREV</a><a href="/2014/05/31/eclipse-rcp-tutorial11/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'sarojaba';
+var disqus_identifier = '2014/05/31/eclipse-rcp-tutorial10/';
+var disqus_title = 'eclipse-rcp-tutorial10';
+var disqus_url = 'http://sarojaba.github.io/2014/05/31/eclipse-rcp-tutorial10/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//sarojaba.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2017 <a href="http://sarojaba.github.io">사로자바</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>

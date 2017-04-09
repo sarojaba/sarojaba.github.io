@@ -1,0 +1,41 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 문자열-끼워넣기와-연결하기 · 사로자바의 블로그</title><meta name="description" content="문자열-끼워넣기와-연결하기 - 사로자바"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://sarojaba.github.io/atom.xml" title="사로자바의 블로그"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li><li class="nav-list-item"><a href="https://www.facebook.com/sarojaba" target="_blank" class="nav-list-link">FACKBOOK</a></li><li class="nav-list-item"><a href="https://github.com/sarojaba" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="http://codepen.io/sarojaba" target="_blank" class="nav-list-link">CODEPEN</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">문자열-끼워넣기와-연결하기</h1><div class="post-info">Apr 2, 2013</div><div class="post-content"><p>우리 프로그램에게 자신에 대해 좀 더 이야기 하도록 만들자.</p>
+<pre><code>&quot;The Hello World program ... version 1.1!&quot;
+void hello() {
+    print(&quot;Hello, this is Ceylon ``language.version`` 
+        running on Java ``process.vmVersion``!\n
+        You ran me at ``process.milliseconds`` ms,
+        with ``process.arguments.size`` arguments.&quot;);
+}
+`&lt;/pre&gt;
+
+우리의 메시지에 문장들이 어떻게 삽입되었는지 보면, 더블백 “ 즉, 두개의 backtick 을 이용해 구분하였다. 이를 문자열 템플릿이라고 부른다.
+
+필자의 컴퓨터에서 이 프로그램은 다음과 같은 결과를 출력하였다.
+
+&lt;pre&gt;`Hello, this is Ceylon 0.5 
+running on Java 1.7!
+
+You ran me at 1362763185067 ms,
+with 0 arguments.
+`&lt;/pre&gt;
+
+다른 방법으로 + 연산자를 사용해 문자열을 이어붙히는 것도 가능하고, 이는 많은 경우에 더 유연하다.
+
+&lt;pre&gt;`print(&quot;Hello, this is Ceylon &quot; + language.version + 
+    &quot;running on Java &quot; + process.vmVersion + &quot;!\n&quot; +
+    &quot;You ran me at &quot; + process.milliseconds.string +
+    &quot; ms, with &quot; + process.arguments.size.string +
+    &quot; arguments.&quot;);
+</code></pre><ul>
+<li>연산자를 이용해 문자열을 연결할 때, 명시적으로 string 속성을 호출해 숫자 표현을 문자로 변경해야 한다. + 연산자는 피연산자를 문자열로 자동적으로 변경하지 않는다.</li>
+</ul>
+<p>print(&quot;Hello, this is Ceylon &rdquo; + language.version +    &ldquo;running on Java &rdquo; + process.vmVersion + &ldquo;!\n&rdquo; +<br>    &ldquo;You ran me at &rdquo; + process.milliseconds +    //compile error!<br>    &ldquo; ms, with &rdquo; + process.arguments.size +    //compile error!<br>    &ldquo; arguments.&rdquo;);</p>
+</div></article></div></main><footer><div class="paginator"><a href="/2013/04/01/문자열-그대로-유지하기/" class="prev">PREV</a><a href="/2013/04/06/존재하지-않는-객체-다루기/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'sarojaba';
+var disqus_identifier = '2013/04/02/문자열-끼워넣기와-연결하기/';
+var disqus_title = '문자열-끼워넣기와-연결하기';
+var disqus_url = 'http://sarojaba.github.io/2013/04/02/문자열-끼워넣기와-연결하기/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//sarojaba.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2017 <a href="http://sarojaba.github.io">사로자바</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>

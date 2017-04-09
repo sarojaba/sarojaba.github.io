@@ -1,0 +1,24 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 이스케이프-문자 · 사로자바의 블로그</title><meta name="description" content="이스케이프-문자 - 사로자바"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://sarojaba.github.io/atom.xml" title="사로자바의 블로그"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li><li class="nav-list-item"><a href="https://www.facebook.com/sarojaba" target="_blank" class="nav-list-link">FACKBOOK</a></li><li class="nav-list-item"><a href="https://github.com/sarojaba" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="http://codepen.io/sarojaba" target="_blank" class="nav-list-link">CODEPEN</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">이스케이프-문자</h1><div class="post-info">Apr 1, 2013</div><div class="post-content"><p>문자열 리터럴 안에 다른 C-like 언어들에서 사용되는 \n, \t, \, “ 등의 이스케이프 문자를 사용할 수 있다.</p>
+<pre><code>print(&quot;\&quot;Hello!\&quot;, said the program.&quot;);
+`&lt;/pre&gt;
+
+텍스트에서 유니코드를 표현하기 위해 2 바이트와 4 바이트 16진수 이스케이프 문자도 사용할 수 있다.
+
+&lt;pre&gt;`&quot;The mathematical constant \{#03C0}, the
+ ratio of the circumference of a circle
+ to its diameter.&quot;
+Float pi=calculatePi();
+
+&quot;The mathematical constant \{#0001D452},
+ the base of the natural logarithm.&quot;
+Float e=calculateE();
+</code></pre><p>Ceylon의 문자열은 UTF-32 문자로 구성된다. 나중에 살펴볼 것이다.</p>
+</div></article></div></main><footer><div class="paginator"><a href="/2013/03/31/robots/" class="prev">PREV</a><a href="/2013/04/01/문자열-그대로-유지하기/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'sarojaba';
+var disqus_identifier = '2013/04/01/이스케이프-문자/';
+var disqus_title = '이스케이프-문자';
+var disqus_url = 'http://sarojaba.github.io/2013/04/01/이스케이프-문자/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//sarojaba.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2017 <a href="http://sarojaba.github.io">사로자바</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>

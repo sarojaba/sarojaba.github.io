@@ -1,0 +1,51 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 커맨드-라인에서-프로그램-실행하기 · 사로자바의 블로그</title><meta name="description" content="커맨드-라인에서-프로그램-실행하기 - 사로자바"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://sarojaba.github.io/atom.xml" title="사로자바의 블로그"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li><li class="nav-list-item"><a href="https://www.facebook.com/sarojaba" target="_blank" class="nav-list-link">FACKBOOK</a></li><li class="nav-list-item"><a href="https://github.com/sarojaba" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="http://codepen.io/sarojaba" target="_blank" class="nav-list-link">CODEPEN</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">커맨드-라인에서-프로그램-실행하기</h1><div class="post-info">Mar 29, 2013</div><div class="post-content"><p>한번 해보자. 위 코드를 ./source/hello.ceylon 으로 저장하고 아래의 명령을 수행하라.</p>
+<pre><code>ceylon-0.5/bin/ceylon compile source/hello.ceylon
+ceylon-0.5/bin/ceylon run --run hello default
+`&lt;/pre&gt;
+
+ceylon-0.5 는 Ceylon 이 설치된 디렉토리의 경로이다. Hello, World! 라는 메시지를 볼 수 있을 것이다. ./modules/default 디렉토리에 default.car 라는 컴파일된 모듈 아카이브가 있을 것이다.
+
+다음은 아주 유용한 트릭이다.
+
+&lt;pre&gt;`ceylon-0.5/bin/ceylon help compile
+ceylon-0.5/bin/ceylon help run
+`&lt;/pre&gt;
+
+ceylon help 명령은 ceylon 서브명령에 대한 사용 정보를 출력한다.
+
+만약 커맨드 라인 툴을 시작하는데 문제가 있다면 예제 컴파일과 실행을 해보자.
+
+## JDK 선택하기
+
+Ceylon 은 Java 7 이 필요하기 때문에 사용하고 있는 Java 버전이 맞는지 확인할 필요가 있다.
+
+&lt;pre&gt;`bash$ java -version
+java version &quot;1.7.0_05&quot;
+Java(TM) SE Runtime Environment (build 1.7.0_05-b06)
+Java HotSpot(TM) 64-Bit Server VM (build 23.1-b03, mixed mode)
+bash$ javac -version
+javac 1.7.0_05
+`&lt;/pre&gt;
+
+만약 다른 버전의 Java 를 사용하고 있다면, Java 7 로 변경해야 한다.
+</code></pre><ul>
+<li>Linux 에서는 update-java-alternatives 를 사용한다.</li>
+<li>Mac 에서는 System Preferences applet 를 이용한다.</li>
+<li><p>Windows 에서는 JAVA-HOME 환경 변수를 설정한다.</p>
+<h2 id="문자-인코딩-설정하기"><a href="#문자-인코딩-설정하기" class="headerlink" title="문자 인코딩 설정하기"></a>문자 인코딩 설정하기</h2><p>만약 Ceylon 프로그램을 컴파일 하는 중에 다음의 에러나 비슷한 것을 본다면</p>
+<pre>`unmappable character for encoding ASCII
+`</pre>
+
+<p>소스 파일의 인코딩과 OS 의 기본 문자 인코딩이 일치하지 않는 것이다. 아래와 같은 명령줄로 문자 인코딩을 명시적으로 정해야 한다.</p>
+<p><pre>`ceylon compile –encoding UTF-8 source/hello.ceylon</pre></p>
+</li>
+</ul>
+</div></article></div></main><footer><div class="paginator"><a href="/2013/03/29/a-really-simple-program/" class="prev">PREV</a><a href="/2013/03/29/서툰-사람들/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'sarojaba';
+var disqus_identifier = '2013/03/29/커맨드-라인에서-프로그램-실행하기/';
+var disqus_title = '커맨드-라인에서-프로그램-실행하기';
+var disqus_url = 'http://sarojaba.github.io/2013/03/29/커맨드-라인에서-프로그램-실행하기/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//sarojaba.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2017 <a href="http://sarojaba.github.io">사로자바</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>

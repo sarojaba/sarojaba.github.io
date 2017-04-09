@@ -1,0 +1,234 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> moon-night · 사로자바의 블로그</title><meta name="description" content="moon-night - 사로자바"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://sarojaba.github.io/atom.xml" title="사로자바의 블로그"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li><li class="nav-list-item"><a href="https://www.facebook.com/sarojaba" target="_blank" class="nav-list-link">FACKBOOK</a></li><li class="nav-list-item"><a href="https://github.com/sarojaba" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="http://codepen.io/sarojaba" target="_blank" class="nav-list-link">CODEPEN</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">moon-night</h1><div class="post-info">Jun 20, 2013</div><div class="post-content"><p>OpenGL 레포트였던 밤하늘에 떠있는 달과 별을 그려보았다.</p>
+<p>별의 좌표는 랜덤으로 주어지고, 달은 원의 좌표를 계산하여 그렸다.</p>
+<p>지형은 일직선을 재귀적으로 쪼개서 각도를 변경하여 그렸다.</p>
+<script src="https://github.com/downloads/processing-js/processing-js/processing-1.4.1.min.js"></script><script type="text/processing" data-processing-target="processing-canvas-moon_night">
+void setup(){
+    size(300, 240, P2D);
+    background(0);
+
+    noLoop();
+    noStroke();
+}
+
+void draw(){
+
+    drawSky();
+
+    drawStars(50);
+
+    drawEclipse();
+
+    drawMountain(height / 1.5);
+}
+
+void drawSky(){
+
+    // gradient
+    color night = color(0, 0, 125);
+    color glow = color(255, 102, 0);
+
+    for(int i = 0; i < height; i++){
+        float rate = map(i, 0, height, 0, 1);
+        color c = lerpColor(night, glow, rate);
+        stroke(c);
+        line(0, i, width, i);
+    }
+}
+
+void drawStars(int num){
+
+    stroke(255);
+
+    for(int i = 0; i < num; i++){
+        int x = random(width);
+        int y = random(height / 2);
+
+        point(x, y);
+    }
+}
+
+void drawEclipse(){
+
+    noStroke();
+
+    color yellow = color(255, 255, 0);    
+    fill(yellow);
+
+    int cx = width / 2;
+    int cy = width / 4;
+    int r = 30;
+
+    beginShape();
+
+    for(int i = -45; i < 135; i++){
+        int x = cx + r * cos(radians(i));
+        int y = cy + r * sin(radians(i));
+
+        vertex(x, y);
+    }
+
+    for(int i = 135; i > -45; i--){        
+        int x = cx - 10 + r * cos(radians(i));
+        int y = cy - 10 + r * sin(radians(i));
+
+        vertex(x, y);
+    }
+
+    endShape(CLOSE);
+}
+
+void drawMountain(int tall){
+
+    beginShape();
+
+    vertex(0, height);
+    vertex(0, tall);
+
+    breakLine(0, tall, width, tall);
+
+    vertex(width, tall);
+    vertex(width, height);
+
+    endShape(CLOSE);
+}
+
+void breakLine(int x0, int y0, int x1, int y1){
+    float dist = sqrt(pow(x1 - x0, 2) + pow(y1 - y0, 2));
+
+    if(dist < 30){
+        return;
+    }
+
+    // mid point
+    int cx = x0 + (x1 - x0) / 2;
+    int cy = y0 + (y1 - y0) / 2;
+
+    int x2 = cx + (dist / 8) * cos(QUARTER_PI * random(8));
+    int y2 = cy + (dist / 8) * sin(QUARTER_PI * random(8));
+
+    breakLine(x0, y0, x2, y2);
+
+    vertex(x2, y2);
+
+    breakLine(x2, y2, x1, y1);
+}
+</script>
+
+<canvas id="processing-canvas-moon_night"></canvas>
+
+<pre><code>void setup(){
+    size(300, 240, P2D);
+    background(0);
+
+    noLoop();
+    noStroke();
+}
+
+void draw(){
+
+    drawSky();      
+    drawStars(50);      
+    drawEclipse();      
+    drawMountain(height / 1.5);
+}
+
+void drawSky(){
+
+    // gradient
+    color night = color(0, 0, 125);
+    color glow = color(255, 102, 0);
+
+    for(int i = 0; i &lt; height; i++){
+    float rate = map(i, 0, height, 0, 1);
+    color c = lerpColor(night, glow, rate);
+    stroke(c);
+    line(0, i, width, i);
+    }
+}
+
+void drawStars(int num){
+
+    stroke(255);
+
+    for(int i = 0; i &lt; num; i++){
+    int x = random(width);
+    int y = random(height / 2);
+
+    point(x, y);
+    }
+}
+
+void drawEclipse(){
+
+    noStroke();
+
+    color yellow = color(255, 255, 0);    
+    fill(yellow);
+
+    int cx = width / 2;
+    int cy = width / 4;
+    int r = 30;
+
+    beginShape();
+
+    for(int i = -45; i &lt; 135; i++){
+    int x = cx + r * cos(radians(i));
+    int y = cy + r * sin(radians(i));
+
+    vertex(x, y);
+    }
+
+    for(int i = 135; i &gt; -45; i--){        
+    int x = cx - 10 + r * cos(radians(i));
+    int y = cy - 10 + r * sin(radians(i));
+
+    vertex(x, y);
+    }
+
+    endShape(CLOSE);
+}
+
+void drawMountain(int tall){
+
+    beginShape();
+
+    vertex(0, height);
+    vertex(0, tall);
+
+    breakLine(0, tall, width, tall);
+
+    vertex(width, tall);
+    vertex(width, height);
+
+    endShape(CLOSE);
+}
+
+void breakLine(int x0, int y0, int x1, int y1){
+    float dist = sqrt(pow(x1 - x0, 2) + pow(y1 - y0, 2));
+
+    if(dist &lt; 30){
+    return;
+    }
+
+    // mid point
+    int cx = x0 + (x1 - x0) / 2;
+    int cy = y0 + (y1 - y0) / 2;
+
+    int x2 = cx + (dist / 8) * cos(QUARTER_PI * random(8));
+    int y2 = cy + (dist / 8) * sin(QUARTER_PI * random(8));
+
+    breakLine(x0, y0, x2, y2);
+
+    vertex(x2, y2);
+
+    breakLine(x2, y2, x1, y1);
+}
+</code></pre></div></article></div></main><footer><div class="paginator"><a href="/2013/06/20/copying-arrays-in-java-6-1/" class="prev">PREV</a><a href="/2013/06/23/copying-arrays-in-java-6-2/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'sarojaba';
+var disqus_identifier = '2013/06/20/moon-night/';
+var disqus_title = 'moon-night';
+var disqus_url = 'http://sarojaba.github.io/2013/06/20/moon-night/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//sarojaba.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2017 <a href="http://sarojaba.github.io">사로자바</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>

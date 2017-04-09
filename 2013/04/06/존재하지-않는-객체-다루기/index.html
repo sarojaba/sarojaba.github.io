@@ -1,0 +1,39 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 존재하지-않는-객체-다루기 · 사로자바의 블로그</title><meta name="description" content="존재하지-않는-객체-다루기 - 사로자바"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://sarojaba.github.io/atom.xml" title="사로자바의 블로그"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li><li class="nav-list-item"><a href="https://www.facebook.com/sarojaba" target="_blank" class="nav-list-link">FACKBOOK</a></li><li class="nav-list-item"><a href="https://github.com/sarojaba" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="http://codepen.io/sarojaba" target="_blank" class="nav-list-link">CODEPEN</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">존재하지-않는-객체-다루기</h1><div class="post-info">Apr 6, 2013</div><div class="post-content"><p>명령줄로부터 이름을 입력받자. 명령줄에 아무것도 명시되지 않은 경우를 설명해야한다. 우리에게 Ceylon 에서 어떻게 <code>null</code> 값이 처리되는지 탐구할 수 있는 기회를 준 것이다. 아마도 Java 나 C# 에서 사용되는 것과 꽤 다를 것이다.</p>
+<p>여기 지나치게 장황한 예제를 살펴보자.</p>
+<pre><code>&quot;Print a personalized greeting&quot;
+void hello() {
+    String? name = process.arguments.first;
+    String greeting;
+    if (exists name) {
+        greeting = &quot;Hello, ``name``!&quot;;
+    }
+    else {
+        greeting = &quot;Hello, World!&quot;;
+    }
+    print(greeting);
+}
+`&lt;/pre&gt;
+
+`String?` 타입은 `name` 이 `null` 값을 가질 수 있다는 것을 가리킨다. 그러면 이름이 ‘null’ 이 아닌 경우로부터 이름이 `null` 인 경우를 분리하기 위해 `if (exists ...)` 제어 구문을 사용한다.
+
+아래처럼 `if (exist ...)` 제어 구문안에 지역 변수 `name` 을 선언하여 코드를 축약하는 것은 가능하다.
+
+&lt;pre&gt;`String greeting;
+if (exists name =
+        process.arguments.first) {
+    greeting = &quot;Hello, ``name``!&quot;;
+}
+else {
+    greeting = &quot;Hello, World!&quot;;
+}
+print(greeting);
+</code></pre><p><code>if (exist ...)</code> 구문 밖에서 유용하게 <code>name</code> 을 실제로 사용할 수 없기 때문에, 이 것은 대부분 경우에 선호되는 스타일이다. (그러나 이렇게해도 코드 작성하는 것은 거의 줄어들지 않는다.)</p>
+</div></article></div></main><footer><div class="paginator"><a href="/2013/04/02/문자열-끼워넣기와-연결하기/" class="prev">PREV</a><a href="/2013/04/06/cd-manipulation-한설희-le-plus-grand-cabaret-du/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'sarojaba';
+var disqus_identifier = '2013/04/06/존재하지-않는-객체-다루기/';
+var disqus_title = '존재하지-않는-객체-다루기';
+var disqus_url = 'http://sarojaba.github.io/2013/04/06/존재하지-않는-객체-다루기/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//sarojaba.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2017 <a href="http://sarojaba.github.io">사로자바</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>

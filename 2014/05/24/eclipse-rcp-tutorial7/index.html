@@ -1,0 +1,136 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> eclipse-rcp-tutorial7 · 사로자바의 블로그</title><meta name="description" content="eclipse-rcp-tutorial7 - 사로자바"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://sarojaba.github.io/atom.xml" title="사로자바의 블로그"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li><li class="nav-list-item"><a href="https://www.facebook.com/sarojaba" target="_blank" class="nav-list-link">FACKBOOK</a></li><li class="nav-list-item"><a href="https://github.com/sarojaba" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="http://codepen.io/sarojaba" target="_blank" class="nav-list-link">CODEPEN</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">eclipse-rcp-tutorial7</h1><div class="post-info">May 24, 2014</div><div class="post-content"><p>작성일: 2010. 10. 27.</p>
+<p>원문: <a href="http://www.vogella.de/articles/EclipseRCP/article.html" target="_blank" rel="external">http://www.vogella.de/articles/EclipseRCP/article.html</a> Version 5.1</p>
+<h1 id="시스템-트레이"><a href="#시스템-트레이" class="headerlink" title="시스템 트레이"></a>시스템 트레이</h1><p>다음은 시스템 트레이의 RCP 어플리케이션에 아이콘을 추가하고, 이 아이콘에 메뉴를 추가하는 것이다. 윈도우가 최소화되면 프로그램이 작업표시줄에서 보이지 않게 되는(트레이 아이콘을 통해서만 보임) 기능을 추가한다.</p>
+<p>&ldquo;de.vogella.rcp.intro.traytest&rdquo; 라고 프로젝트를 새로 생성한다. &ldquo;Hello RCP&rdquo; 템플릿을 사용한다. 어플리케이션에 &ldquo;de.vogella.rcp.intro.traytest.exitCommand&rdquo; 라는 id 를 가진 명령을 생성한다.</p>
+<p>&ldquo;ApplicationWorkbenchWindowAdvisor&rdquo; 클래스를 열고 다음의 코드를 적용한다.</p>
+<pre><code>package de.vogella.rcp.intro.traytest;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.ShellAdapter;
+import org.eclipse.swt.events.ShellEvent;
+import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.graphics.Point;
+import org.eclipse.swt.widgets.Event;
+import org.eclipse.swt.widgets.Listener;
+import org.eclipse.swt.widgets.Menu;
+import org.eclipse.swt.widgets.MenuItem;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Tray;
+import org.eclipse.swt.widgets.TrayItem;
+import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.application.ActionBarAdvisor;
+import org.eclipse.ui.application.IActionBarConfigurer;
+import org.eclipse.ui.application.IWorkbenchWindowConfigurer;
+import org.eclipse.ui.application.WorkbenchWindowAdvisor;
+import org.eclipse.ui.handlers.IHandlerService;
+import org.eclipse.ui.plugin.AbstractUIPlugin;
+public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
+private IWorkbenchWindow window;
+private TrayItem trayItem;
+private Image trayImage;
+private final static String COMMAND_ID = &quot;de.vogella.rcp.intro.traytest.exitCommand&quot;;
+public ApplicationWorkbenchWindowAdvisor(
+IWorkbenchWindowConfigurer configurer) {
+super(configurer);
+}
+public ActionBarAdvisor createActionBarAdvisor(
+IActionBarConfigurer configurer) {
+return new ApplicationActionBarAdvisor(configurer);
+}
+public void preWindowOpen() {
+IWorkbenchWindowConfigurer configurer = getWindowConfigurer();
+configurer.setInitialSize(new Point(400, 300));
+configurer.setShowCoolBar(false);
+configurer.setShowStatusLine(false);
+configurer.setTitle(&quot;Hello RCP&quot;); //$NON-NLS-1$
+}
+// As of here is the new stuff
+@Override
+public void postWindowOpen() {
+super.postWindowOpen();
+window = getWindowConfigurer().getWindow();
+trayItem = initTaskItem(window);
+// Some OS might not support tray items
+if (trayItem != null) {
+minimizeBehavior();
+// Create exit and about action on the icon
+hookPopupMenu();
+}
+}
+// Add a listener to the shell
+private void minimizeBehavior() {
+window.getShell().addShellListener(new ShellAdapter() {
+// If the window is minimized hide the window
+public void shellIconified(ShellEvent e) {
+window.getShell().setVisible(false);
+}
+});
+// If user double-clicks on the tray icons the application will be
+// visible again
+trayItem.addListener(SWT.DefaultSelection, new Listener() {
+public void handleEvent(Event event) {
+Shell shell = window.getShell();
+if (!shell.isVisible()) {
+window.getShell().setMinimized(false);
+shell.setVisible(true);
+}
+}
+});
+}
+// We hook up on menu entry which allows to close the application
+private void hookPopupMenu() {
+trayItem.addListener(SWT.MenuDetect, new Listener() {
+public void handleEvent(Event event) {
+Menu menu = new Menu(window.getShell(), SWT.POP_UP);
+// Creates a new menu item that terminates the program
+// when selected
+MenuItem exit = new MenuItem(menu, SWT.NONE);
+exit.setText(&quot;Goodbye!&quot;);
+exit.addListener(SWT.Selection, new Listener() {
+public void handleEvent(Event event) {
+// Lets call our command
+IHandlerService handlerService = (IHandlerService) window
+.getService(IHandlerService.class);
+try {
+handlerService.executeCommand(COMMAND_ID, null);
+} catch (Exception ex) {
+throw new RuntimeException(COMMAND_ID);
+}
+}
+});
+// We need to make the menu visible
+menu.setVisible(true);
+}
+});
+}
+// This methods create the tray item and return a reference
+private TrayItem initTaskItem(IWorkbenchWindow window) {
+final Tray tray = window.getShell().getDisplay().getSystemTray();
+TrayItem trayItem = new TrayItem(tray, SWT.NONE);
+trayImage = AbstractUIPlugin.imageDescriptorFromPlugin(
+&quot;de.vogella.rcp.intro.traytest&quot;, &quot;/icons/alt_about.gif&quot;)
+.createImage();
+trayItem.setImage(trayImage);
+trayItem.setToolTipText(&quot;TrayItem&quot;);
+return trayItem;
+}
+// We need to clean-up after ourself
+@Override
+public void dispose() {
+if (trayImage != null) {
+trayImage.dispose();
+}
+if (trayItem != null) {
+trayItem.dispose();
+}
+}
+}
+</code></pre><p>어플리케이션을 실행하면 시스템 트레이 아이콘을 볼 수 있다. 메뉴와 최소화 동작을 테스트해라. 만약 어플리케이션이 최소화되면 작업표시줄에서 보이지 않게 되고 시스템 트레이에서만 보일 것이다.</p>
+</div></article></div></main><footer><div class="paginator"><a href="/2014/05/24/eclipse-rcp-tutorial6/" class="prev">PREV</a><a href="/2014/05/31/eclipse-rcp-tutorial8/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'sarojaba';
+var disqus_identifier = '2014/05/24/eclipse-rcp-tutorial7/';
+var disqus_title = 'eclipse-rcp-tutorial7';
+var disqus_url = 'http://sarojaba.github.io/2014/05/24/eclipse-rcp-tutorial7/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//sarojaba.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2017 <a href="http://sarojaba.github.io">사로자바</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>

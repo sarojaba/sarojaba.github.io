@@ -1,0 +1,56 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> stringutils-클래스-이해하기 · 사로자바의 블로그</title><meta name="description" content="stringutils-클래스-이해하기 - 사로자바"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://sarojaba.github.io/atom.xml" title="사로자바의 블로그"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li><li class="nav-list-item"><a href="https://www.facebook.com/sarojaba" target="_blank" class="nav-list-link">FACKBOOK</a></li><li class="nav-list-item"><a href="https://github.com/sarojaba" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="http://codepen.io/sarojaba" target="_blank" class="nav-list-link">CODEPEN</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">stringutils-클래스-이해하기</h1><div class="post-info">Jun 3, 2014</div><div class="post-content"><p>이번 시간에는 Apache Commons Lang 컴포넌트의 StringUtils 클래스에 대해 살펴보겠다. StringUtils 클래스는 말 그대로 문자열을 손쉽게 다룰 수 있도록 도우미 메소드를 모아놓은 클래스이다. 또 하나 유용한 것은 null에 안전하다는 것이다.</p>
+<p>좀 유용하다 싶은 것들로 예제를 작성해보았다.</p>
+<pre><code>import org.apache.commons.lang3.StringUtils;
+
+public class Main {
+public static void main(String[] args) {
+
+// abbreviate 메소드는 문장을 축약하는 기능을 제공한다.
+// 게시판 제목을 줄일 때 사용하면 좋을 듯 하다.
+System.out.println(StringUtils.abbreviate(&quot;Hello world!&quot;, 5));
+System.out.println(StringUtils.abbreviate(&quot;Hello&quot;, 5));
+
+// capitalize 메소드는 문장의 첫 글자를 대문자로 만드는 기능을 제공한다.
+// 워드 프로세서에서 자주 사용되는 기능이다.
+System.out.println(StringUtils.capitalize(&quot;hello world!&quot;));
+
+// center 메소드는 문장을 가운데 정렬하는 기능을 제공한다.
+System.out.println(StringUtils.center(&quot;Hello world!&quot;, 20));
+System.out.println(StringUtils.center(&quot;Hello world!&quot;, 20, &apos;*&apos;));
+
+// containsAny 메소드는 해당 문장에 포함된 문자나 문자열이 있는지 판단한다.
+// 예제처럼 가변인자로도 받을 수 있다.
+System.out.println(StringUtils.containsAny(&quot;Hello world!&quot;, &apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;));
+System.out.println(StringUtils.containsAny(&quot;Hello world!&quot;, &apos;a&apos;, &apos;b&apos;, &apos;c&apos;));
+
+// join 메소드는 각 문자열 사이에 문자나 문자열을 집어넣는 기능을 제공한다.
+// 예제로 전화번호 사이의 하이픈을 넣어보았다.
+System.out.println(StringUtils.join(new String[] { &quot;010&quot;, &quot;1234&quot;, &quot;4567&quot; }, &apos;-&apos;));
+
+// repeat 메소드는 해당 문자열을 반복해주는 기능을 제공한다.
+// 패스워드가 저장된 이후 접속 시 사용하면 유용할 듯하다.
+System.out.println(StringUtils.repeat(&apos;*&apos;, 5));
+}
+} 
+`&lt;/pre&gt;
+
+실행 결과이다.
+
+&lt;pre&gt;`He...
+Hello
+Hello world!
+    Hello world!
+****Hello world!****
+true
+false
+010-1234-4567 
+</code></pre><p>이 밖에도 다양한 기능들이 있지만 너무 많기도 많고 메소드들이 너무 직관적이라 구지 더 설명할 필요가 없을 듯하다. 다른 메소드들도 사용해보기 바란다.</p>
+</div></article></div></main><footer><div class="paginator"><a href="/2014/06/01/coffeescript-이해하기/" class="prev">PREV</a><a href="/2014/06/04/wordutils-클래스-살펴보기/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'sarojaba';
+var disqus_identifier = '2014/06/03/stringutils-클래스-이해하기/';
+var disqus_title = 'stringutils-클래스-이해하기';
+var disqus_url = 'http://sarojaba.github.io/2014/06/03/stringutils-클래스-이해하기/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//sarojaba.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2017 <a href="http://sarojaba.github.io">사로자바</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>

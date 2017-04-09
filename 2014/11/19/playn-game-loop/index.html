@@ -1,0 +1,37 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> playn-game-loop · 사로자바의 블로그</title><meta name="description" content="playn-game-loop - 사로자바"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://sarojaba.github.io/atom.xml" title="사로자바의 블로그"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li><li class="nav-list-item"><a href="https://www.facebook.com/sarojaba" target="_blank" class="nav-list-link">FACKBOOK</a></li><li class="nav-list-item"><a href="https://github.com/sarojaba" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="http://codepen.io/sarojaba" target="_blank" class="nav-list-link">CODEPEN</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">playn-game-loop</h1><div class="post-info">Nov 19, 2014</div><div class="post-content"><p>PlayN은 게임의 메인 루프 진행을 위한 단순한 인터페이스를 제공한다. 이것은 플랫폼 간의 타이밍 구현의 복잡성을 분리하고, 논리적인 업데이트와 렌더링 업데이트의 분리를 추상화한다. 이 글은 PlayN의 구현과 게임의 메인 업데이트 사이클 예제를 설명한다.</p>
+<h2 id="게임-루프의-진행"><a href="#게임-루프의-진행" class="headerlink" title="게임 루프의 진행"></a>게임 루프의 진행</h2><p>모든 PlayN 게임은 단순히 update와 paint 메소드를 포함한 Game 인터페이스를 구현한다. Game 인터페이스를 구현하고 PlayN.run(game)을 호출하면 다음 두 메소드를 영원히 호출하는 게임 루프를 통제하는 것을 포기해야 한다.</p>
+<pre><code>while (true) {
+    game.update(...);
+    game.paint(...);
+}
+`&lt;/pre&gt;
+
+물론 가능한 한 빠르게 동작하지는 않지만, 플랫폼이 실제로 프레임을 표시할 수 있는 정도로 제한된다. 프레임이 얼마나 빨리 표시 되는지는 갱신률이나, 플랫폼 특유의 최대 표시율에 따라 제한된다.
+그러나 두 개의 특정 주기인 표시 주기와 갱신 주기를 고려해야 한다. 상대적으로 단순한 갱신 로직을 가진 게임은 다음과 같이 만들 수 있다.
+
+&lt;pre&gt;`public class MyGame implements Game {
+    public void update(float delta) {
+        // Update the game&apos;s state.
+        // &apos;delta&apos; is the time in milliseconds since the last update call.
+    }
+
+    public void paint(float alpha) {
+        // Paint using the game&apos;s current state.
+        // &apos;alpha&apos; will always be zero. Ignore it.
+    }
+
+    public int updateRate() {
+        // Returning zero here explicitly requests an update() call for each frame.
+        return 0;
+    }
+} 
+</code></pre><p>원문: <a href="https://developers.google.com/playn/devguide/gameloop" target="_blank" rel="external">https://developers.google.com/playn/devguide/gameloop</a></p>
+</div></article></div></main><footer><div class="paginator"><a href="/2014/11/19/playn-개요/" class="prev">PREV</a><a href="/2015/01/07/로마숫자/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'sarojaba';
+var disqus_identifier = '2014/11/19/playn-game-loop/';
+var disqus_title = 'playn-game-loop';
+var disqus_url = 'http://sarojaba.github.io/2014/11/19/playn-game-loop/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//sarojaba.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2017 <a href="http://sarojaba.github.io">사로자바</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 정리-못하는-정리베 · 사로자바의 블로그</title><meta name="description" content="정리-못하는-정리베 - 사로자바"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://sarojaba.github.io/atom.xml" title="사로자바의 블로그"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li><li class="nav-list-item"><a href="https://www.facebook.com/sarojaba" target="_blank" class="nav-list-link">FACKBOOK</a></li><li class="nav-list-item"><a href="https://github.com/sarojaba" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="http://codepen.io/sarojaba" target="_blank" class="nav-list-link">CODEPEN</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">정리-못하는-정리베</h1><div class="post-info">Feb 4, 2013</div><div class="post-content"><h1 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h1><p>알고스팟 새싹 콘테스트를 준비하느라 정신이 없던 정리베는, 버벅거리는 컴퓨터의 원인이 가득 찬 하드디스크라는 것을 알게 되었습니다. 하드의 파일들을 확인해본 후, 정리베는 두 가지 사실을 발견했습니다.</p>
+<ul>
+<li>하드 용량의 대부분을 MP3파일이 차지한다.</li>
+<li>MP3파일 중에 중복되는 파일이 존재한다.</li>
+</ul>
+<p>따라서 정리베는 MP3파일들을 정리하여 하드 공간을 어느 정도 더 확보할 수 있는지 알아보려고 합니다.</p>
+<p>모든 MP3파일의 이름은 다음과 같은 형식으로 쓰여집니다. 이를 통해 MP3파일에 해당하는 아티스트 명과 곡의 제목을 알 수 있으며, 아티스트 명과 곡의 제목이 같을 경우 이를 동일한 곡으로 간주합니다.</p>
+<ul>
+<li>(트랙 번호)<em>(아티스트 명)</em>(곡 제목).mp3</li>
+<li>(트랙 번호). (아티스트 명) - (곡 제목).mp3</li>
+<li>(아티스트 명) - (곡 제목).mp3</li>
+<li>(아티스트 명)_(곡 제목).mp3</li>
+</ul>
+<p>(트랙 번호)는 0부터 9까지의 숫자 조합으로 이루어지고, (아티스트 명)과 (곡 제목)은 공백, 숫자, 영문자 그리고 여는 괄호 &rsquo;(&lsquo;와 닫는 괄호 &rsquo;)&rsquo; 문자의 조합으로 이뤄집니다. 모든 파일은 위 4가지 중 한 가지 형식으로만 해석될 수 있습니다. (아티스트 명)과 (곡 제목) 비교시에 알파벳 대소문자는 구분하지 않습니다.</p>
+<h1 id="입력"><a href="#입력" class="headerlink" title="입력"></a>입력</h1><p>입력의 첫 줄에는 곡의 개수 N이 입력됩니다. 그 후 N줄에 각각 파일의 경로가 주어지는데, 형식은 다음과 같습니다.</p>
+<ul>
+<li>(파일명)</li>
+<li>/(폴더1)/(폴더2)/&hellip;/(파일명)</li>
+</ul>
+<p>2번째 형식의 경우 중첩된 폴더 구조에 위치한 파일을 의미합니다.</p>
+<h1 id="출력"><a href="#출력" class="headerlink" title="출력"></a>출력</h1><p>한 줄에 중복을 모두 제외한 곡의 개수를 출력합니다.</p>
+<h1 id="입력-파일"><a href="#입력-파일" class="headerlink" title="입력 파일"></a>입력 파일</h1><p>A1.txt A2.txt</p>
+<h1 id="제약-조건"><a href="#제약-조건" class="headerlink" title="제약 조건"></a>제약 조건</h1><h1 id="예제-입력"><a href="#예제-입력" class="headerlink" title="예제 입력"></a>예제 입력</h1><pre><code>9
+
+Above and Beyond Feat Zoe Johnston - Alchemy (Above and Beyond Club Mix).mp3
+
+Coldplay - Every Teardrop Is A Waterfall (Swedish House Mafia Remix).mp3
+
+/Andrew Rayel/Armin Van Buuren - Serenity (Andrew Rayel Aether Remix).mp3
+
+Armin Van Buuren - Serenity (Andrew Rayel Aether Remix).mp3
+
+/Above and Beyond Feat Zoe Johnston - Alchemy/Above and Beyond Feat Zoe Johnston - Alchemy (Above and Beyond Club Mix).mp3
+
+Nuera - Transatlantic 2009 (Original Mix).mp3
+
+/Discograph/Nuera/Nuera - Transatlantic 2011 (Original Mix).mp3
+
+/Alex M O R P H - Eternal Flame (Alex M O R P H s Reach Out For The Stars Mix).mp3
+
+01. Armin Van Buuren Feat Fiora - Waiting For The Night (Radio Edit).mp3
+`&lt;/pre&gt;
+
+# 예제 출력
+
+&lt;pre&gt;`7
+`&lt;/pre&gt;
+
+# Source Code
+
+&lt;pre&gt;`package com.sarojaba.algospot.newbie;
+
+import java.io.File;
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class A {
+
+    public static void main(String[] args) throws Exception {
+
+        Scanner scanner = new Scanner(new File(&quot;a.txt&quot;));
+
+        int N = scanner.nextInt();
+
+        String[] lines = new String[N];
+        for (int i = 0; i &lt; N; i++) {
+            lines[i] = scanner.nextLine();
+        }
+
+        System.out.println(solve(lines));
+
+        scanner.close();
+    }
+
+    public static int solve(String[] lines) {
+
+        Set mp3s = new HashSet&lt;&gt;();
+
+        Pattern pattern = Pattern.compile(&quot;(?:/.*)*/(.*)&quot;);
+
+        for (String l : lines) {
+
+            Matcher matcher = pattern.matcher(l);
+
+            String f = l;
+            if (matcher.matches()) {
+                f = matcher.group(1);
+            }
+            mp3s.add(MP3.parse(f));
+        }
+
+        return mp3s.size();
+    }
+}
+
+class MP3 {
+
+    private String artist;
+
+    private String song;
+
+    private int track;
+
+    public MP3(String artist, String song) {
+        this(artist, song, 0);
+    }
+
+    public MP3(String artist, String song, int track) {
+        this.artist = artist;
+        this.song = song;
+        this.track = track;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof MP3)) {
+            return false;
+        }
+
+        MP3 mp3 = (MP3) obj;
+
+        if (!artist.equalsIgnoreCase(mp3.artist)) {
+            return false;
+        }
+
+        if (!song.equalsIgnoreCase(mp3.song)) {
+            return false;
+        }
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return (artist.toLowerCase().hashCode() + song.toLowerCase().hashCode())
+                % Integer.MAX_VALUE;
+    }
+
+    @Override
+    public String toString() {
+        return String.format(&quot;{artist: %s, song: %s}&quot;, artist, song);
+    }
+
+    public static MP3 parse(String file) {
+
+        Pattern[] patterns = new Pattern[2];
+        patterns[0] = Pattern.compile(&quot;(.*)_(.*)_(.*)\\.mp3&quot;);
+        patterns[1] = Pattern.compile(&quot;(.*)\\. (.*) - (.*)\\.mp3&quot;);
+
+        for (Pattern p : patterns) {
+
+            Matcher matcher = p.matcher(file);
+
+            if (matcher.matches()) {
+                try {
+                    int track = Integer.parseInt(matcher.group(1));
+                    String artist = matcher.group(2);
+                    String song = matcher.group(3);
+
+                    return new MP3(artist, song, track);
+
+                } catch (NumberFormatException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        patterns[0] = Pattern.compile(&quot;(.*) - (.*)\\.mp3&quot;);
+        patterns[1] = Pattern.compile(&quot;(.*)_(.*)\\.mp3&quot;);
+
+        for (Pattern p : patterns) {
+
+            Matcher matcher = p.matcher(file);
+
+            if (matcher.matches()) {
+
+                String artist = matcher.group(1);
+                String song = matcher.group(2);
+
+                return new MP3(artist, song);
+            }
+        }
+
+        return null;
+    }
+}
+</code></pre></div></article></div></main><footer><div class="paginator"><a href="/2013/02/03/베를린/" class="prev">PREV</a><a href="/2013/02/12/7번방의-선물/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'sarojaba';
+var disqus_identifier = '2013/02/04/정리-못하는-정리베/';
+var disqus_title = '정리-못하는-정리베';
+var disqus_url = 'http://sarojaba.github.io/2013/02/04/정리-못하는-정리베/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//sarojaba.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2017 <a href="http://sarojaba.github.io">사로자바</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>

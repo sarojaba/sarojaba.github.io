@@ -1,0 +1,47 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> java로-작성한-도서관리-프로그램 · 사로자바의 블로그</title><meta name="description" content="java로-작성한-도서관리-프로그램 - 사로자바"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://sarojaba.github.io/atom.xml" title="사로자바의 블로그"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li><li class="nav-list-item"><a href="https://www.facebook.com/sarojaba" target="_blank" class="nav-list-link">FACKBOOK</a></li><li class="nav-list-item"><a href="https://github.com/sarojaba" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="http://codepen.io/sarojaba" target="_blank" class="nav-list-link">CODEPEN</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">java로-작성한-도서관리-프로그램</h1><div class="post-info">Apr 17, 2014</div><div class="post-content"><h2 id="프로그램-주제"><a href="#프로그램-주제" class="headerlink" title="프로그램 주제"></a>프로그램 주제</h2><p>자바를 이용한 통합 도서관리 프로그램</p>
+<h2 id="개발목적"><a href="#개발목적" class="headerlink" title="개발목적"></a>개발목적</h2><p>도서관 관리자에게 관리를 더욱 효율적이고 용이하게 할 수 있도록 도움을 줌.</p>
+<h2 id="특징"><a href="#특징" class="headerlink" title="특징"></a>특징</h2><ul>
+<li>그래픽 인터페이스를 최대한 직관적이고 쉽도록 구성하였고, 관리자가 실시간으로 모니터링 할 수 있도록 구성하였음.</li>
+<li>데이터의 저장과 열기시 파일을 선택할 수 있어 한 프로그램으로 여러 도서관을 관리할 수 있음.</li>
+<li>도서 예약 기능을 추가하여 선택한 도서가 이미 대여시 예약이 가능. 반납시 자동으로 대출가능.</li>
+</ul>
+<h2 id="개발환경"><a href="#개발환경" class="headerlink" title="개발환경"></a>개발환경</h2><ul>
+<li>Pentium4 2GHz, 1GB RAM, WINDOWS XP</li>
+<li>J2SE SDK 5.0, Eclipse 3.2</li>
+</ul>
+<h2 id="프로그램-설명"><a href="#프로그램-설명" class="headerlink" title="프로그램 설명"></a>프로그램 설명</h2><p><img src="http://68.media.tumblr.com/848786bffba91291d530c5a489642eaf/tumblr_inline_n46jwyufga1rubmdv.jpg" alt="프로그램 구동시 초기화면"></p>
+<p>좌측 상단의 패널에서 학번, 성명, 연락처 등을 입력후 등록 버튼을 눌러 회원을 추가할 수 있음. 또한 우측 상단의 패널에서 번호와 제목을 입력후 등록 버튼을 눌러 도서를 추가할 수 있음.</p>
+<p><img src="http://68.media.tumblr.com/fbaa14a432cb394f1299bb6d371787ae/tumblr_inline_n46jycBEu61rubmdv.jpg" alt="불러오기 대화창"></p>
+<p>툴바의 불러오기 버튼을 눌러 데이터가 저장된 파일을 불러옴. 파일명과 확장자는 임의로 지정할 수 있으나 본 예제에서는 list.dat 파일을 사용하겠음. 마찬가지로 저장도 파일 대화창을 띄움.</p>
+<p><img src="http://68.media.tumblr.com/d4ab9e9367cf8f0ac2da1f4c7d8705b3/tumblr_inline_n46jziiCF51rubmdv.jpg" alt="데이터를 불러온 화면"></p>
+<p>하단의 대여목록과 예약목록도 같이 불러옴(본 예제는 처음 사용자를 위함). 올바른 데이터가 들어있지 않은 임의의 파일을 불러왔을 경우 에러메시지 대화창을 띄움.</p>
+<p><img src="http://68.media.tumblr.com/abc84bfba4a2b875a3c23f9808e11f04/tumblr_inline_n46k0bSbga1rubmdv.jpg" alt="대여 불가능"></p>
+<p>손님의 경우나 대여가 불가능한 장르의 경우 대여 불가능 메시지를 띄움. 참고로 각 목록의 항목을 클릭하면 그에 맞는 속성값들이 출력됨. 예로 대여목록의 경우 대여일자와 반납기한이 출력됨.</p>
+<p><img src="http://68.media.tumblr.com/85d2aaad3860fbb906d0ce94baa15cb1/tumblr_inline_n46k19aRDM1rubmdv.jpg" alt="예약 기능"></p>
+<p>이미 대여된 도서의 경우 예약 기능을 이용할 수 있음. 단, 대여가 불가능한 회원이나 장르는 예약도 불가능함.</p>
+<p><img src="http://68.media.tumblr.com/cfca1083025471e8a65d59e34b423bea/tumblr_inline_n46k2fapCK1rubmdv.jpg" alt="데이터 저장"></p>
+<p>도서관 이용시간이 끝났을 경우 데이터를 저장해 다음 개장시 다시 불러올 수 있음. 회원목록, 도서목록, 대여목록, 예약목록이 저장됨.</p>
+<h2 id="어려웠던-부분"><a href="#어려웠던-부분" class="headerlink" title="어려웠던 부분"></a>어려웠던 부분</h2><ul>
+<li>설계 경험 부족으로 인해 초기 기획부터 코딩까지 몇 번이나 다시 시작함.</li>
+<li>짧은 테스트 기간으로 인해 찾지 못한 버그의 존재가 의심됨.</li>
+<li>GUI를 씌우면서 점점 불어나는 소스코드로 인한 클래스 단위의 적절한 분배의 어려움.</li>
+</ul>
+<h2 id="향후-개선-사항"><a href="#향후-개선-사항" class="headerlink" title="향후 개선 사항"></a>향후 개선 사항</h2><ul>
+<li>리스트의 정렬 및 검색 기능 추가</li>
+<li>관리자의 패스워드 잠금 기능</li>
+<li>로그 파일을 남겨 월말 결산, 우수 대여자 선발 등에 이용</li>
+<li>지저분한 소스코드를 디자인패턴을 통해 리펙토링(Manager 클래스는 Singleton 패턴, GUI 컴포넌트들은 Factory Method 패턴 적용 예상)</li>
+</ul>
+<h2 id="배운-점"><a href="#배운-점" class="headerlink" title="배운 점"></a>배운 점</h2><ul>
+<li>프로그램 개발과정을 몸으로 느껴볼 수 있는 좋은 기회였음.</li>
+<li>개발 초기에 Edit Plus 와 같은 텍스트 에디터를 이용하였으나 점점 규모가 커지면서 Eclipse와 같은 IDE의 필요성을 느끼게 되었음. Eclipse의 기능을 좀 더 알게되었음.</li>
+</ul>
+</div></article></div></main><footer><div class="paginator"><a href="/2013/10/30/알고리즘-아트/" class="prev">PREV</a><a href="/2014/04/18/단일-패스-매크로-프로세서/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'sarojaba';
+var disqus_identifier = '2014/04/17/java로-작성한-도서관리-프로그램/';
+var disqus_title = 'java로-작성한-도서관리-프로그램';
+var disqus_url = 'http://sarojaba.github.io/2014/04/17/java로-작성한-도서관리-프로그램/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//sarojaba.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2017 <a href="http://sarojaba.github.io">사로자바</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>

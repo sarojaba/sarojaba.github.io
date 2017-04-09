@@ -1,0 +1,104 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> fish-monger · 사로자바의 블로그</title><meta name="description" content="fish-monger - 사로자바"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://sarojaba.github.io/atom.xml" title="사로자바의 블로그"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li><li class="nav-list-item"><a href="https://www.facebook.com/sarojaba" target="_blank" class="nav-list-link">FACKBOOK</a></li><li class="nav-list-item"><a href="https://github.com/sarojaba" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="http://codepen.io/sarojaba" target="_blank" class="nav-list-link">CODEPEN</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">fish-monger</h1><div class="post-info">Aug 18, 2013</div><div class="post-content"><p>옛날에 팀원들과 만들었던 피씨몽거라는 앱에서 물고기가 헤엄치는 애니메이션만 Processing으로 포팅해봤다.</p>
+<canvas id="processing-canvas-fish_monger"></canvas>
+
+<script type="text/javascript" src="https://github.com/downloads/processing-js/processing-js/processing-1.4.1.min.js"></script><script type="text/processing" data-processing-target="processing-canvas-fish_monger">
+Fish fish;
+
+void setup() {
+  size(480, 270);
+
+  frameRate(8);
+
+  fish = new Fish();
+}
+
+void draw() {
+
+  background(#000055);
+
+  if(!fish.isLoaded()) {
+    return;
+  }
+
+  fish.update();
+
+  fish.draw();
+}
+
+class Fish {
+
+  int frame;
+
+  PImage[] images = new PImage[16];
+
+  PVector position;
+
+  PVector velocity;
+
+  PVector acceleration;
+
+  Fish() {
+
+    frame = 0;
+
+    position = new PVector(width / 2, height / 2);
+
+    velocity = new PVector(0, 0);
+
+    acceleration = new PVector(0, 0);
+
+    for (int i = 0; i < images.length; i++) {
+      String url = "https://dl.dropboxusercontent.com/u/78244035/web/processing/img/";
+      images[i] = requestImage(url + "fish_" + (i + 1) + ".png");
+    }
+  }
+
+  void update() {
+
+    acceleration.set(random(-2, 2), random(-1, 1));
+
+    velocity.add(acceleration);
+    velocity.limit(5);
+
+    position.add(velocity);    
+    position.x = max(position.x, images[0].width / 2);    
+    position.x = min(position.x, width - images[0].width / 2);
+    position.y = max(position.y, images[0].height / 2);    
+    position.y = min(position.y, height - images[0].height / 2);
+  }
+
+  void draw() {
+
+    frame %= images.length;
+
+    translate(position.x, position.y);
+
+    if (velocity.x > 0) {
+      scale(-1, 1);
+      //translate(width, 0);
+    }
+
+    imageMode(CENTER);
+    image(images[frame], 0, 0);
+
+    frame++;
+  }
+
+  boolean isLoaded() {
+    for (int i = 0; i < images.length; i++) {
+      if (images[i].width <= 0) {
+        return false;
+      }
+    }
+    return true;
+  }
+}
+</script></div></article></div></main><footer><div class="paginator"><a href="/2013/08/17/바람과-함께-사라지다/" class="prev">PREV</a><a href="/2013/08/25/now-you-see-me/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'sarojaba';
+var disqus_identifier = '2013/08/18/fish-monger/';
+var disqus_title = 'fish-monger';
+var disqus_url = 'http://sarojaba.github.io/2013/08/18/fish-monger/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//sarojaba.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2017 <a href="http://sarojaba.github.io">사로자바</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>

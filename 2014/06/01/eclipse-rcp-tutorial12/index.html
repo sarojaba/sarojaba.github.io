@@ -1,0 +1,68 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> eclipse-rcp-tutorial12 · 사로자바의 블로그</title><meta name="description" content="eclipse-rcp-tutorial12 - 사로자바"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://sarojaba.github.io/atom.xml" title="사로자바의 블로그"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li><li class="nav-list-item"><a href="https://www.facebook.com/sarojaba" target="_blank" class="nav-list-link">FACKBOOK</a></li><li class="nav-list-item"><a href="https://github.com/sarojaba" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="http://codepen.io/sarojaba" target="_blank" class="nav-list-link">CODEPEN</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">eclipse-rcp-tutorial12</h1><div class="post-info">Jun 1, 2014</div><div class="post-content"><p>작성일: 2010. 10. 27.</p>
+<p>원문: <a href="http://www.vogella.de/articles/EclipseRCP/article.html" target="_blank" rel="external">http://www.vogella.de/articles/EclipseRCP/article.html</a> Version 5.1</p>
+<h1 id="퍼스펙티브"><a href="#퍼스펙티브" class="headerlink" title="퍼스펙티브"></a>퍼스펙티브</h1><p>퍼스펙티브는 특정 작업과 관련된 UI 요소들을 함께 묶고 조직화한다. 이클립스 RCP 는 어플리케이션에 퍼스펙티브를 추가할 수 있도록 한다. 다음 예제를 보자.</p>
+<h2 id="어플리케이션에-퍼스펙티브-추가하기"><a href="#어플리케이션에-퍼스펙티브-추가하기" class="headerlink" title="어플리케이션에 퍼스펙티브 추가하기"></a>어플리케이션에 퍼스펙티브 추가하기</h2><p>&ldquo;de.vogella.rcp.intro.perspective&rdquo; 라는 이름으로 RCP 프로젝트를 생성한다. 템플릿은 &ldquo;RCP application with a view&rdquo; 를 사용한다. &ldquo;plugin.xml&rdquo; 에 &ldquo;org.eclipse.ui.perspective&rdquo; 확장점을 추가한다. 퍼스펙티브의 id 에 &ldquo;de.vogella.rcp.intro.perspective.perspective&rdquo; 를, 이름에 &ldquo;vogella.de Perspective&rdquo; 를 적는다. 클래스 이름은 &ldquo;de.vogella.rcp.intro.perspective.Perspective&rdquo; 로 변경한다.</p>
+<p>&ldquo;class*&rdquo; 링크를 눌러 클래스를 생성한다.</p>
+<p>새 클래스의 createInitialLayout() 메소드는 새로운 퍼스펙티브를 생성을 책임진다. 기존의 뷰의 코드를 재사용한다. 다음 단계에서 퍼스펙티브는 정의되지만 어플리케이션에서 사용할 수 없다.</p>
+<pre><code>package de.vogella.rcp.intro.perspective;
+import org.eclipse.ui.IPageLayout;
+import org.eclipse.ui.IPerspectiveFactory;
+public class Perspective implements IPerspectiveFactory {
+public void createInitialLayout(IPageLayout layout) {
+String editorArea = layout.getEditorArea();
+layout.setEditorAreaVisible(false);
+layout.setFixed(true);
+layout.addStandaloneView(View.ID,  false, IPageLayout.LEFT, 1.0f, editorArea);
+}
+}
+`&lt;/pre&gt;
+
+## 퍼스펙티브 선택하기
+
+## 툴바/쿨바를 통해 퍼스펙티브 선택하기
+
+ApplicationWorkbenchWindowAdvisor 클래스의 preWindowOpen() 메소드 내에 configurer.setShowPerspectiveBar(true); 를 통해 퍼스펙티브간의 변경을 활성화 할 수 있다.
+
+&lt;pre&gt;`package perspectivetest;
+import org.eclipse.jface.preference.IPreferenceStore;
+import org.eclipse.swt.graphics.Point;
+import org.eclipse.ui.IWorkbenchPreferenceConstants;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.application.ActionBarAdvisor;
+import org.eclipse.ui.application.IActionBarConfigurer;
+import org.eclipse.ui.application.IWorkbenchWindowConfigurer;
+import org.eclipse.ui.application.WorkbenchWindowAdvisor;
+public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
+public ApplicationWorkbenchWindowAdvisor(
+IWorkbenchWindowConfigurer configurer) {
+super(configurer);
+}
+public ActionBarAdvisor createActionBarAdvisor(
+IActionBarConfigurer configurer) {
+return new ApplicationActionBarAdvisor(configurer);
+}
+public void preWindowOpen() {
+IWorkbenchWindowConfigurer configurer = getWindowConfigurer();
+configurer.setInitialSize(new Point(400, 300));
+configurer.setShowCoolBar(false);
+configurer.setShowStatusLine(false);
+configurer.setTitle(&quot;RCP Application&quot;);
+configurer.setShowPerspectiveBar(true);
+// Set the preference toolbar to the left place
+// If other menus exists then this will be on the left of them
+IPreferenceStore apiStore = PlatformUI.getPreferenceStore();
+apiStore.setValue(IWorkbenchPreferenceConstants.DOCK_PERSPECTIVE_BAR,
+&quot;TOP_LEFT&quot;);
+}
+}
+</code></pre><p>이제 퍼스펙티브를 즉각적으로 변경할 수 있다.</p>
+<h2 id="메뉴를-통해-퍼스펙티브-선택하기"><a href="#메뉴를-통해-퍼스펙티브-선택하기" class="headerlink" title="메뉴를 통해 퍼스펙티브 선택하기"></a>메뉴를 통해 퍼스펙티브 선택하기</h2><p>이클립스 퍼스펙티브를 바꾸는 것은 메뉴의 표준 명령인 &ldquo;org.eclipse.ui.perspectives.showPerspective&rdquo; 를 통해 재사용할 수 있다. 이클립스 커맨드 을 참고하라.</p>
+</div></article></div></main><footer><div class="paginator"><a href="/2014/05/31/eclipse-rcp-tutorial11/" class="prev">PREV</a><a href="/2014/06/01/eclipse-rcp-tutorial13/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'sarojaba';
+var disqus_identifier = '2014/06/01/eclipse-rcp-tutorial12/';
+var disqus_title = 'eclipse-rcp-tutorial12';
+var disqus_url = 'http://sarojaba.github.io/2014/06/01/eclipse-rcp-tutorial12/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//sarojaba.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2017 <a href="http://sarojaba.github.io">사로자바</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>

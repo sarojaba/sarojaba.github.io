@@ -1,0 +1,45 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> reverse-array-recursively · 사로자바의 블로그</title><meta name="description" content="reverse-array-recursively - 사로자바"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://sarojaba.github.io/atom.xml" title="사로자바의 블로그"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li><li class="nav-list-item"><a href="https://www.facebook.com/sarojaba" target="_blank" class="nav-list-link">FACKBOOK</a></li><li class="nav-list-item"><a href="https://github.com/sarojaba" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="http://codepen.io/sarojaba" target="_blank" class="nav-list-link">CODEPEN</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">reverse-array-recursively</h1><div class="post-info">Jul 20, 2015</div><div class="post-content"><h2 id="Source-code"><a href="#Source-code" class="headerlink" title="Source code"></a>Source code</h2><pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+void reverse(int *A, int N, int i, int j)
+{
+  // base case
+  if(i &gt;= j) return;
+
+  // swap
+  int t = A[i];
+  A[i] = A[j];
+  A[j] = t;
+
+  // recursive
+  reverse(A, N, ++i, --j);
+}
+
+void reverse(int *A, int N)
+{
+  reverse(A, N, 0, N-1);
+}
+
+int main() {
+  // your code goes here
+
+    int A[5] = {1, 2, 3, 4, 5};
+
+    reverse(A, 5);
+
+    for(int i = 0; i &lt; 5; i++) {
+    cout &lt;&lt; A[i] &lt;&lt; &quot;,&quot;;
+  }
+    cout &lt;&lt; endl;
+
+    return 0;
+}
+</code></pre></div></article></div></main><footer><div class="paginator"><a href="/2015/06/17/back-to-high-school-physics/" class="prev">PREV</a><a href="/2017/04/09/hello-world/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'sarojaba';
+var disqus_identifier = '2015/07/20/reverse-array-recursively/';
+var disqus_title = 'reverse-array-recursively';
+var disqus_url = 'http://sarojaba.github.io/2015/07/20/reverse-array-recursively/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//sarojaba.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2017 <a href="http://sarojaba.github.io">사로자바</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>

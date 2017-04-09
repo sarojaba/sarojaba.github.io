@@ -1,0 +1,128 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> analog-clock · 사로자바의 블로그</title><meta name="description" content="analog-clock - 사로자바"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://sarojaba.github.io/atom.xml" title="사로자바의 블로그"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li><li class="nav-list-item"><a href="https://www.facebook.com/sarojaba" target="_blank" class="nav-list-link">FACKBOOK</a></li><li class="nav-list-item"><a href="https://github.com/sarojaba" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="http://codepen.io/sarojaba" target="_blank" class="nav-list-link">CODEPEN</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">analog-clock</h1><div class="post-info">Jul 28, 2013</div><div class="post-content"><p>아날로그 시계를 만들어보았다.</p>
+<p>흘러가는 세월아&hellip;</p>
+<script src="https://github.com/downloads/processing-js/processing-js/processing-1.4.1.min.js"></script><script type="text/processing" data-processing-target="processing-canvas-analog_clock">
+int s; // size
+float r;
+
+void setup() {
+
+  s = 300;
+  r = s / 2;
+
+  size(s, s);
+  smooth();
+  frameRate(15);
+}
+
+void draw() {
+
+  strokeWeight(1.5);
+
+  // translate to center
+  translate(s / 2, s / 2);
+  rotate(radians(270));
+
+  // draw circle
+  stroke(#000000);
+  fill(#FFFFFF);
+  ellipse(0, 0, s, s);
+
+  // draw hour numbers
+  float u = radians(360 / 12);
+  for(int h = 0; h < 12; h++) {
+
+    pushMatrix();
+    float x = (r * 0.9) * cos(h * u);
+    float y = (r * 0.9) * sin(h * u);
+    translate(x, y);
+    rotate(radians(90));
+    fill(#000000);
+    textAlign(CENTER, CENTER);
+    text(h, 0, 0);
+    popMatrix();
+  }
+
+  // second needle
+  float ts = radians(second() * (360 / 60));
+  stroke(#FF0000);
+  line(0, 0, (r * 0.9) * cos(ts), (r * 0.9) * sin(ts));
+
+  // minute needle
+  float tm = radians(minute() * (360 / 60));
+  stroke(#00FF00);
+  line(0, 0, (r * 0.8) * cos(tm), (r * 0.8) * sin(tm));
+
+  // hour needle
+  float th = radians(hour() * (360 / 12));
+  stroke(#0000FF);
+  line(0, 0, (r * 0.7) * cos(th), (r * 0.7) * sin(th));
+}
+</script>
+
+<canvas id="processing-canvas-analog_clock"></canvas>
+
+<pre><code>int s; // size
+float r;
+
+void setup() {
+
+  s = 300;
+  r = s / 2;
+
+  size(s, s);
+  smooth();
+  frameRate(15);
+}
+
+void draw() {
+
+  strokeWeight(1.5);
+
+  // translate to center
+  translate(s / 2, s / 2);
+  rotate(radians(270));
+
+  // draw circle
+  stroke(#000000);
+  fill(#FFFFFF);
+  ellipse(0, 0, s, s);
+
+  // draw hour numbers
+  float u = radians(360 / 12);
+  for(int h = 0; h &lt; 12; h++) {
+
+    pushMatrix();
+    float x = (r * 0.9) * cos(h * u);
+    float y = (r * 0.9) * sin(h * u);
+    translate(x, y);
+    rotate(radians(90));
+    fill(#000000);
+    textAlign(CENTER, CENTER);
+    text(h, 0, 0);
+    popMatrix();
+  }
+
+  // second needle
+  float ts = radians(second() * (360 / 60));
+  stroke(#FF0000);
+  line(0, 0, (r * 0.9) * cos(ts), (r * 0.9) * sin(ts));
+
+  // minute needle
+  float tm = radians(minute() * (360 / 60));
+  stroke(#00FF00);
+  line(0, 0, (r * 0.8) * cos(tm), (r * 0.8) * sin(tm));
+
+  // hour needle
+  float th = radians(hour() * (360 / 12));
+  stroke(#0000FF);
+  line(0, 0, (r * 0.7) * cos(th), (r * 0.7) * sin(th));
+}
+</code></pre></div></article></div></main><footer><div class="paginator"><a href="/2013/07/26/untitled-1/" class="prev">PREV</a><a href="/2013/07/29/bubble-pop/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'sarojaba';
+var disqus_identifier = '2013/07/28/analog-clock/';
+var disqus_title = 'analog-clock';
+var disqus_url = 'http://sarojaba.github.io/2013/07/28/analog-clock/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//sarojaba.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2017 <a href="http://sarojaba.github.io">사로자바</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>

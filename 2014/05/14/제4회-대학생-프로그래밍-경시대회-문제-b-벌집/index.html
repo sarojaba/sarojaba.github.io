@@ -1,0 +1,40 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 제4회-대학생-프로그래밍-경시대회-문제-b-벌집 · 사로자바의 블로그</title><meta name="description" content="제4회-대학생-프로그래밍-경시대회-문제-b-벌집 - 사로자바"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://sarojaba.github.io/atom.xml" title="사로자바의 블로그"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li><li class="nav-list-item"><a href="https://www.facebook.com/sarojaba" target="_blank" class="nav-list-link">FACKBOOK</a></li><li class="nav-list-item"><a href="https://github.com/sarojaba" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="http://codepen.io/sarojaba" target="_blank" class="nav-list-link">CODEPEN</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">제4회-대학생-프로그래밍-경시대회-문제-b-벌집</h1><div class="post-info">May 14, 2014</div><div class="post-content"><h2 id="Source-Code"><a href="#Source-Code" class="headerlink" title="Source Code"></a>Source Code</h2><pre><code>import java.util.Scanner;
+
+public class Honeycomb {
+    private static final int SIDE = 6;    // 벌집 면의 수
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+
+        int T = scan.nextInt();    // 테스트 케이스의 개수
+
+        for(int i = 0; i &lt; T; i++) {
+            int N = scan.nextInt();    // 방 번호
+
+            System.out.println(process(N));
+        }       
+    }
+
+    public static int process(int N) {
+        int d = 1;    // 지나가는 방의 개수
+        int lev = 0;    // 각 레벨의 방의 개수
+
+        while(N &gt; 1) {
+            lev += SIDE;
+            N -= lev;
+            d++;
+        }
+
+        return d;
+    }
+}
+</code></pre><h2 id="Comment"><a href="#Comment" class="headerlink" title="Comment"></a>Comment</h2><p>곰곰히 생각해보면 수열 문제로 생각할 수 있다. 벌집의 레벨이 늘어날때마다 각 레벨의 방의 개수가 6개씩 늘어난다. 중앙의 방에서부터 차례로 빼나가다보면 답이 나온다. 이 녀석은 나를 고민을 많이하게 만들었지만 재밌는 문제였다.</p>
+</div></article></div></main><footer><div class="paginator"><a href="/2014/05/11/제4회-대학생-프로그래밍-경시대회-문제-a-점수-집계/" class="prev">PREV</a><a href="/2014/05/14/제7회-대학생-프로그래밍-경시대회-문제-a-letter-bank/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'sarojaba';
+var disqus_identifier = '2014/05/14/제4회-대학생-프로그래밍-경시대회-문제-b-벌집/';
+var disqus_title = '제4회-대학생-프로그래밍-경시대회-문제-b-벌집';
+var disqus_url = 'http://sarojaba.github.io/2014/05/14/제4회-대학생-프로그래밍-경시대회-문제-b-벌집/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//sarojaba.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2017 <a href="http://sarojaba.github.io">사로자바</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>

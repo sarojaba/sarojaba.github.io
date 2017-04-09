@@ -1,0 +1,48 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 인라인-문서-추가하기 · 사로자바의 블로그</title><meta name="description" content="인라인-문서-추가하기 - 사로자바"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://sarojaba.github.io/atom.xml" title="사로자바의 블로그"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li><li class="nav-list-item"><a href="https://www.facebook.com/sarojaba" target="_blank" class="nav-list-link">FACKBOOK</a></li><li class="nav-list-item"><a href="https://github.com/sarojaba" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="http://codepen.io/sarojaba" target="_blank" class="nav-list-link">CODEPEN</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">인라인-문서-추가하기</h1><div class="post-info">Mar 30, 2013</div><div class="post-content"><p>대부분의 경우 hello() 와 같은 중요한 함수에 어떤 종류의 문서를 추가하는 것은 좋은 생각이다. 한가지 방법은 다음과 같이 C 스타일의 주석을 사용하는 것이다.</p>
+<pre><code>/* The classic Hello World program */
+void hello() {
+    print(&quot;Hello, World!&quot;);
+}
+`&lt;/pre&gt;
+
+또는
+
+&lt;pre&gt;`//The classic Hello World program
+void hello() {
+    print(&quot;Hello, World!&quot;);
+}
+`&lt;/pre&gt;
+
+그러나 정의를 기술하기 위한 주석으로 doc 어노테이션을 사용하는 것이 더 낫다.
+
+&lt;pre&gt;`doc (&quot;The classic Hello World program&quot;)
+by (&quot;Gavin&quot;)
+see (goodbye)
+throws (IOException)
+void hello() {
+    print(&quot;Hello, World!&quot;);
+}
+`&lt;/pre&gt;
+
+doc, by, see, throws, tagged 어노테이션은 Ceylon 문서화 컴파일러인 ceylon doc 의 출력에 포함될 내용을 가진다.
+
+doc, by, see, throws 와 같은 어노테이션은 키워드가 아니다. 그냥 평범한 식별자이다. abstract, variable, shared, formal, default, actual 등의 언어 정의의 한 부분인 어노테이션들도 마찬가지다.(반면에, void 는 C 나 Java 처럼 키워드이다.)
+
+doc 어노테이션은 어디에나 존재할 수 있기 때문에, 프로그램 요소의 어노테이션 목록에서 첫번째 어노테이션에 위치하면 이름과 괄호를 생략할 수 있다
+
+&lt;pre&gt;`&quot;The classic Hello World program&quot;
+by (&quot;Gavin&quot;)
+see (goodbye)
+throws (IOException)
+void hello() {
+    print(&quot;Hello, World!&quot;);
+}
+</code></pre></div></article></div></main><footer><div class="paginator"><a href="/2013/03/29/문자열-리터럴/" class="prev">PREV</a><a href="/2013/03/30/광해-왕이-된-남자-연극/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'sarojaba';
+var disqus_identifier = '2013/03/30/인라인-문서-추가하기/';
+var disqus_title = '인라인-문서-추가하기';
+var disqus_url = 'http://sarojaba.github.io/2013/03/30/인라인-문서-추가하기/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//sarojaba.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2017 <a href="http://sarojaba.github.io">사로자바</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> basic-audio · 사로자바의 블로그</title><meta name="description" content="basic-audio - 사로자바"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://sarojaba.github.io/atom.xml" title="사로자바의 블로그"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li><li class="nav-list-item"><a href="https://www.facebook.com/sarojaba" target="_blank" class="nav-list-link">FACKBOOK</a></li><li class="nav-list-item"><a href="https://github.com/sarojaba" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="http://codepen.io/sarojaba" target="_blank" class="nav-list-link">CODEPEN</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">basic-audio</h1><div class="post-info">Jun 25, 2014</div><div class="post-content"><p>튜토리얼 보면서 따라한 코드이다.<br>배경음악은 주구장창 흘러나오고, 마우스나 손가락으로 터치할때마다 효과음이 발생한다.</p>
+<pre><code>package com.awesome;
+
+import com.badlogic.gdx.ApplicationListener;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.files.FileHandle;
+
+public class SuperAwesomeExample implements ApplicationListener {
+
+    Music music;
+    Sound sound;
+
+    @Override
+    public void create() {
+        FileHandle musicFile = Gdx.files.internal(&quot;data/Kalimba.mp3&quot;);
+        music = Gdx.audio.newMusic(musicFile);
+
+        FileHandle soundFile = Gdx.files.internal(&quot;data/MediumExplosion8-Bit.ogg&quot;);
+        sound = Gdx.audio.newSound(soundFile);
+
+        music.setLooping(true);
+        music.setVolume(0.5f);
+        music.play();
+    }
+
+    @Override
+    public void render() {
+        if(Gdx.input.justTouched()) {
+            sound.play();
+        }
+    }
+
+    @Override
+    public void resize(int arg0, int arg1) {
+        // TODO Auto-generated method stub
+    }
+
+    @Override
+    public void pause() {
+        // TODO Auto-generated method stub
+    }
+
+    @Override
+    public void resume() {
+        // TODO Auto-generated method stub
+    }
+
+    @Override
+    public void dispose() {
+        music.dispose();
+        sound.dispose();
+    }
+}
+</code></pre><p>p.s) 어제 스킨을 변경했더니 SyntaxHighlighter 코드가 날아갔네 ㄷㄷ</p>
+</div></article></div></main><footer><div class="paginator"><a href="/2014/06/25/basic-file-io/" class="prev">PREV</a><a href="/2014/06/27/coffeescript-game-tutorial-introduction/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'sarojaba';
+var disqus_identifier = '2014/06/25/basic-audio/';
+var disqus_title = 'basic-audio';
+var disqus_url = 'http://sarojaba.github.io/2014/06/25/basic-audio/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//sarojaba.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2017 <a href="http://sarojaba.github.io">사로자바</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>

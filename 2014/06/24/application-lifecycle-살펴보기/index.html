@@ -1,0 +1,46 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> application-lifecycle-살펴보기 · 사로자바의 블로그</title><meta name="description" content="application-lifecycle-살펴보기 - 사로자바"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://sarojaba.github.io/atom.xml" title="사로자바의 블로그"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li><li class="nav-list-item"><a href="https://www.facebook.com/sarojaba" target="_blank" class="nav-list-link">FACKBOOK</a></li><li class="nav-list-item"><a href="https://github.com/sarojaba" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="http://codepen.io/sarojaba" target="_blank" class="nav-list-link">CODEPEN</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">application-lifecycle-살펴보기</h1><div class="post-info">Jun 24, 2014</div><div class="post-content"><p>갑자기 만들고 싶은 게임이 생겼습니다. 취미로 간단히 만들거라 시간 단축이 필요했습니다.<br>안드로이드에서 돌아가는 게임 개발 프레임워크를 구글링 해보았습니다.<br>첫 페이지에서 눈에 띄는 것은 rokon 과 AndEngine.<br>rokon 페이지에 들어가니 개발이 종료되었다는 내용을 발견했습니다. 대신 rokon 개발자가 libgdx  라는 프레임워크를 추천해 놓았습니다. AndEngine은 배우기 쉽다는 내용도 있었습니다.<br>libgdx 프레임워크를 찾아들어가니 현재도 왕성한 오픈소스 활동을 하고 있었습니다.<br>무엇보다 다양한 플랫폼(윈도우, 리눅스, 맥, 안드로이드 등)을 지원한다는 것이 선택의 가장 큰 이유가 되었습니다.</p>
+<p>튜토리얼을 보기 전에 어플리케이션 라이프 사이클을 살펴보았습니다.<br>애플릿의 라이프 사이클과 비슷했기에 거리감은 없었습니다.</p>
+<p><img src="http://68.media.tumblr.com/6fc036d2c5d501d757e7e6fe073351c2/tumblr_inline_n7mq9nLnKY1rubmdv.png" alt="LibGDX Application Lifecycle"></p>
+<p>코드로 보면 다음과 같습니다. ApplicationListener를 implements 하여 main에서 호출합니다. main에서 LwjglApplication 클래스는 JoglApplication 클래스로 변경하여 생성하여도 됩니다.</p>
+<pre><code>public class MyGame implements ApplicationListener {
+  public void create () {
+    // STUB
+  }
+
+  public void render () {
+    // STUB
+  }
+
+  public void resize (int width, int height) { 
+    // STUB
+  }
+
+  public void pause () { 
+    // STUB
+  }
+
+  public void resume () {
+    // STUB
+  }
+
+  public void dispose () {
+    // STUB
+  }
+}
+
+import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
+
+public class MyDesktopGame {
+  public static void main(String[] args) {
+    new LwjglApplication(new MyGame(), &quot;My Game&quot;, 480, 320, false);
+  }
+}
+</code></pre></div></article></div></main><footer><div class="paginator"><a href="/2014/06/04/serializationutils-클래스-살펴보기/" class="prev">PREV</a><a href="/2014/06/25/basic-file-io/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'sarojaba';
+var disqus_identifier = '2014/06/24/application-lifecycle-살펴보기/';
+var disqus_title = 'application-lifecycle-살펴보기';
+var disqus_url = 'http://sarojaba.github.io/2014/06/24/application-lifecycle-살펴보기/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//sarojaba.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2017 <a href="http://sarojaba.github.io">사로자바</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> eclipse-rcp-tutorial8 · 사로자바의 블로그</title><meta name="description" content="eclipse-rcp-tutorial8 - 사로자바"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://sarojaba.github.io/atom.xml" title="사로자바의 블로그"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li><li class="nav-list-item"><a href="https://www.facebook.com/sarojaba" target="_blank" class="nav-list-link">FACKBOOK</a></li><li class="nav-list-item"><a href="https://github.com/sarojaba" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="http://codepen.io/sarojaba" target="_blank" class="nav-list-link">CODEPEN</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">eclipse-rcp-tutorial8</h1><div class="post-info">May 31, 2014</div><div class="post-content"><p>작성일: 2010. 10. 27.</p>
+<p>원문: <a href="http://www.vogella.de/articles/EclipseRCP/article.html" target="_blank" rel="external">http://www.vogella.de/articles/EclipseRCP/article.html</a> Version 5.1</p>
+<h1 id="뷰"><a href="#뷰" class="headerlink" title="뷰"></a>뷰</h1><h2 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h2><p>뷰와 뷰 파트는 어플리케이션에서 정보를 보여주고 데이터를 변경하는 데에 사용된다. 다음은 어플리케이션에 뷰를 추가하는 방법을 설명한다. &ldquo;de.vogella.rcp.intro.view&rdquo; 라는 이름의 RCP 프로젝트를 생성하라. &ldquo;Hello RCP&rdquo; 템플릿을 사용하라.</p>
+<h2 id="뷰-생성하기"><a href="#뷰-생성하기" class="headerlink" title="뷰 생성하기"></a>뷰 생성하기</h2><p>플러그인에 &ldquo;org.eclipse.ui.views&rdquo; 확장을 추가한다. 새로운 뷰 확장에 마우스 오른쪽 클릭을 하고 New -&gt; View 를 선택한다. id 는 &ldquo;de.vogella.rcp.intro.view.MyView&rdquo;, 클래스는 &ldquo;de.vogella.rcp.intro.view.MyView&rdquo; 로 설정한다.</p>
+<p>&ldquo;class&rdquo; 하이퍼링크를 클릭하여 &ldquo;MyView&rdquo; 클래스를 생성하고 다음의 코드를 작성하라. 그러면 뷰를 사용할 준비가 된다.</p>
+<pre><code>package de.vogella.rcp.intro.view;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Text;
+import org.eclipse.ui.part.ViewPart;
+public class MyView extends ViewPart {
+@Override
+public void createPartControl(Composite parent) {
+Text text = new Text(parent, SWT.BORDER);
+text.setText(&quot;Imagine a fantastic user interface here&quot;);
+}
+@Override
+public void setFocus() {
+}
+}
+`&lt;/pre&gt;
+
+## 퍼스펙티브에 뷰 추가하기
+
+당신의 퍼스펙티브에 뷰를 추가해야 한다. 플러그인에 “org.eclipse.ui.perspectiveExtensions” 확장을 추가한다.
+
+오른쪽 클릭을 하고 뷰를 선택한다. id 로 “de.vogella.rcp.intro.view.MyView” 를 기입한다. relative 는 현재 안보이는 편집 영역인 “org.eclipse.ui.editorss” 를 적고 “0.95f” 의 최대 비율을 선택함으로써 모든 여백을 사용한다.
+
+## 결과
+
+결과를 보기 위해 어플리케이션을 실행한다.
+
+## 코드를 통해 퍼스펙티브에 뷰를 추가하기
+
+나는 개인적으로 코드 상의 확장점을 더 선호한다. 하지만 “org.eclipse.ui.perspectiveExtensions” 확장점을 사용하는 대신 퍼스펙티브로 코드를 통해 뷰를 추가할 수도 있다. 다음의 변경된 “Perspective.java” 파일을 보자.
+
+&lt;pre&gt;`package de.vogella.rcp.intro.view;
+
+import org.eclipse.ui.IPageLayout;
+import org.eclipse.ui.IPerspectiveFactory;
+public class Perspective implements IPerspectiveFactory {
+public void createInitialLayout(IPageLayout layout) {
+layout.addView(&quot;de.vogella.rcp.intro.view.MyView&quot;, IPageLayout.TOP,
+IPageLayout.RATIO_MAX, IPageLayout.ID_EDITOR_AREA);
+}
+}
+</code></pre><h2 id="에디터-뷰-상호작용"><a href="#에디터-뷰-상호작용" class="headerlink" title="에디터 / 뷰 상호작용"></a>에디터 / 뷰 상호작용</h2><p>이클립스 에디터를 사용하고 뷰와 에디터 사이의 통신을 하는 방법을 배우려면 Eclipse Editors 를 보아라.</p>
+</div></article></div></main><footer><div class="paginator"><a href="/2014/05/24/eclipse-rcp-tutorial7/" class="prev">PREV</a><a href="/2014/05/31/eclipse-rcp-tutorial9/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'sarojaba';
+var disqus_identifier = '2014/05/31/eclipse-rcp-tutorial8/';
+var disqus_title = 'eclipse-rcp-tutorial8';
+var disqus_url = 'http://sarojaba.github.io/2014/05/31/eclipse-rcp-tutorial8/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//sarojaba.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2017 <a href="http://sarojaba.github.io">사로자바</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>

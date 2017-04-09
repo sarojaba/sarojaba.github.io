@@ -1,0 +1,78 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> java-iterator-pattern-on-colletions · 사로자바의 블로그</title><meta name="description" content="java-iterator-pattern-on-colletions - 사로자바"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://sarojaba.github.io/atom.xml" title="사로자바의 블로그"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li><li class="nav-list-item"><a href="https://www.facebook.com/sarojaba" target="_blank" class="nav-list-link">FACKBOOK</a></li><li class="nav-list-item"><a href="https://github.com/sarojaba" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="http://codepen.io/sarojaba" target="_blank" class="nav-list-link">CODEPEN</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">java-iterator-pattern-on-colletions</h1><div class="post-info">Feb 16, 2015</div><div class="post-content"><h2 id="The-Iterator-pattern"><a href="#The-Iterator-pattern" class="headerlink" title="The Iterator pattern"></a>The Iterator pattern</h2><p>Iterator 패턴은 Collection을 탐색하는 방법과 클라이언트가 수행할 작업을 분리하는 GoF의 패턴 중 하나입니다. index, cursor, enumeration 등으로도 불립니다.</p>
+<p>Iterator는 Active 또는 Passive한 형태로 나뉩니다. Active Iterator는 클라이언트가 Iterator를 생성하고, 다음 아이템의 존재 여부를 확인하고, 다음 아이템을 얻는 작업을 합니다. 반면, Passive Iterator는 이 작업을 내부적으로 수행합니다.</p>
+<p>Java는 Iterator 패턴을 이용하여 Collection을 탐색합니다. Active에서 Passive한 형태로 발전했습니다.</p>
+<h2 id="Enumeration"><a href="#Enumeration" class="headerlink" title="Enumeration"></a>Enumeration</h2><p>초기 Java 1.0 때는 Collection에 Vector와 Hashtable만 있었고, Enumeration을 이용해 탐색하였습니다. Java 5 이후부터는 enum 타입과 헷갈리기 때문에 위 클래스들을 사용하지 않는 것이 좋습니다.</p>
+<pre><code>Vector names = new Vector();
+
+// ... add some names to the collection
+
+Enumeration e = names.elements();
+while (e.hasMoreElements())
+{
+  String name = (String) e.nextElement();
+  System.out.println(name);
+}
+`&lt;/pre&gt;
+
+## Iterator
+
+Java 1.2부터 Collections Framework를 설계하면서 Iterator라는 명확한 이름으로 구현되었습니다.
+
+&lt;pre&gt;`List names = new LinkedList();
+
+// ... add some names to the collection
+
+Iterator i = names.iterator();
+while (i.hasNext())
+{
+  String name = (String) i.next();
+  System.out.println(name);
+}
+`&lt;/pre&gt;
+
+## Generics and the Enhanced for-loop
+
+Java 5부터는 Iteratable 인터페이스를 구현한 객체라면 for-each 구문을 이용할 수 있습니다. 기존에는 Active한 형태였지만 이제는 Passive한 형태로 진화하고 있는 과도기입니다. Java 7에서는 Diamond Operator를 이용해 타입 추론이 가능합니다.
+
+&lt;pre&gt;`List&lt;String&gt; names = new LinkedList&lt;String&gt;();  // Java 5
+List&lt;String&gt; names = new LinkedList&lt;&gt;();        // Java 7
+
+// ... add some names to the collection
+
+for (String name : names)
+  System.out.println(name);
+`&lt;/pre&gt;
+
+## forEach
+
+Java 8에서는 Iterable 인터페이스에 default 메소드로 forEach 메소드를 제공합니다. forEach 메소드의 인자로 lambda 표현식이 들어갑니다. 기존에는 ‘반복&apos;이라는 개념을 명시적으로 표현했다면, forEach는 이것을 암묵적으로 표현합니다.
+
+&lt;pre&gt;`List&lt;String&gt; names = new LinkedList&lt;&gt;();
+
+// ... add some names to the collection
+
+names.forEach(name -&gt; System.out.println(name));
+`&lt;/pre&gt;
+
+## Stream API
+
+Java 8에서는 stream 메소드를 이용해 컬렉션을 다룰 수 있습니다. filter(), distinct(), sorted(), map() 등의 중간 연산과 count(), average(), sum(), max(), forEach() 등의 종단 연산을 연결할 수 있습니다. 각 아이템에 대한 연산을 병렬화 하려면 parallelStream() 메소드를 이용하면 됩니다.
+
+&lt;pre&gt;`List&lt;String&gt; names = new LinkedList&lt;&gt;();
+
+// ... add some names to the collection
+
+long count = names.stream()
+                  .filter(name -&gt; name.startsWith(&quot;A&quot;))
+                  .count();
+</code></pre><h2 id="Performance"><a href="#Performance" class="headerlink" title="Performance"></a>Performance</h2><p>Active와 Passive 사이에는 큰 차이가 없습니다.<br>LinkedList, LinkedHashSet은 stream과 parallelStream 사이에는 큰 차이가 없습니다.(순차 참조 자료 구조)<br>ArrayList, TreeSet, HashSet은 parallelStream이 성능이 좋습니다.(직접 참조 자료 구조)</p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="http://www.javaworld.com/article/2461744/java-language/java-language-iterating-over-collections-in-java-8.html" target="_blank" rel="external">Iterating over collections in Java 8</a></p>
+</div></article></div></main><footer><div class="paginator"><a href="/2015/01/07/최대-공약수와-최소-공배수/" class="prev">PREV</a><a href="/2015/06/04/바이러스/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'sarojaba';
+var disqus_identifier = '2015/02/16/java-iterator-pattern-on-colletions/';
+var disqus_title = 'java-iterator-pattern-on-colletions';
+var disqus_url = 'http://sarojaba.github.io/2015/02/16/java-iterator-pattern-on-colletions/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//sarojaba.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2017 <a href="http://sarojaba.github.io">사로자바</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>

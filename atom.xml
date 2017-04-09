@@ -9,7 +9,7 @@
   <id>http://sarojaba.github.io/</id>
   
   <author>
-    <name>우준혁</name>
+    <name>사로자바</name>
     
   </author>
   
@@ -39,6 +39,1232 @@
     
     </summary>
     
+    
+  </entry>
+  
+  <entry>
+    <title>reverse-array-recursively</title>
+    <link href="http://sarojaba.github.io/2015/07/20/reverse-array-recursively/"/>
+    <id>http://sarojaba.github.io/2015/07/20/reverse-array-recursively/</id>
+    <published>2015-07-19T15:48:00.000Z</published>
+    <updated>2017-04-09T03:04:30.864Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Source-code"><a href="#Source-code" class="headerlink" title="Source code"></a>Source code</h2><pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+void reverse(int *A, int N, int i, int j)
+{
+  // base case
+  if(i &gt;= j) return;
+
+  // swap
+  int t = A[i];
+  A[i] = A[j];
+  A[j] = t;
+
+  // recursive
+  reverse(A, N, ++i, --j);
+}
+
+void reverse(int *A, int N)
+{
+  reverse(A, N, 0, N-1);
+}
+
+int main() {
+  // your code goes here
+
+    int A[5] = {1, 2, 3, 4, 5};
+
+    reverse(A, 5);
+
+    for(int i = 0; i &lt; 5; i++) {
+    cout &lt;&lt; A[i] &lt;&lt; &quot;,&quot;;
+  }
+    cout &lt;&lt; endl;
+
+    return 0;
+}
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Source-code&quot;&gt;&lt;a href=&quot;#Source-code&quot; class=&quot;headerlink&quot; title=&quot;Source code&quot;&gt;&lt;/a&gt;Source code&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
+
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>back-to-high-school-physics</title>
+    <link href="http://sarojaba.github.io/2015/06/17/back-to-high-school-physics/"/>
+    <id>http://sarojaba.github.io/2015/06/17/back-to-high-school-physics/</id>
+    <published>2015-06-17T01:23:00.000Z</published>
+    <updated>2017-04-09T03:12:44.131Z</updated>
+    
+    <content type="html"><![CDATA[<p>A particle has initial velocity and constant acceleration. If its velocity after certain time is v then what will its displacement be in twice of that time?</p>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>The input will contain two integers in each line. Each line makes one set of input. These two integers denote the value of v (-100 &lt;= v &lt;= 100) and t(0&lt;=t&lt;= 200) ( t means at the time the particle gains that velocity)</p>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>For each line of input print a single integer in one line denoting the displacement in double of that time.</p>
+<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><p>0 0<br>5 12</p>
+<h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><p>0<br>120</p>
+<h2 id="Source-Code"><a href="#Source-Code" class="headerlink" title="Source Code"></a>Source Code</h2><pre><code>int main(int argc, char** argv)
+{
+  int v, t;
+  while(cin &gt;&gt; v)
+  {
+    cin &gt;&gt; t;
+    cout &lt;&lt; v * t * 2 &lt;&lt; endl;
+  }
+}
+</code></pre><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="http://uva.onlinejudge.org/external/100/10071.html" target="_blank" rel="external">http://uva.onlinejudge.org/external/100/10071.html</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;A particle has initial velocity and constant acceleration. If its velocity after certain time is v then what will its displacement be in 
+    
+    </summary>
+    
+    
+      <category term="Algorithm" scheme="http://sarojaba.github.io/tags/Algorithm/"/>
+    
+      <category term="UVa" scheme="http://sarojaba.github.io/tags/UVa/"/>
+    
+      <category term="Back To High School Physics" scheme="http://sarojaba.github.io/tags/Back-To-High-School-Physics/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>연속-부분-최대곱-public-class-max-public-static</title>
+    <link href="http://sarojaba.github.io/2015/06/17/%EC%97%B0%EC%86%8D-%EB%B6%80%EB%B6%84-%EC%B5%9C%EB%8C%80%EA%B3%B1-public-class-max-public-static/"/>
+    <id>http://sarojaba.github.io/2015/06/17/연속-부분-최대곱-public-class-max-public-static/</id>
+    <published>2015-06-17T01:19:00.000Z</published>
+    <updated>2017-04-09T03:14:28.689Z</updated>
+    
+    <content type="html"><![CDATA[
+<h1 id="연속-부분-최대곱"><a href="#연속-부분-최대곱" class="headerlink" title="연속 부분 최대곱"></a>연속 부분 최대곱</h1><pre><code>public class MAX{
+
+  public static double[] nums = {1.1, 0.7, 1.3, 0.9, 1.4, 0.8, 0.7, 1.4};
+  public static void main(String[] args){
+    float max = 1;
+    for(int i = 0; i &lt; nums.length; i++){
+
+      if(nums[i] &gt; 1){
+        float m = 1;
+        for(int j = 0; j &lt; nums.length - i; j++){
+
+          m *= nums[i + j];
+
+          if(max &lt; m){
+            max = m;
+          }
+        }
+      }
+    }
+    System.out.println(max);
+  }
+}
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+&lt;h1 id=&quot;연속-부분-최대곱&quot;&gt;&lt;a href=&quot;#연속-부분-최대곱&quot; class=&quot;headerlink&quot; title=&quot;연속 부분 최대곱&quot;&gt;&lt;/a&gt;연속 부분 최대곱&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;public class MAX{
+
+  public stati
+    
+    </summary>
+    
+    
+      <category term="Algorithm" scheme="http://sarojaba.github.io/tags/Algorithm/"/>
+    
+      <category term="연속 부분 최대곱" scheme="http://sarojaba.github.io/tags/%EC%97%B0%EC%86%8D-%EB%B6%80%EB%B6%84-%EC%B5%9C%EB%8C%80%EA%B3%B1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>후위-표현식</title>
+    <link href="http://sarojaba.github.io/2015/06/08/%ED%9B%84%EC%9C%84-%ED%91%9C%ED%98%84%EC%8B%9D/"/>
+    <id>http://sarojaba.github.io/2015/06/08/후위-표현식/</id>
+    <published>2015-06-07T15:34:00.000Z</published>
+    <updated>2017-04-09T03:16:13.158Z</updated>
+    
+    <content type="html"><![CDATA[<p>중위 표현식을 후위 표현식으로 변경하라.<br>ex) 5 + (4 - 2) - 3 <em> 2  ===  5 4 2 - + 3 2 </em> -</p>
+<pre><code>import java.util.*;
+public class Postfix{
+  public static void main(String[] args){
+    String expression = &quot;5+(4-2)-3*2&quot;;
+    Stack stack = new Stack();
+    StringBuilder sb = new StringBuilder();
+    for(int i = 0; i &lt; expression.length(); i++){
+      char c = expression.charAt(i);
+      switch(c){
+        case &apos;0&apos;:
+        case &apos;1&apos;:
+        case &apos;2&apos;:
+        case &apos;3&apos;:
+        case &apos;4&apos;:
+        case &apos;5&apos;:
+        case &apos;6&apos;:
+        case &apos;7&apos;:
+        case &apos;8&apos;:
+        case &apos;9&apos;:
+        sb.append(c);
+        break;
+        case &apos;+&apos;:
+        case &apos;-&apos;:
+        case &apos;*&apos;:
+        case &apos;/&apos;:
+        if(!stack.empty() &amp;&amp; (stack.peek() != &apos;(&apos;)){
+          if(order(stack.peek()) &lt;= order(c)){
+            sb.append(stack.pop());
+          }
+        }
+        stack.push(c);
+        break;
+        case &apos;(&apos;:
+        stack.push(c);
+        break;
+        case &apos;)&apos;:
+        char op;
+        while((op = stack.pop()) != &apos;(&apos;){
+          sb.append(op);
+        }
+        break;
+        default:
+        System.out.println(&quot;Error&quot;);
+        return;
+      }
+    }
+
+    while(!stack.empty()){
+      sb.append(stack.pop());
+    }
+    System.out.println(sb.toString());
+  }
+
+  public static int order(char op){
+    switch(op){
+      case &apos;*&apos;: case &apos;/&apos;: return 1;
+      case &apos;+&apos;: case &apos;-&apos;: return 2;
+      default: return 0; }
+    }
+  }
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;중위 표현식을 후위 표현식으로 변경하라.&lt;br&gt;ex) 5 + (4 - 2) - 3 &lt;em&gt; 2  ===  5 4 2 - + 3 2 &lt;/em&gt; -&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;import java.util.*;
+public class Postfix{
+    
+    </summary>
+    
+    
+      <category term="Algorithm" scheme="http://sarojaba.github.io/tags/Algorithm/"/>
+    
+      <category term="후위 표현식" scheme="http://sarojaba.github.io/tags/%ED%9B%84%EC%9C%84-%ED%91%9C%ED%98%84%EC%8B%9D/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>1과-2의-합</title>
+    <link href="http://sarojaba.github.io/2015/06/04/1%EA%B3%BC-2%EC%9D%98-%ED%95%A9/"/>
+    <id>http://sarojaba.github.io/2015/06/04/1과-2의-합/</id>
+    <published>2015-06-04T11:36:00.000Z</published>
+    <updated>2017-04-09T03:16:43.985Z</updated>
+    
+    <content type="html"><![CDATA[<p>어떤 정수 n이 있다. 이 정수를 1과 2의 합의 순서로 표현할 때 나타낼 수 있는 방법의 수를 구하시오. 예를 들어 n=3 이면<br>3 = 1 + 1 + 1<br>  = 1 + 2<br>  = 2 + 1<br>단, 1 + 2 와 2 + 1은 그 operand는 같지만 순서가 다르므로 다른것으로 친다.</p>
+<pre><code>public class Sum{
+  public static void main(String[] args){
+    System.out.println(fibonacci(5));
+  }
+
+  public static int fibonacci(int num){
+    if(num == 1){
+      return 1;
+    }
+
+    if(num == 2){
+      return 2;
+    }
+
+    return fibonacci(num - 2) + fibonacci(num - 1);
+  }
+}
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;어떤 정수 n이 있다. 이 정수를 1과 2의 합의 순서로 표현할 때 나타낼 수 있는 방법의 수를 구하시오. 예를 들어 n=3 이면&lt;br&gt;3 = 1 + 1 + 1&lt;br&gt;  = 1 + 2&lt;br&gt;  = 2 + 1&lt;br&gt;단, 1 + 2 와 2 + 1은 
+    
+    </summary>
+    
+    
+      <category term="Algorithm" scheme="http://sarojaba.github.io/tags/Algorithm/"/>
+    
+      <category term="1과 2의 합" scheme="http://sarojaba.github.io/tags/1%EA%B3%BC-2%EC%9D%98-%ED%95%A9/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>바이러스</title>
+    <link href="http://sarojaba.github.io/2015/06/04/%EB%B0%94%EC%9D%B4%EB%9F%AC%EC%8A%A4/"/>
+    <id>http://sarojaba.github.io/2015/06/04/바이러스/</id>
+    <published>2015-06-04T11:33:00.000Z</published>
+    <updated>2017-04-09T03:21:38.430Z</updated>
+    
+    <content type="html"><![CDATA[<p>바이러스가 1마리 있다. 이 바이러스의 수는 1초 후에 2배로 불어날 수도 있고 1/3(소숫점 이하 버림)로 줄 수도 있다. 현재 몇 마리의 바이러스가 존재하는지 주어질 때 1마리의 바이러스에서부터 최소 몇 초의 시간이 흘러 현재 상태가 되었는지 구하시오.</p>
+<p>ex) 현재 바이러스가 7마리 있다면,<br>1 -&gt; 2 -&gt; 4 -&gt; 8 -&gt; 16 -&gt; 32 -&gt; 64 -&gt; 21 -&gt; 7<br>이보다 더 빠른 시간 안에 7마리가 될 수는 없다.<br>따라서 답은 8초이다.</p>
+<pre><code>import java.util.*;
+
+public class Virus{
+  public static void main(String[] args){
+
+    int num = 7;
+
+    Queue queue = new LinkedList();
+    queue.add(new Element(1, 0));
+
+    while(true){
+
+      Element e = queue.remove();
+
+      if(e.getNum() == num){
+        System.out.println(e.getTime());
+        return;
+      }
+
+      queue.add(new Element(e.getNum() * 2, e.getTime() + 1));
+      queue.add(new Element(e.getNum() / 3, e.getTime() + 1));
+    }
+  }
+
+  class Element{
+
+    private int num;
+    private int time;
+
+    public Element(int num, int time){
+      this.num = num;
+      this.time = time;
+    }
+
+    public int getNum(){
+      return num;
+    }
+
+    public int getTime(){
+      return time;
+    }
+  }
+}
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;바이러스가 1마리 있다. 이 바이러스의 수는 1초 후에 2배로 불어날 수도 있고 1/3(소숫점 이하 버림)로 줄 수도 있다. 현재 몇 마리의 바이러스가 존재하는지 주어질 때 1마리의 바이러스에서부터 최소 몇 초의 시간이 흘러 현재 상태가 되었는지
+    
+    </summary>
+    
+    
+      <category term="Algorithm" scheme="http://sarojaba.github.io/tags/Algorithm/"/>
+    
+      <category term="바이러스" scheme="http://sarojaba.github.io/tags/%EB%B0%94%EC%9D%B4%EB%9F%AC%EC%8A%A4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>java-iterator-pattern-on-colletions</title>
+    <link href="http://sarojaba.github.io/2015/02/16/java-iterator-pattern-on-colletions/"/>
+    <id>http://sarojaba.github.io/2015/02/16/java-iterator-pattern-on-colletions/</id>
+    <published>2015-02-16T11:18:00.000Z</published>
+    <updated>2017-04-09T03:25:10.433Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="The-Iterator-pattern"><a href="#The-Iterator-pattern" class="headerlink" title="The Iterator pattern"></a>The Iterator pattern</h2><p>Iterator 패턴은 Collection을 탐색하는 방법과 클라이언트가 수행할 작업을 분리하는 GoF의 패턴 중 하나입니다. index, cursor, enumeration 등으로도 불립니다.</p>
+<p>Iterator는 Active 또는 Passive한 형태로 나뉩니다. Active Iterator는 클라이언트가 Iterator를 생성하고, 다음 아이템의 존재 여부를 확인하고, 다음 아이템을 얻는 작업을 합니다. 반면, Passive Iterator는 이 작업을 내부적으로 수행합니다.</p>
+<p>Java는 Iterator 패턴을 이용하여 Collection을 탐색합니다. Active에서 Passive한 형태로 발전했습니다.</p>
+<h2 id="Enumeration"><a href="#Enumeration" class="headerlink" title="Enumeration"></a>Enumeration</h2><p>초기 Java 1.0 때는 Collection에 Vector와 Hashtable만 있었고, Enumeration을 이용해 탐색하였습니다. Java 5 이후부터는 enum 타입과 헷갈리기 때문에 위 클래스들을 사용하지 않는 것이 좋습니다.</p>
+<pre><code>Vector names = new Vector();
+
+// ... add some names to the collection
+
+Enumeration e = names.elements();
+while (e.hasMoreElements())
+{
+  String name = (String) e.nextElement();
+  System.out.println(name);
+}
+`&lt;/pre&gt;
+
+## Iterator
+
+Java 1.2부터 Collections Framework를 설계하면서 Iterator라는 명확한 이름으로 구현되었습니다.
+
+&lt;pre&gt;`List names = new LinkedList();
+
+// ... add some names to the collection
+
+Iterator i = names.iterator();
+while (i.hasNext())
+{
+  String name = (String) i.next();
+  System.out.println(name);
+}
+`&lt;/pre&gt;
+
+## Generics and the Enhanced for-loop
+
+Java 5부터는 Iteratable 인터페이스를 구현한 객체라면 for-each 구문을 이용할 수 있습니다. 기존에는 Active한 형태였지만 이제는 Passive한 형태로 진화하고 있는 과도기입니다. Java 7에서는 Diamond Operator를 이용해 타입 추론이 가능합니다.
+
+&lt;pre&gt;`List&lt;String&gt; names = new LinkedList&lt;String&gt;();  // Java 5
+List&lt;String&gt; names = new LinkedList&lt;&gt;();        // Java 7
+
+// ... add some names to the collection
+
+for (String name : names)
+  System.out.println(name);
+`&lt;/pre&gt;
+
+## forEach
+
+Java 8에서는 Iterable 인터페이스에 default 메소드로 forEach 메소드를 제공합니다. forEach 메소드의 인자로 lambda 표현식이 들어갑니다. 기존에는 ‘반복&apos;이라는 개념을 명시적으로 표현했다면, forEach는 이것을 암묵적으로 표현합니다.
+
+&lt;pre&gt;`List&lt;String&gt; names = new LinkedList&lt;&gt;();
+
+// ... add some names to the collection
+
+names.forEach(name -&gt; System.out.println(name));
+`&lt;/pre&gt;
+
+## Stream API
+
+Java 8에서는 stream 메소드를 이용해 컬렉션을 다룰 수 있습니다. filter(), distinct(), sorted(), map() 등의 중간 연산과 count(), average(), sum(), max(), forEach() 등의 종단 연산을 연결할 수 있습니다. 각 아이템에 대한 연산을 병렬화 하려면 parallelStream() 메소드를 이용하면 됩니다.
+
+&lt;pre&gt;`List&lt;String&gt; names = new LinkedList&lt;&gt;();
+
+// ... add some names to the collection
+
+long count = names.stream()
+                  .filter(name -&gt; name.startsWith(&quot;A&quot;))
+                  .count();
+</code></pre><h2 id="Performance"><a href="#Performance" class="headerlink" title="Performance"></a>Performance</h2><p>Active와 Passive 사이에는 큰 차이가 없습니다.<br>LinkedList, LinkedHashSet은 stream과 parallelStream 사이에는 큰 차이가 없습니다.(순차 참조 자료 구조)<br>ArrayList, TreeSet, HashSet은 parallelStream이 성능이 좋습니다.(직접 참조 자료 구조)</p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="http://www.javaworld.com/article/2461744/java-language/java-language-iterating-over-collections-in-java-8.html" target="_blank" rel="external">Iterating over collections in Java 8</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;The-Iterator-pattern&quot;&gt;&lt;a href=&quot;#The-Iterator-pattern&quot; class=&quot;headerlink&quot; title=&quot;The Iterator pattern&quot;&gt;&lt;/a&gt;The Iterator pattern&lt;/h2&gt;&lt;
+    
+    </summary>
+    
+    
+      <category term="Programming" scheme="http://sarojaba.github.io/tags/Programming/"/>
+    
+      <category term="Java" scheme="http://sarojaba.github.io/tags/Java/"/>
+    
+      <category term="Iterator" scheme="http://sarojaba.github.io/tags/Iterator/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>최대-공약수와-최소-공배수</title>
+    <link href="http://sarojaba.github.io/2015/01/07/%EC%B5%9C%EB%8C%80-%EA%B3%B5%EC%95%BD%EC%88%98%EC%99%80-%EC%B5%9C%EC%86%8C-%EA%B3%B5%EB%B0%B0%EC%88%98/"/>
+    <id>http://sarojaba.github.io/2015/01/07/최대-공약수와-최소-공배수/</id>
+    <published>2015-01-06T15:48:00.000Z</published>
+    <updated>2017-04-09T03:27:59.209Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://68.media.tumblr.com/10a5739b83eaea8c48b227b4c5f60e13/tumblr_inline_nhrijmBsV31rubmdv.jpg" alt=""></p>
+<pre><code>public class GCDLCM {
+    public static void main(String[] args) {
+        System.out.println(gcd(24, 18));
+        System.out.println(lcm(24, 18));
+    }
+
+    public static int gcd(int a, int b) {
+        int c = a % b;
+
+        if (c == 0) {
+            return b;
+        }
+
+        return gcd(b, c);
+    }
+
+    public static int lcm(int a, int b) {
+        int m = a, n = b;
+        int i = 1, j = 1;
+
+        while (m != n) {
+            if (m &lt; n) {
+                m = a * ++i;
+            } else {
+                n = b * ++j;
+            }
+        }
+
+        return m;
+    }
+}
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://68.media.tumblr.com/10a5739b83eaea8c48b227b4c5f60e13/tumblr_inline_nhrijmBsV31rubmdv.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;public 
+    
+    </summary>
+    
+    
+      <category term="Programming" scheme="http://sarojaba.github.io/tags/Programming/"/>
+    
+      <category term="Algorithm" scheme="http://sarojaba.github.io/tags/Algorithm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>로마숫자</title>
+    <link href="http://sarojaba.github.io/2015/01/07/%EB%A1%9C%EB%A7%88%EC%88%AB%EC%9E%90/"/>
+    <id>http://sarojaba.github.io/2015/01/07/로마숫자/</id>
+    <published>2015-01-06T15:44:00.000Z</published>
+    <updated>2017-04-09T03:28:15.772Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://68.media.tumblr.com/d382dbdcce18e8482b7064e4ec3c276b/tumblr_inline_nhri7qnong1rubmdv.jpg" alt=""></p>
+<pre><code>public class RomaNum {
+    private char[] signs = {
+        &apos;I&apos;, &apos;V&apos;, &apos;X&apos;, &apos;L&apos;, &apos;C&apos;, &apos;D&apos;, &apos;M&apos;
+    };
+    private int[] values = {
+        1, 5, 10, 50, 100, 500, 1000
+    };
+
+    public String toRomaNum(int digitNum) {
+        StringBuilder sb = new StringBuilder();
+
+        String s = Integer.toString(digitNum);
+
+        for (int i = 0; i &lt; s.length(); i++) {
+            int d = s.length() - i - 1;
+
+            char ch = s.charAt(i);
+
+            switch (ch) {
+                case &apos;1&apos;:
+                    sb.append(signs[d * 2]);
+                    break;
+                case &apos;2&apos;:
+                    sb.append(signs[d * 2]);
+                    sb.append(signs[d * 2]);
+                    break;
+                case &apos;3&apos;:
+                    sb.append(signs[d * 2]);
+                    sb.append(signs[d * 2]);
+                    sb.append(signs[d * 2]);
+                    break;
+                case &apos;4&apos;:
+                    sb.append(signs[d * 2]);
+                    sb.append(signs[d * 2 + 1]);
+                    break;
+                case &apos;5&apos;:
+                    sb.append(signs[d * 2 + 1]);
+                    break;
+                case &apos;6&apos;:
+                    sb.append(signs[d * 2 + 1]);
+                    sb.append(signs[d * 2]);
+                    break;
+                case &apos;7&apos;:
+                    sb.append(signs[d * 2 + 1]);
+                    sb.append(signs[d * 2]);
+                    sb.append(signs[d * 2]);
+                case &apos;8&apos;:
+                    sb.append(signs[d * 2 + 1]);
+                    sb.append(signs[d * 2]);
+                    sb.append(signs[d * 2]);
+                    sb.append(signs[d * 2]);
+                case &apos;9&apos;:
+                    sb.append(signs[d * 2]);
+                    sb.append(signs[d * 2 + 2]);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        return sb.toString();
+    }
+
+    public int toDigitNum(String romaNum) {
+        int[] n = new int[romaNum.length() * 3];
+        int sum = 0;
+
+        for (int i = 0; i &lt; romaNum.length(); i++) {
+            char sign = romaNum.charAt(i);
+
+            for (int j = 0; j &lt; signs.length; j++) {
+                if (sign == signs[j]) {
+                    n[i] = values[j];
+                    break;
+                }
+            }
+        }
+
+        for (int i = 1; i &lt; n.length; i++) {
+            if (n[i - 1] &lt; n[i]) {
+                sum += n[i] - n[i - 1];
+                i++;
+            } else {
+                sum += n[i - 1];
+            }
+        }
+
+        return sum;
+
+    }
+
+    public static void main(String[] args) {
+        RomaNum rn = new RomaNum();
+
+        System.out.println(rn.toRomaNum(2493));
+        System.out.println(rn.toDigitNum(&quot;MMMCCCXXXIII&quot;));
+    }
+}
+</code></pre><p>예전 블로그에 있던 소스를 옮기고 있는데 지금 보니 무슨 생각으로 짰는지 모르겠다;; ㅎㄷㄷ</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://68.media.tumblr.com/d382dbdcce18e8482b7064e4ec3c276b/tumblr_inline_nhri7qnong1rubmdv.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;public 
+    
+    </summary>
+    
+    
+      <category term="Programming" scheme="http://sarojaba.github.io/tags/Programming/"/>
+    
+      <category term="Algorithm" scheme="http://sarojaba.github.io/tags/Algorithm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>playn-game-loop</title>
+    <link href="http://sarojaba.github.io/2014/11/19/playn-game-loop/"/>
+    <id>http://sarojaba.github.io/2014/11/19/playn-game-loop/</id>
+    <published>2014-11-18T15:27:00.000Z</published>
+    <updated>2017-04-09T03:28:33.308Z</updated>
+    
+    <content type="html"><![CDATA[<p>PlayN은 게임의 메인 루프 진행을 위한 단순한 인터페이스를 제공한다. 이것은 플랫폼 간의 타이밍 구현의 복잡성을 분리하고, 논리적인 업데이트와 렌더링 업데이트의 분리를 추상화한다. 이 글은 PlayN의 구현과 게임의 메인 업데이트 사이클 예제를 설명한다.</p>
+<h2 id="게임-루프의-진행"><a href="#게임-루프의-진행" class="headerlink" title="게임 루프의 진행"></a>게임 루프의 진행</h2><p>모든 PlayN 게임은 단순히 update와 paint 메소드를 포함한 Game 인터페이스를 구현한다. Game 인터페이스를 구현하고 PlayN.run(game)을 호출하면 다음 두 메소드를 영원히 호출하는 게임 루프를 통제하는 것을 포기해야 한다.</p>
+<pre><code>while (true) {
+    game.update(...);
+    game.paint(...);
+}
+`&lt;/pre&gt;
+
+물론 가능한 한 빠르게 동작하지는 않지만, 플랫폼이 실제로 프레임을 표시할 수 있는 정도로 제한된다. 프레임이 얼마나 빨리 표시 되는지는 갱신률이나, 플랫폼 특유의 최대 표시율에 따라 제한된다.
+그러나 두 개의 특정 주기인 표시 주기와 갱신 주기를 고려해야 한다. 상대적으로 단순한 갱신 로직을 가진 게임은 다음과 같이 만들 수 있다.
+
+&lt;pre&gt;`public class MyGame implements Game {
+    public void update(float delta) {
+        // Update the game&apos;s state.
+        // &apos;delta&apos; is the time in milliseconds since the last update call.
+    }
+
+    public void paint(float alpha) {
+        // Paint using the game&apos;s current state.
+        // &apos;alpha&apos; will always be zero. Ignore it.
+    }
+
+    public int updateRate() {
+        // Returning zero here explicitly requests an update() call for each frame.
+        return 0;
+    }
+} 
+</code></pre><p>원문: <a href="https://developers.google.com/playn/devguide/gameloop" target="_blank" rel="external">https://developers.google.com/playn/devguide/gameloop</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;PlayN은 게임의 메인 루프 진행을 위한 단순한 인터페이스를 제공한다. 이것은 플랫폼 간의 타이밍 구현의 복잡성을 분리하고, 논리적인 업데이트와 렌더링 업데이트의 분리를 추상화한다. 이 글은 PlayN의 구현과 게임의 메인 업데이트 사이클 예제
+    
+    </summary>
+    
+    
+      <category term="Programming" scheme="http://sarojaba.github.io/tags/Programming/"/>
+    
+      <category term="Game" scheme="http://sarojaba.github.io/tags/Game/"/>
+    
+      <category term="PlayN" scheme="http://sarojaba.github.io/tags/PlayN/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>playn-개요</title>
+    <link href="http://sarojaba.github.io/2014/11/19/playn-%EA%B0%9C%EC%9A%94/"/>
+    <id>http://sarojaba.github.io/2014/11/19/playn-개요/</id>
+    <published>2014-11-18T15:23:00.000Z</published>
+    <updated>2017-04-09T03:28:51.271Z</updated>
+    
+    <content type="html"><![CDATA[<p>최근 게임 개발 기술은 비약적으로 발전했다. 게임 개발자는 다양한 기술과 새로운 게임 플랫폼으로 개발하는 사람을 말한다. 게임 만들기는 쉬워지지 않았지만, 소셜, 모바일, 웹 기술의 발전이 많은 사람들이 게임을 하는 것을 쉽게 만들어줬다.</p>
+<p>하지만 문제가 있다. 플랫폼이 너무 많다. 게임 개발자는 많은 사람들이 손안에서 게임하기를 원하지만 사용자는 통제되지 않는다. 그래서 게임을 각 플랫폼에 맞게 만들어야 하고, 시간 및 비용의 낭비, 유지보수의 어려움 등의 문제가 있다. 이런 이유로 PlayN이 태어났다.</p>
+<p>Modern game developers have to worry about many platforms.</p>
+<p>PlayN은 오픈소스 크로스 플랫폼 추상 레이어이다. GWT 컴파일러를 이용해 자바로 작성된 하나의 코드 베이스를 HTML5, Flash, Java, 안드로이드 어플로 컴파일한다. PlayN 아키텍처는 서비스-프로바이더 인터페이스 패턴을 사용하는데, 코어 부분은 코어 API 집합을 가지고 있고, 나머지 각 타겟에 구현이 분리되어 있다. PlayN을 사용하면 소스 코드에서 플랫폼 종속적인 호출은 제거되고, 하나의 코드 베이스에서 각 플랫폼 종속적인 구현의 결과물이 만들어진다.</p>
+<p>PlayN API service provider interface design</p>
+<p>PlayN은 게임 엔진이 아니다. 같은 게임을 여러 플랫폼으로 컴파일해주는 라이브러리이다. 많은 부분에서 각 플랫폼의 구현 코드만 가지고 있다.</p>
+<p>PlayN은 asset 툴체인, 애니메이션 효과, 추상 게임 로직 등을 가지고 있지 않다.</p>
+<p>PlayN의 목표는 update/render 루프, 유저 입력 처리, 리소스 관리 같이 일반적인 게임 오퍼레이션을 위한 크로스 컴파일 코드를 지원하는 기본 기술을 제공하는 것이다. 이는 핵심 라이브러리의 크기를 작게 유지하고, 특정 게임을 위한 코드 팽창을 피할 수 있다.</p>
+<p>원문: <a href="https://developers.google.com/playn/overview" target="_blank" rel="external">https://developers.google.com/playn/overview</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;최근 게임 개발 기술은 비약적으로 발전했다. 게임 개발자는 다양한 기술과 새로운 게임 플랫폼으로 개발하는 사람을 말한다. 게임 만들기는 쉬워지지 않았지만, 소셜, 모바일, 웹 기술의 발전이 많은 사람들이 게임을 하는 것을 쉽게 만들어줬다.&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Programming" scheme="http://sarojaba.github.io/tags/Programming/"/>
+    
+      <category term="Game" scheme="http://sarojaba.github.io/tags/Game/"/>
+    
+      <category term="PlayN" scheme="http://sarojaba.github.io/tags/PlayN/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>완전제곱수</title>
+    <link href="http://sarojaba.github.io/2014/08/20/%EC%99%84%EC%A0%84%EC%A0%9C%EA%B3%B1%EC%88%98/"/>
+    <id>http://sarojaba.github.io/2014/08/20/완전제곱수/</id>
+    <published>2014-08-19T15:25:00.000Z</published>
+    <updated>2017-04-09T03:29:12.739Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://68.media.tumblr.com/0b524c74fb29b8b9449a66a5c0f123f1/tumblr_inline_nak8532nwl1rubmdv.jpg" alt="문제"></p>
+<pre><code>public class SQR{
+
+    public static void main(String[] args){
+
+        sqr(60, 100);
+    }
+
+    public static void sqr(double min, double max){
+
+        int low = (int)Math.ceil(Math.sqrt(min));
+        int high = (int)Math.floor(Math.sqrt(max));
+
+        int sum = 0;
+
+        for(int i = low; i &lt;= high; i++){
+            sum += i*i;
+        }
+
+        System.out.println(sum);
+        System.out.println(low * low);
+    }
+}
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://68.media.tumblr.com/0b524c74fb29b8b9449a66a5c0f123f1/tumblr_inline_nak8532nwl1rubmdv.jpg&quot; alt=&quot;문제&quot;&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;publi
+    
+    </summary>
+    
+    
+      <category term="Programming" scheme="http://sarojaba.github.io/tags/Programming/"/>
+    
+      <category term="Algorithm" scheme="http://sarojaba.github.io/tags/Algorithm/"/>
+    
+      <category term="완전제곱수" scheme="http://sarojaba.github.io/tags/%EC%99%84%EC%A0%84%EC%A0%9C%EA%B3%B1%EC%88%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>삽입-정렬</title>
+    <link href="http://sarojaba.github.io/2014/08/13/%EC%82%BD%EC%9E%85-%EC%A0%95%EB%A0%AC/"/>
+    <id>http://sarojaba.github.io/2014/08/13/삽입-정렬/</id>
+    <published>2014-08-13T14:57:00.000Z</published>
+    <updated>2017-04-09T03:29:29.642Z</updated>
+    
+    <content type="html"><![CDATA[<p>삽입 정렬</p>
+<pre><code>public class InsertionSort{
+
+    public int[] insertionSort(int[] s){
+
+        int n = s.length;
+        int val; // 임시 저장 공간
+        int j;
+
+        for(int i = 1; i &lt; n; i++){
+
+            // 현재 위치의 요소를 임시로 저장
+            val = s[i];
+            j = i - 1;
+
+            // 현재 위치 앞의 요소보다 작다면 서로 위치를 바꿈
+            while((j &gt;= 0) &amp;&amp; (val &lt; s[j])){
+                s[j + 1] = s[j];
+                j--;
+            }
+            s[j + 1] = val;
+        }
+        return s;
+    }
+
+    // 배열을 출력하는 메소드
+    public void display(int[] s){
+
+        for(int i = 0; i &lt; s.length; i++){
+            System.out.print(s[i] + &quot; &quot;);
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args){
+
+        InsertionSort s = new InsertionSort();
+        s.display(s.insertionSort(new int[]{8, 13, 20, 27, 16}));
+    }
+}
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;삽입 정렬&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;public class InsertionSort{
+
+    public int[] insertionSort(int[] s){
+
+        int n = s.length;
+        int val; //
+    
+    </summary>
+    
+    
+      <category term="Programming" scheme="http://sarojaba.github.io/tags/Programming/"/>
+    
+      <category term="Algorithm" scheme="http://sarojaba.github.io/tags/Algorithm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>개미-수열</title>
+    <link href="http://sarojaba.github.io/2014/08/13/%EA%B0%9C%EB%AF%B8-%EC%88%98%EC%97%B4/"/>
+    <id>http://sarojaba.github.io/2014/08/13/개미-수열/</id>
+    <published>2014-08-13T14:53:00.000Z</published>
+    <updated>2017-04-09T03:29:45.706Z</updated>
+    
+    <content type="html"><![CDATA[<p>개미 수열</p>
+<pre><code>public class Ant{
+    public static int[] array1;
+    public static int[] array2;
+
+    public static void main(String[] args){
+
+        int length = Integer.parseInt(args[0]);
+
+        array1 = new int[50];
+        array1[0] = 1;
+
+        for(int i = 0; i &lt; length; i++){
+            for(int j = 0; j &lt; array1.length; j++){
+                if(array1[j] != 0){
+                    System.out.print(array1[j]+&quot; &quot;);
+                }
+            }
+            array1 = makeNextLine(array1);
+            System.out.println();
+        }
+    }
+
+    public static int[] makeNextLine(int[] array1){
+
+        int[] array2 = new int[50];
+        array2[0] = array1[0];
+        int index = 1;
+        int count = 1;
+
+        for(int i = 1; i &lt; array1.length; i++){
+            if(array1[i-1] == array1[i]){
+                count++;
+            }else{
+                array2[index] = count;
+                index++;
+                array2[index] = array1[i];
+                index++;
+                count = 1;
+            }
+        }
+        return array2;
+    }
+}
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;개미 수열&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;public class Ant{
+    public static int[] array1;
+    public static int[] array2;
+
+    public static void main(Strin
+    
+    </summary>
+    
+    
+      <category term="Programming" scheme="http://sarojaba.github.io/tags/Programming/"/>
+    
+      <category term="Algorithm" scheme="http://sarojaba.github.io/tags/Algorithm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>피보나치-수열</title>
+    <link href="http://sarojaba.github.io/2014/08/01/%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98-%EC%88%98%EC%97%B4/"/>
+    <id>http://sarojaba.github.io/2014/08/01/피보나치-수열/</id>
+    <published>2014-07-31T15:08:00.000Z</published>
+    <updated>2017-04-09T03:30:00.338Z</updated>
+    
+    <content type="html"><![CDATA[<p>피보나치 수열</p>
+<pre><code>public class Fibonacci{
+
+    // 피보나치 수열을 출력하는 메소드
+    public void fibonacciSequence(int n){ // n은 수열의 길이
+
+        for(int i = 0; i &lt; n; i++){
+            System.out.print(getFibonacciNum(i + 1) + &quot; &quot;);
+        }
+        System.out.println();
+    }
+
+    // 인자로 받은 위치의 피보나치 수를 반환하는 메소드
+    private int getFibonacciNum(int i){
+
+        if(i == 1){
+            return 1; // 첫번째 요소이면 1
+        }else if(i == 2){
+            return 2; // 두번째 요소이면 2
+        }
+
+        // 현재의 수는 앞의 수와 그 앞의 수의 합
+        return getFibonacciNum(i - 1) + getFibonacciNum(i - 2);
+    }
+
+    public static void main(String[] args){
+
+        Fibonacci f = new Fibonacci();
+        f.fibonacciSequence(10);
+    }
+}
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;피보나치 수열&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;public class Fibonacci{
+
+    // 피보나치 수열을 출력하는 메소드
+    public void fibonacciSequence(int n){ // n은 수열의 길이
+
+        
+    
+    </summary>
+    
+    
+      <category term="Programming" scheme="http://sarojaba.github.io/tags/Programming/"/>
+    
+      <category term="Algorithm" scheme="http://sarojaba.github.io/tags/Algorithm/"/>
+    
+      <category term="Java" scheme="http://sarojaba.github.io/tags/Java/"/>
+    
+      <category term="Fibonacci Number" scheme="http://sarojaba.github.io/tags/Fibonacci-Number/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>coffeescript-game-tutorial-the-mouse</title>
+    <link href="http://sarojaba.github.io/2014/08/01/coffeescript-game-tutorial-the-mouse/"/>
+    <id>http://sarojaba.github.io/2014/08/01/coffeescript-game-tutorial-the-mouse/</id>
+    <published>2014-07-31T15:01:00.000Z</published>
+    <updated>2017-04-09T03:31:28.587Z</updated>
+    
+    <content type="html"><![CDATA[<p>마우스 이벤트 처리 코드를 추가하였다.</p>
+<pre><code>###coffee
+init_mouse = -&gt;
+canvasMinX = 0
+canvasMaxX = canvasMinX + WIDTH
+
+document.onmousemove = (evt) -&gt;
+if evt.pageX &gt; canvasMinX and evt.pageX &lt; canvasMaxX
+paddlex = evt.pageX - canvasMinX
+
+draw = -&gt;
+clear()
+circle(x, y, 10)
+
+# move the paddle if left or right is currently pressed
+paddlex += 5 if rightDown
+paddlex -= 5 if leftDown
+rect(paddlex, HEIGHT-paddleh, paddlew, paddleh)
+
+dx = -dx if x + dx &gt; WIDTH or x + dx &lt; 0
+if y + dy &lt; 0 then dy = -dy
+else if y + dy &gt; HEIGHT
+if x &gt; paddlex and x &lt; paddlex + paddlew
+dy = -dy
+else
+# game over, so stop the animation
+clearInterval(intervalId)
+
+x += dx;
+y += dy;
+
+window.onload = -&gt;
+init()
+init_mouse() 
+</code></pre><p><a href="http://billmill.org/static/canvastutorial/mouse.html" target="_blank" rel="external">Reference</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;마우스 이벤트 처리 코드를 추가하였다.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;###coffee
+init_mouse = -&amp;gt;
+canvasMinX = 0
+canvasMaxX = canvasMinX + WIDTH
+
+document.onmousemove = 
+    
+    </summary>
+    
+    
+      <category term="Programming" scheme="http://sarojaba.github.io/tags/Programming/"/>
+    
+      <category term="Game" scheme="http://sarojaba.github.io/tags/Game/"/>
+    
+      <category term="CoffeeScript" scheme="http://sarojaba.github.io/tags/CoffeeScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>coffeescript-game-tutorial-the-keyboard</title>
+    <link href="http://sarojaba.github.io/2014/07/29/coffeescript-game-tutorial-the-keyboard/"/>
+    <id>http://sarojaba.github.io/2014/07/29/coffeescript-game-tutorial-the-keyboard/</id>
+    <published>2014-07-29T14:30:00.000Z</published>
+    <updated>2017-04-09T03:32:38.758Z</updated>
+    
+    <content type="html"><![CDATA[<p>키보드 이벤트를 추가한 코드이다.</p>
+<pre><code>###coffee
+rightDown = false
+leftDown = false
+
+# set rightDown or leftDown if the right or left key are down
+document.onkeydown = (evt) -&gt;
+switch evt.keyCode
+when 39 then rightDown = true
+when 37 then leftDown = true
+
+# and unset then when the right or left key is released
+document.onkeyup = (evt) -&gt;
+switch evt.keyCode
+when 39 then rightDown = false
+when 37 then leftDown = false
+
+draw = -&gt;
+clear()
+circle(x, y, 10)
+
+# move the paddle if left or right is currently pressed
+paddlex += 5 if rightDown
+paddlex -= 5 if leftDown
+rect(paddlex, HEIGHT-paddleh, paddlew, paddleh)
+
+dx = -dx if x + dx &gt; WIDTH or x + dx &lt; 0
+if y + dy &lt; 0 then dy = -dy
+else if y + dy &gt; HEIGHT
+if x &gt; paddlex and x &lt; paddlex + paddlew
+dy = -dy
+else
+# game over, so stop the animation
+clearInterval(intervalId)
+
+x += dx;
+y += dy;
+
+window.onload = -&gt;
+init() 
+</code></pre><p><a href="http://billmill.org/static/canvastutorial/keyboard.html" target="_blank" rel="external">Reference</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;키보드 이벤트를 추가한 코드이다.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;###coffee
+rightDown = false
+leftDown = false
+
+# set rightDown or leftDown if the right or left key are 
+    
+    </summary>
+    
+    
+      <category term="Programming" scheme="http://sarojaba.github.io/tags/Programming/"/>
+    
+      <category term="Game" scheme="http://sarojaba.github.io/tags/Game/"/>
+    
+      <category term="CoffeScript" scheme="http://sarojaba.github.io/tags/CoffeScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>coffeescript-game-tutorial-add-a-paddle</title>
+    <link href="http://sarojaba.github.io/2014/07/29/coffeescript-game-tutorial-add-a-paddle/"/>
+    <id>http://sarojaba.github.io/2014/07/29/coffeescript-game-tutorial-add-a-paddle/</id>
+    <published>2014-07-29T14:27:00.000Z</published>
+    <updated>2017-04-09T03:33:42.144Z</updated>
+    
+    <content type="html"><![CDATA[<p>화면 하단에 막대기를 추가한 코드이다.</p>
+<pre><code>###coffee
+paddlex = 0
+paddleh = 0
+paddlew = 0
+
+init_paddle = -&gt;
+paddlex = WIDTH / 2
+paddleh = 10
+paddlew = 75
+
+draw = -&gt;
+clear()
+circle(x, y, 10)
+rect(paddlex, HEIGHT - paddleh, paddlew, paddleh)
+
+dx = -dx if x + dx &gt; WIDTH or x + dx &lt; 0
+if y + dy &lt; 0
+dy = -dy
+else if y + dy &gt; HEIGHT
+if x &gt; paddlex and x &lt; paddlex + paddlew
+dy = -dy
+else
+clearInterval(intervalId)
+
+x += dx;
+y += dy;
+
+window.onload = -&gt;
+init()
+init_paddle() 
+</code></pre><p><a href="http://billmill.org/static/canvastutorial/paddle.html" target="_blank" rel="external">Reference</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;화면 하단에 막대기를 추가한 코드이다.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;###coffee
+paddlex = 0
+paddleh = 0
+paddlew = 0
+
+init_paddle = -&amp;gt;
+paddlex = WIDTH / 2
+paddleh = 10
+
+    
+    </summary>
+    
+    
+      <category term="Programming" scheme="http://sarojaba.github.io/tags/Programming/"/>
+    
+      <category term="Game" scheme="http://sarojaba.github.io/tags/Game/"/>
+    
+      <category term="CoffeeScript" scheme="http://sarojaba.github.io/tags/CoffeeScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>coffeescript-game-tutorial-bounce</title>
+    <link href="http://sarojaba.github.io/2014/07/29/coffeescript-game-tutorial-bounce/"/>
+    <id>http://sarojaba.github.io/2014/07/29/coffeescript-game-tutorial-bounce/</id>
+    <published>2014-07-28T18:45:00.000Z</published>
+    <updated>2017-04-09T03:34:20.340Z</updated>
+    
+    <content type="html"><![CDATA[<p>공 튀기는 코드이다.</p>
+<pre><code>###coffee
+### BEGIN LIBRARY CODE ###
+
+x = 150
+y = 150
+dx = 2
+dy = 4
+ctx = null
+WIDTH = 0
+HEIGHT = 0
+
+init = -&gt;
+canvas = document.getElementById(&quot;myCanvas&quot;)
+ctx = canvas.getContext(&quot;2d&quot;)
+WIDTH = canvas.width
+HEIGHT = canvas.height
+
+setInterval(draw, 10)
+
+circle = (x, y, r) -&gt;
+ctx.beginPath()
+ctx.arc(x, y, r, 0, Math.PI*2, true)
+ctx.closePath()
+ctx.fill()
+
+rect = (x, y, w, h) -&gt;
+ctx.beginPath()
+ctx.rect(x, y, w, h)
+ctx.closePath()
+ctx.fill()
+
+clear = -&gt;
+ctx.clearRect(0, 0, WIDTH, HEIGHT)
+
+### END LIBRARY CODE ###
+
+draw = -&gt;
+clear()
+circle(x, y, 10)
+
+dx = -dx if x + dx &gt; WIDTH or x + dx &lt; 0
+dy = -dy if y + dy &gt; HEIGHT or y + dy &lt; 0
+
+x += dx;
+y += dy;
+
+window.onload = -&gt;
+init()
+</code></pre><p><a href="http://billmill.org/static/canvastutorial/bounce.html" target="_blank" rel="external">Reference</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;공 튀기는 코드이다.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;###coffee
+### BEGIN LIBRARY CODE ###
+
+x = 150
+y = 150
+dx = 2
+dy = 4
+ctx = null
+WIDTH = 0
+HEIGHT = 0
+
+init = -&amp;
+    
+    </summary>
+    
+    
+      <category term="Programming" scheme="http://sarojaba.github.io/tags/Programming/"/>
+    
+      <category term="Game" scheme="http://sarojaba.github.io/tags/Game/"/>
+    
+      <category term="CoffeScript" scheme="http://sarojaba.github.io/tags/CoffeScript/"/>
     
   </entry>
   

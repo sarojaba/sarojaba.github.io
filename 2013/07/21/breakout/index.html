@@ -1,0 +1,245 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> breakout · 사로자바의 블로그</title><meta name="description" content="breakout - 사로자바"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://sarojaba.github.io/atom.xml" title="사로자바의 블로그"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li><li class="nav-list-item"><a href="https://www.facebook.com/sarojaba" target="_blank" class="nav-list-link">FACKBOOK</a></li><li class="nav-list-item"><a href="https://github.com/sarojaba" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="http://codepen.io/sarojaba" target="_blank" class="nav-list-link">CODEPEN</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">breakout</h1><div class="post-info">Jul 21, 2013</div><div class="post-content"><p>프로세싱으로 만들어보았다.</p>
+<p>교육용 샘플 정도로만 만들었기 때문에 더 이상 버전업은 하지 않을듯&hellip;</p>
+<p>&lsquo;R&rsquo; 키를 누르면 재시작한다.</p>
+<script src="https://github.com/downloads/processing-js/processing-js/processing-1.4.1.min.js"></script><script type="text/processing" data-processing-target="processing-canvas-breakout">
+PVector pos;
+PVector delta;
+int paddle;
+
+int nrows;
+int ncols;
+float bwidth;
+float bheight;
+boolean[][] bricks;
+
+void setup() {
+
+  size(320, 240);
+  smooth();
+  colorMode(HSB);
+
+  pos = new PVector(width / 2, height / 2);
+  delta = new PVector(-2, -2);
+  paddle = 20;
+  nrows = 5;
+  ncols = 5;
+  bwidth = width / ncols;
+  bheight = 15;
+  bricks = new boolean[nrows][ncols];
+
+  reset();
+}
+
+void draw() {
+
+  // clear
+  background(#FFFFFF);
+
+  // hit wall ?
+  if (pos.x < 0 || pos.x > width) {
+    delta.x = -delta.x;
+  }  
+  if (pos.y < 0) {
+    delta.y = -delta.y;
+  }
+
+  // hit paddle ?
+  if (pos.y > height) {
+    if (pos.x > mouseX - paddle && pos.x < mouseX + paddle) {
+      delta.y = -delta.y;
+    }
+  }
+
+  // hit brick ?
+  for (int r = 0; r < nrows; r++) {
+    for (int c = 0; c < ncols; c++) {
+      if (bricks[r][c]) {
+        if (pos.x > bwidth * c && pos.x < bwidth * (c + 1) &&
+          pos.y > bheight * r && pos.y < bheight * (r + 1)) {
+            // remove brick
+            bricks[r][c] = false;
+
+            // bound ball
+            delta.y = -delta.y;
+        }
+      }
+    }
+  }
+
+  // draw paddle
+  stroke(#000000);
+  strokeWeight(10);
+  line(mouseX - paddle, height, mouseX + paddle, height);
+
+  // draw ball
+  noStroke();
+  fill(#000000);
+  ellipse(pos.x, pos.y, 20, 20);
+
+  // draw bricks
+  stroke(#FFFFFF);
+  strokeWeight(1);
+  for (int r = 0; r < nrows; r++) {
+    fill(color(255.0 / nrows * r, 255, 255));
+    for (int c = 0; c < ncols; c++) {
+      if (bricks[r][c]) {
+        rect(bwidth * c, bheight * r, bwidth, bheight);
+      }
+    }
+  }
+
+  // move
+  pos.x += delta.x;
+  pos.y += delta.y;
+}
+
+void keyPressed() {
+  if(key == 'r' || key == 'R') {
+    reset();
+  }
+}
+
+void reset() {
+
+  // pos
+  pos.x = width / 2;
+  pos.y = height / 2;
+
+  // delta
+  delta.x = -2;
+  delta.y = -2;
+
+  // brick
+  for (int r = 0; r < nrows; r++) {
+    for (int c = 0; c < ncols; c++) {
+      bricks[r][c] = true;
+    }
+  }
+}
+</script>
+
+<canvas id="processing-canvas-breakout"></canvas>
+
+<pre><code>PVector pos;
+PVector delta;
+int paddle;
+
+int nrows;
+int ncols;
+float bwidth;
+float bheight;
+boolean[][] bricks;
+
+void setup() {
+
+  size(320, 240);
+  smooth();
+  colorMode(HSB);
+
+  pos = new PVector(width / 2, height / 2);
+  delta = new PVector(-2, -2);
+  paddle = 20;
+  nrows = 5;
+  ncols = 5;
+  bwidth = width / ncols;
+  bheight = 15;
+  bricks = new boolean[nrows][ncols];
+
+  reset();
+}
+
+void draw() {
+
+  // clear
+  background(#FFFFFF);
+
+  // hit wall ?
+  if (pos.x &lt; 0 || pos.x &gt; width) {
+    delta.x = -delta.x;
+  }  
+  if (pos.y &lt; 0) {
+    delta.y = -delta.y;
+  }
+
+  // hit paddle ?
+  if (pos.y &gt; height) {
+    if (pos.x &gt; mouseX - paddle &amp;&amp; pos.x &lt; mouseX + paddle) {
+      delta.y = -delta.y;
+    }
+  }
+
+  // hit brick ?
+  for (int r = 0; r &lt; nrows; r++) {
+    for (int c = 0; c &lt; ncols; c++) {
+      if (bricks[r][c]) {
+    if (pos.x &gt; bwidth * c &amp;&amp; pos.x &lt; bwidth * (c + 1) &amp;&amp;
+      pos.y &gt; bheight * r &amp;&amp; pos.y &lt; bheight * (r + 1)) {
+        // remove brick
+        bricks[r][c] = false;
+
+        // bound ball
+        delta.y = -delta.y;
+    }
+      }
+    }
+  }
+
+  // draw paddle
+  stroke(#000000);
+  strokeWeight(10);
+  line(mouseX - paddle, height, mouseX + paddle, height);
+
+  // draw ball
+  noStroke();
+  fill(#000000);
+  ellipse(pos.x, pos.y, 20, 20);
+
+  // draw bricks
+  stroke(#FFFFFF);
+  strokeWeight(1);
+  for (int r = 0; r &lt; nrows; r++) {
+    fill(color(255.0 / nrows * r, 255, 255));
+    for (int c = 0; c &lt; ncols; c++) {
+      if (bricks[r][c]) {
+    rect(bwidth * c, bheight * r, bwidth, bheight);
+      }
+    }
+  }
+
+  // move
+  pos.x += delta.x;
+  pos.y += delta.y;
+}
+
+void keyPressed() {
+  if(key == &apos;r&apos; || key == &apos;R&apos;) {
+    reset();
+  }
+}
+
+void reset() {
+
+  // pos
+  pos.x = width / 2;
+  pos.y = height / 2;
+
+  // delta
+  delta.x = -2;
+  delta.y = -2;
+
+  // brick
+  for (int r = 0; r &lt; nrows; r++) {
+    for (int c = 0; c &lt; ncols; c++) {
+      bricks[r][c] = true;
+    }
+  }
+}
+</code></pre></div></article></div></main><footer><div class="paginator"><a href="/2013/07/20/tumblr에-processing-포스팅-하기/" class="prev">PREV</a><a href="/2013/07/25/oblivion/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'sarojaba';
+var disqus_identifier = '2013/07/21/breakout/';
+var disqus_title = 'breakout';
+var disqus_url = 'http://sarojaba.github.io/2013/07/21/breakout/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//sarojaba.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2017 <a href="http://sarojaba.github.io">사로자바</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>

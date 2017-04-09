@@ -1,0 +1,120 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> eclipse-rcp-tutorial11 · 사로자바의 블로그</title><meta name="description" content="eclipse-rcp-tutorial11 - 사로자바"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://sarojaba.github.io/atom.xml" title="사로자바의 블로그"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li><li class="nav-list-item"><a href="https://www.facebook.com/sarojaba" target="_blank" class="nav-list-link">FACKBOOK</a></li><li class="nav-list-item"><a href="https://github.com/sarojaba" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="http://codepen.io/sarojaba" target="_blank" class="nav-list-link">CODEPEN</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">eclipse-rcp-tutorial11</h1><div class="post-info">May 31, 2014</div><div class="post-content"><p>작성일: 2010. 10. 27.</p>
+<p>원문: <a href="http://www.vogella.de/articles/EclipseRCP/article.html" target="_blank" rel="external">http://www.vogella.de/articles/EclipseRCP/article.html</a> Version 5.1</p>
+<h1 id="상태표시줄-추가하기"><a href="#상태표시줄-추가하기" class="headerlink" title="상태표시줄 추가하기"></a>상태표시줄 추가하기</h1><h2 id="상태표시줄-설정하기"><a href="#상태표시줄-설정하기" class="headerlink" title="상태표시줄 설정하기"></a>상태표시줄 설정하기</h2><p>&ldquo;de.vogella.rcp.intro.statusline&rdquo; 으로 새로운 RCP 프로젝트를 생성한다. 템플릿으로 &ldquo;Hello RCP&rdquo; 를 사용한다. &ldquo;ApplicationWorkbenchWindowAdvisor&rdquo; 클래스를 열고 preWindowOpen() 메소드를 변경한다. 코드에서 관련된 위치는 &ldquo;configurer.setShowStatusLine(true);&rdquo; 이다.</p>
+<pre><code>package de.vogella.rcp.intro.statusline;
+import org.eclipse.swt.graphics.Point;
+import org.eclipse.ui.application.ActionBarAdvisor;
+import org.eclipse.ui.application.IActionBarConfigurer;
+import org.eclipse.ui.application.IWorkbenchWindowConfigurer;
+import org.eclipse.ui.application.WorkbenchWindowAdvisor;
+public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
+    public ApplicationWorkbenchWindowAdvisor(IWorkbenchWindowConfigurer configurer) {
+        super(configurer);
+    }
+    public ActionBarAdvisor createActionBarAdvisor(IActionBarConfigurer configurer) {
+        return new ApplicationActionBarAdvisor(configurer);
+    }
+
+    @Override
+    public void preWindowOpen() {
+        IWorkbenchWindowConfigurer configurer = getWindowConfigurer();
+        configurer.setInitialSize(new Point(400, 300));
+        configurer.setShowCoolBar(false);
+        configurer.setShowStatusLine(false);
+        configurer.setTitle(&quot;Status Line Example&quot;);
+        configurer.setShowStatusLine(true);
+    }
+}
+`&lt;/pre&gt;
+
+애플리케이션을 실행하면 이미 상태표시줄을 볼 수 있을 것이다. 중요한 점은 상태표시줄은 텍스트를 포함하지 않는다는 것이다.
+
+## 공유된 상태표시줄
+
+공유된 메시지 영역은 이 영역에 메시지를 쓰기위해 애플리케이션의 모든 영역에서 사용될 수 있다.
+
+다음은 상태표시줄에 텍스트를 쓰는 코드이다.
+
+&lt;pre&gt;`package de.vogella.rcp.intro.statusline;
+import org.eclipse.jface.action.IStatusLineManager;
+import org.eclipse.swt.graphics.Point;
+import org.eclipse.ui.application.ActionBarAdvisor;
+import org.eclipse.ui.application.IActionBarConfigurer;
+import org.eclipse.ui.application.IWorkbenchWindowConfigurer;
+import org.eclipse.ui.application.WorkbenchWindowAdvisor;
+public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
+    public ApplicationWorkbenchWindowAdvisor(IWorkbenchWindowConfigurer configurer) {
+        super(configurer);
+    }
+    public ActionBarAdvisor createActionBarAdvisor(IActionBarConfigurer configurer) {
+        return new ApplicationActionBarAdvisor(configurer);
+    }
+
+    @Override
+    public void preWindowOpen() {
+        IWorkbenchWindowConfigurer configurer = getWindowConfigurer();
+        configurer.setInitialSize(new Point(400, 300));
+        configurer.setShowCoolBar(false);
+        configurer.setShowStatusLine(false);
+        configurer.setTitle(&quot;Status Line Example&quot;);
+        configurer.setShowStatusLine(true);
+    }
+
+ // This is the new method
+@Override
+public void postWindowOpen() {
+IStatusLineManager statusline = getWindowConfigurer()
+.getActionBarConfigurer().getStatusLineManager();
+statusline.setMessage(null, &quot;Status line is ready&quot;);
+}
+}
+`&lt;/pre&gt;
+
+애플리케이션을 실행한다. 다음과 같은 화면을 볼 수 있을 것이다.
+
+ID가 “de.vogella.rcp.intro.statusline.View1” 인 뷰를 추가하고 “de.vogella.rcp.intro.statusline.ViewPart1” 클래스를 구현한다. 이 뷰는 상태표시줄을설정하는 버튼을 포함한다.
+
+&lt;pre&gt;`package de.vogella.rcp.intro.statusline;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.ui.IActionBars;
+import org.eclipse.ui.part.ViewPart;
+public class ViewPart1 extends ViewPart {
+boolean pressed = false;
+@Override
+public void createPartControl(Composite parent) {
+Button setStatusLine = new Button(parent, SWT.PUSH);
+setStatusLine.setText(&quot;Set Statusline &quot;);
+setStatusLine.addSelectionListener(new SelectionAdapter() {
+public void widgetSelected(SelectionEvent e) {
+String message = &quot;I would like to say hello to you.&quot;;
+if (pressed) {
+message = &quot;Thank you for using me&quot;;
+}
+setStatusLine(message);
+pressed = !pressed;
+}
+});
+}
+private void setStatusLine(String message) {
+// Get the status line and set the text
+IActionBars bars = getViewSite().getActionBars();
+bars.getStatusLineManager().setMessage(message);
+}
+@Override
+public void setFocus() {
+}
+}
+</code></pre><p>결과를 실행하면 다음과 같은 화면을 볼 수 있다.</p>
+</div></article></div></main><footer><div class="paginator"><a href="/2014/05/31/eclipse-rcp-tutorial10/" class="prev">PREV</a><a href="/2014/06/01/eclipse-rcp-tutorial12/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'sarojaba';
+var disqus_identifier = '2014/05/31/eclipse-rcp-tutorial11/';
+var disqus_title = 'eclipse-rcp-tutorial11';
+var disqus_url = 'http://sarojaba.github.io/2014/05/31/eclipse-rcp-tutorial11/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//sarojaba.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2017 <a href="http://sarojaba.github.io">사로자바</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>

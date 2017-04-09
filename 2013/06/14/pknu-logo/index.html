@@ -1,0 +1,149 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> pknu-logo · 사로자바의 블로그</title><meta name="description" content="pknu-logo - 사로자바"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://sarojaba.github.io/atom.xml" title="사로자바의 블로그"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li><li class="nav-list-item"><a href="https://www.facebook.com/sarojaba" target="_blank" class="nav-list-link">FACKBOOK</a></li><li class="nav-list-item"><a href="https://github.com/sarojaba" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="http://codepen.io/sarojaba" target="_blank" class="nav-list-link">CODEPEN</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">pknu-logo</h1><div class="post-info">Jun 14, 2013</div><div class="post-content"><p>컴퓨터 그래픽스 수업의 레포트로 OpenGL로 작성했었던 학교 로고를 Processing 언어로 재작성하였다.</p>
+<p>나에게 부족한 그래픽스 및 수학을 공부할 수 있는 최적의 환경이 갖춰졌다.</p>
+<p>단기적으로는 다른 레포트도 재작성해보고, 장기적으로는 여러 창의적인 작품을 더 만들고 싶다.</p>
+<script src="https://github.com/downloads/processing-js/processing-js/processing-1.4.1.min.js"></script><script type="text/processing" data-processing-target="processing-canvas-pknu_logo">
+color navy = color(0, 56, 118);
+color sky = color(0, 154, 218);
+color white = color(255);
+void setup() {
+    size(140, 120);
+    background(255);
+    noStroke();
+    noLoop();
+}
+
+void draw(){
+
+    drawLeftCresent();
+
+    drawRightCresent();
+
+    drawCenterFullMoon();
+
+    drawCenterDiamond();
+}
+
+void drawLeftCresent() {
+
+    // left half circle
+    fill(navy);
+    arc(width / 2 - 20, height / 2, 82, 82, PI * 0.5, PI * 1.5);
+
+    // left half circle
+    fill(white);
+    arc(width / 2 - 8, height / 2, 84, 84, PI * 0.5, PI * 1.5);
+}
+void drawRightCresent() {
+
+    // right half circle
+    fill(sky);
+    arc(width / 2 + 20, height / 2, 82, 82, PI * -0.5 , PI * 0.5);
+
+    // right half circle
+    fill(white);
+    arc(width / 2 + 8, height / 2, 84, 84, PI * -0.5 , PI * 0.5);
+}
+void drawCenterFullMoon() {
+
+    // left half circle
+    fill(sky);
+    arc(width / 2, height / 2, 80, 80, PI * 0.5, PI * 1.5);
+
+    // right half circle
+    fill(navy);
+    arc(width / 2, height / 2, 80, 80, PI * -0.5 , PI * 0.5);
+}
+void drawCenterDiamond() {
+
+    // north-west triangle
+    fill(sky);
+    triangle(width / 2, 0, width / 2, height / 2, (width / 2) - 14, height / 2);
+
+    // south-east triangle
+    fill(navy);
+    triangle(width / 2, height, width / 2, height / 2, (width / 2) + 14, height / 2);
+
+    // north-east & south-west triangle
+    fill(white);
+    triangle(width / 2, 0, width / 2, height / 2, (width / 2) + 14, height / 2);
+    triangle(width / 2, height, width / 2, height / 2, (width / 2) - 14, height / 2);
+}
+</script>
+
+<canvas id="processing-canvas-pknu_logo"></canvas>
+
+<pre><code>color navy = color(0, 56, 118);
+color sky = color(0, 154, 218);
+color white = color(255);
+
+void setup() {
+    size(140, 120);
+    background(255);
+    noStroke();
+    noLoop();
+}
+
+void draw(){
+
+    drawLeftCresent();      
+    drawRightCresent();     
+    drawCenterFullMoon();       
+    drawCenterDiamond();
+}
+
+void drawLeftCresent() {
+
+    // left half circle
+    fill(navy);
+    arc(width / 2 - 20, height / 2, 82, 82, PI * 0.5, PI * 1.5);
+
+    // left half circle
+    fill(white);
+    arc(width / 2 - 8, height / 2, 84, 84, PI * 0.5, PI * 1.5);
+}
+void drawRightCresent() {
+
+    // right half circle
+    fill(sky);
+    arc(width / 2 + 20, height / 2, 82, 82, PI * -0.5 , PI * 0.5);
+
+    // right half circle
+    fill(white);
+    arc(width / 2 + 8, height / 2, 84, 84, PI * -0.5 , PI * 0.5);
+}
+
+void drawCenterFullMoon() {
+
+    // left half circle
+    fill(sky);
+    arc(width / 2, height / 2, 80, 80, PI * 0.5, PI * 1.5);
+
+    // right half circle
+    fill(navy);
+    arc(width / 2, height / 2, 80, 80, PI * -0.5 , PI * 0.5);
+}
+
+void drawCenterDiamond() {
+
+    // north-west triangle
+    fill(sky);
+    triangle(width / 2, 0, width / 2, height / 2, (width / 2) - 14, height / 2);
+
+    // south-east triangle
+    fill(navy);
+    triangle(width / 2, height, width / 2, height / 2, (width / 2) + 14, height / 2);
+
+    // north-east &amp; south-west triangle
+    fill(white);
+    triangle(width / 2, 0, width / 2, height / 2, (width / 2) + 14, height / 2);
+    triangle(width / 2, height, width / 2, height / 2, (width / 2) - 14, height / 2);
+}
+</code></pre></div></article></div></main><footer><div class="paginator"><a href="/2013/06/14/마르코-템페스트marco-tempest-독특한-사이버-카드-마술사/" class="prev">PREV</a><a href="/2013/06/16/captain-america-the-first-avenger/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'sarojaba';
+var disqus_identifier = '2013/06/14/pknu-logo/';
+var disqus_title = 'pknu-logo';
+var disqus_url = 'http://sarojaba.github.io/2013/06/14/pknu-logo/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//sarojaba.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2017 <a href="http://sarojaba.github.io">사로자바</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>

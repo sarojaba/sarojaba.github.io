@@ -1,0 +1,25 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> a-really-simple-program · 사로자바의 블로그</title><meta name="description" content="a-really-simple-program - 사로자바"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://sarojaba.github.io/atom.xml" title="사로자바의 블로그"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li><li class="nav-list-item"><a href="https://www.facebook.com/sarojaba" target="_blank" class="nav-list-link">FACKBOOK</a></li><li class="nav-list-item"><a href="https://github.com/sarojaba" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="http://codepen.io/sarojaba" target="_blank" class="nav-list-link">CODEPEN</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">a-really-simple-program</h1><div class="post-info">Mar 29, 2013</div><div class="post-content"><p>여기 고전적인 예제 프로그램이 있다.</p>
+<pre><code>void hello() {
+    print(&quot;Hello, World!&quot;);
+}
+`&lt;/pre&gt;
+
+이 함수는 Hello, World! 를 콘솔에 찍는다. 어떤 타입의 멤버도 아니기 때문에 이 함수를 최상위 레벨 함수라고 부른다. 최상위 레벨 함수를 호출하기 위해 객체를 받을 필요가 없다. 대신에 다음처럼 호출만 하면 된다.
+
+&lt;pre&gt;`hello();
+`&lt;/pre&gt;
+
+Ceylon 은 Java, C++, C# 에서 볼 수 있는 static 메소드를 가지지 않지만 최상위 레벨 함수가 같은 역할을 하고 있다고 보면 된다. 이렇게 차이가 나는 이유는 Ceylon 은 아주 엄격한 블록 구조를 가지고 있기 때문이다. 중첩된 블록은 포함하는 블록의 선언에 항상 접근할 수 있다. Java 의 static 메소드의 경우와는 다르다.
+
+Ceylon 은 아직 스크립팅을 지원하지 않는다. 함수나 클래스 밖에서 print(“Hello World!”); 라고만 적는것은 안된다. 다음은 잘못된 프로그램이다.
+
+&lt;pre&gt;`print(&quot;Hello, World!&quot;);  //error: must occur inside a function or class
+</code></pre></div></article></div></main><footer><div class="paginator"><a href="/2013/03/16/another-earth/" class="prev">PREV</a><a href="/2013/03/29/커맨드-라인에서-프로그램-실행하기/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'sarojaba';
+var disqus_identifier = '2013/03/29/a-really-simple-program/';
+var disqus_title = 'a-really-simple-program';
+var disqus_url = 'http://sarojaba.github.io/2013/03/29/a-really-simple-program/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//sarojaba.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2017 <a href="http://sarojaba.github.io">사로자바</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>

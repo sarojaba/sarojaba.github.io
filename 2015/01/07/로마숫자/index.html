@@ -1,0 +1,109 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 로마숫자 · 사로자바의 블로그</title><meta name="description" content="로마숫자 - 사로자바"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://sarojaba.github.io/atom.xml" title="사로자바의 블로그"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li><li class="nav-list-item"><a href="https://www.facebook.com/sarojaba" target="_blank" class="nav-list-link">FACKBOOK</a></li><li class="nav-list-item"><a href="https://github.com/sarojaba" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="http://codepen.io/sarojaba" target="_blank" class="nav-list-link">CODEPEN</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">로마숫자</h1><div class="post-info">Jan 7, 2015</div><div class="post-content"><p><img src="http://68.media.tumblr.com/d382dbdcce18e8482b7064e4ec3c276b/tumblr_inline_nhri7qnong1rubmdv.jpg" alt=""></p>
+<pre><code>public class RomaNum {
+    private char[] signs = {
+        &apos;I&apos;, &apos;V&apos;, &apos;X&apos;, &apos;L&apos;, &apos;C&apos;, &apos;D&apos;, &apos;M&apos;
+    };
+    private int[] values = {
+        1, 5, 10, 50, 100, 500, 1000
+    };
+
+    public String toRomaNum(int digitNum) {
+        StringBuilder sb = new StringBuilder();
+
+        String s = Integer.toString(digitNum);
+
+        for (int i = 0; i &lt; s.length(); i++) {
+            int d = s.length() - i - 1;
+
+            char ch = s.charAt(i);
+
+            switch (ch) {
+                case &apos;1&apos;:
+                    sb.append(signs[d * 2]);
+                    break;
+                case &apos;2&apos;:
+                    sb.append(signs[d * 2]);
+                    sb.append(signs[d * 2]);
+                    break;
+                case &apos;3&apos;:
+                    sb.append(signs[d * 2]);
+                    sb.append(signs[d * 2]);
+                    sb.append(signs[d * 2]);
+                    break;
+                case &apos;4&apos;:
+                    sb.append(signs[d * 2]);
+                    sb.append(signs[d * 2 + 1]);
+                    break;
+                case &apos;5&apos;:
+                    sb.append(signs[d * 2 + 1]);
+                    break;
+                case &apos;6&apos;:
+                    sb.append(signs[d * 2 + 1]);
+                    sb.append(signs[d * 2]);
+                    break;
+                case &apos;7&apos;:
+                    sb.append(signs[d * 2 + 1]);
+                    sb.append(signs[d * 2]);
+                    sb.append(signs[d * 2]);
+                case &apos;8&apos;:
+                    sb.append(signs[d * 2 + 1]);
+                    sb.append(signs[d * 2]);
+                    sb.append(signs[d * 2]);
+                    sb.append(signs[d * 2]);
+                case &apos;9&apos;:
+                    sb.append(signs[d * 2]);
+                    sb.append(signs[d * 2 + 2]);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        return sb.toString();
+    }
+
+    public int toDigitNum(String romaNum) {
+        int[] n = new int[romaNum.length() * 3];
+        int sum = 0;
+
+        for (int i = 0; i &lt; romaNum.length(); i++) {
+            char sign = romaNum.charAt(i);
+
+            for (int j = 0; j &lt; signs.length; j++) {
+                if (sign == signs[j]) {
+                    n[i] = values[j];
+                    break;
+                }
+            }
+        }
+
+        for (int i = 1; i &lt; n.length; i++) {
+            if (n[i - 1] &lt; n[i]) {
+                sum += n[i] - n[i - 1];
+                i++;
+            } else {
+                sum += n[i - 1];
+            }
+        }
+
+        return sum;
+
+    }
+
+    public static void main(String[] args) {
+        RomaNum rn = new RomaNum();
+
+        System.out.println(rn.toRomaNum(2493));
+        System.out.println(rn.toDigitNum(&quot;MMMCCCXXXIII&quot;));
+    }
+}
+</code></pre><p>예전 블로그에 있던 소스를 옮기고 있는데 지금 보니 무슨 생각으로 짰는지 모르겠다;; ㅎㄷㄷ</p>
+</div></article></div></main><footer><div class="paginator"><a href="/2014/11/19/playn-game-loop/" class="prev">PREV</a><a href="/2015/01/07/최대-공약수와-최소-공배수/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'sarojaba';
+var disqus_identifier = '2015/01/07/로마숫자/';
+var disqus_title = '로마숫자';
+var disqus_url = 'http://sarojaba.github.io/2015/01/07/로마숫자/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//sarojaba.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2017 <a href="http://sarojaba.github.io">사로자바</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>

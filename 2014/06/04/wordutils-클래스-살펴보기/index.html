@@ -1,0 +1,37 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> wordutils-클래스-살펴보기 · 사로자바의 블로그</title><meta name="description" content="wordutils-클래스-살펴보기 - 사로자바"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://sarojaba.github.io/atom.xml" title="사로자바의 블로그"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li><li class="nav-list-item"><a href="https://www.facebook.com/sarojaba" target="_blank" class="nav-list-link">FACKBOOK</a></li><li class="nav-list-item"><a href="https://github.com/sarojaba" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="http://codepen.io/sarojaba" target="_blank" class="nav-list-link">CODEPEN</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">wordutils-클래스-살펴보기</h1><div class="post-info">Jun 4, 2014</div><div class="post-content"><p>Apache Commons Lang 컴포넌트의 WordUtils 클래스에 대해 알아보자.<br>말그대로 단어를 쉽게 다룰 수 있는 기능을 제공한다.</p>
+<pre><code>import org.apache.commons.lang3.text.WordUtils;
+
+public class Main {
+  public static void main(String[] args) {
+
+    // capitalize 메소드는 단어의 첫 글자를 대문자로 치환한다.
+    System.out.println(WordUtils.capitalize(&quot;hello world!&quot;));
+
+    // initials 메소드는 단어들의 이니셜을 구한다.
+    // 즉, 각 단어들의 첫글자만 남긴다.
+    System.out.println(WordUtils.initials(&quot;Java development Kit&quot;));
+
+    // wrap 메소드는 텍스트 편집기의 워드랩 기능을 제공한다.
+    // 즉, 단어별로 한 라인의 남은 칸에 다 적히지 않으면 해당 단어를 다음 라인에 적는다.
+    System.out.println(WordUtils.wrap(&quot;Hello world!&quot;, 8 ));
+    System.out.println(WordUtils.wrap(&quot;Hello world!&quot;, 12));
+  }
+}
+`&lt;/pre&gt;
+
+결과이다.
+
+&lt;pre&gt;`Hello World!
+JdK
+Hello
+world!
+Hello world!
+</code></pre></div></article></div></main><footer><div class="paginator"><a href="/2014/06/03/stringutils-클래스-이해하기/" class="prev">PREV</a><a href="/2014/06/04/serializationutils-클래스-살펴보기/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'sarojaba';
+var disqus_identifier = '2014/06/04/wordutils-클래스-살펴보기/';
+var disqus_title = 'wordutils-클래스-살펴보기';
+var disqus_url = 'http://sarojaba.github.io/2014/06/04/wordutils-클래스-살펴보기/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//sarojaba.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2017 <a href="http://sarojaba.github.io">사로자바</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>

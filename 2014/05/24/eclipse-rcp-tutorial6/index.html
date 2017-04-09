@@ -1,0 +1,89 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> eclipse-rcp-tutorial6 · 사로자바의 블로그</title><meta name="description" content="eclipse-rcp-tutorial6 - 사로자바"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://sarojaba.github.io/atom.xml" title="사로자바의 블로그"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li><li class="nav-list-item"><a href="https://www.facebook.com/sarojaba" target="_blank" class="nav-list-link">FACKBOOK</a></li><li class="nav-list-item"><a href="https://github.com/sarojaba" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="http://codepen.io/sarojaba" target="_blank" class="nav-list-link">CODEPEN</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">eclipse-rcp-tutorial6</h1><div class="post-info">May 24, 2014</div><div class="post-content"><p>작성일: 2010. 10. 27.</p>
+<p>원문: <a href="http://www.vogella.de/articles/EclipseRCP/article.html" target="_blank" rel="external">http://www.vogella.de/articles/EclipseRCP/article.html</a> Version 5.1<br>Commands</p>
+<h1 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h1><p>명령은 컴포넌트의 명세를 선언하고 상세 구현으로부터 독립적이다. 명령은 분류할 수 있고 단축키를 할당 할 수 있다. 명령은 메뉴, 툴바 그리고 컨텍스트 메뉴에 사용된다. 다음에서는 메뉴에 명령을 적용하는 방법을 시연할 것이다. 명령에 대한 자세한 내용은 Eclipse Commands - Tutorial 을 보아라.</p>
+<h1 id="명령-정의하기"><a href="#명령-정의하기" class="headerlink" title="명령 정의하기"></a>명령 정의하기</h1><p>어플리케이션을 종료하는 명령을 만들 것이다. &ldquo;de.vogella.rcp.commands.first&rdquo; 라는 새로운 RCP 프로젝트를 생성하고, &ldquo;Hello RCP&rdquo; 템플릿을 사용한다. &ldquo;plugin.xml&rdquo; 파일을 더블 클릭하고 &ldquo;Extensions&rdquo; 탭을 선택한다. 그리고 &ldquo;Add&rdquo; 버튼을 누른다.</p>
+<p>&ldquo;org.eclipse.ui.commands&rdquo; 확장을 검색한다. 그것을 선택하고 &ldquo;Finish&rdquo; 를 누른다.</p>
+<p>확장점에 오른쪽 클릭을 하여 New -&gt; Command 를 선택해 새로운 명령을 생성한다.</p>
+<p>ID는 &ldquo;de.vogella.rcp.commands.first.commands.Exit&rdquo; 로, 이름은 &ldquo;Exit&rdquo; 로 설정한다. 기본 핸들러로 &ldquo;de.vogella.rcp.commands.first.commands.ExitHandler&rdquo; 클래스를 넣는다. 이 클래스를 생성하기 위해 &ldquo;defaultHAndler&rdquo; 하이퍼링크를 누르고 부모 클래스로 &ldquo;org.eclipse.core.commands.AbstractHandler&rdquo; 를 선택한다.</p>
+<p>다음의 코드를 구현한다. 당신의 새로운 명령은 나중에 사용될 준비 상태이다.</p>
+<pre><code>package de.vogella.rcp.commands.first.commands;
+import org.eclipse.core.commands.AbstractHandler;
+import org.eclipse.core.commands.ExecutionEvent;
+import org.eclipse.core.commands.ExecutionException;
+import org.eclipse.ui.handlers.HandlerUtil;
+public class ExitHandler extends AbstractHandler {
+@Override
+public Object execute(ExecutionEvent event) throws ExecutionException {
+HandlerUtil.getActiveWorkbenchWindow(event).close();
+return null;
+}
+}
+`&lt;/pre&gt;
+
+# 메뉴에서 명령 사용하기
+
+우리가 정의한 명령은 메뉴에서 사용될 것이다. “org.eclipse.ui.commands” 확장과 비슷하게 어플리케이션에 “org.eclipse.ui.menus” 확장점을 추가한다. 확장점에서 오른쪽 클릭을 하고 “New” -&gt; “menuContribution” 을 선택한다.
+
+location URI 는 “menu:org.eclipse.ui.main.menu” 라고 하고, 새로운 메뉴 기증을 생성한다. 이 URL이 정확하지 않으면 당신의 메뉴는 보이지 않는다.
+
+메뉴 기증을 오른쪽 클릭하고 “New” -&gt; “Menu” 를 선택한다. label 은 “File”, id 는 “fileMenu” 로 메뉴를 추가한다.
+
+메뉴를 선택하고, 오른쪽 클릭을 하고, New -&gt; Command 를 선택한다. commandID 는 그대로 둔다. 레이블은 “Exit”, 툴팁은 “Exits the application” 으로 설정한다.
+
+위의 과정을 통해 plugin.xml 파일에 다음과 같은 결과를 얻을 것이다.
+
+&lt;pre&gt;`&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;?eclipse version=&quot;3.4&quot;?&gt;
+&lt;plugin&gt;
+   &lt;extension
+         id=&quot;application&quot;
+         point=&quot;org.eclipse.core.runtime.applications&quot;&gt;
+      &lt;application&gt;
+         &lt;run
+               class=&quot;de.vogella.rcp.commands.first.Application&quot;&gt;
+         &lt;/run&gt;
+      &lt;/application&gt;
+   &lt;/extension&gt;
+   &lt;extension
+         point=&quot;org.eclipse.ui.perspectives&quot;&gt;
+      &lt;perspective
+            name=&quot;RCP Perspective&quot;
+            class=&quot;de.vogella.rcp.commands.first.Perspective&quot;
+            id=&quot;de.vogella.rcp.commands.first.perspective&quot;&gt;
+      &lt;/perspective&gt;
+   &lt;/extension&gt;
+   &lt;extension
+         point=&quot;org.eclipse.ui.commands&quot;&gt;
+      &lt;command
+            defaultHandler=&quot;de.vogella.rcp.commands.first.commands.ExitHandler&quot;
+            id=&quot;de.vogella.rcp.commands.first.commands.Exit&quot;
+            name=&quot;Exit&quot;&gt;
+      &lt;/command&gt;
+   &lt;/extension&gt;
+   &lt;extension
+         point=&quot;org.eclipse.ui.menus&quot;&gt;
+      &lt;menuContribution
+            locationURI=&quot;menu:org.eclipse.ui.main.menu&quot;&gt;
+         &lt;menu
+               id=&quot;fileMenu&quot;
+               label=&quot;File&quot;&gt;
+            &lt;command
+                  commandId=&quot;de.vogella.rcp.commands.first.commands.Exit&quot;
+                  label=&quot;Exit&quot;
+                  style=&quot;push&quot;
+                  tooltip=&quot;Exit the application&quot;&gt;
+            &lt;/command&gt;
+         &lt;/menu&gt;
+      &lt;/menuContribution&gt;
+   &lt;/extension&gt;
+&lt;/plugin&gt;
+</code></pre><p>예제를 실행한다. &ldquo;file&rdquo; 메뉴를 보게 될 것이고, &ldquo;Exit&rdquo; 항목을 선택하면 어플리케이션은 종료할 것이다.</p>
+</div></article></div></main><footer><div class="paginator"><a href="/2014/05/20/eclipse-rcp-tutorial4-5/" class="prev">PREV</a><a href="/2014/05/24/eclipse-rcp-tutorial7/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'sarojaba';
+var disqus_identifier = '2014/05/24/eclipse-rcp-tutorial6/';
+var disqus_title = 'eclipse-rcp-tutorial6';
+var disqus_url = 'http://sarojaba.github.io/2014/05/24/eclipse-rcp-tutorial6/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//sarojaba.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2017 <a href="http://sarojaba.github.io">사로자바</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>
