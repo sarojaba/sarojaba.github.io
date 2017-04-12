@@ -5,17 +5,17 @@
     
     <title>1과-2의-합 | 사로자바의 블로그</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="어떤 정수 n이 있다. 이 정수를 1과 2의 합의 순서로 표현할 때 나타낼 수 있는 방법의 수를 구하시오. 예를 들어 n=3 이면3 = 1 + 1 + 1  = 1 + 2  = 2 + 1단, 1 + 2 와 2 + 1은 그 operand는 같지만 순서가 다르므로 다른것으로 친다. public class Sum{   public static void main(S">
+    <meta name="description" content="어떤 정수 n이 있다. 이 정수를 1과 2의 합의 순서로 표현할 때 나타낼 수 있는 방법의 수를 구하시오. 예를 들어 n=3 이면3 = 1 + 1 + 1  = 1 + 2  = 2 + 1단, 1 + 2 와 2 + 1은 그 operand는 같지만 순서가 다르므로 다른것으로 친다. 1234567891011121314151617public class Sum&amp;#12">
 <meta name="keywords" content="Algorithm,1과 2의 합">
 <meta property="og:type" content="article">
 <meta property="og:title" content="1과-2의-합">
 <meta property="og:url" content="http://sarojaba.github.io/2015/06/04/1과-2의-합/index.html">
 <meta property="og:site_name" content="사로자바의 블로그">
-<meta property="og:description" content="어떤 정수 n이 있다. 이 정수를 1과 2의 합의 순서로 표현할 때 나타낼 수 있는 방법의 수를 구하시오. 예를 들어 n=3 이면3 = 1 + 1 + 1  = 1 + 2  = 2 + 1단, 1 + 2 와 2 + 1은 그 operand는 같지만 순서가 다르므로 다른것으로 친다. public class Sum{   public static void main(S">
-<meta property="og:updated_time" content="2017-04-09T03:16:43.985Z">
+<meta property="og:description" content="어떤 정수 n이 있다. 이 정수를 1과 2의 합의 순서로 표현할 때 나타낼 수 있는 방법의 수를 구하시오. 예를 들어 n=3 이면3 = 1 + 1 + 1  = 1 + 2  = 2 + 1단, 1 + 2 와 2 + 1은 그 operand는 같지만 순서가 다르므로 다른것으로 친다. 1234567891011121314151617public class Sum&amp;#12">
+<meta property="og:updated_time" content="2017-04-09T13:44:10.151Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="1과-2의-합">
-<meta name="twitter:description" content="어떤 정수 n이 있다. 이 정수를 1과 2의 합의 순서로 표현할 때 나타낼 수 있는 방법의 수를 구하시오. 예를 들어 n=3 이면3 = 1 + 1 + 1  = 1 + 2  = 2 + 1단, 1 + 2 와 2 + 1은 그 operand는 같지만 순서가 다르므로 다른것으로 친다. public class Sum{   public static void main(S">
+<meta name="twitter:description" content="어떤 정수 n이 있다. 이 정수를 1과 2의 합의 순서로 표현할 때 나타낼 수 있는 방법의 수를 구하시오. 예를 들어 n=3 이면3 = 1 + 1 + 1  = 1 + 2  = 2 + 1단, 1 + 2 와 2 + 1은 그 operand는 같지만 순서가 다르므로 다른것으로 친다. 1234567891011121314151617public class Sum&amp;#12">
     
 
     
@@ -224,6 +224,11 @@
 
 
                         
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+    </div>
+
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
@@ -239,24 +244,7 @@
         
             
             <p>어떤 정수 n이 있다. 이 정수를 1과 2의 합의 순서로 표현할 때 나타낼 수 있는 방법의 수를 구하시오. 예를 들어 n=3 이면<br>3 = 1 + 1 + 1<br>  = 1 + 2<br>  = 2 + 1<br>단, 1 + 2 와 2 + 1은 그 operand는 같지만 순서가 다르므로 다른것으로 친다.</p>
-<pre><code>public class Sum{
-  public static void main(String[] args){
-    System.out.println(fibonacci(5));
-  }
-
-  public static int fibonacci(int num){
-    if(num == 1){
-      return 1;
-    }
-
-    if(num == 2){
-      return 2;
-    }
-
-    return fibonacci(num - 2) + fibonacci(num - 1);
-  }
-}
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Sum</span></span>&#123;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">    System.out.println(fibonacci(<span class="number">5</span>));</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">fibonacci</span><span class="params">(<span class="keyword">int</span> num)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span>(num == <span class="number">1</span>)&#123;</div><div class="line">      <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">if</span>(num == <span class="number">2</span>)&#123;</div><div class="line">      <span class="keyword">return</span> <span class="number">2</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> fibonacci(num - <span class="number">2</span>) + fibonacci(num - <span class="number">1</span>);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
         
         </div>
         <footer class="article-footer">
@@ -266,7 +254,7 @@
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2015/06/04/1과-2의-합/" data-id="cj1aqbk1u00004kzywnq833zg" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2015/06/04/1과-2의-합/" data-id="cj1fmxor20001j2zyngihvbvn" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -407,7 +395,7 @@
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
                             <p class="item-title"><a href="/2015/06/17/back-to-high-school-physics/" class="title">back-to-high-school-physics</a></p>
                             <p class="item-date"><time datetime="2015-06-17T01:23:00.000Z" itemprop="datePublished">2015-06-17</time></p>
                         </div>
@@ -437,6 +425,13 @@
 
     
         
+    <div class="widget-wrap">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">60</span></li></ul>
+        </div>
+    </div>
+
     
         
     <div class="widget-wrap">

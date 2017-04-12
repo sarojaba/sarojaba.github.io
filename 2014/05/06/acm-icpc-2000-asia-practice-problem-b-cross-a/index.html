@@ -5,17 +5,17 @@
     
     <title>acm-icpc-2000-asia-practice-problem-b-cross-a | 사로자바의 블로그</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Source Codeimport java.util.Scanner;  public class CrossCreek{     public static void main(String[] args){         Scanner scan = new Scanner(System.in);                 int t = scan.nextInt();    //">
-<meta name="keywords" content="Algorithm,Programming,ICPC">
+    <meta name="description" content="Source Code123456789101112131415161718192021222324252627282930313233343536373839404142import java.util.Scanner;public class CrossCreek&amp;#123;    public static void main(String[] args)&amp;#123;        Scan">
+<meta name="keywords" content="Programming,Algorithm,ICPC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="acm-icpc-2000-asia-practice-problem-b-cross-a">
 <meta property="og:url" content="http://sarojaba.github.io/2014/05/06/acm-icpc-2000-asia-practice-problem-b-cross-a/index.html">
 <meta property="og:site_name" content="사로자바의 블로그">
-<meta property="og:description" content="Source Codeimport java.util.Scanner;  public class CrossCreek{     public static void main(String[] args){         Scanner scan = new Scanner(System.in);                 int t = scan.nextInt();    //">
-<meta property="og:updated_time" content="2017-04-09T03:51:40.248Z">
+<meta property="og:description" content="Source Code123456789101112131415161718192021222324252627282930313233343536373839404142import java.util.Scanner;public class CrossCreek&amp;#123;    public static void main(String[] args)&amp;#123;        Scan">
+<meta property="og:updated_time" content="2017-04-09T13:45:04.021Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="acm-icpc-2000-asia-practice-problem-b-cross-a">
-<meta name="twitter:description" content="Source Codeimport java.util.Scanner;  public class CrossCreek{     public static void main(String[] args){         Scanner scan = new Scanner(System.in);                 int t = scan.nextInt();    //">
+<meta name="twitter:description" content="Source Code123456789101112131415161718192021222324252627282930313233343536373839404142import java.util.Scanner;public class CrossCreek&amp;#123;    public static void main(String[] args)&amp;#123;        Scan">
     
 
     
@@ -224,6 +224,11 @@
 
 
                         
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+    </div>
+
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
@@ -238,49 +243,8 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h2 id="Source-Code"><a href="#Source-Code" class="headerlink" title="Source Code"></a>Source Code</h2><pre><code>import java.util.Scanner;
-
-public class CrossCreek{
-    public static void main(String[] args){
-        Scanner scan = new Scanner(System.in);       
-
-        int t = scan.nextInt();    // 테스트 케이스 개수
-
-        for(int i = 0; i &lt; t; i++) {
-            int n = scan.nextInt();    // 개울의 너비
-
-            process(n);
-        }
-    }
-
-    public static void process(int n) {
-        // 모든 경우를 구한다.
-        long sum = 0;
-        for(long i = n, r = 0; i &gt;= r; i--, r++){
-            sum += combination(i, r);
-        }
-
-        System.out.println(sum);
-    }
-
-    // 팩토리얼을 구한다.
-    // n! = n * (n-1) * (n-2) * ... * 2 * 1
-    // ex) 4! = 4 * 3 * 2 * 1 = 24
-    public static long factorial(long n){
-        if(n &lt;= 1){
-            return 1;
-        }
-        return n * factorial(n - 1);
-    }
-
-    // 조합을 구한다.
-    // nCr = nPr / r! = n! / ((n-r)! * r!)
-    // ex) 4개 중에 2개를 고르는 경우의 수 = 6가지
-    public static long combination(long n, long r){
-        return factorial(n) / (factorial(n - r) * factorial(r));
-    }
-}
-</code></pre><h2 id="Comment"><a href="#Comment" class="headerlink" title="Comment"></a>Comment</h2><p>문제를 보고 고민을 하다가 조합으로도 풀 수 있단것을 알게되었다. 수학책을 찾아보고 조합 공식에 맞춰 함수를 작성하였다.</p>
+            <h2 id="Source-Code"><a href="#Source-Code" class="headerlink" title="Source Code"></a>Source Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.Scanner;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CrossCreek</span></span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">        Scanner scan = <span class="keyword">new</span> Scanner(System.in);       </div><div class="line"></div><div class="line">        <span class="keyword">int</span> t = scan.nextInt();    <span class="comment">// 테스트 케이스 개수</span></div><div class="line"></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; t; i++) &#123;</div><div class="line">            <span class="keyword">int</span> n = scan.nextInt();    <span class="comment">// 개울의 너비</span></div><div class="line"></div><div class="line">            process(n);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">process</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">        <span class="comment">// 모든 경우를 구한다.</span></div><div class="line">        <span class="keyword">long</span> sum = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">long</span> i = n, r = <span class="number">0</span>; i &gt;= r; i--, r++)&#123;</div><div class="line">            sum += combination(i, r);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        System.out.println(sum);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 팩토리얼을 구한다.</span></div><div class="line">    <span class="comment">// n! = n * (n-1) * (n-2) * ... * 2 * 1</span></div><div class="line">    <span class="comment">// ex) 4! = 4 * 3 * 2 * 1 = 24</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">long</span> <span class="title">factorial</span><span class="params">(<span class="keyword">long</span> n)</span></span>&#123;</div><div class="line">        <span class="keyword">if</span>(n &lt;= <span class="number">1</span>)&#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> n * factorial(n - <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 조합을 구한다.</span></div><div class="line">    <span class="comment">// nCr = nPr / r! = n! / ((n-r)! * r!)</span></div><div class="line">    <span class="comment">// ex) 4개 중에 2개를 고르는 경우의 수 = 6가지</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">long</span> <span class="title">combination</span><span class="params">(<span class="keyword">long</span> n, <span class="keyword">long</span> r)</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> factorial(n) / (factorial(n - r) * factorial(r));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Comment"><a href="#Comment" class="headerlink" title="Comment"></a>Comment</h2><p>문제를 보고 고민을 하다가 조합으로도 풀 수 있단것을 알게되었다. 수학책을 찾아보고 조합 공식에 맞춰 함수를 작성하였다.</p>
 
         
         </div>
@@ -291,7 +255,7 @@ public class CrossCreek{
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/05/06/acm-icpc-2000-asia-practice-problem-b-cross-a/" data-id="cj1aqbk2j00074kzymhmdrl38" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/05/06/acm-icpc-2000-asia-practice-problem-b-cross-a/" data-id="cj1fmxork0009j2zy2cinlwtz" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -432,7 +396,7 @@ public class CrossCreek{
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
                             <p class="item-title"><a href="/2015/06/17/back-to-high-school-physics/" class="title">back-to-high-school-physics</a></p>
                             <p class="item-date"><time datetime="2015-06-17T01:23:00.000Z" itemprop="datePublished">2015-06-17</time></p>
                         </div>
@@ -462,6 +426,13 @@ public class CrossCreek{
 
     
         
+    <div class="widget-wrap">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">60</span></li></ul>
+        </div>
+    </div>
+
     
         
     <div class="widget-wrap">

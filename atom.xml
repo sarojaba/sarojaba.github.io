@@ -102,7 +102,7 @@ int main() {
     <link href="http://sarojaba.github.io/2015/06/17/back-to-high-school-physics/"/>
     <id>http://sarojaba.github.io/2015/06/17/back-to-high-school-physics/</id>
     <published>2015-06-17T01:23:00.000Z</published>
-    <updated>2017-04-09T03:12:44.131Z</updated>
+    <updated>2017-04-09T13:49:05.578Z</updated>
     
     <content type="html"><![CDATA[<p>A particle has initial velocity and constant acceleration. If its velocity after certain time is v then what will its displacement be in twice of that time?</p>
 <h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>The input will contain two integers in each line. Each line makes one set of input. These two integers denote the value of v (-100 &lt;= v &lt;= 100) and t(0&lt;=t&lt;= 200) ( t means at the time the particle gains that velocity)</p>
@@ -126,6 +126,8 @@ int main() {
       &lt;p&gt;A particle has initial velocity and constant acceleration. If its velocity after certain time is v then what will its displacement be in 
     
     </summary>
+    
+      <category term="Programming" scheme="http://sarojaba.github.io/categories/Programming/"/>
     
     
       <category term="Algorithm" scheme="http://sarojaba.github.io/tags/Algorithm/"/>
@@ -274,33 +276,18 @@ public class Postfix{
     <link href="http://sarojaba.github.io/2015/06/04/1%EA%B3%BC-2%EC%9D%98-%ED%95%A9/"/>
     <id>http://sarojaba.github.io/2015/06/04/1과-2의-합/</id>
     <published>2015-06-04T11:36:00.000Z</published>
-    <updated>2017-04-09T03:16:43.985Z</updated>
+    <updated>2017-04-09T13:44:10.151Z</updated>
     
     <content type="html"><![CDATA[<p>어떤 정수 n이 있다. 이 정수를 1과 2의 합의 순서로 표현할 때 나타낼 수 있는 방법의 수를 구하시오. 예를 들어 n=3 이면<br>3 = 1 + 1 + 1<br>  = 1 + 2<br>  = 2 + 1<br>단, 1 + 2 와 2 + 1은 그 operand는 같지만 순서가 다르므로 다른것으로 친다.</p>
-<pre><code>public class Sum{
-  public static void main(String[] args){
-    System.out.println(fibonacci(5));
-  }
-
-  public static int fibonacci(int num){
-    if(num == 1){
-      return 1;
-    }
-
-    if(num == 2){
-      return 2;
-    }
-
-    return fibonacci(num - 2) + fibonacci(num - 1);
-  }
-}
-</code></pre>]]></content>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Sum</span></span>&#123;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">    System.out.println(fibonacci(<span class="number">5</span>));</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">fibonacci</span><span class="params">(<span class="keyword">int</span> num)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span>(num == <span class="number">1</span>)&#123;</div><div class="line">      <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">if</span>(num == <span class="number">2</span>)&#123;</div><div class="line">      <span class="keyword">return</span> <span class="number">2</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> fibonacci(num - <span class="number">2</span>) + fibonacci(num - <span class="number">1</span>);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
       &lt;p&gt;어떤 정수 n이 있다. 이 정수를 1과 2의 합의 순서로 표현할 때 나타낼 수 있는 방법의 수를 구하시오. 예를 들어 n=3 이면&lt;br&gt;3 = 1 + 1 + 1&lt;br&gt;  = 1 + 2&lt;br&gt;  = 2 + 1&lt;br&gt;단, 1 + 2 와 2 + 1은 
     
     </summary>
+    
+      <category term="Programming" scheme="http://sarojaba.github.io/categories/Programming/"/>
     
     
       <category term="Algorithm" scheme="http://sarojaba.github.io/tags/Algorithm/"/>
@@ -377,80 +364,26 @@ public class Virus{
   </entry>
   
   <entry>
-    <title>java-iterator-pattern-on-colletions</title>
+    <title>Java Iterator Pattern on Colletions</title>
     <link href="http://sarojaba.github.io/2015/02/16/java-iterator-pattern-on-colletions/"/>
     <id>http://sarojaba.github.io/2015/02/16/java-iterator-pattern-on-colletions/</id>
     <published>2015-02-16T11:18:00.000Z</published>
-    <updated>2017-04-09T03:25:10.433Z</updated>
+    <updated>2017-04-10T17:36:07.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="The-Iterator-pattern"><a href="#The-Iterator-pattern" class="headerlink" title="The Iterator pattern"></a>The Iterator pattern</h2><p>Iterator 패턴은 Collection을 탐색하는 방법과 클라이언트가 수행할 작업을 분리하는 GoF의 패턴 중 하나입니다. index, cursor, enumeration 등으로도 불립니다.</p>
 <p>Iterator는 Active 또는 Passive한 형태로 나뉩니다. Active Iterator는 클라이언트가 Iterator를 생성하고, 다음 아이템의 존재 여부를 확인하고, 다음 아이템을 얻는 작업을 합니다. 반면, Passive Iterator는 이 작업을 내부적으로 수행합니다.</p>
 <p>Java는 Iterator 패턴을 이용하여 Collection을 탐색합니다. Active에서 Passive한 형태로 발전했습니다.</p>
 <h2 id="Enumeration"><a href="#Enumeration" class="headerlink" title="Enumeration"></a>Enumeration</h2><p>초기 Java 1.0 때는 Collection에 Vector와 Hashtable만 있었고, Enumeration을 이용해 탐색하였습니다. Java 5 이후부터는 enum 타입과 헷갈리기 때문에 위 클래스들을 사용하지 않는 것이 좋습니다.</p>
-<pre><code>Vector names = new Vector();
-
-// ... add some names to the collection
-
-Enumeration e = names.elements();
-while (e.hasMoreElements())
-{
-  String name = (String) e.nextElement();
-  System.out.println(name);
-}
-`&lt;/pre&gt;
-
-## Iterator
-
-Java 1.2부터 Collections Framework를 설계하면서 Iterator라는 명확한 이름으로 구현되었습니다.
-
-&lt;pre&gt;`List names = new LinkedList();
-
-// ... add some names to the collection
-
-Iterator i = names.iterator();
-while (i.hasNext())
-{
-  String name = (String) i.next();
-  System.out.println(name);
-}
-`&lt;/pre&gt;
-
-## Generics and the Enhanced for-loop
-
-Java 5부터는 Iteratable 인터페이스를 구현한 객체라면 for-each 구문을 이용할 수 있습니다. 기존에는 Active한 형태였지만 이제는 Passive한 형태로 진화하고 있는 과도기입니다. Java 7에서는 Diamond Operator를 이용해 타입 추론이 가능합니다.
-
-&lt;pre&gt;`List&lt;String&gt; names = new LinkedList&lt;String&gt;();  // Java 5
-List&lt;String&gt; names = new LinkedList&lt;&gt;();        // Java 7
-
-// ... add some names to the collection
-
-for (String name : names)
-  System.out.println(name);
-`&lt;/pre&gt;
-
-## forEach
-
-Java 8에서는 Iterable 인터페이스에 default 메소드로 forEach 메소드를 제공합니다. forEach 메소드의 인자로 lambda 표현식이 들어갑니다. 기존에는 ‘반복&apos;이라는 개념을 명시적으로 표현했다면, forEach는 이것을 암묵적으로 표현합니다.
-
-&lt;pre&gt;`List&lt;String&gt; names = new LinkedList&lt;&gt;();
-
-// ... add some names to the collection
-
-names.forEach(name -&gt; System.out.println(name));
-`&lt;/pre&gt;
-
-## Stream API
-
-Java 8에서는 stream 메소드를 이용해 컬렉션을 다룰 수 있습니다. filter(), distinct(), sorted(), map() 등의 중간 연산과 count(), average(), sum(), max(), forEach() 등의 종단 연산을 연결할 수 있습니다. 각 아이템에 대한 연산을 병렬화 하려면 parallelStream() 메소드를 이용하면 됩니다.
-
-&lt;pre&gt;`List&lt;String&gt; names = new LinkedList&lt;&gt;();
-
-// ... add some names to the collection
-
-long count = names.stream()
-                  .filter(name -&gt; name.startsWith(&quot;A&quot;))
-                  .count();
-</code></pre><h2 id="Performance"><a href="#Performance" class="headerlink" title="Performance"></a>Performance</h2><p>Active와 Passive 사이에는 큰 차이가 없습니다.<br>LinkedList, LinkedHashSet은 stream과 parallelStream 사이에는 큰 차이가 없습니다.(순차 참조 자료 구조)<br>ArrayList, TreeSet, HashSet은 parallelStream이 성능이 좋습니다.(직접 참조 자료 구조)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Vector names = <span class="keyword">new</span> Vector();</div><div class="line"></div><div class="line"><span class="comment">// ... add some names to the collection</span></div><div class="line"></div><div class="line">Enumeration e = names.elements();</div><div class="line"><span class="keyword">while</span> (e.hasMoreElements())</div><div class="line">&#123;</div><div class="line">  String name = (String) e.nextElement();</div><div class="line">  System.out.println(name);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Iterator"><a href="#Iterator" class="headerlink" title="Iterator"></a>Iterator</h2><p>Java 1.2부터 Collections Framework를 설계하면서 Iterator라는 명확한 이름으로 구현되었습니다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">List names = <span class="keyword">new</span> LinkedList();</div><div class="line"></div><div class="line"><span class="comment">// ... add some names to the collection</span></div><div class="line"></div><div class="line">Iterator i = names.iterator();</div><div class="line"><span class="keyword">while</span> (i.hasNext())</div><div class="line">&#123;</div><div class="line">  String name = (String) i.next();</div><div class="line">  System.out.println(name);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Generics-and-the-Enhanced-for-loop"><a href="#Generics-and-the-Enhanced-for-loop" class="headerlink" title="Generics and the Enhanced for-loop"></a>Generics and the Enhanced for-loop</h2><p>Java 5부터는 Iteratable 인터페이스를 구현한 객체라면 for-each 구문을 이용할 수 있습니다. 기존에는 Active한 형태였지만 이제는 Passive한 형태로 진화하고 있는 과도기입니다. Java 7에서는 Diamond Operator를 이용해 타입 추론이 가능합니다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">List&lt;String&gt; names = <span class="keyword">new</span> LinkedList&lt;String&gt;();  <span class="comment">// Java 5</span></div><div class="line">List&lt;String&gt; names = <span class="keyword">new</span> LinkedList&lt;&gt;();        <span class="comment">// Java 7</span></div><div class="line"></div><div class="line"><span class="comment">// ... add some names to the collection</span></div><div class="line"></div><div class="line"><span class="keyword">for</span> (String name : names)</div><div class="line">  System.out.println(name);</div></pre></td></tr></table></figure>
+<h2 id="forEach"><a href="#forEach" class="headerlink" title="forEach"></a>forEach</h2><p>Java 8에서는 Iterable 인터페이스에 default 메소드로 forEach 메소드를 제공합니다. forEach 메소드의 인자로 lambda 표현식이 들어갑니다. 기존에는 ‘반복’이라는 개념을 명시적으로 표현했다면, forEach는 이것을 암묵적으로 표현합니다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">List&lt;String&gt; names = <span class="keyword">new</span> LinkedList&lt;&gt;();</div><div class="line"></div><div class="line"><span class="comment">// ... add some names to the collection</span></div><div class="line"></div><div class="line">names.forEach(name -&gt; System.out.println(name));</div></pre></td></tr></table></figure>
+<h2 id="Stream-API"><a href="#Stream-API" class="headerlink" title="Stream API"></a>Stream API</h2><p>Java 8에서는 stream 메소드를 이용해 컬렉션을 다룰 수 있습니다. filter(), distinct(), sorted(), map() 등의 중간 연산과 count(), average(), sum(), max(), forEach() 등의 종단 연산을 연결할 수 있습니다. 각 아이템에 대한 연산을 병렬화 하려면 parallelStream() 메소드를 이용하면 됩니다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">List&lt;String&gt; names = <span class="keyword">new</span> LinkedList&lt;&gt;();</div><div class="line"></div><div class="line"><span class="comment">// ... add some names to the collection</span></div><div class="line"></div><div class="line"><span class="keyword">long</span> count = names.stream()</div><div class="line">                  .filter(name -&gt; name.startsWith(<span class="string">"A"</span>))</div><div class="line">                  .count();</div></pre></td></tr></table></figure>
+<h2 id="Performance"><a href="#Performance" class="headerlink" title="Performance"></a>Performance</h2><p>Active와 Passive 사이에는 큰 차이가 없습니다.<br>LinkedList, LinkedHashSet은 stream과 parallelStream 사이에는 큰 차이가 없습니다.(순차 참조 자료 구조)<br>ArrayList, TreeSet, HashSet은 parallelStream이 성능이 좋습니다.(직접 참조 자료 구조)</p>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="http://www.javaworld.com/article/2461744/java-language/java-language-iterating-over-collections-in-java-8.html" target="_blank" rel="external">Iterating over collections in Java 8</a></p>
 ]]></content>
     
@@ -459,6 +392,8 @@ long count = names.stream()
       &lt;h2 id=&quot;The-Iterator-pattern&quot;&gt;&lt;a href=&quot;#The-Iterator-pattern&quot; class=&quot;headerlink&quot; title=&quot;The Iterator pattern&quot;&gt;&lt;/a&gt;The Iterator pattern&lt;/h2&gt;&lt;
     
     </summary>
+    
+      <category term="Programming" scheme="http://sarojaba.github.io/categories/Programming/"/>
     
     
       <category term="Programming" scheme="http://sarojaba.github.io/tags/Programming/"/>
@@ -518,9 +453,9 @@ long count = names.stream()
     </summary>
     
     
-      <category term="Algorithm" scheme="http://sarojaba.github.io/tags/Algorithm/"/>
-    
       <category term="Programming" scheme="http://sarojaba.github.io/tags/Programming/"/>
+    
+      <category term="Algorithm" scheme="http://sarojaba.github.io/tags/Algorithm/"/>
     
   </entry>
   
@@ -641,9 +576,9 @@ long count = names.stream()
     </summary>
     
     
-      <category term="Algorithm" scheme="http://sarojaba.github.io/tags/Algorithm/"/>
-    
       <category term="Programming" scheme="http://sarojaba.github.io/tags/Programming/"/>
+    
+      <category term="Algorithm" scheme="http://sarojaba.github.io/tags/Algorithm/"/>
     
   </entry>
   
@@ -772,9 +707,9 @@ long count = names.stream()
     </summary>
     
     
-      <category term="Algorithm" scheme="http://sarojaba.github.io/tags/Algorithm/"/>
-    
       <category term="Programming" scheme="http://sarojaba.github.io/tags/Programming/"/>
+    
+      <category term="Algorithm" scheme="http://sarojaba.github.io/tags/Algorithm/"/>
     
       <category term="완전제곱수" scheme="http://sarojaba.github.io/tags/%EC%99%84%EC%A0%84%EC%A0%9C%EA%B3%B1%EC%88%98/"/>
     
@@ -842,9 +777,9 @@ long count = names.stream()
     </summary>
     
     
-      <category term="Algorithm" scheme="http://sarojaba.github.io/tags/Algorithm/"/>
-    
       <category term="Programming" scheme="http://sarojaba.github.io/tags/Programming/"/>
+    
+      <category term="Algorithm" scheme="http://sarojaba.github.io/tags/Algorithm/"/>
     
   </entry>
   
@@ -913,9 +848,9 @@ long count = names.stream()
     </summary>
     
     
-      <category term="Algorithm" scheme="http://sarojaba.github.io/tags/Algorithm/"/>
-    
       <category term="Programming" scheme="http://sarojaba.github.io/tags/Programming/"/>
+    
+      <category term="Algorithm" scheme="http://sarojaba.github.io/tags/Algorithm/"/>
     
   </entry>
   
@@ -972,9 +907,9 @@ long count = names.stream()
     </summary>
     
     
-      <category term="Algorithm" scheme="http://sarojaba.github.io/tags/Algorithm/"/>
-    
       <category term="Programming" scheme="http://sarojaba.github.io/tags/Programming/"/>
+    
+      <category term="Algorithm" scheme="http://sarojaba.github.io/tags/Algorithm/"/>
     
       <category term="Java" scheme="http://sarojaba.github.io/tags/Java/"/>
     
@@ -987,7 +922,7 @@ long count = names.stream()
     <link href="http://sarojaba.github.io/2014/08/01/coffeescript-game-tutorial-the-mouse/"/>
     <id>http://sarojaba.github.io/2014/08/01/coffeescript-game-tutorial-the-mouse/</id>
     <published>2014-07-31T15:01:00.000Z</published>
-    <updated>2017-04-09T03:31:28.587Z</updated>
+    <updated>2017-04-09T13:52:20.892Z</updated>
     
     <content type="html"><![CDATA[<p>마우스 이벤트 처리 코드를 추가하였다.</p>
 <pre><code>###coffee
@@ -1038,6 +973,8 @@ document.onmousemove =
     
     </summary>
     
+      <category term="Programming" scheme="http://sarojaba.github.io/categories/Programming/"/>
+    
     
       <category term="Programming" scheme="http://sarojaba.github.io/tags/Programming/"/>
     
@@ -1052,7 +989,7 @@ document.onmousemove =
     <link href="http://sarojaba.github.io/2014/07/29/coffeescript-game-tutorial-the-keyboard/"/>
     <id>http://sarojaba.github.io/2014/07/29/coffeescript-game-tutorial-the-keyboard/</id>
     <published>2014-07-29T14:30:00.000Z</published>
-    <updated>2017-04-09T03:32:38.758Z</updated>
+    <updated>2017-04-09T13:52:15.520Z</updated>
     
     <content type="html"><![CDATA[<p>키보드 이벤트를 추가한 코드이다.</p>
 <pre><code>###coffee
@@ -1108,6 +1045,8 @@ leftDown = false
     
     </summary>
     
+      <category term="Programming" scheme="http://sarojaba.github.io/categories/Programming/"/>
+    
     
       <category term="Programming" scheme="http://sarojaba.github.io/tags/Programming/"/>
     
@@ -1122,7 +1061,7 @@ leftDown = false
     <link href="http://sarojaba.github.io/2014/07/29/coffeescript-game-tutorial-add-a-paddle/"/>
     <id>http://sarojaba.github.io/2014/07/29/coffeescript-game-tutorial-add-a-paddle/</id>
     <published>2014-07-29T14:27:00.000Z</published>
-    <updated>2017-04-09T03:33:42.144Z</updated>
+    <updated>2017-04-09T13:51:32.796Z</updated>
     
     <content type="html"><![CDATA[<p>화면 하단에 막대기를 추가한 코드이다.</p>
 <pre><code>###coffee
@@ -1173,6 +1112,8 @@ paddleh = 10
     
     </summary>
     
+      <category term="Programming" scheme="http://sarojaba.github.io/categories/Programming/"/>
+    
     
       <category term="Programming" scheme="http://sarojaba.github.io/tags/Programming/"/>
     
@@ -1187,7 +1128,7 @@ paddleh = 10
     <link href="http://sarojaba.github.io/2014/07/29/coffeescript-game-tutorial-bounce/"/>
     <id>http://sarojaba.github.io/2014/07/29/coffeescript-game-tutorial-bounce/</id>
     <published>2014-07-28T18:45:00.000Z</published>
-    <updated>2017-04-09T03:34:20.340Z</updated>
+    <updated>2017-04-09T13:51:48.428Z</updated>
     
     <content type="html"><![CDATA[<p>공 튀기는 코드이다.</p>
 <pre><code>###coffee
@@ -1258,6 +1199,8 @@ HEIGHT = 0
 init = -&amp;
     
     </summary>
+    
+      <category term="Programming" scheme="http://sarojaba.github.io/categories/Programming/"/>
     
     
       <category term="Programming" scheme="http://sarojaba.github.io/tags/Programming/"/>
