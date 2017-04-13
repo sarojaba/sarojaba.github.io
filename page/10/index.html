@@ -223,6 +223,11 @@
 
 
                         
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+    </div>
+
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
@@ -348,7 +353,7 @@ void draw() {
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2013/07/26/untitled-1/" data-id="cj1fmxox4007tj2zybraga258" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2013/07/26/untitled-1/" data-id="cj1gegs2p008h87zyf970v6cw" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -484,7 +489,7 @@ void draw() {
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2013/07/25/oblivion/" data-id="cj1fmxovt005mj2zyb0p28xpl" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2013/07/25/oblivion/" data-id="cj1gegs1l005x87zybzser997" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -570,7 +575,7 @@ void draw() {
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2013/07/21/breakout/">breakout</a>
+            <a class="article-title" href="/2013/07/21/breakout/">Breakout</a>
         </h1>
     
 
@@ -588,7 +593,7 @@ void draw() {
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Processing/">Processing</a>
     </div>
 
                         
@@ -727,121 +732,8 @@ void reset() {
 
 <canvas id="processing-canvas-breakout"></canvas>
 
-<pre><code>PVector pos;
-PVector delta;
-int paddle;
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">PVector</span> pos;</div><div class="line"><span class="keyword">PVector</span> delta;</div><div class="line"><span class="built_in">int</span> paddle;</div><div class="line"></div><div class="line"><span class="built_in">int</span> nrows;</div><div class="line"><span class="built_in">int</span> ncols;</div><div class="line"><span class="built_in">float</span> bwidth;</div><div class="line"><span class="built_in">float</span> bheight;</div><div class="line"><span class="built_in">boolean</span>[][] bricks;</div><div class="line"></div><div class="line"><span class="keyword">void</span> <span class="title">setup</span>() &#123;</div><div class="line"></div><div class="line">  <span class="built_in">size</span>(<span class="number">320</span>, <span class="number">240</span>);</div><div class="line">  <span class="built_in">smooth</span>();</div><div class="line">  <span class="built_in">colorMode</span>(HSB);</div><div class="line"></div><div class="line">  pos = <span class="keyword">new</span> <span class="keyword">PVector</span>(<span class="built_in">width</span> / <span class="number">2</span>, <span class="built_in">height</span> / <span class="number">2</span>);</div><div class="line">  delta = <span class="keyword">new</span> <span class="keyword">PVector</span>(<span class="number">-2</span>, <span class="number">-2</span>);</div><div class="line">  paddle = <span class="number">20</span>;</div><div class="line">  nrows = <span class="number">5</span>;</div><div class="line">  ncols = <span class="number">5</span>;</div><div class="line">  bwidth = <span class="built_in">width</span> / ncols;</div><div class="line">  bheight = <span class="number">15</span>;</div><div class="line">  bricks = <span class="keyword">new</span> <span class="built_in">boolean</span>[nrows][ncols];</div><div class="line"></div><div class="line">  reset();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">void</span> <span class="title">draw</span>() &#123;</div><div class="line"></div><div class="line">  <span class="comment">// clear</span></div><div class="line">  <span class="built_in">background</span>(#FFFFFF);</div><div class="line"></div><div class="line">  <span class="comment">// hit wall ?</span></div><div class="line">  <span class="keyword">if</span> (pos.x &lt; <span class="number">0</span> || pos.x &gt; <span class="built_in">width</span>) &#123;</div><div class="line">    delta.x = -delta.x;</div><div class="line">  &#125;  </div><div class="line">  <span class="keyword">if</span> (pos.y &lt; <span class="number">0</span>) &#123;</div><div class="line">    delta.y = -delta.y;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="comment">// hit paddle ?</span></div><div class="line">  <span class="keyword">if</span> (pos.y &gt; <span class="built_in">height</span>) &#123;</div><div class="line">    <span class="keyword">if</span> (pos.x &gt; <span class="built_in">mouseX</span> - paddle &amp;&amp; pos.x &lt; <span class="built_in">mouseX</span> + paddle) &#123;</div><div class="line">      delta.y = -delta.y;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="comment">// hit brick ?</span></div><div class="line">  <span class="keyword">for</span> (<span class="built_in">int</span> r = <span class="number">0</span>; r &lt; nrows; r++) &#123;</div><div class="line">    <span class="keyword">for</span> (<span class="built_in">int</span> c = <span class="number">0</span>; c &lt; ncols; c++) &#123;</div><div class="line">      <span class="keyword">if</span> (bricks[r][c]) &#123;</div><div class="line">    <span class="keyword">if</span> (pos.x &gt; bwidth * c &amp;&amp; pos.x &lt; bwidth * (c + <span class="number">1</span>) &amp;&amp;</div><div class="line">      pos.y &gt; bheight * r &amp;&amp; pos.y &lt; bheight * (r + <span class="number">1</span>)) &#123;</div><div class="line">        <span class="comment">// remove brick</span></div><div class="line">        bricks[r][c] = <span class="keyword">false</span>;</div><div class="line"></div><div class="line">        <span class="comment">// bound ball</span></div><div class="line">        delta.y = -delta.y;</div><div class="line">    &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="comment">// draw paddle</span></div><div class="line">  <span class="built_in">stroke</span>(#<span class="number">000000</span>);</div><div class="line">  <span class="built_in">strokeWeight</span>(<span class="number">10</span>);</div><div class="line">  <span class="built_in">line</span>(<span class="built_in">mouseX</span> - paddle, <span class="built_in">height</span>, <span class="built_in">mouseX</span> + paddle, <span class="built_in">height</span>);</div><div class="line"></div><div class="line">  <span class="comment">// draw ball</span></div><div class="line">  <span class="built_in">noStroke</span>();</div><div class="line">  <span class="built_in">fill</span>(#<span class="number">000000</span>);</div><div class="line">  <span class="built_in">ellipse</span>(pos.x, pos.y, <span class="number">20</span>, <span class="number">20</span>);</div><div class="line"></div><div class="line">  <span class="comment">// draw bricks</span></div><div class="line">  <span class="built_in">stroke</span>(#FFFFFF);</div><div class="line">  <span class="built_in">strokeWeight</span>(<span class="number">1</span>);</div><div class="line">  <span class="keyword">for</span> (<span class="built_in">int</span> r = <span class="number">0</span>; r &lt; nrows; r++) &#123;</div><div class="line">    <span class="built_in">fill</span>(<span class="built_in">color</span>(<span class="number">255.0</span> / nrows * r, <span class="number">255</span>, <span class="number">255</span>));</div><div class="line">    <span class="keyword">for</span> (<span class="built_in">int</span> c = <span class="number">0</span>; c &lt; ncols; c++) &#123;</div><div class="line">      <span class="keyword">if</span> (bricks[r][c]) &#123;</div><div class="line">    <span class="built_in">rect</span>(bwidth * c, bheight * r, bwidth, bheight);</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="comment">// move</span></div><div class="line">  pos.x += delta.x;</div><div class="line">  pos.y += delta.y;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">void</span> <span class="built_in">keyPressed</span>() &#123;</div><div class="line">  <span class="keyword">if</span>(<span class="built_in">key</span> == <span class="string">'r'</span> || <span class="built_in">key</span> == <span class="string">'R'</span>) &#123;</div><div class="line">    reset();</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">void</span> reset() &#123;</div><div class="line"></div><div class="line">  <span class="comment">// pos</span></div><div class="line">  pos.x = <span class="built_in">width</span> / <span class="number">2</span>;</div><div class="line">  pos.y = <span class="built_in">height</span> / <span class="number">2</span>;</div><div class="line"></div><div class="line">  <span class="comment">// delta</span></div><div class="line">  delta.x = <span class="number">-2</span>;</div><div class="line">  delta.y = <span class="number">-2</span>;</div><div class="line"></div><div class="line">  <span class="comment">// brick</span></div><div class="line">  <span class="keyword">for</span> (<span class="built_in">int</span> r = <span class="number">0</span>; r &lt; nrows; r++) &#123;</div><div class="line">    <span class="keyword">for</span> (<span class="built_in">int</span> c = <span class="number">0</span>; c &lt; ncols; c++) &#123;</div><div class="line">      bricks[r][c] = <span class="keyword">true</span>;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
-int nrows;
-int ncols;
-float bwidth;
-float bheight;
-boolean[][] bricks;
-
-void setup() {
-
-  size(320, 240);
-  smooth();
-  colorMode(HSB);
-
-  pos = new PVector(width / 2, height / 2);
-  delta = new PVector(-2, -2);
-  paddle = 20;
-  nrows = 5;
-  ncols = 5;
-  bwidth = width / ncols;
-  bheight = 15;
-  bricks = new boolean[nrows][ncols];
-
-  reset();
-}
-
-void draw() {
-
-  // clear
-  background(#FFFFFF);
-
-  // hit wall ?
-  if (pos.x &lt; 0 || pos.x &gt; width) {
-    delta.x = -delta.x;
-  }  
-  if (pos.y &lt; 0) {
-    delta.y = -delta.y;
-  }
-
-  // hit paddle ?
-  if (pos.y &gt; height) {
-    if (pos.x &gt; mouseX - paddle &amp;&amp; pos.x &lt; mouseX + paddle) {
-      delta.y = -delta.y;
-    }
-  }
-
-  // hit brick ?
-  for (int r = 0; r &lt; nrows; r++) {
-    for (int c = 0; c &lt; ncols; c++) {
-      if (bricks[r][c]) {
-    if (pos.x &gt; bwidth * c &amp;&amp; pos.x &lt; bwidth * (c + 1) &amp;&amp;
-      pos.y &gt; bheight * r &amp;&amp; pos.y &lt; bheight * (r + 1)) {
-        // remove brick
-        bricks[r][c] = false;
-
-        // bound ball
-        delta.y = -delta.y;
-    }
-      }
-    }
-  }
-
-  // draw paddle
-  stroke(#000000);
-  strokeWeight(10);
-  line(mouseX - paddle, height, mouseX + paddle, height);
-
-  // draw ball
-  noStroke();
-  fill(#000000);
-  ellipse(pos.x, pos.y, 20, 20);
-
-  // draw bricks
-  stroke(#FFFFFF);
-  strokeWeight(1);
-  for (int r = 0; r &lt; nrows; r++) {
-    fill(color(255.0 / nrows * r, 255, 255));
-    for (int c = 0; c &lt; ncols; c++) {
-      if (bricks[r][c]) {
-    rect(bwidth * c, bheight * r, bwidth, bheight);
-      }
-    }
-  }
-
-  // move
-  pos.x += delta.x;
-  pos.y += delta.y;
-}
-
-void keyPressed() {
-  if(key == &apos;r&apos; || key == &apos;R&apos;) {
-    reset();
-  }
-}
-
-void reset() {
-
-  // pos
-  pos.x = width / 2;
-  pos.y = height / 2;
-
-  // delta
-  delta.x = -2;
-  delta.y = -2;
-
-  // brick
-  for (int r = 0; r &lt; nrows; r++) {
-    for (int c = 0; c &lt; ncols; c++) {
-      bricks[r][c] = true;
-    }
-  }
-}
-</code></pre>
         
         </div>
         <footer class="article-footer">
@@ -851,7 +743,7 @@ void reset() {
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2013/07/21/breakout/" data-id="cj1fmxose0017j2zywz4lmq3w" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2013/07/21/breakout/" data-id="cj1gegryf001887zyrnh2uoj3" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -953,6 +845,11 @@ void reset() {
 
 
                         
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+    </div>
+
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
@@ -996,7 +893,7 @@ void draw() {
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2013/07/20/tumblr에-processing-포스팅-하기/" data-id="cj1fmxowt007fj2zy8u91daor" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2013/07/20/tumblr에-processing-포스팅-하기/" data-id="cj1gegs2h007x87zyz54xic6l" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1098,6 +995,11 @@ void draw() {
 
 
                         
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+    </div>
+
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
@@ -1223,7 +1125,7 @@ void draw() {
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2013/07/20/태극-마크/" data-id="cj1fmxp0g00c3j2zyobb5376o" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2013/07/20/태극-마크/" data-id="cj1gegs6700ek87zy9dxm7jng" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1359,7 +1261,7 @@ void draw() {
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2013/07/12/notting-hill/" data-id="cj1fmxovl005cj2zyhcnxu9wu" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2013/07/12/notting-hill/" data-id="cj1gegs1g005q87zygwxgeaf1" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1461,6 +1363,11 @@ void draw() {
 
 
                         
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Movie/">Movie</a>
+    </div>
+
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
@@ -1490,7 +1397,7 @@ void draw() {
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2013/06/24/미인도/" data-id="cj1fmxoy4009aj2zytv5bxe28" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2013/06/24/미인도/" data-id="cj1gegs3v00ak87zyd44ab571" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1689,7 +1596,7 @@ public void genericArrayCopyOfWithNewType() {
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2013/06/23/copying-arrays-in-java-6-2/" data-id="cj1fmxoto002pj2zyr8jak0bc" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2013/06/23/copying-arrays-in-java-6-2/" data-id="cj1gegrzh002l87zydz3wko0c" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -2045,7 +1952,7 @@ void breakLine(int x0, int y0, int x1, int y1){
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2013/06/20/moon-night/" data-id="cj1fmxovx005tj2zyf00y0fti" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2013/06/20/moon-night/" data-id="cj1gegs1e005n87zyinotqrnx" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -2230,7 +2137,7 @@ String[] target = copy(source);
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2013/06/20/copying-arrays-in-java-6-1/" data-id="cj1fmxotm002lj2zybojvwvk2" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2013/06/20/copying-arrays-in-java-6-1/" data-id="cj1gegs01002z87zy6ijd4bbe" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -2333,7 +2240,7 @@ String[] target = copy(source);
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
                             <p class="item-title"><a href="/2015/07/20/reverse-array-recursively/" class="title">reverse-array-recursively</a></p>
                             <p class="item-date"><time datetime="2015-07-19T15:48:00.000Z" itemprop="datePublished">2015-07-20</time></p>
                         </div>
@@ -2342,8 +2249,8 @@ String[] target = copy(source);
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
-                            <p class="item-title"><a href="/2015/06/17/back-to-high-school-physics/" class="title">back-to-high-school-physics</a></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Algorithm/">Algorithm</a></p>
+                            <p class="item-title"><a href="/2015/06/17/back-to-high-school-physics/" class="title">Back to High School Physics</a></p>
                             <p class="item-date"><time datetime="2015-06-17T01:23:00.000Z" itemprop="datePublished">2015-06-17</time></p>
                         </div>
                     </li>
@@ -2351,8 +2258,8 @@ String[] target = copy(source);
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2015/06/17/연속-부분-최대곱-public-class-max-public-static/" class="title">연속-부분-최대곱-public-class-max-public-static</a></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2015/06/17/연속-부분-최대곱-public-class-max-public-static/" class="title">연속 부분 최대곱</a></p>
                             <p class="item-date"><time datetime="2015-06-17T01:19:00.000Z" itemprop="datePublished">2015-06-17</time></p>
                         </div>
                     </li>
@@ -2360,7 +2267,7 @@ String[] target = copy(source);
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
                             <p class="item-title"><a href="/2015/06/08/후위-표현식/" class="title">후위-표현식</a></p>
                             <p class="item-date"><time datetime="2015-06-07T15:34:00.000Z" itemprop="datePublished">2015-06-08</time></p>
                         </div>
@@ -2375,7 +2282,7 @@ String[] target = copy(source);
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">60</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">117</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Algorithm/">Algorithm</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ceylon/">Ceylon</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/LibGDX/">LibGDX</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Processing/">Processing</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Rust/">Rust</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ukulele/">Ukulele</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 

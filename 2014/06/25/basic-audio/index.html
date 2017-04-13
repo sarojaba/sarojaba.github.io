@@ -3,19 +3,19 @@
 <head>
     <meta charset="utf-8">
     
-    <title>basic-audio | 사로자바의 블로그</title>
+    <title>Basic Audio | 사로자바의 블로그</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="튜토리얼 보면서 따라한 코드이다.배경음악은 주구장창 흘러나오고, 마우스나 손가락으로 터치할때마다 효과음이 발생한다. package com.awesome;  import com.badlogic.gdx.ApplicationListener; import com.badlogic.gdx.Gdx; import com.badlogic.gdx.audio.Music; im">
+    <meta name="description" content="튜토리얼 보면서 따라한 코드이다.배경음악은 주구장창 흘러나오고, 마우스나 손가락으로 터치할때마다 효과음이 발생한다. 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354package com.awesome;import com.badlo">
 <meta name="keywords" content="Programming,Java,Android,LibGDX">
 <meta property="og:type" content="article">
-<meta property="og:title" content="basic-audio">
+<meta property="og:title" content="Basic Audio">
 <meta property="og:url" content="http://sarojaba.github.io/2014/06/25/basic-audio/index.html">
 <meta property="og:site_name" content="사로자바의 블로그">
-<meta property="og:description" content="튜토리얼 보면서 따라한 코드이다.배경음악은 주구장창 흘러나오고, 마우스나 손가락으로 터치할때마다 효과음이 발생한다. package com.awesome;  import com.badlogic.gdx.ApplicationListener; import com.badlogic.gdx.Gdx; import com.badlogic.gdx.audio.Music; im">
-<meta property="og:updated_time" content="2017-04-09T13:49:12.462Z">
+<meta property="og:description" content="튜토리얼 보면서 따라한 코드이다.배경음악은 주구장창 흘러나오고, 마우스나 손가락으로 터치할때마다 효과음이 발생한다. 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354package com.awesome;import com.badlo">
+<meta property="og:updated_time" content="2017-04-13T12:29:04.765Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="basic-audio">
-<meta name="twitter:description" content="튜토리얼 보면서 따라한 코드이다.배경음악은 주구장창 흘러나오고, 마우스나 손가락으로 터치할때마다 효과음이 발생한다. package com.awesome;  import com.badlogic.gdx.ApplicationListener; import com.badlogic.gdx.Gdx; import com.badlogic.gdx.audio.Music; im">
+<meta name="twitter:title" content="Basic Audio">
+<meta name="twitter:description" content="튜토리얼 보면서 따라한 코드이다.배경음악은 주구장창 흘러나오고, 마우스나 손가락으로 터치할때마다 효과음이 발생한다. 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354package com.awesome;import com.badlo">
     
 
     
@@ -208,7 +208,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            basic-audio
+            Basic Audio
         </h1>
     
 
@@ -226,7 +226,7 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/LibGDX/">LibGDX</a>
     </div>
 
                         
@@ -244,62 +244,7 @@
         
             
             <p>튜토리얼 보면서 따라한 코드이다.<br>배경음악은 주구장창 흘러나오고, 마우스나 손가락으로 터치할때마다 효과음이 발생한다.</p>
-<pre><code>package com.awesome;
-
-import com.badlogic.gdx.ApplicationListener;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.audio.Music;
-import com.badlogic.gdx.audio.Sound;
-import com.badlogic.gdx.files.FileHandle;
-
-public class SuperAwesomeExample implements ApplicationListener {
-
-    Music music;
-    Sound sound;
-
-    @Override
-    public void create() {
-        FileHandle musicFile = Gdx.files.internal(&quot;data/Kalimba.mp3&quot;);
-        music = Gdx.audio.newMusic(musicFile);
-
-        FileHandle soundFile = Gdx.files.internal(&quot;data/MediumExplosion8-Bit.ogg&quot;);
-        sound = Gdx.audio.newSound(soundFile);
-
-        music.setLooping(true);
-        music.setVolume(0.5f);
-        music.play();
-    }
-
-    @Override
-    public void render() {
-        if(Gdx.input.justTouched()) {
-            sound.play();
-        }
-    }
-
-    @Override
-    public void resize(int arg0, int arg1) {
-        // TODO Auto-generated method stub
-    }
-
-    @Override
-    public void pause() {
-        // TODO Auto-generated method stub
-    }
-
-    @Override
-    public void resume() {
-        // TODO Auto-generated method stub
-    }
-
-    @Override
-    public void dispose() {
-        music.dispose();
-        sound.dispose();
-    }
-}
-</code></pre><p>p.s) 어제 스킨을 변경했더니 SyntaxHighlighter 코드가 날아갔네 ㄷㄷ</p>
-
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.awesome;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.badlogic.gdx.ApplicationListener;</div><div class="line"><span class="keyword">import</span> com.badlogic.gdx.Gdx;</div><div class="line"><span class="keyword">import</span> com.badlogic.gdx.audio.Music;</div><div class="line"><span class="keyword">import</span> com.badlogic.gdx.audio.Sound;</div><div class="line"><span class="keyword">import</span> com.badlogic.gdx.files.FileHandle;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SuperAwesomeExample</span> <span class="keyword">implements</span> <span class="title">ApplicationListener</span> </span>&#123;</div><div class="line"></div><div class="line">    Music music;</div><div class="line">    Sound sound;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">create</span><span class="params">()</span> </span>&#123;</div><div class="line">        FileHandle musicFile = Gdx.files.internal(<span class="string">"data/Kalimba.mp3"</span>);</div><div class="line">        music = Gdx.audio.newMusic(musicFile);</div><div class="line"></div><div class="line">        FileHandle soundFile = Gdx.files.internal(<span class="string">"data/MediumExplosion8-Bit.ogg"</span>);</div><div class="line">        sound = Gdx.audio.newSound(soundFile);</div><div class="line"></div><div class="line">        music.setLooping(<span class="keyword">true</span>);</div><div class="line">        music.setVolume(<span class="number">0.5f</span>);</div><div class="line">        music.play();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">render</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(Gdx.input.justTouched()) &#123;</div><div class="line">            sound.play();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">resize</span><span class="params">(<span class="keyword">int</span> arg0, <span class="keyword">int</span> arg1)</span> </span>&#123;</div><div class="line">        <span class="comment">// TODO Auto-generated method stub</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">pause</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">// TODO Auto-generated method stub</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">resume</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">// TODO Auto-generated method stub</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">dispose</span><span class="params">()</span> </span>&#123;</div><div class="line">        music.dispose();</div><div class="line">        sound.dispose();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
         
         </div>
         <footer class="article-footer">
@@ -309,7 +254,7 @@ public class SuperAwesomeExample implements ApplicationListener {
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/06/25/basic-audio/" data-id="cj1fmxos5000sj2zycuy1w7lq" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/06/25/basic-audio/" data-id="cj1gegry7000r87zy7h0hfcac" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -390,7 +335,7 @@ public class SuperAwesomeExample implements ApplicationListener {
             <strong class="article-nav-caption">Newer</strong>
             <div class="article-nav-title">
                 
-                    basic-file-io
+                    Basic File I/O
                 
             </div>
         </a>
@@ -441,7 +386,7 @@ public class SuperAwesomeExample implements ApplicationListener {
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
                             <p class="item-title"><a href="/2015/07/20/reverse-array-recursively/" class="title">reverse-array-recursively</a></p>
                             <p class="item-date"><time datetime="2015-07-19T15:48:00.000Z" itemprop="datePublished">2015-07-20</time></p>
                         </div>
@@ -450,8 +395,8 @@ public class SuperAwesomeExample implements ApplicationListener {
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
-                            <p class="item-title"><a href="/2015/06/17/back-to-high-school-physics/" class="title">back-to-high-school-physics</a></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Algorithm/">Algorithm</a></p>
+                            <p class="item-title"><a href="/2015/06/17/back-to-high-school-physics/" class="title">Back to High School Physics</a></p>
                             <p class="item-date"><time datetime="2015-06-17T01:23:00.000Z" itemprop="datePublished">2015-06-17</time></p>
                         </div>
                     </li>
@@ -459,8 +404,8 @@ public class SuperAwesomeExample implements ApplicationListener {
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2015/06/17/연속-부분-최대곱-public-class-max-public-static/" class="title">연속-부분-최대곱-public-class-max-public-static</a></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2015/06/17/연속-부분-최대곱-public-class-max-public-static/" class="title">연속 부분 최대곱</a></p>
                             <p class="item-date"><time datetime="2015-06-17T01:19:00.000Z" itemprop="datePublished">2015-06-17</time></p>
                         </div>
                     </li>
@@ -468,7 +413,7 @@ public class SuperAwesomeExample implements ApplicationListener {
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
                             <p class="item-title"><a href="/2015/06/08/후위-표현식/" class="title">후위-표현식</a></p>
                             <p class="item-date"><time datetime="2015-06-07T15:34:00.000Z" itemprop="datePublished">2015-06-08</time></p>
                         </div>
@@ -483,7 +428,7 @@ public class SuperAwesomeExample implements ApplicationListener {
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">60</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">117</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Algorithm/">Algorithm</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ceylon/">Ceylon</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/LibGDX/">LibGDX</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Processing/">Processing</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Rust/">Rust</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ukulele/">Ukulele</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 

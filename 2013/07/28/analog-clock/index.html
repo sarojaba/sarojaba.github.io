@@ -3,18 +3,18 @@
 <head>
     <meta charset="utf-8">
     
-    <title>analog-clock | 사로자바의 블로그</title>
+    <title>Analog Clock | 사로자바의 블로그</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="아날로그 시계를 만들어보았다. 흘러가는 세월아&amp;hellip;  int s; // size float r;  void setup() {    s = 300;   r = s / 2;    size(s, s);   smooth();   frameRate(15); }  void draw() {    strokeWeight(1.5);    // translate t">
 <meta name="keywords" content="Programming,Processing,Analog Clock">
 <meta property="og:type" content="article">
-<meta property="og:title" content="analog-clock">
+<meta property="og:title" content="Analog Clock">
 <meta property="og:url" content="http://sarojaba.github.io/2013/07/28/analog-clock/index.html">
 <meta property="og:site_name" content="사로자바의 블로그">
 <meta property="og:description" content="아날로그 시계를 만들어보았다. 흘러가는 세월아&amp;hellip;  int s; // size float r;  void setup() {    s = 300;   r = s / 2;    size(s, s);   smooth();   frameRate(15); }  void draw() {    strokeWeight(1.5);    // translate t">
-<meta property="og:updated_time" content="2017-04-09T13:46:59.755Z">
+<meta property="og:updated_time" content="2017-04-13T12:12:02.565Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="analog-clock">
+<meta name="twitter:title" content="Analog Clock">
 <meta name="twitter:description" content="아날로그 시계를 만들어보았다. 흘러가는 세월아&amp;hellip;  int s; // size float r;  void setup() {    s = 300;   r = s / 2;    size(s, s);   smooth();   frameRate(15); }  void draw() {    strokeWeight(1.5);    // translate t">
     
 
@@ -208,7 +208,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            analog-clock
+            Analog Clock
         </h1>
     
 
@@ -226,7 +226,7 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Processing/">Processing</a>
     </div>
 
                         
@@ -306,63 +306,7 @@ void draw() {
 
 <canvas id="processing-canvas-analog_clock"></canvas>
 
-<pre><code>int s; // size
-float r;
-
-void setup() {
-
-  s = 300;
-  r = s / 2;
-
-  size(s, s);
-  smooth();
-  frameRate(15);
-}
-
-void draw() {
-
-  strokeWeight(1.5);
-
-  // translate to center
-  translate(s / 2, s / 2);
-  rotate(radians(270));
-
-  // draw circle
-  stroke(#000000);
-  fill(#FFFFFF);
-  ellipse(0, 0, s, s);
-
-  // draw hour numbers
-  float u = radians(360 / 12);
-  for(int h = 0; h &lt; 12; h++) {
-
-    pushMatrix();
-    float x = (r * 0.9) * cos(h * u);
-    float y = (r * 0.9) * sin(h * u);
-    translate(x, y);
-    rotate(radians(90));
-    fill(#000000);
-    textAlign(CENTER, CENTER);
-    text(h, 0, 0);
-    popMatrix();
-  }
-
-  // second needle
-  float ts = radians(second() * (360 / 60));
-  stroke(#FF0000);
-  line(0, 0, (r * 0.9) * cos(ts), (r * 0.9) * sin(ts));
-
-  // minute needle
-  float tm = radians(minute() * (360 / 60));
-  stroke(#00FF00);
-  line(0, 0, (r * 0.8) * cos(tm), (r * 0.8) * sin(tm));
-
-  // hour needle
-  float th = radians(hour() * (360 / 12));
-  stroke(#0000FF);
-  line(0, 0, (r * 0.7) * cos(th), (r * 0.7) * sin(th));
-}
-</code></pre>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">int</span> s; <span class="comment">// size</span></div><div class="line"><span class="built_in">float</span> r;</div><div class="line"></div><div class="line"><span class="keyword">void</span> <span class="title">setup</span>() &#123;</div><div class="line"></div><div class="line">  s = <span class="number">300</span>;</div><div class="line">  r = s / <span class="number">2</span>;</div><div class="line"></div><div class="line">  <span class="built_in">size</span>(s, s);</div><div class="line">  <span class="built_in">smooth</span>();</div><div class="line">  <span class="built_in">frameRate</span>(<span class="number">15</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">void</span> <span class="title">draw</span>() &#123;</div><div class="line"></div><div class="line">  <span class="built_in">strokeWeight</span>(<span class="number">1.5</span>);</div><div class="line"></div><div class="line">  <span class="comment">// translate to center</span></div><div class="line">  <span class="built_in">translate</span>(s / <span class="number">2</span>, s / <span class="number">2</span>);</div><div class="line">  <span class="built_in">rotate</span>(<span class="built_in">radians</span>(<span class="number">270</span>));</div><div class="line"></div><div class="line">  <span class="comment">// draw circle</span></div><div class="line">  <span class="built_in">stroke</span>(#<span class="number">000000</span>);</div><div class="line">  <span class="built_in">fill</span>(#FFFFFF);</div><div class="line">  <span class="built_in">ellipse</span>(<span class="number">0</span>, <span class="number">0</span>, s, s);</div><div class="line"></div><div class="line">  <span class="comment">// draw hour numbers</span></div><div class="line">  <span class="built_in">float</span> u = <span class="built_in">radians</span>(<span class="number">360</span> / <span class="number">12</span>);</div><div class="line">  <span class="keyword">for</span>(<span class="built_in">int</span> h = <span class="number">0</span>; h &lt; <span class="number">12</span>; h++) &#123;</div><div class="line"></div><div class="line">    <span class="built_in">pushMatrix</span>();</div><div class="line">    <span class="built_in">float</span> x = (r * <span class="number">0.9</span>) * <span class="built_in">cos</span>(h * u);</div><div class="line">    <span class="built_in">float</span> y = (r * <span class="number">0.9</span>) * <span class="built_in">sin</span>(h * u);</div><div class="line">    <span class="built_in">translate</span>(x, y);</div><div class="line">    <span class="built_in">rotate</span>(<span class="built_in">radians</span>(<span class="number">90</span>));</div><div class="line">    <span class="built_in">fill</span>(#<span class="number">000000</span>);</div><div class="line">    <span class="built_in">textAlign</span>(CENTER, CENTER);</div><div class="line">    <span class="built_in">text</span>(h, <span class="number">0</span>, <span class="number">0</span>);</div><div class="line">    <span class="built_in">popMatrix</span>();</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="comment">// second needle</span></div><div class="line">  <span class="built_in">float</span> ts = <span class="built_in">radians</span>(<span class="built_in">second</span>() * (<span class="number">360</span> / <span class="number">60</span>));</div><div class="line">  <span class="built_in">stroke</span>(#FF0000);</div><div class="line">  <span class="built_in">line</span>(<span class="number">0</span>, <span class="number">0</span>, (r * <span class="number">0.9</span>) * <span class="built_in">cos</span>(ts), (r * <span class="number">0.9</span>) * <span class="built_in">sin</span>(ts));</div><div class="line"></div><div class="line">  <span class="comment">// minute needle</span></div><div class="line">  <span class="built_in">float</span> tm = <span class="built_in">radians</span>(<span class="built_in">minute</span>() * (<span class="number">360</span> / <span class="number">60</span>));</div><div class="line">  <span class="built_in">stroke</span>(#<span class="number">00</span>FF00);</div><div class="line">  <span class="built_in">line</span>(<span class="number">0</span>, <span class="number">0</span>, (r * <span class="number">0.8</span>) * <span class="built_in">cos</span>(tm), (r * <span class="number">0.8</span>) * <span class="built_in">sin</span>(tm));</div><div class="line"></div><div class="line">  <span class="comment">// hour needle</span></div><div class="line">  <span class="built_in">float</span> th = <span class="built_in">radians</span>(<span class="built_in">hour</span>() * (<span class="number">360</span> / <span class="number">12</span>));</div><div class="line">  <span class="built_in">stroke</span>(#<span class="number">0000</span>FF);</div><div class="line">  <span class="built_in">line</span>(<span class="number">0</span>, <span class="number">0</span>, (r * <span class="number">0.7</span>) * <span class="built_in">cos</span>(th), (r * <span class="number">0.7</span>) * <span class="built_in">sin</span>(th));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
         
         </div>
         <footer class="article-footer">
@@ -372,7 +316,7 @@ void draw() {
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2013/07/28/analog-clock/" data-id="cj1fmxort000fj2zy1oijbkvw" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2013/07/28/analog-clock/" data-id="cj1gegrxw000d87zygw9ji0vx" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -461,7 +405,7 @@ void draw() {
     
         <a href="/2013/07/29/bubble-pop/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">bubble-pop</div>
+            <div class="article-nav-title">Bubble Pop</div>
         </a>
     
 </nav>
@@ -504,7 +448,7 @@ void draw() {
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
                             <p class="item-title"><a href="/2015/07/20/reverse-array-recursively/" class="title">reverse-array-recursively</a></p>
                             <p class="item-date"><time datetime="2015-07-19T15:48:00.000Z" itemprop="datePublished">2015-07-20</time></p>
                         </div>
@@ -513,8 +457,8 @@ void draw() {
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
-                            <p class="item-title"><a href="/2015/06/17/back-to-high-school-physics/" class="title">back-to-high-school-physics</a></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Algorithm/">Algorithm</a></p>
+                            <p class="item-title"><a href="/2015/06/17/back-to-high-school-physics/" class="title">Back to High School Physics</a></p>
                             <p class="item-date"><time datetime="2015-06-17T01:23:00.000Z" itemprop="datePublished">2015-06-17</time></p>
                         </div>
                     </li>
@@ -522,8 +466,8 @@ void draw() {
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2015/06/17/연속-부분-최대곱-public-class-max-public-static/" class="title">연속-부분-최대곱-public-class-max-public-static</a></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2015/06/17/연속-부분-최대곱-public-class-max-public-static/" class="title">연속 부분 최대곱</a></p>
                             <p class="item-date"><time datetime="2015-06-17T01:19:00.000Z" itemprop="datePublished">2015-06-17</time></p>
                         </div>
                     </li>
@@ -531,7 +475,7 @@ void draw() {
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
                             <p class="item-title"><a href="/2015/06/08/후위-표현식/" class="title">후위-표현식</a></p>
                             <p class="item-date"><time datetime="2015-06-07T15:34:00.000Z" itemprop="datePublished">2015-06-08</time></p>
                         </div>
@@ -546,7 +490,7 @@ void draw() {
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">60</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">117</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Algorithm/">Algorithm</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ceylon/">Ceylon</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/LibGDX/">LibGDX</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Processing/">Processing</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Rust/">Rust</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ukulele/">Ukulele</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 

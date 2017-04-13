@@ -3,19 +3,19 @@
 <head>
     <meta charset="utf-8">
     
-    <title>basic-file-io | 사로자바의 블로그</title>
+    <title>Basic File I/O | 사로자바의 블로그</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="File IO 방법은 간단하다. 네가지 모드가 있지만 우선 자주 쓰는건 두가지 인듯.internal은 해당 프로젝트의 디렉토리를 기준으로 한다.(안드로이드의 경우 asset)external은 home 디렉토리를 기준으로 한다.(안드로이드의 경우 sdcard) FileHandle file = Gdx.files.internal(&amp;quot;data/test.tx">
+    <meta name="description" content="File IO 방법은 간단하다. 네가지 모드가 있지만 우선 자주 쓰는건 두가지 인듯.internal은 해당 프로젝트의 디렉토리를 기준으로 한다.(안드로이드의 경우 asset)external은 home 디렉토리를 기준으로 한다.(안드로이드의 경우 sdcard) 12FileHandle file = Gdx.files.internal(&quot;data/test.txt&quot;)">
 <meta name="keywords" content="Programming,Java,Android,LibGDX">
 <meta property="og:type" content="article">
-<meta property="og:title" content="basic-file-io">
+<meta property="og:title" content="Basic File I/O">
 <meta property="og:url" content="http://sarojaba.github.io/2014/06/25/basic-file-io/index.html">
 <meta property="og:site_name" content="사로자바의 블로그">
-<meta property="og:description" content="File IO 방법은 간단하다. 네가지 모드가 있지만 우선 자주 쓰는건 두가지 인듯.internal은 해당 프로젝트의 디렉토리를 기준으로 한다.(안드로이드의 경우 asset)external은 home 디렉토리를 기준으로 한다.(안드로이드의 경우 sdcard) FileHandle file = Gdx.files.internal(&amp;quot;data/test.tx">
-<meta property="og:updated_time" content="2017-04-09T13:49:20.254Z">
+<meta property="og:description" content="File IO 방법은 간단하다. 네가지 모드가 있지만 우선 자주 쓰는건 두가지 인듯.internal은 해당 프로젝트의 디렉토리를 기준으로 한다.(안드로이드의 경우 asset)external은 home 디렉토리를 기준으로 한다.(안드로이드의 경우 sdcard) 12FileHandle file = Gdx.files.internal(&quot;data/test.txt&quot;)">
+<meta property="og:updated_time" content="2017-04-13T12:30:02.595Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="basic-file-io">
-<meta name="twitter:description" content="File IO 방법은 간단하다. 네가지 모드가 있지만 우선 자주 쓰는건 두가지 인듯.internal은 해당 프로젝트의 디렉토리를 기준으로 한다.(안드로이드의 경우 asset)external은 home 디렉토리를 기준으로 한다.(안드로이드의 경우 sdcard) FileHandle file = Gdx.files.internal(&amp;quot;data/test.tx">
+<meta name="twitter:title" content="Basic File I/O">
+<meta name="twitter:description" content="File IO 방법은 간단하다. 네가지 모드가 있지만 우선 자주 쓰는건 두가지 인듯.internal은 해당 프로젝트의 디렉토리를 기준으로 한다.(안드로이드의 경우 asset)external은 home 디렉토리를 기준으로 한다.(안드로이드의 경우 sdcard) 12FileHandle file = Gdx.files.internal(&quot;data/test.txt&quot;)">
     
 
     
@@ -208,7 +208,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            basic-file-io
+            Basic File I/O
         </h1>
     
 
@@ -226,7 +226,7 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/LibGDX/">LibGDX</a>
     </div>
 
                         
@@ -245,9 +245,8 @@
             
             <p>File IO 방법은 간단하다.</p>
 <p>네가지 모드가 있지만 우선 자주 쓰는건 두가지 인듯.<br>internal은 해당 프로젝트의 디렉토리를 기준으로 한다.(안드로이드의 경우 asset)<br>external은 home 디렉토리를 기준으로 한다.(안드로이드의 경우 sdcard)</p>
-<pre><code>FileHandle file = Gdx.files.internal(&quot;data/test.txt&quot;);
-String txt = file.readString();
-</code></pre><p>위와 같이 텍스트 파일을 처리할 수 있다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">FileHandle file = Gdx.files.internal(<span class="string">"data/test.txt"</span>);</div><div class="line">String txt = file.readString();</div></pre></td></tr></table></figure>
+<p>위와 같이 텍스트 파일을 처리할 수 있다.</p>
 <p>p.s) 공부하면서 쓰는 내용이라 체계적으로 정리가 안되네.<br>시간나면 좀 더 고쳐봐야겠다.</p>
 
         
@@ -259,7 +258,7 @@ String txt = file.readString();
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/06/25/basic-file-io/" data-id="cj1fmxos7000vj2zyajuqtntx" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/06/25/basic-file-io/" data-id="cj1gegry8000v87zymswjdaud" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -340,7 +339,7 @@ String txt = file.readString();
             <strong class="article-nav-caption">Newer</strong>
             <div class="article-nav-title">
                 
-                    application-lifecycle-살펴보기
+                    Application Lifecycle 살펴보기
                 
             </div>
         </a>
@@ -348,7 +347,7 @@ String txt = file.readString();
     
         <a href="/2014/06/25/basic-audio/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">basic-audio</div>
+            <div class="article-nav-title">Basic Audio</div>
         </a>
     
 </nav>
@@ -391,7 +390,7 @@ String txt = file.readString();
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
                             <p class="item-title"><a href="/2015/07/20/reverse-array-recursively/" class="title">reverse-array-recursively</a></p>
                             <p class="item-date"><time datetime="2015-07-19T15:48:00.000Z" itemprop="datePublished">2015-07-20</time></p>
                         </div>
@@ -400,8 +399,8 @@ String txt = file.readString();
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
-                            <p class="item-title"><a href="/2015/06/17/back-to-high-school-physics/" class="title">back-to-high-school-physics</a></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Algorithm/">Algorithm</a></p>
+                            <p class="item-title"><a href="/2015/06/17/back-to-high-school-physics/" class="title">Back to High School Physics</a></p>
                             <p class="item-date"><time datetime="2015-06-17T01:23:00.000Z" itemprop="datePublished">2015-06-17</time></p>
                         </div>
                     </li>
@@ -409,8 +408,8 @@ String txt = file.readString();
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2015/06/17/연속-부분-최대곱-public-class-max-public-static/" class="title">연속-부분-최대곱-public-class-max-public-static</a></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2015/06/17/연속-부분-최대곱-public-class-max-public-static/" class="title">연속 부분 최대곱</a></p>
                             <p class="item-date"><time datetime="2015-06-17T01:19:00.000Z" itemprop="datePublished">2015-06-17</time></p>
                         </div>
                     </li>
@@ -418,7 +417,7 @@ String txt = file.readString();
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
                             <p class="item-title"><a href="/2015/06/08/후위-표현식/" class="title">후위-표현식</a></p>
                             <p class="item-date"><time datetime="2015-06-07T15:34:00.000Z" itemprop="datePublished">2015-06-08</time></p>
                         </div>
@@ -433,7 +432,7 @@ String txt = file.readString();
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">60</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">117</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Algorithm/">Algorithm</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ceylon/">Ceylon</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/LibGDX/">LibGDX</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Processing/">Processing</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Rust/">Rust</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ukulele/">Ukulele</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 

@@ -3,19 +3,21 @@
 <head>
     <meta charset="utf-8">
     
-    <title>연속-부분-최대곱-public-class-max-public-static | 사로자바의 블로그</title>
+    <title>연속 부분 최대곱 | 사로자바의 블로그</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="연속 부분 최대곱public class MAX{    public static double[] nums = {1.1, 0.7, 1.3, 0.9, 1.4, 0.8, 0.7, 1.4};   public static void main(String[] args){     float max = 1;     for(int i = 0; i &amp;lt; nums.lengt">
+    <meta name="description" content="문제 소스 코드public class MAX{    public static double[] nums = {1.1, 0.7, 1.3, 0.9, 1.4, 0.8, 0.7, 1.4};   public static void main(String[] args){     float max = 1;     for(int i = 0; i &amp;lt; nums.length;">
 <meta name="keywords" content="Algorithm,연속 부분 최대곱">
 <meta property="og:type" content="article">
-<meta property="og:title" content="연속-부분-최대곱-public-class-max-public-static">
+<meta property="og:title" content="연속 부분 최대곱">
 <meta property="og:url" content="http://sarojaba.github.io/2015/06/17/연속-부분-최대곱-public-class-max-public-static/index.html">
 <meta property="og:site_name" content="사로자바의 블로그">
-<meta property="og:description" content="연속 부분 최대곱public class MAX{    public static double[] nums = {1.1, 0.7, 1.3, 0.9, 1.4, 0.8, 0.7, 1.4};   public static void main(String[] args){     float max = 1;     for(int i = 0; i &amp;lt; nums.lengt">
-<meta property="og:updated_time" content="2017-04-09T03:14:28.689Z">
+<meta property="og:description" content="문제 소스 코드public class MAX{    public static double[] nums = {1.1, 0.7, 1.3, 0.9, 1.4, 0.8, 0.7, 1.4};   public static void main(String[] args){     float max = 1;     for(int i = 0; i &amp;lt; nums.length;">
+<meta property="og:image" content="http://sarojaba.github.io/2015/06/17/연속-부분-최대곱-public-class-max-public-static/tumblr_nq2ebtMpel1rd6870o1_500.jpg">
+<meta property="og:updated_time" content="2017-04-13T11:59:04.110Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="연속-부분-최대곱-public-class-max-public-static">
-<meta name="twitter:description" content="연속 부분 최대곱public class MAX{    public static double[] nums = {1.1, 0.7, 1.3, 0.9, 1.4, 0.8, 0.7, 1.4};   public static void main(String[] args){     float max = 1;     for(int i = 0; i &amp;lt; nums.lengt">
+<meta name="twitter:title" content="연속 부분 최대곱">
+<meta name="twitter:description" content="문제 소스 코드public class MAX{    public static double[] nums = {1.1, 0.7, 1.3, 0.9, 1.4, 0.8, 0.7, 1.4};   public static void main(String[] args){     float max = 1;     for(int i = 0; i &amp;lt; nums.length;">
+<meta name="twitter:image" content="http://sarojaba.github.io/2015/06/17/연속-부분-최대곱-public-class-max-public-static/tumblr_nq2ebtMpel1rd6870o1_500.jpg">
     
 
     
@@ -208,7 +210,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            연속-부분-최대곱-public-class-max-public-static
+            연속 부분 최대곱
         </h1>
     
 
@@ -224,6 +226,11 @@
 
 
                         
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+    </div>
+
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
@@ -238,21 +245,21 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            
-<h1 id="연속-부분-최대곱"><a href="#연속-부분-최대곱" class="headerlink" title="연속 부분 최대곱"></a>연속 부분 최대곱</h1><pre><code>public class MAX{
+            <h1 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h1><img src="/2015/06/17/연속-부분-최대곱-public-class-max-public-static/tumblr_nq2ebtMpel1rd6870o1_500.jpg" alt="문제" title="문제">
+<h1 id="소스-코드"><a href="#소스-코드" class="headerlink" title="소스 코드"></a>소스 코드</h1><pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MAX</span></span>{
 
-  public static double[] nums = {1.1, 0.7, 1.3, 0.9, 1.4, 0.8, 0.7, 1.4};
-  public static void main(String[] args){
-    float max = 1;
-    for(int i = 0; i &lt; nums.length; i++){
+  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span>[] nums = {<span class="number">1.1</span>, <span class="number">0.7</span>, <span class="number">1.3</span>, <span class="number">0.9</span>, <span class="number">1.4</span>, <span class="number">0.8</span>, <span class="number">0.7</span>, <span class="number">1.4</span>};
+  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>{
+    <span class="keyword">float</span> max = <span class="number">1</span>;
+    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++){
 
-      if(nums[i] &gt; 1){
-        float m = 1;
-        for(int j = 0; j &lt; nums.length - i; j++){
+      <span class="keyword">if</span>(nums[i] &gt; <span class="number">1</span>){
+        <span class="keyword">float</span> m = <span class="number">1</span>;
+        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; nums.length - i; j++){
 
           m *= nums[i + j];
 
-          if(max &lt; m){
+          <span class="keyword">if</span>(max &lt; m){
             max = m;
           }
         }
@@ -262,6 +269,7 @@
   }
 }
 </code></pre>
+
         
         </div>
         <footer class="article-footer">
@@ -271,7 +279,7 @@
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2015/06/17/연속-부분-최대곱-public-class-max-public-static/" data-id="cj1fmxoyv00a6j2zy2iq086sp" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2015/06/17/연속-부분-최대곱-public-class-max-public-static/" data-id="cj1gegs4h00bt87zym4o13vj6" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -360,7 +368,7 @@
     
         <a href="/2015/06/17/back-to-high-school-physics/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">back-to-high-school-physics</div>
+            <div class="article-nav-title">Back to High School Physics</div>
         </a>
     
 </nav>
@@ -403,7 +411,7 @@
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
                             <p class="item-title"><a href="/2015/07/20/reverse-array-recursively/" class="title">reverse-array-recursively</a></p>
                             <p class="item-date"><time datetime="2015-07-19T15:48:00.000Z" itemprop="datePublished">2015-07-20</time></p>
                         </div>
@@ -412,8 +420,8 @@
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
-                            <p class="item-title"><a href="/2015/06/17/back-to-high-school-physics/" class="title">back-to-high-school-physics</a></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Algorithm/">Algorithm</a></p>
+                            <p class="item-title"><a href="/2015/06/17/back-to-high-school-physics/" class="title">Back to High School Physics</a></p>
                             <p class="item-date"><time datetime="2015-06-17T01:23:00.000Z" itemprop="datePublished">2015-06-17</time></p>
                         </div>
                     </li>
@@ -421,8 +429,8 @@
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2015/06/17/연속-부분-최대곱-public-class-max-public-static/" class="title">연속-부분-최대곱-public-class-max-public-static</a></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2015/06/17/연속-부분-최대곱-public-class-max-public-static/" class="title">연속 부분 최대곱</a></p>
                             <p class="item-date"><time datetime="2015-06-17T01:19:00.000Z" itemprop="datePublished">2015-06-17</time></p>
                         </div>
                     </li>
@@ -430,7 +438,7 @@
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
                             <p class="item-title"><a href="/2015/06/08/후위-표현식/" class="title">후위-표현식</a></p>
                             <p class="item-date"><time datetime="2015-06-07T15:34:00.000Z" itemprop="datePublished">2015-06-08</time></p>
                         </div>
@@ -445,7 +453,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">60</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">117</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Algorithm/">Algorithm</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ceylon/">Ceylon</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/LibGDX/">LibGDX</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Processing/">Processing</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Rust/">Rust</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ukulele/">Ukulele</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 

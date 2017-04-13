@@ -223,6 +223,11 @@
 
 
                         
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+    </div>
+
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
@@ -289,7 +294,7 @@ javac 1.7.0_05
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2013/03/29/커맨드-라인에서-프로그램-실행하기/" data-id="cj1fmxp0b00bwj2zyh7rjeyw2" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2013/03/29/커맨드-라인에서-프로그램-실행하기/" data-id="cj1gegs6200e987zy0zluzz2s" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -375,7 +380,7 @@ javac 1.7.0_05
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2013/03/29/a-really-simple-program/">a-really-simple-program</a>
+            <a class="article-title" href="/2013/03/29/a-really-simple-program/">A really simple program</a>
         </h1>
     
 
@@ -393,7 +398,7 @@ javac 1.7.0_05
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Ceylon/">Ceylon</a>
     </div>
 
                         
@@ -411,22 +416,13 @@ javac 1.7.0_05
         
             
             <p>여기 고전적인 예제 프로그램이 있다.</p>
-<pre><code>void hello() {
-    print(&quot;Hello, World!&quot;);
-}
-`&lt;/pre&gt;
+<figure class="highlight ceylon"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> hello() &#123;</div><div class="line">    print(<span class="string">"Hello, World!"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>이 함수는 Hello, World! 를 콘솔에 찍는다. 어떤 타입의 멤버도 아니기 때문에 이 함수를 최상위 레벨 함수라고 부른다. 최상위 레벨 함수를 호출하기 위해 객체를 받을 필요가 없다. 대신에 다음처럼 호출만 하면 된다.</p>
+<figure class="highlight ceylon"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hello();</div></pre></td></tr></table></figure>
+<p>Ceylon 은 Java, C++, C# 에서 볼 수 있는 static 메소드를 가지지 않지만 최상위 레벨 함수가 같은 역할을 하고 있다고 보면 된다. 이렇게 차이가 나는 이유는 Ceylon 은 아주 엄격한 블록 구조를 가지고 있기 때문이다. 중첩된 블록은 포함하는 블록의 선언에 항상 접근할 수 있다. Java 의 static 메소드의 경우와는 다르다.</p>
+<p>Ceylon 은 아직 스크립팅을 지원하지 않는다. 함수나 클래스 밖에서 <code>print(“Hello World!”);</code> 라고만 적는것은 안된다. 다음은 잘못된 프로그램이다.</p>
+<figure class="highlight ceylon"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">print(<span class="string">"Hello, World!"</span>);  <span class="comment">//error: must occur inside a function or class</span></div></pre></td></tr></table></figure>
 
-이 함수는 Hello, World! 를 콘솔에 찍는다. 어떤 타입의 멤버도 아니기 때문에 이 함수를 최상위 레벨 함수라고 부른다. 최상위 레벨 함수를 호출하기 위해 객체를 받을 필요가 없다. 대신에 다음처럼 호출만 하면 된다.
-
-&lt;pre&gt;`hello();
-`&lt;/pre&gt;
-
-Ceylon 은 Java, C++, C# 에서 볼 수 있는 static 메소드를 가지지 않지만 최상위 레벨 함수가 같은 역할을 하고 있다고 보면 된다. 이렇게 차이가 나는 이유는 Ceylon 은 아주 엄격한 블록 구조를 가지고 있기 때문이다. 중첩된 블록은 포함하는 블록의 선언에 항상 접근할 수 있다. Java 의 static 메소드의 경우와는 다르다.
-
-Ceylon 은 아직 스크립팅을 지원하지 않는다. 함수나 클래스 밖에서 print(“Hello World!”); 라고만 적는것은 안된다. 다음은 잘못된 프로그램이다.
-
-&lt;pre&gt;`print(&quot;Hello, World!&quot;);  //error: must occur inside a function or class
-</code></pre>
         
         </div>
         <footer class="article-footer">
@@ -436,7 +432,7 @@ Ceylon 은 아직 스크립팅을 지원하지 않는다. 함수나 클래스 �
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2013/03/29/a-really-simple-program/" data-id="cj1fmxorc0005j2zyafcqrwoc" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2013/03/29/a-really-simple-program/" data-id="cj1gegrxi000687zyimujna3c" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -522,7 +518,7 @@ Ceylon 은 아직 스크립팅을 지원하지 않는다. 함수나 클래스 �
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2013/03/16/another-earth/">another-earth</a>
+            <a class="article-title" href="/2013/03/16/another-earth/">Another Earth</a>
         </h1>
     
 
@@ -572,7 +568,7 @@ Ceylon 은 아직 스크립팅을 지원하지 않는다. 함수나 클래스 �
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2013/03/16/another-earth/" data-id="cj1fmxorv000ij2zy6gtugtzj" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2013/03/16/another-earth/" data-id="cj1gegrxx000f87zydz7aj8q9" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -674,6 +670,11 @@ Ceylon 은 아직 스크립팅을 지원하지 않는다. 함수나 클래스 �
 
 
                         
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+    </div>
+
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
@@ -701,7 +702,7 @@ Ceylon 은 아직 스크립팅을 지원하지 않는다. 함수나 클래스 �
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2013/03/14/ubuntu-에-enlightenment-e17-설치하기/" data-id="cj1fmxowz007oj2zycdeoqrr6" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2013/03/14/ubuntu-에-enlightenment-e17-설치하기/" data-id="cj1gegs2m008a87zyan4lsvux" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -803,6 +804,11 @@ Ceylon 은 아직 스크립팅을 지원하지 않는다. 함수나 클래스 �
 
 
                         
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+    </div>
+
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
@@ -830,7 +836,7 @@ Ceylon 은 아직 스크립팅을 지원하지 않는다. 함수나 클래스 �
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2013/03/10/ubuntu-에-sublime-text-설치하기/" data-id="cj1fmxox2007rj2zy9vytfv3d" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2013/03/10/ubuntu-에-sublime-text-설치하기/" data-id="cj1gegs2o008e87zynnt44a5k" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -932,6 +938,11 @@ Ceylon 은 아직 스크립팅을 지원하지 않는다. 함수나 클래스 �
 
 
                         
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+    </div>
+
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
@@ -957,7 +968,7 @@ Ceylon 은 아직 스크립팅을 지원하지 않는다. 함수나 클래스 �
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2013/02/26/ubuntu-1104-에서-마우스-휠-속도가-너무-빨라요/" data-id="cj1fmxoww007jj2zyf2iw08kd" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2013/02/26/ubuntu-1104-에서-마우스-휠-속도가-너무-빨라요/" data-id="cj1gegs2k008387zy4m7j5e3v" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1059,6 +1070,11 @@ Ceylon 은 아직 스크립팅을 지원하지 않는다. 함수나 클래스 �
 
 
                         
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Magic/">Magic</a>
+    </div>
+
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
@@ -1088,7 +1104,7 @@ Ceylon 은 아직 스크립팅을 지원하지 않는다. 함수나 클래스 �
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2013/02/18/the-quck-change-show-movie-theme-from-korea/" data-id="cj1fmxowq007aj2zyy6hovzkt" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2013/02/18/the-quck-change-show-movie-theme-from-korea/" data-id="cj1gegs2d007q87zyqf10pcab" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1190,6 +1206,11 @@ Ceylon 은 아직 스크립팅을 지원하지 않는다. 함수나 클래스 �
 
 
                         
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Movie/">Movie</a>
+    </div>
+
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
@@ -1219,7 +1240,7 @@ Ceylon 은 아직 스크립팅을 지원하지 않는다. 함수나 클래스 �
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2013/02/15/짝패/" data-id="cj1fmxp0500boj2zym3cgmm0v" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2013/02/15/짝패/" data-id="cj1gegs5x00dz87zy7m9khsy3" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1355,7 +1376,7 @@ Ceylon 은 아직 스크립팅을 지원하지 않는다. 함수나 클래스 �
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2013/02/15/devkit/" data-id="cj1fmxotp002sj2zy60j7ugff" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2013/02/15/devkit/" data-id="cj1gegs09003c87zyoo8hhegw" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1441,7 +1462,7 @@ Ceylon 은 아직 스크립팅을 지원하지 않는다. 함수나 클래스 �
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2013/02/14/boggle/">boggle</a>
+            <a class="article-title" href="/2013/02/14/boggle/">Boggle</a>
         </h1>
     
 
@@ -1459,13 +1480,13 @@ Ceylon 은 아직 스크립팅을 지원하지 않는다. 함수나 클래스 �
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Algorithm/">Algorithm</a>
     </div>
 
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Programming/">Programming</a>
+        <a class="tag-link" href="/tags/Algorithm/">Algorithm</a>, <a class="tag-link" href="/tags/Programming/">Programming</a>
     </div>
 
                     </div>
@@ -1477,151 +1498,8 @@ Ceylon 은 아직 스크립팅을 지원하지 않는다. 함수나 클래스 �
         
             
             <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h1><p><a href="http://algospot.com/judge/problem/read/BOGGLE" target="_blank" rel="external">http://algospot.com/judge/problem/read/BOGGLE</a></p>
-<h1 id="Source-Code"><a href="#Source-Code" class="headerlink" title="Source Code"></a>Source Code</h1><pre><code>package com.sarojaba.algospot;
-
-import java.util.Scanner;
-
-/**
- * [http://algospot.com/judge/problem/read/BOGGLE](http://algospot.com/judge/problem/read/BOGGLE)
- * 
- * @author 준혁
- * 
- */
-public class BOGGLE {
-
-    public static void main(String[] args) {
-
-        Scanner scanner = new Scanner(System.in);
-
-        // test case
-        int C = Integer.parseInt(scanner.nextLine());
-        for (int i = 0; i &lt; C; i++) {
-
-            // board
-            Board b = new Board(5, 5);
-            for (int j = 0; j &lt; 5; j++) {
-                String line = scanner.nextLine();
-                for (int k = 0; k &lt; 5; k++) {
-                    b.set(j, k, line.charAt(k));
-                }
-            }
-
-            // words
-            int N = Integer.parseInt(scanner.nextLine());
-            for (int j = 0; j &lt; N; j++) {
-                String line = scanner.nextLine();
-                String yn = b.search(line) ? &quot;YES&quot; : &quot;NO&quot;;
-                System.out.println(String.format(&quot;%s %s&quot;, line, yn));
-            }
-        }
-
-        scanner.close();
-    }
-}
-
-/**
- * implementation of boggle board
- * 
- * @author 준혁
- * 
- */
-class Board {
-
-    /**
-     * board
-     */
-    private char[][] board;
-
-    /**
-     * constructor
-     * 
-     * @param r
-     *            row
-     * @param c
-     *            col
-     */
-    public Board(int r, int c) {
-        board = new char[r][c];
-    }
-
-    /**
-     * setter
-     * 
-     * @param r
-     *            index of row
-     * @param c
-     *            index of column
-     * @param value
-     */
-    public void set(int r, int c, char value) {
-        board[r][c] = value;
-    }
-
-    /**
-     * exhaustive search
-     * 
-     * @param word
-     * @return match
-     */
-    public boolean search(String word) {
-        for (int i = 0; i &lt; board.length; i++) {
-            for (int j = 0; j &lt; board[i].length; j++) {
-                if (search(i, j, word)) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-    /**
-     * 
-     * @param r
-     *            row
-     * @param c
-     *            col
-     * @param word
-     * @return match
-     */
-    private boolean search(int r, int c, String word) {
-
-        // match
-        if (word.isEmpty()) {
-            return true;
-        }
-
-        // out of bound
-        if (r &lt; 0 || r &gt; board.length - 1) {
-            return false;
-        }
-
-        if (c &lt; 0 || c &gt; board[r].length - 1) {
-            return false;
-        }
-
-        // not match
-        if (board[r][c] != word.charAt(0)) {
-            return false;
-        }
-
-        // recursive search
-        String w = word.substring(1);
-        for (int i = -1; i &lt;= 1; i++) {
-            for (int j = -1; j &lt;= 1; j++) {
-
-                if(i == 0 &amp;&amp; j == 0) {
-                    continue;
-                }
-
-                if (search(r + i, c + j, w)) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-}
-</code></pre><h1 id="Comment"><a href="#Comment" class="headerlink" title="Comment"></a>Comment</h1><p>샘플 케이스만 만족시킨 답안이다. 완전 탐색이라 시간 초과에 걸린다.</p>
+<h1 id="Source-Code"><a href="#Source-Code" class="headerlink" title="Source Code"></a>Source Code</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.sarojaba.algospot;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.Scanner;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line">    * [http://algospot.com/judge/problem/read/BOGGLE](http://algospot.com/judge/problem/read/BOGGLE)</div><div class="line">    * </div><div class="line">    * <span class="doctag">@author</span> 준혁</div><div class="line">    * </div><div class="line">    */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BOGGLE</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line"></div><div class="line">        Scanner scanner = <span class="keyword">new</span> Scanner(System.in);</div><div class="line"></div><div class="line">        <span class="comment">// test case</span></div><div class="line">        <span class="keyword">int</span> C = Integer.parseInt(scanner.nextLine());</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; C; i++) &#123;</div><div class="line"></div><div class="line">            <span class="comment">// board</span></div><div class="line">            Board b = <span class="keyword">new</span> Board(<span class="number">5</span>, <span class="number">5</span>);</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">5</span>; j++) &#123;</div><div class="line">                String line = scanner.nextLine();</div><div class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; <span class="number">5</span>; k++) &#123;</div><div class="line">                    b.set(j, k, line.charAt(k));</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="comment">// words</span></div><div class="line">            <span class="keyword">int</span> N = Integer.parseInt(scanner.nextLine());</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; N; j++) &#123;</div><div class="line">                String line = scanner.nextLine();</div><div class="line">                String yn = b.search(line) ? <span class="string">"YES"</span> : <span class="string">"NO"</span>;</div><div class="line">                System.out.println(String.format(<span class="string">"%s %s"</span>, line, yn));</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        scanner.close();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line">    * implementation of boggle board</div><div class="line">    * </div><div class="line">    * <span class="doctag">@author</span> 준혁</div><div class="line">    * </div><div class="line">    */</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Board</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">        * board</div><div class="line">        */</div><div class="line">    <span class="keyword">private</span> <span class="keyword">char</span>[][] board;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">        * constructor</div><div class="line">        * </div><div class="line">        * <span class="doctag">@param</span> r</div><div class="line">        *            row</div><div class="line">        * <span class="doctag">@param</span> c</div><div class="line">        *            col</div><div class="line">        */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Board</span><span class="params">(<span class="keyword">int</span> r, <span class="keyword">int</span> c)</span> </span>&#123;</div><div class="line">        board = <span class="keyword">new</span> <span class="keyword">char</span>[r][c];</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">        * setter</div><div class="line">        * </div><div class="line">        * <span class="doctag">@param</span> r</div><div class="line">        *            index of row</div><div class="line">        * <span class="doctag">@param</span> c</div><div class="line">        *            index of column</div><div class="line">        * <span class="doctag">@param</span> value</div><div class="line">        */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">set</span><span class="params">(<span class="keyword">int</span> r, <span class="keyword">int</span> c, <span class="keyword">char</span> value)</span> </span>&#123;</div><div class="line">        board[r][c] = value;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">        * exhaustive search</div><div class="line">        * </div><div class="line">        * <span class="doctag">@param</span> word</div><div class="line">        * <span class="doctag">@return</span> match</div><div class="line">        */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">search</span><span class="params">(String word)</span> </span>&#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; board.length; i++) &#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; board[i].length; j++) &#123;</div><div class="line">                <span class="keyword">if</span> (search(i, j, word)) &#123;</div><div class="line">                    <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">        * </div><div class="line">        * <span class="doctag">@param</span> r</div><div class="line">        *            row</div><div class="line">        * <span class="doctag">@param</span> c</div><div class="line">        *            col</div><div class="line">        * <span class="doctag">@param</span> word</div><div class="line">        * <span class="doctag">@return</span> match</div><div class="line">        */</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">search</span><span class="params">(<span class="keyword">int</span> r, <span class="keyword">int</span> c, String word)</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="comment">// match</span></div><div class="line">        <span class="keyword">if</span> (word.isEmpty()) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// out of bound</span></div><div class="line">        <span class="keyword">if</span> (r &lt; <span class="number">0</span> || r &gt; board.length - <span class="number">1</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (c &lt; <span class="number">0</span> || c &gt; board[r].length - <span class="number">1</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// not match</span></div><div class="line">        <span class="keyword">if</span> (board[r][c] != word.charAt(<span class="number">0</span>)) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// recursive search</span></div><div class="line">        String w = word.substring(<span class="number">1</span>);</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = -<span class="number">1</span>; i &lt;= <span class="number">1</span>; i++) &#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = -<span class="number">1</span>; j &lt;= <span class="number">1</span>; j++) &#123;</div><div class="line"></div><div class="line">                <span class="keyword">if</span>(i == <span class="number">0</span> &amp;&amp; j == <span class="number">0</span>) &#123;</div><div class="line">                    <span class="keyword">continue</span>;</div><div class="line">                &#125;</div><div class="line"></div><div class="line">                <span class="keyword">if</span> (search(r + i, c + j, w)) &#123;</div><div class="line">                    <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="Comment"><a href="#Comment" class="headerlink" title="Comment"></a>Comment</h1><p>샘플 케이스만 만족시킨 답안이다. 완전 탐색이라 시간 초과에 걸린다.</p>
 
         
         </div>
@@ -1632,7 +1510,7 @@ class Board {
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2013/02/14/boggle/" data-id="cj1fmxosc0014j2zy7djyja29" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2013/02/14/boggle/" data-id="cj1gegrye001687zyd3vrdo4q" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1735,7 +1613,7 @@ class Board {
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
                             <p class="item-title"><a href="/2015/07/20/reverse-array-recursively/" class="title">reverse-array-recursively</a></p>
                             <p class="item-date"><time datetime="2015-07-19T15:48:00.000Z" itemprop="datePublished">2015-07-20</time></p>
                         </div>
@@ -1744,8 +1622,8 @@ class Board {
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
-                            <p class="item-title"><a href="/2015/06/17/back-to-high-school-physics/" class="title">back-to-high-school-physics</a></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Algorithm/">Algorithm</a></p>
+                            <p class="item-title"><a href="/2015/06/17/back-to-high-school-physics/" class="title">Back to High School Physics</a></p>
                             <p class="item-date"><time datetime="2015-06-17T01:23:00.000Z" itemprop="datePublished">2015-06-17</time></p>
                         </div>
                     </li>
@@ -1753,8 +1631,8 @@ class Board {
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2015/06/17/연속-부분-최대곱-public-class-max-public-static/" class="title">연속-부분-최대곱-public-class-max-public-static</a></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2015/06/17/연속-부분-최대곱-public-class-max-public-static/" class="title">연속 부분 최대곱</a></p>
                             <p class="item-date"><time datetime="2015-06-17T01:19:00.000Z" itemprop="datePublished">2015-06-17</time></p>
                         </div>
                     </li>
@@ -1762,7 +1640,7 @@ class Board {
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
                             <p class="item-title"><a href="/2015/06/08/후위-표현식/" class="title">후위-표현식</a></p>
                             <p class="item-date"><time datetime="2015-06-07T15:34:00.000Z" itemprop="datePublished">2015-06-08</time></p>
                         </div>
@@ -1777,7 +1655,7 @@ class Board {
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">60</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">117</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Algorithm/">Algorithm</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ceylon/">Ceylon</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/LibGDX/">LibGDX</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Processing/">Processing</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Rust/">Rust</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ukulele/">Ukulele</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 

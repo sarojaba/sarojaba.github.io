@@ -3,18 +3,18 @@
 <head>
     <meta charset="utf-8">
     
-    <title>bubble-pop | 사로자바의 블로그</title>
+    <title>Bubble Pop | 사로자바의 블로그</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="비누방울이 터지는 것을 표현해 보았습니다.     int min; int max;  void setup() {     size(320, 180);         frameRate(8);      min = 0;     max = 100; }  void draw() {      // clear slowly     noStroke();     colorMode">
 <meta name="keywords" content="Programming,Processing,Bubble Pop">
 <meta property="og:type" content="article">
-<meta property="og:title" content="bubble-pop">
+<meta property="og:title" content="Bubble Pop">
 <meta property="og:url" content="http://sarojaba.github.io/2013/07/29/bubble-pop/index.html">
 <meta property="og:site_name" content="사로자바의 블로그">
 <meta property="og:description" content="비누방울이 터지는 것을 표현해 보았습니다.     int min; int max;  void setup() {     size(320, 180);         frameRate(8);      min = 0;     max = 100; }  void draw() {      // clear slowly     noStroke();     colorMode">
-<meta property="og:updated_time" content="2017-04-09T13:50:58.615Z">
+<meta property="og:updated_time" content="2017-04-13T12:45:27.404Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="bubble-pop">
+<meta name="twitter:title" content="Bubble Pop">
 <meta name="twitter:description" content="비누방울이 터지는 것을 표현해 보았습니다.     int min; int max;  void setup() {     size(320, 180);         frameRate(8);      min = 0;     max = 100; }  void draw() {      // clear slowly     noStroke();     colorMode">
     
 
@@ -208,7 +208,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            bubble-pop
+            Bubble Pop
         </h1>
     
 
@@ -226,7 +226,7 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Processing/">Processing</a>
     </div>
 
                         
@@ -280,32 +280,7 @@ void setRange(int[] range) {
 }
 </script>
 
-<pre><code>int min;
-int max;
-
-void setup() {
-    size(320, 180);    
-    frameRate(8);
-
-    min = 0;
-    max = 100;
-}
-
-void draw() {
-
-    // clear slowly
-    noStroke();
-    colorMode(RGB);
-    fill(color(255, 255, 255, 127));
-    rect(0, 0, width, height);
-
-    // draw circle
-    colorMode(HSB);
-    fill(random(255), 255, 255);  
-    float diam = random(min, max);
-    ellipse(random(width), random(height), diam, diam);
-}
-</code></pre>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">int</span> <span class="built_in">min</span>;</div><div class="line"><span class="built_in">int</span> <span class="built_in">max</span>;</div><div class="line"></div><div class="line"><span class="keyword">void</span> <span class="title">setup</span>() &#123;</div><div class="line">    <span class="built_in">size</span>(<span class="number">320</span>, <span class="number">180</span>);    </div><div class="line">    <span class="built_in">frameRate</span>(<span class="number">8</span>);</div><div class="line"></div><div class="line">    <span class="built_in">min</span> = <span class="number">0</span>;</div><div class="line">    <span class="built_in">max</span> = <span class="number">100</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">void</span> <span class="title">draw</span>() &#123;</div><div class="line"></div><div class="line">    <span class="comment">// clear slowly</span></div><div class="line">    <span class="built_in">noStroke</span>();</div><div class="line">    <span class="built_in">colorMode</span>(RGB);</div><div class="line">    <span class="built_in">fill</span>(<span class="built_in">color</span>(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>, <span class="number">127</span>));</div><div class="line">    <span class="built_in">rect</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="built_in">width</span>, <span class="built_in">height</span>);</div><div class="line"></div><div class="line">    <span class="comment">// draw circle</span></div><div class="line">    <span class="built_in">colorMode</span>(HSB);</div><div class="line">    <span class="built_in">fill</span>(<span class="built_in">random</span>(<span class="number">255</span>), <span class="number">255</span>, <span class="number">255</span>);  </div><div class="line">    <span class="built_in">float</span> diam = <span class="built_in">random</span>(<span class="built_in">min</span>, <span class="built_in">max</span>);</div><div class="line">    <span class="built_in">ellipse</span>(<span class="built_in">random</span>(<span class="built_in">width</span>), <span class="built_in">random</span>(<span class="built_in">height</span>), diam, diam);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
         
         </div>
         <footer class="article-footer">
@@ -315,7 +290,7 @@ void draw() {
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2013/07/29/bubble-pop/" data-id="cj1fmxosf001aj2zyttu84hc5" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2013/07/29/bubble-pop/" data-id="cj1gegryi001d87zyx6qc3q4y" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -396,7 +371,7 @@ void draw() {
             <strong class="article-nav-caption">Newer</strong>
             <div class="article-nav-title">
                 
-                    analog-clock
+                    Analog Clock
                 
             </div>
         </a>
@@ -447,7 +422,7 @@ void draw() {
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
                             <p class="item-title"><a href="/2015/07/20/reverse-array-recursively/" class="title">reverse-array-recursively</a></p>
                             <p class="item-date"><time datetime="2015-07-19T15:48:00.000Z" itemprop="datePublished">2015-07-20</time></p>
                         </div>
@@ -456,8 +431,8 @@ void draw() {
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
-                            <p class="item-title"><a href="/2015/06/17/back-to-high-school-physics/" class="title">back-to-high-school-physics</a></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Algorithm/">Algorithm</a></p>
+                            <p class="item-title"><a href="/2015/06/17/back-to-high-school-physics/" class="title">Back to High School Physics</a></p>
                             <p class="item-date"><time datetime="2015-06-17T01:23:00.000Z" itemprop="datePublished">2015-06-17</time></p>
                         </div>
                     </li>
@@ -465,8 +440,8 @@ void draw() {
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2015/06/17/연속-부분-최대곱-public-class-max-public-static/" class="title">연속-부분-최대곱-public-class-max-public-static</a></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2015/06/17/연속-부분-최대곱-public-class-max-public-static/" class="title">연속 부분 최대곱</a></p>
                             <p class="item-date"><time datetime="2015-06-17T01:19:00.000Z" itemprop="datePublished">2015-06-17</time></p>
                         </div>
                     </li>
@@ -474,7 +449,7 @@ void draw() {
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
                             <p class="item-title"><a href="/2015/06/08/후위-표현식/" class="title">후위-표현식</a></p>
                             <p class="item-date"><time datetime="2015-06-07T15:34:00.000Z" itemprop="datePublished">2015-06-08</time></p>
                         </div>
@@ -489,7 +464,7 @@ void draw() {
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">60</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">117</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Algorithm/">Algorithm</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ceylon/">Ceylon</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/LibGDX/">LibGDX</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Processing/">Processing</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Rust/">Rust</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ukulele/">Ukulele</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 

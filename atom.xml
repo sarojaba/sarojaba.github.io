@@ -47,7 +47,7 @@
     <link href="http://sarojaba.github.io/2015/07/20/reverse-array-recursively/"/>
     <id>http://sarojaba.github.io/2015/07/20/reverse-array-recursively/</id>
     <published>2015-07-19T15:48:00.000Z</published>
-    <updated>2017-04-09T03:04:30.864Z</updated>
+    <updated>2017-04-13T11:39:37.695Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Source-code"><a href="#Source-code" class="headerlink" title="Source code"></a>Source code</h2><pre><code>#include &lt;iostream&gt;
 using namespace std;
@@ -94,31 +94,25 @@ int main() {
     
     </summary>
     
+      <category term="Programming" scheme="http://sarojaba.github.io/categories/Programming/"/>
+    
     
   </entry>
   
   <entry>
-    <title>back-to-high-school-physics</title>
+    <title>Back to High School Physics</title>
     <link href="http://sarojaba.github.io/2015/06/17/back-to-high-school-physics/"/>
     <id>http://sarojaba.github.io/2015/06/17/back-to-high-school-physics/</id>
     <published>2015-06-17T01:23:00.000Z</published>
-    <updated>2017-04-09T13:49:05.578Z</updated>
+    <updated>2017-04-13T12:28:06.000Z</updated>
     
     <content type="html"><![CDATA[<p>A particle has initial velocity and constant acceleration. If its velocity after certain time is v then what will its displacement be in twice of that time?</p>
 <h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>The input will contain two integers in each line. Each line makes one set of input. These two integers denote the value of v (-100 &lt;= v &lt;= 100) and t(0&lt;=t&lt;= 200) ( t means at the time the particle gains that velocity)</p>
 <h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>For each line of input print a single integer in one line denoting the displacement in double of that time.</p>
 <h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><p>0 0<br>5 12</p>
 <h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><p>0<br>120</p>
-<h2 id="Source-Code"><a href="#Source-Code" class="headerlink" title="Source Code"></a>Source Code</h2><pre><code>int main(int argc, char** argv)
-{
-  int v, t;
-  while(cin &gt;&gt; v)
-  {
-    cin &gt;&gt; t;
-    cout &lt;&lt; v * t * 2 &lt;&lt; endl;
-  }
-}
-</code></pre><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="http://uva.onlinejudge.org/external/100/10071.html" target="_blank" rel="external">http://uva.onlinejudge.org/external/100/10071.html</a></p>
+<h2 id="Source-Code"><a href="#Source-Code" class="headerlink" title="Source Code"></a>Source Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>** argv)</span></span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">int</span> v, t;</div><div class="line">  <span class="keyword">while</span>(<span class="built_in">cin</span> &gt;&gt; v)</div><div class="line">  &#123;</div><div class="line">    <span class="built_in">cin</span> &gt;&gt; t;</div><div class="line">    <span class="built_in">cout</span> &lt;&lt; v * t * <span class="number">2</span> &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="http://uva.onlinejudge.org/external/100/10071.html" target="_blank" rel="external">http://uva.onlinejudge.org/external/100/10071.html</a></p>
 ]]></content>
     
     <summary type="html">
@@ -128,6 +122,8 @@ int main() {
     </summary>
     
       <category term="Programming" scheme="http://sarojaba.github.io/categories/Programming/"/>
+    
+      <category term="Algorithm" scheme="http://sarojaba.github.io/categories/Programming/Algorithm/"/>
     
     
       <category term="Algorithm" scheme="http://sarojaba.github.io/tags/Algorithm/"/>
@@ -139,27 +135,27 @@ int main() {
   </entry>
   
   <entry>
-    <title>연속-부분-최대곱-public-class-max-public-static</title>
+    <title>연속 부분 최대곱</title>
     <link href="http://sarojaba.github.io/2015/06/17/%EC%97%B0%EC%86%8D-%EB%B6%80%EB%B6%84-%EC%B5%9C%EB%8C%80%EA%B3%B1-public-class-max-public-static/"/>
     <id>http://sarojaba.github.io/2015/06/17/연속-부분-최대곱-public-class-max-public-static/</id>
     <published>2015-06-17T01:19:00.000Z</published>
-    <updated>2017-04-09T03:14:28.689Z</updated>
+    <updated>2017-04-13T11:59:04.110Z</updated>
     
-    <content type="html"><![CDATA[
-<h1 id="연속-부분-최대곱"><a href="#연속-부분-최대곱" class="headerlink" title="연속 부분 최대곱"></a>연속 부분 최대곱</h1><pre><code>public class MAX{
+    <content type="html"><![CDATA[<h1 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h1><img src="/2015/06/17/연속-부분-최대곱-public-class-max-public-static/tumblr_nq2ebtMpel1rd6870o1_500.jpg" alt="문제" title="문제">
+<h1 id="소스-코드"><a href="#소스-코드" class="headerlink" title="소스 코드"></a>소스 코드</h1><pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MAX</span></span>{
 
-  public static double[] nums = {1.1, 0.7, 1.3, 0.9, 1.4, 0.8, 0.7, 1.4};
-  public static void main(String[] args){
-    float max = 1;
-    for(int i = 0; i &lt; nums.length; i++){
+  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span>[] nums = {<span class="number">1.1</span>, <span class="number">0.7</span>, <span class="number">1.3</span>, <span class="number">0.9</span>, <span class="number">1.4</span>, <span class="number">0.8</span>, <span class="number">0.7</span>, <span class="number">1.4</span>};
+  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>{
+    <span class="keyword">float</span> max = <span class="number">1</span>;
+    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++){
 
-      if(nums[i] &gt; 1){
-        float m = 1;
-        for(int j = 0; j &lt; nums.length - i; j++){
+      <span class="keyword">if</span>(nums[i] &gt; <span class="number">1</span>){
+        <span class="keyword">float</span> m = <span class="number">1</span>;
+        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; nums.length - i; j++){
 
           m *= nums[i + j];
 
-          if(max &lt; m){
+          <span class="keyword">if</span>(max &lt; m){
             max = m;
           }
         }
@@ -168,16 +164,16 @@ int main() {
     System.out.println(max);
   }
 }
-</code></pre>]]></content>
+</code></pre>
+]]></content>
     
     <summary type="html">
     
-      
-&lt;h1 id=&quot;연속-부분-최대곱&quot;&gt;&lt;a href=&quot;#연속-부분-최대곱&quot; class=&quot;headerlink&quot; title=&quot;연속 부분 최대곱&quot;&gt;&lt;/a&gt;연속 부분 최대곱&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;public class MAX{
-
-  public stati
+      &lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h1&gt;&lt;img src=&quot;/2015/06/17/연속-부분-최대곱-public-class-max-public-static/tumblr_nq2
     
     </summary>
+    
+      <category term="Programming" scheme="http://sarojaba.github.io/categories/Programming/"/>
     
     
       <category term="Algorithm" scheme="http://sarojaba.github.io/tags/Algorithm/"/>
@@ -191,7 +187,7 @@ int main() {
     <link href="http://sarojaba.github.io/2015/06/08/%ED%9B%84%EC%9C%84-%ED%91%9C%ED%98%84%EC%8B%9D/"/>
     <id>http://sarojaba.github.io/2015/06/08/후위-표현식/</id>
     <published>2015-06-07T15:34:00.000Z</published>
-    <updated>2017-04-09T03:16:13.158Z</updated>
+    <updated>2017-04-13T11:51:48.697Z</updated>
     
     <content type="html"><![CDATA[<p>중위 표현식을 후위 표현식으로 변경하라.<br>ex) 5 + (4 - 2) - 3 <em> 2  ===  5 4 2 - + 3 2 </em> -</p>
 <pre><code>import java.util.*;
@@ -264,6 +260,8 @@ public class Postfix{
     
     </summary>
     
+      <category term="Programming" scheme="http://sarojaba.github.io/categories/Programming/"/>
+    
     
       <category term="Algorithm" scheme="http://sarojaba.github.io/tags/Algorithm/"/>
     
@@ -272,11 +270,11 @@ public class Postfix{
   </entry>
   
   <entry>
-    <title>1과-2의-합</title>
+    <title>1과 2의 합</title>
     <link href="http://sarojaba.github.io/2015/06/04/1%EA%B3%BC-2%EC%9D%98-%ED%95%A9/"/>
     <id>http://sarojaba.github.io/2015/06/04/1과-2의-합/</id>
     <published>2015-06-04T11:36:00.000Z</published>
-    <updated>2017-04-09T13:44:10.151Z</updated>
+    <updated>2017-04-13T12:01:20.391Z</updated>
     
     <content type="html"><![CDATA[<p>어떤 정수 n이 있다. 이 정수를 1과 2의 합의 순서로 표현할 때 나타낼 수 있는 방법의 수를 구하시오. 예를 들어 n=3 이면<br>3 = 1 + 1 + 1<br>  = 1 + 2<br>  = 2 + 1<br>단, 1 + 2 와 2 + 1은 그 operand는 같지만 순서가 다르므로 다른것으로 친다.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Sum</span></span>&#123;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">    System.out.println(fibonacci(<span class="number">5</span>));</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">fibonacci</span><span class="params">(<span class="keyword">int</span> num)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span>(num == <span class="number">1</span>)&#123;</div><div class="line">      <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">if</span>(num == <span class="number">2</span>)&#123;</div><div class="line">      <span class="keyword">return</span> <span class="number">2</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> fibonacci(num - <span class="number">2</span>) + fibonacci(num - <span class="number">1</span>);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
@@ -288,6 +286,8 @@ public class Postfix{
     </summary>
     
       <category term="Programming" scheme="http://sarojaba.github.io/categories/Programming/"/>
+    
+      <category term="Algorithm" scheme="http://sarojaba.github.io/categories/Programming/Algorithm/"/>
     
     
       <category term="Algorithm" scheme="http://sarojaba.github.io/tags/Algorithm/"/>
@@ -301,7 +301,7 @@ public class Postfix{
     <link href="http://sarojaba.github.io/2015/06/04/%EB%B0%94%EC%9D%B4%EB%9F%AC%EC%8A%A4/"/>
     <id>http://sarojaba.github.io/2015/06/04/바이러스/</id>
     <published>2015-06-04T11:33:00.000Z</published>
-    <updated>2017-04-09T03:21:38.430Z</updated>
+    <updated>2017-04-13T11:44:52.765Z</updated>
     
     <content type="html"><![CDATA[<p>바이러스가 1마리 있다. 이 바이러스의 수는 1초 후에 2배로 불어날 수도 있고 1/3(소숫점 이하 버림)로 줄 수도 있다. 현재 몇 마리의 바이러스가 존재하는지 주어질 때 1마리의 바이러스에서부터 최소 몇 초의 시간이 흘러 현재 상태가 되었는지 구하시오.</p>
 <p>ex) 현재 바이러스가 7마리 있다면,<br>1 -&gt; 2 -&gt; 4 -&gt; 8 -&gt; 16 -&gt; 32 -&gt; 64 -&gt; 21 -&gt; 7<br>이보다 더 빠른 시간 안에 7마리가 될 수는 없다.<br>따라서 답은 8초이다.</p>
@@ -356,6 +356,8 @@ public class Virus{
     
     </summary>
     
+      <category term="Programming" scheme="http://sarojaba.github.io/categories/Programming/"/>
+    
     
       <category term="Algorithm" scheme="http://sarojaba.github.io/tags/Algorithm/"/>
     
@@ -409,7 +411,7 @@ public class Virus{
     <link href="http://sarojaba.github.io/2015/01/07/%EC%B5%9C%EB%8C%80-%EA%B3%B5%EC%95%BD%EC%88%98%EC%99%80-%EC%B5%9C%EC%86%8C-%EA%B3%B5%EB%B0%B0%EC%88%98/"/>
     <id>http://sarojaba.github.io/2015/01/07/최대-공약수와-최소-공배수/</id>
     <published>2015-01-06T15:48:00.000Z</published>
-    <updated>2017-04-09T03:27:59.209Z</updated>
+    <updated>2017-04-13T11:50:41.963Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://68.media.tumblr.com/10a5739b83eaea8c48b227b4c5f60e13/tumblr_inline_nhrijmBsV31rubmdv.jpg" alt=""></p>
 <pre><code>public class GCDLCM {
@@ -452,6 +454,8 @@ public class Virus{
     
     </summary>
     
+      <category term="Programming" scheme="http://sarojaba.github.io/categories/Programming/"/>
+    
     
       <category term="Programming" scheme="http://sarojaba.github.io/tags/Programming/"/>
     
@@ -464,7 +468,7 @@ public class Virus{
     <link href="http://sarojaba.github.io/2015/01/07/%EB%A1%9C%EB%A7%88%EC%88%AB%EC%9E%90/"/>
     <id>http://sarojaba.github.io/2015/01/07/로마숫자/</id>
     <published>2015-01-06T15:44:00.000Z</published>
-    <updated>2017-04-09T03:28:15.772Z</updated>
+    <updated>2017-04-13T11:43:33.871Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://68.media.tumblr.com/d382dbdcce18e8482b7064e4ec3c276b/tumblr_inline_nhri7qnong1rubmdv.jpg" alt=""></p>
 <pre><code>public class RomaNum {
@@ -575,6 +579,8 @@ public class Virus{
     
     </summary>
     
+      <category term="Programming" scheme="http://sarojaba.github.io/categories/Programming/"/>
+    
     
       <category term="Programming" scheme="http://sarojaba.github.io/tags/Programming/"/>
     
@@ -587,7 +593,7 @@ public class Virus{
     <link href="http://sarojaba.github.io/2014/11/19/playn-game-loop/"/>
     <id>http://sarojaba.github.io/2014/11/19/playn-game-loop/</id>
     <published>2014-11-18T15:27:00.000Z</published>
-    <updated>2017-04-09T03:28:33.308Z</updated>
+    <updated>2017-04-13T11:39:26.811Z</updated>
     
     <content type="html"><![CDATA[<p>PlayN은 게임의 메인 루프 진행을 위한 단순한 인터페이스를 제공한다. 이것은 플랫폼 간의 타이밍 구현의 복잡성을 분리하고, 논리적인 업데이트와 렌더링 업데이트의 분리를 추상화한다. 이 글은 PlayN의 구현과 게임의 메인 업데이트 사이클 예제를 설명한다.</p>
 <h2 id="게임-루프의-진행"><a href="#게임-루프의-진행" class="headerlink" title="게임 루프의 진행"></a>게임 루프의 진행</h2><p>모든 PlayN 게임은 단순히 update와 paint 메소드를 포함한 Game 인터페이스를 구현한다. Game 인터페이스를 구현하고 PlayN.run(game)을 호출하면 다음 두 메소드를 영원히 호출하는 게임 루프를 통제하는 것을 포기해야 한다.</p>
@@ -625,6 +631,8 @@ public class Virus{
     
     </summary>
     
+      <category term="Programming" scheme="http://sarojaba.github.io/categories/Programming/"/>
+    
     
       <category term="Programming" scheme="http://sarojaba.github.io/tags/Programming/"/>
     
@@ -639,7 +647,7 @@ public class Virus{
     <link href="http://sarojaba.github.io/2014/11/19/playn-%EA%B0%9C%EC%9A%94/"/>
     <id>http://sarojaba.github.io/2014/11/19/playn-개요/</id>
     <published>2014-11-18T15:23:00.000Z</published>
-    <updated>2017-04-09T03:28:51.271Z</updated>
+    <updated>2017-04-13T11:39:32.507Z</updated>
     
     <content type="html"><![CDATA[<p>최근 게임 개발 기술은 비약적으로 발전했다. 게임 개발자는 다양한 기술과 새로운 게임 플랫폼으로 개발하는 사람을 말한다. 게임 만들기는 쉬워지지 않았지만, 소셜, 모바일, 웹 기술의 발전이 많은 사람들이 게임을 하는 것을 쉽게 만들어줬다.</p>
 <p>하지만 문제가 있다. 플랫폼이 너무 많다. 게임 개발자는 많은 사람들이 손안에서 게임하기를 원하지만 사용자는 통제되지 않는다. 그래서 게임을 각 플랫폼에 맞게 만들어야 하고, 시간 및 비용의 낭비, 유지보수의 어려움 등의 문제가 있다. 이런 이유로 PlayN이 태어났다.</p>
@@ -658,6 +666,8 @@ public class Virus{
     
     </summary>
     
+      <category term="Programming" scheme="http://sarojaba.github.io/categories/Programming/"/>
+    
     
       <category term="Programming" scheme="http://sarojaba.github.io/tags/Programming/"/>
     
@@ -672,7 +682,7 @@ public class Virus{
     <link href="http://sarojaba.github.io/2014/08/20/%EC%99%84%EC%A0%84%EC%A0%9C%EA%B3%B1%EC%88%98/"/>
     <id>http://sarojaba.github.io/2014/08/20/완전제곱수/</id>
     <published>2014-08-19T15:25:00.000Z</published>
-    <updated>2017-04-09T03:29:12.739Z</updated>
+    <updated>2017-04-13T11:48:11.221Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://68.media.tumblr.com/0b524c74fb29b8b9449a66a5c0f123f1/tumblr_inline_nak8532nwl1rubmdv.jpg" alt="문제"></p>
 <pre><code>public class SQR{
@@ -706,6 +716,8 @@ public class Virus{
     
     </summary>
     
+      <category term="Programming" scheme="http://sarojaba.github.io/categories/Programming/"/>
+    
     
       <category term="Programming" scheme="http://sarojaba.github.io/tags/Programming/"/>
     
@@ -720,7 +732,7 @@ public class Virus{
     <link href="http://sarojaba.github.io/2014/08/13/%EC%82%BD%EC%9E%85-%EC%A0%95%EB%A0%AC/"/>
     <id>http://sarojaba.github.io/2014/08/13/삽입-정렬/</id>
     <published>2014-08-13T14:57:00.000Z</published>
-    <updated>2017-04-09T03:29:29.642Z</updated>
+    <updated>2017-04-13T11:45:26.045Z</updated>
     
     <content type="html"><![CDATA[<p>삽입 정렬</p>
 <pre><code>public class InsertionSort{
@@ -776,6 +788,8 @@ public class Virus{
     
     </summary>
     
+      <category term="Programming" scheme="http://sarojaba.github.io/categories/Programming/"/>
+    
     
       <category term="Programming" scheme="http://sarojaba.github.io/tags/Programming/"/>
     
@@ -788,7 +802,7 @@ public class Virus{
     <link href="http://sarojaba.github.io/2014/08/13/%EA%B0%9C%EB%AF%B8-%EC%88%98%EC%97%B4/"/>
     <id>http://sarojaba.github.io/2014/08/13/개미-수열/</id>
     <published>2014-08-13T14:53:00.000Z</published>
-    <updated>2017-04-09T03:29:45.706Z</updated>
+    <updated>2017-04-13T11:42:11.937Z</updated>
     
     <content type="html"><![CDATA[<p>개미 수열</p>
 <pre><code>public class Ant{
@@ -847,6 +861,8 @@ public class Virus{
     
     </summary>
     
+      <category term="Programming" scheme="http://sarojaba.github.io/categories/Programming/"/>
+    
     
       <category term="Programming" scheme="http://sarojaba.github.io/tags/Programming/"/>
     
@@ -859,7 +875,7 @@ public class Virus{
     <link href="http://sarojaba.github.io/2014/08/01/%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98-%EC%88%98%EC%97%B4/"/>
     <id>http://sarojaba.github.io/2014/08/01/피보나치-수열/</id>
     <published>2014-07-31T15:08:00.000Z</published>
-    <updated>2017-04-09T03:30:00.338Z</updated>
+    <updated>2017-04-13T11:51:24.866Z</updated>
     
     <content type="html"><![CDATA[<p>피보나치 수열</p>
 <pre><code>public class Fibonacci{
@@ -905,6 +921,8 @@ public class Virus{
         
     
     </summary>
+    
+      <category term="Programming" scheme="http://sarojaba.github.io/categories/Programming/"/>
     
     
       <category term="Programming" scheme="http://sarojaba.github.io/tags/Programming/"/>
