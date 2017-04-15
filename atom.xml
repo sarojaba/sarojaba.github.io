@@ -43,59 +43,63 @@
   </entry>
   
   <entry>
-    <title>reverse-array-recursively</title>
+    <title>Reverse Array Recursively</title>
     <link href="http://sarojaba.github.io/2015/07/20/reverse-array-recursively/"/>
     <id>http://sarojaba.github.io/2015/07/20/reverse-array-recursively/</id>
     <published>2015-07-19T15:48:00.000Z</published>
-    <updated>2017-04-13T11:39:37.695Z</updated>
+    <updated>2017-04-15T08:28:14.222Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Source-code"><a href="#Source-code" class="headerlink" title="Source code"></a>Source code</h2><pre><code>#include &lt;iostream&gt;
-using namespace std;
+    <content type="html"><![CDATA[<h2 id="Source-code"><a href="#Source-code" class="headerlink" title="Source code"></a>Source code</h2><pre><code class="cpp"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span>
+<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;
 
-void reverse(int *A, int N, int i, int j)
-{
-  // base case
-  if(i &gt;= j) return;
+<span class="function"><span class="keyword">void</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span> *A, <span class="keyword">int</span> N, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span>
+</span>{
+  <span class="comment">// base case</span>
+  <span class="keyword">if</span>(i &gt;= j) <span class="keyword">return</span>;
 
-  // swap
-  int t = A[i];
+  <span class="comment">// swap</span>
+  <span class="keyword">int</span> t = A[i];
   A[i] = A[j];
   A[j] = t;
 
-  // recursive
+  <span class="comment">// recursive</span>
   reverse(A, N, ++i, --j);
 }
 
-void reverse(int *A, int N)
-{
-  reverse(A, N, 0, N-1);
+<span class="function"><span class="keyword">void</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span> *A, <span class="keyword">int</span> N)</span>
+</span>{
+  reverse(A, N, <span class="number">0</span>, N<span class="number">-1</span>);
 }
 
-int main() {
-  // your code goes here
+<span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>{
+  <span class="comment">// your code goes here</span>
 
-    int A[5] = {1, 2, 3, 4, 5};
+  <span class="keyword">int</span> A[<span class="number">5</span>] = {<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>};
 
-    reverse(A, 5);
+  reverse(A, <span class="number">5</span>);
 
-    for(int i = 0; i &lt; 5; i++) {
-    cout &lt;&lt; A[i] &lt;&lt; &quot;,&quot;;
+  <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) {
+    <span class="built_in">cout</span> &lt;&lt; A[i] &lt;&lt; <span class="string">","</span>;
   }
-    cout &lt;&lt; endl;
+  <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;
 
-    return 0;
+  <span class="keyword">return</span> <span class="number">0</span>;
 }
-</code></pre>]]></content>
+</code></pre>
+]]></content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;Source-code&quot;&gt;&lt;a href=&quot;#Source-code&quot; class=&quot;headerlink&quot; title=&quot;Source code&quot;&gt;&lt;/a&gt;Source code&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
-
+      &lt;h2 id=&quot;Source-code&quot;&gt;&lt;a href=&quot;#Source-code&quot; class=&quot;headerlink&quot; title=&quot;Source code&quot;&gt;&lt;/a&gt;Source code&lt;/h2&gt;&lt;pre&gt;&lt;code class=&quot;cpp&quot;&gt;&lt;span class=&quot;m
     
     </summary>
     
       <category term="Programming" scheme="http://sarojaba.github.io/categories/Programming/"/>
     
+      <category term="Algorithm" scheme="http://sarojaba.github.io/categories/Programming/Algorithm/"/>
+    
+    
+      <category term="Programming" scheme="http://sarojaba.github.io/tags/Programming/"/>
     
   </entry>
   
@@ -139,7 +143,7 @@ int main() {
     <link href="http://sarojaba.github.io/2015/06/17/%EC%97%B0%EC%86%8D-%EB%B6%80%EB%B6%84-%EC%B5%9C%EB%8C%80%EA%B3%B1-public-class-max-public-static/"/>
     <id>http://sarojaba.github.io/2015/06/17/연속-부분-최대곱-public-class-max-public-static/</id>
     <published>2015-06-17T01:19:00.000Z</published>
-    <updated>2017-04-13T11:59:04.110Z</updated>
+    <updated>2017-04-15T09:58:48.240Z</updated>
     
     <content type="html"><![CDATA[<h1 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h1><img src="/2015/06/17/연속-부분-최대곱-public-class-max-public-static/tumblr_nq2ebtMpel1rd6870o1_500.jpg" alt="문제" title="문제">
 <h1 id="소스-코드"><a href="#소스-코드" class="headerlink" title="소스 코드"></a>소스 코드</h1><pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MAX</span></span>{
@@ -301,54 +305,12 @@ public class Postfix{
     <link href="http://sarojaba.github.io/2015/06/04/%EB%B0%94%EC%9D%B4%EB%9F%AC%EC%8A%A4/"/>
     <id>http://sarojaba.github.io/2015/06/04/바이러스/</id>
     <published>2015-06-04T11:33:00.000Z</published>
-    <updated>2017-04-13T11:44:52.765Z</updated>
+    <updated>2017-04-15T09:49:38.515Z</updated>
     
     <content type="html"><![CDATA[<p>바이러스가 1마리 있다. 이 바이러스의 수는 1초 후에 2배로 불어날 수도 있고 1/3(소숫점 이하 버림)로 줄 수도 있다. 현재 몇 마리의 바이러스가 존재하는지 주어질 때 1마리의 바이러스에서부터 최소 몇 초의 시간이 흘러 현재 상태가 되었는지 구하시오.</p>
 <p>ex) 현재 바이러스가 7마리 있다면,<br>1 -&gt; 2 -&gt; 4 -&gt; 8 -&gt; 16 -&gt; 32 -&gt; 64 -&gt; 21 -&gt; 7<br>이보다 더 빠른 시간 안에 7마리가 될 수는 없다.<br>따라서 답은 8초이다.</p>
-<pre><code>import java.util.*;
-
-public class Virus{
-  public static void main(String[] args){
-
-    int num = 7;
-
-    Queue queue = new LinkedList();
-    queue.add(new Element(1, 0));
-
-    while(true){
-
-      Element e = queue.remove();
-
-      if(e.getNum() == num){
-        System.out.println(e.getTime());
-        return;
-      }
-
-      queue.add(new Element(e.getNum() * 2, e.getTime() + 1));
-      queue.add(new Element(e.getNum() / 3, e.getTime() + 1));
-    }
-  }
-
-  class Element{
-
-    private int num;
-    private int time;
-
-    public Element(int num, int time){
-      this.num = num;
-      this.time = time;
-    }
-
-    public int getNum(){
-      return num;
-    }
-
-    public int getTime(){
-      return time;
-    }
-  }
-}
-</code></pre>]]></content>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.*;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Virus</span></span>&#123;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">int</span> num = <span class="number">7</span>;</div><div class="line"></div><div class="line">    Queue queue = <span class="keyword">new</span> LinkedList();</div><div class="line">    queue.add(<span class="keyword">new</span> Element(<span class="number">1</span>, <span class="number">0</span>));</div><div class="line"></div><div class="line">    <span class="keyword">while</span>(<span class="keyword">true</span>)&#123;</div><div class="line"></div><div class="line">      Element e = queue.remove();</div><div class="line"></div><div class="line">      <span class="keyword">if</span>(e.getNum() == num)&#123;</div><div class="line">        System.out.println(e.getTime());</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      queue.add(<span class="keyword">new</span> Element(e.getNum() * <span class="number">2</span>, e.getTime() + <span class="number">1</span>));</div><div class="line">      queue.add(<span class="keyword">new</span> Element(e.getNum() / <span class="number">3</span>, e.getTime() + <span class="number">1</span>));</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="class"><span class="keyword">class</span> <span class="title">Element</span></span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> num;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> time;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Element</span><span class="params">(<span class="keyword">int</span> num, <span class="keyword">int</span> time)</span></span>&#123;</div><div class="line">      <span class="keyword">this</span>.num = num;</div><div class="line">      <span class="keyword">this</span>.time = time;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getNum</span><span class="params">()</span></span>&#123;</div><div class="line">      <span class="keyword">return</span> num;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getTime</span><span class="params">()</span></span>&#123;</div><div class="line">      <span class="keyword">return</span> time;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+]]></content>
     
     <summary type="html">
     
@@ -357,6 +319,8 @@ public class Virus{
     </summary>
     
       <category term="Programming" scheme="http://sarojaba.github.io/categories/Programming/"/>
+    
+      <category term="Algorithm" scheme="http://sarojaba.github.io/categories/Programming/Algorithm/"/>
     
     
       <category term="Algorithm" scheme="http://sarojaba.github.io/tags/Algorithm/"/>
@@ -370,7 +334,7 @@ public class Virus{
     <link href="http://sarojaba.github.io/2015/02/16/java-iterator-pattern-on-colletions/"/>
     <id>http://sarojaba.github.io/2015/02/16/java-iterator-pattern-on-colletions/</id>
     <published>2015-02-16T11:18:00.000Z</published>
-    <updated>2017-04-10T17:36:07.000Z</updated>
+    <updated>2017-04-15T08:08:03.382Z</updated>
     
     <content type="html"><![CDATA[<h2 id="The-Iterator-pattern"><a href="#The-Iterator-pattern" class="headerlink" title="The Iterator pattern"></a>The Iterator pattern</h2><p>Iterator 패턴은 Collection을 탐색하는 방법과 클라이언트가 수행할 작업을 분리하는 GoF의 패턴 중 하나입니다. index, cursor, enumeration 등으로도 불립니다.</p>
 <p>Iterator는 Active 또는 Passive한 형태로 나뉩니다. Active Iterator는 클라이언트가 Iterator를 생성하고, 다음 아이템의 존재 여부를 확인하고, 다음 아이템을 얻는 작업을 합니다. 반면, Passive Iterator는 이 작업을 내부적으로 수행합니다.</p>
@@ -396,6 +360,8 @@ public class Virus{
     </summary>
     
       <category term="Programming" scheme="http://sarojaba.github.io/categories/Programming/"/>
+    
+      <category term="Java" scheme="http://sarojaba.github.io/categories/Programming/Java/"/>
     
     
       <category term="Programming" scheme="http://sarojaba.github.io/tags/Programming/"/>
@@ -468,118 +434,23 @@ public class Virus{
     <link href="http://sarojaba.github.io/2015/01/07/%EB%A1%9C%EB%A7%88%EC%88%AB%EC%9E%90/"/>
     <id>http://sarojaba.github.io/2015/01/07/로마숫자/</id>
     <published>2015-01-06T15:44:00.000Z</published>
-    <updated>2017-04-13T11:43:33.871Z</updated>
+    <updated>2017-04-15T09:43:17.086Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://68.media.tumblr.com/d382dbdcce18e8482b7064e4ec3c276b/tumblr_inline_nhri7qnong1rubmdv.jpg" alt=""></p>
-<pre><code>public class RomaNum {
-    private char[] signs = {
-        &apos;I&apos;, &apos;V&apos;, &apos;X&apos;, &apos;L&apos;, &apos;C&apos;, &apos;D&apos;, &apos;M&apos;
-    };
-    private int[] values = {
-        1, 5, 10, 50, 100, 500, 1000
-    };
-
-    public String toRomaNum(int digitNum) {
-        StringBuilder sb = new StringBuilder();
-
-        String s = Integer.toString(digitNum);
-
-        for (int i = 0; i &lt; s.length(); i++) {
-            int d = s.length() - i - 1;
-
-            char ch = s.charAt(i);
-
-            switch (ch) {
-                case &apos;1&apos;:
-                    sb.append(signs[d * 2]);
-                    break;
-                case &apos;2&apos;:
-                    sb.append(signs[d * 2]);
-                    sb.append(signs[d * 2]);
-                    break;
-                case &apos;3&apos;:
-                    sb.append(signs[d * 2]);
-                    sb.append(signs[d * 2]);
-                    sb.append(signs[d * 2]);
-                    break;
-                case &apos;4&apos;:
-                    sb.append(signs[d * 2]);
-                    sb.append(signs[d * 2 + 1]);
-                    break;
-                case &apos;5&apos;:
-                    sb.append(signs[d * 2 + 1]);
-                    break;
-                case &apos;6&apos;:
-                    sb.append(signs[d * 2 + 1]);
-                    sb.append(signs[d * 2]);
-                    break;
-                case &apos;7&apos;:
-                    sb.append(signs[d * 2 + 1]);
-                    sb.append(signs[d * 2]);
-                    sb.append(signs[d * 2]);
-                case &apos;8&apos;:
-                    sb.append(signs[d * 2 + 1]);
-                    sb.append(signs[d * 2]);
-                    sb.append(signs[d * 2]);
-                    sb.append(signs[d * 2]);
-                case &apos;9&apos;:
-                    sb.append(signs[d * 2]);
-                    sb.append(signs[d * 2 + 2]);
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        return sb.toString();
-    }
-
-    public int toDigitNum(String romaNum) {
-        int[] n = new int[romaNum.length() * 3];
-        int sum = 0;
-
-        for (int i = 0; i &lt; romaNum.length(); i++) {
-            char sign = romaNum.charAt(i);
-
-            for (int j = 0; j &lt; signs.length; j++) {
-                if (sign == signs[j]) {
-                    n[i] = values[j];
-                    break;
-                }
-            }
-        }
-
-        for (int i = 1; i &lt; n.length; i++) {
-            if (n[i - 1] &lt; n[i]) {
-                sum += n[i] - n[i - 1];
-                i++;
-            } else {
-                sum += n[i - 1];
-            }
-        }
-
-        return sum;
-
-    }
-
-    public static void main(String[] args) {
-        RomaNum rn = new RomaNum();
-
-        System.out.println(rn.toRomaNum(2493));
-        System.out.println(rn.toDigitNum(&quot;MMMCCCXXXIII&quot;));
-    }
-}
-</code></pre><p>예전 블로그에 있던 소스를 옮기고 있는데 지금 보니 무슨 생각으로 짰는지 모르겠다;; ㅎㄷㄷ</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RomaNum</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">char</span>[] signs = &#123;</div><div class="line">        <span class="string">'I'</span>, <span class="string">'V'</span>, <span class="string">'X'</span>, <span class="string">'L'</span>, <span class="string">'C'</span>, <span class="string">'D'</span>, <span class="string">'M'</span></div><div class="line">    &#125;;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[] values = &#123;</div><div class="line">        <span class="number">1</span>, <span class="number">5</span>, <span class="number">10</span>, <span class="number">50</span>, <span class="number">100</span>, <span class="number">500</span>, <span class="number">1000</span></div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toRomaNum</span><span class="params">(<span class="keyword">int</span> digitNum)</span> </span>&#123;</div><div class="line">        StringBuilder sb = <span class="keyword">new</span> StringBuilder();</div><div class="line"></div><div class="line">        String s = Integer.toString(digitNum);</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); i++) &#123;</div><div class="line">            <span class="keyword">int</span> d = s.length() - i - <span class="number">1</span>;</div><div class="line"></div><div class="line">            <span class="keyword">char</span> ch = s.charAt(i);</div><div class="line"></div><div class="line">            <span class="keyword">switch</span> (ch) &#123;</div><div class="line">                <span class="keyword">case</span> <span class="string">'1'</span>:</div><div class="line">                    sb.append(signs[d * <span class="number">2</span>]);</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">case</span> <span class="string">'2'</span>:</div><div class="line">                    sb.append(signs[d * <span class="number">2</span>]);</div><div class="line">                    sb.append(signs[d * <span class="number">2</span>]);</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">case</span> <span class="string">'3'</span>:</div><div class="line">                    sb.append(signs[d * <span class="number">2</span>]);</div><div class="line">                    sb.append(signs[d * <span class="number">2</span>]);</div><div class="line">                    sb.append(signs[d * <span class="number">2</span>]);</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">case</span> <span class="string">'4'</span>:</div><div class="line">                    sb.append(signs[d * <span class="number">2</span>]);</div><div class="line">                    sb.append(signs[d * <span class="number">2</span> + <span class="number">1</span>]);</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">case</span> <span class="string">'5'</span>:</div><div class="line">                    sb.append(signs[d * <span class="number">2</span> + <span class="number">1</span>]);</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">case</span> <span class="string">'6'</span>:</div><div class="line">                    sb.append(signs[d * <span class="number">2</span> + <span class="number">1</span>]);</div><div class="line">                    sb.append(signs[d * <span class="number">2</span>]);</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">case</span> <span class="string">'7'</span>:</div><div class="line">                    sb.append(signs[d * <span class="number">2</span> + <span class="number">1</span>]);</div><div class="line">                    sb.append(signs[d * <span class="number">2</span>]);</div><div class="line">                    sb.append(signs[d * <span class="number">2</span>]);</div><div class="line">                <span class="keyword">case</span> <span class="string">'8'</span>:</div><div class="line">                    sb.append(signs[d * <span class="number">2</span> + <span class="number">1</span>]);</div><div class="line">                    sb.append(signs[d * <span class="number">2</span>]);</div><div class="line">                    sb.append(signs[d * <span class="number">2</span>]);</div><div class="line">                    sb.append(signs[d * <span class="number">2</span>]);</div><div class="line">                <span class="keyword">case</span> <span class="string">'9'</span>:</div><div class="line">                    sb.append(signs[d * <span class="number">2</span>]);</div><div class="line">                    sb.append(signs[d * <span class="number">2</span> + <span class="number">2</span>]);</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">default</span>:</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> sb.toString();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">toDigitNum</span><span class="params">(String romaNum)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span>[] n = <span class="keyword">new</span> <span class="keyword">int</span>[romaNum.length() * <span class="number">3</span>];</div><div class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; romaNum.length(); i++) &#123;</div><div class="line">            <span class="keyword">char</span> sign = romaNum.charAt(i);</div><div class="line"></div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; signs.length; j++) &#123;</div><div class="line">                <span class="keyword">if</span> (sign == signs[j]) &#123;</div><div class="line">                    n[i] = values[j];</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n.length; i++) &#123;</div><div class="line">            <span class="keyword">if</span> (n[i - <span class="number">1</span>] &lt; n[i]) &#123;</div><div class="line">                sum += n[i] - n[i - <span class="number">1</span>];</div><div class="line">                i++;</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                sum += n[i - <span class="number">1</span>];</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> sum;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        RomaNum rn = <span class="keyword">new</span> RomaNum();</div><div class="line"></div><div class="line">        System.out.println(rn.toRomaNum(<span class="number">2493</span>));</div><div class="line">        System.out.println(rn.toDigitNum(<span class="string">"MMMCCCXXXIII"</span>));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>예전 블로그에 있던 소스를 옮기고 있는데 지금 보니 무슨 생각으로 짰는지 모르겠다;; ㅎㄷㄷ</p>
 ]]></content>
     
     <summary type="html">
     
       &lt;p&gt;&lt;img src=&quot;http://68.media.tumblr.com/d382dbdcce18e8482b7064e4ec3c276b/tumblr_inline_nhri7qnong1rubmdv.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;public 
+&lt;figure class=&quot;hig
     
     </summary>
     
       <category term="Programming" scheme="http://sarojaba.github.io/categories/Programming/"/>
+    
+      <category term="Algorithm" scheme="http://sarojaba.github.io/categories/Programming/Algorithm/"/>
     
     
       <category term="Programming" scheme="http://sarojaba.github.io/tags/Programming/"/>
@@ -589,40 +460,18 @@ public class Virus{
   </entry>
   
   <entry>
-    <title>playn-game-loop</title>
+    <title>PlayN Game Loop</title>
     <link href="http://sarojaba.github.io/2014/11/19/playn-game-loop/"/>
     <id>http://sarojaba.github.io/2014/11/19/playn-game-loop/</id>
     <published>2014-11-18T15:27:00.000Z</published>
-    <updated>2017-04-13T11:39:26.811Z</updated>
+    <updated>2017-04-15T08:26:26.274Z</updated>
     
     <content type="html"><![CDATA[<p>PlayN은 게임의 메인 루프 진행을 위한 단순한 인터페이스를 제공한다. 이것은 플랫폼 간의 타이밍 구현의 복잡성을 분리하고, 논리적인 업데이트와 렌더링 업데이트의 분리를 추상화한다. 이 글은 PlayN의 구현과 게임의 메인 업데이트 사이클 예제를 설명한다.</p>
 <h2 id="게임-루프의-진행"><a href="#게임-루프의-진행" class="headerlink" title="게임 루프의 진행"></a>게임 루프의 진행</h2><p>모든 PlayN 게임은 단순히 update와 paint 메소드를 포함한 Game 인터페이스를 구현한다. Game 인터페이스를 구현하고 PlayN.run(game)을 호출하면 다음 두 메소드를 영원히 호출하는 게임 루프를 통제하는 것을 포기해야 한다.</p>
-<pre><code>while (true) {
-    game.update(...);
-    game.paint(...);
-}
-`&lt;/pre&gt;
-
-물론 가능한 한 빠르게 동작하지는 않지만, 플랫폼이 실제로 프레임을 표시할 수 있는 정도로 제한된다. 프레임이 얼마나 빨리 표시 되는지는 갱신률이나, 플랫폼 특유의 최대 표시율에 따라 제한된다.
-그러나 두 개의 특정 주기인 표시 주기와 갱신 주기를 고려해야 한다. 상대적으로 단순한 갱신 로직을 가진 게임은 다음과 같이 만들 수 있다.
-
-&lt;pre&gt;`public class MyGame implements Game {
-    public void update(float delta) {
-        // Update the game&apos;s state.
-        // &apos;delta&apos; is the time in milliseconds since the last update call.
-    }
-
-    public void paint(float alpha) {
-        // Paint using the game&apos;s current state.
-        // &apos;alpha&apos; will always be zero. Ignore it.
-    }
-
-    public int updateRate() {
-        // Returning zero here explicitly requests an update() call for each frame.
-        return 0;
-    }
-} 
-</code></pre><p>원문: <a href="https://developers.google.com/playn/devguide/gameloop" target="_blank" rel="external">https://developers.google.com/playn/devguide/gameloop</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</div><div class="line">    game.update(...);</div><div class="line">    game.paint(...);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>물론 가능한 한 빠르게 동작하지는 않지만, 플랫폼이 실제로 프레임을 표시할 수 있는 정도로 제한된다. 프레임이 얼마나 빨리 표시 되는지는 갱신률이나, 플랫폼 특유의 최대 표시율에 따라 제한된다.<br>그러나 두 개의 특정 주기인 표시 주기와 갱신 주기를 고려해야 한다. 상대적으로 단순한 갱신 로직을 가진 게임은 다음과 같이 만들 수 있다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyGame</span> <span class="keyword">implements</span> <span class="title">Game</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">(<span class="keyword">float</span> delta)</span> </span>&#123;</div><div class="line">        <span class="comment">// Update the game's state.</span></div><div class="line">        <span class="comment">// 'delta' is the time in milliseconds since the last update call.</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">paint</span><span class="params">(<span class="keyword">float</span> alpha)</span> </span>&#123;</div><div class="line">        <span class="comment">// Paint using the game's current state.</span></div><div class="line">        <span class="comment">// 'alpha' will always be zero. Ignore it.</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">updateRate</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">// Returning zero here explicitly requests an update() call for each frame.</span></div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>원문: <a href="https://developers.google.com/playn/devguide/gameloop" target="_blank" rel="external">https://developers.google.com/playn/devguide/gameloop</a></p>
 ]]></content>
     
     <summary type="html">
@@ -632,6 +481,8 @@ public class Virus{
     </summary>
     
       <category term="Programming" scheme="http://sarojaba.github.io/categories/Programming/"/>
+    
+      <category term="PlayN" scheme="http://sarojaba.github.io/categories/Programming/PlayN/"/>
     
     
       <category term="Programming" scheme="http://sarojaba.github.io/tags/Programming/"/>
@@ -643,11 +494,11 @@ public class Virus{
   </entry>
   
   <entry>
-    <title>playn-개요</title>
+    <title>PlayN 개요</title>
     <link href="http://sarojaba.github.io/2014/11/19/playn-%EA%B0%9C%EC%9A%94/"/>
     <id>http://sarojaba.github.io/2014/11/19/playn-개요/</id>
     <published>2014-11-18T15:23:00.000Z</published>
-    <updated>2017-04-13T11:39:32.507Z</updated>
+    <updated>2017-04-15T08:26:55.942Z</updated>
     
     <content type="html"><![CDATA[<p>최근 게임 개발 기술은 비약적으로 발전했다. 게임 개발자는 다양한 기술과 새로운 게임 플랫폼으로 개발하는 사람을 말한다. 게임 만들기는 쉬워지지 않았지만, 소셜, 모바일, 웹 기술의 발전이 많은 사람들이 게임을 하는 것을 쉽게 만들어줬다.</p>
 <p>하지만 문제가 있다. 플랫폼이 너무 많다. 게임 개발자는 많은 사람들이 손안에서 게임하기를 원하지만 사용자는 통제되지 않는다. 그래서 게임을 각 플랫폼에 맞게 만들어야 하고, 시간 및 비용의 낭비, 유지보수의 어려움 등의 문제가 있다. 이런 이유로 PlayN이 태어났다.</p>
@@ -668,6 +519,8 @@ public class Virus{
     
       <category term="Programming" scheme="http://sarojaba.github.io/categories/Programming/"/>
     
+      <category term="PlayN" scheme="http://sarojaba.github.io/categories/Programming/PlayN/"/>
+    
     
       <category term="Programming" scheme="http://sarojaba.github.io/tags/Programming/"/>
     
@@ -682,24 +535,24 @@ public class Virus{
     <link href="http://sarojaba.github.io/2014/08/20/%EC%99%84%EC%A0%84%EC%A0%9C%EA%B3%B1%EC%88%98/"/>
     <id>http://sarojaba.github.io/2014/08/20/완전제곱수/</id>
     <published>2014-08-19T15:25:00.000Z</published>
-    <updated>2017-04-13T11:48:11.221Z</updated>
+    <updated>2017-04-15T10:00:13.304Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://68.media.tumblr.com/0b524c74fb29b8b9449a66a5c0f123f1/tumblr_inline_nak8532nwl1rubmdv.jpg" alt="문제"></p>
-<pre><code>public class SQR{
+<pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SQR</span></span>{
 
-    public static void main(String[] args){
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>{
 
-        sqr(60, 100);
+        sqr(<span class="number">60</span>, <span class="number">100</span>);
     }
 
-    public static void sqr(double min, double max){
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sqr</span><span class="params">(<span class="keyword">double</span> min, <span class="keyword">double</span> max)</span></span>{
 
-        int low = (int)Math.ceil(Math.sqrt(min));
-        int high = (int)Math.floor(Math.sqrt(max));
+        <span class="keyword">int</span> low = (<span class="keyword">int</span>)Math.ceil(Math.sqrt(min));
+        <span class="keyword">int</span> high = (<span class="keyword">int</span>)Math.floor(Math.sqrt(max));
 
-        int sum = 0;
+        <span class="keyword">int</span> sum = <span class="number">0</span>;
 
-        for(int i = low; i &lt;= high; i++){
+        <span class="keyword">for</span>(<span class="keyword">int</span> i = low; i &lt;= high; i++){
             sum += i*i;
         }
 
@@ -707,16 +560,19 @@ public class Virus{
         System.out.println(low * low);
     }
 }
-</code></pre>]]></content>
+</code></pre>
+]]></content>
     
     <summary type="html">
     
       &lt;p&gt;&lt;img src=&quot;http://68.media.tumblr.com/0b524c74fb29b8b9449a66a5c0f123f1/tumblr_inline_nak8532nwl1rubmdv.jpg&quot; alt=&quot;문제&quot;&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;publi
+&lt;pre&gt;&lt;code class
     
     </summary>
     
       <category term="Programming" scheme="http://sarojaba.github.io/categories/Programming/"/>
+    
+      <category term="Algorithm" scheme="http://sarojaba.github.io/categories/Programming/Algorithm/"/>
     
     
       <category term="Programming" scheme="http://sarojaba.github.io/tags/Programming/"/>
@@ -728,67 +584,25 @@ public class Virus{
   </entry>
   
   <entry>
-    <title>삽입-정렬</title>
+    <title>삽입 정렬</title>
     <link href="http://sarojaba.github.io/2014/08/13/%EC%82%BD%EC%9E%85-%EC%A0%95%EB%A0%AC/"/>
     <id>http://sarojaba.github.io/2014/08/13/삽입-정렬/</id>
     <published>2014-08-13T14:57:00.000Z</published>
-    <updated>2017-04-13T11:45:26.045Z</updated>
+    <updated>2017-04-15T09:55:47.523Z</updated>
     
     <content type="html"><![CDATA[<p>삽입 정렬</p>
-<pre><code>public class InsertionSort{
-
-    public int[] insertionSort(int[] s){
-
-        int n = s.length;
-        int val; // 임시 저장 공간
-        int j;
-
-        for(int i = 1; i &lt; n; i++){
-
-            // 현재 위치의 요소를 임시로 저장
-            val = s[i];
-            j = i - 1;
-
-            // 현재 위치 앞의 요소보다 작다면 서로 위치를 바꿈
-            while((j &gt;= 0) &amp;&amp; (val &lt; s[j])){
-                s[j + 1] = s[j];
-                j--;
-            }
-            s[j + 1] = val;
-        }
-        return s;
-    }
-
-    // 배열을 출력하는 메소드
-    public void display(int[] s){
-
-        for(int i = 0; i &lt; s.length; i++){
-            System.out.print(s[i] + &quot; &quot;);
-        }
-        System.out.println();
-    }
-
-    public static void main(String[] args){
-
-        InsertionSort s = new InsertionSort();
-        s.display(s.insertionSort(new int[]{8, 13, 20, 27, 16}));
-    }
-}
-</code></pre>]]></content>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InsertionSort</span></span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] insertionSort(<span class="keyword">int</span>[] s)&#123;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> n = s.length;</div><div class="line">        <span class="keyword">int</span> val; <span class="comment">// 임시 저장 공간</span></div><div class="line">        <span class="keyword">int</span> j;</div><div class="line"></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++)&#123;</div><div class="line"></div><div class="line">            <span class="comment">// 현재 위치의 요소를 임시로 저장</span></div><div class="line">            val = s[i];</div><div class="line">            j = i - <span class="number">1</span>;</div><div class="line"></div><div class="line">            <span class="comment">// 현재 위치 앞의 요소보다 작다면 서로 위치를 바꿈</span></div><div class="line">            <span class="keyword">while</span>((j &gt;= <span class="number">0</span>) &amp;&amp; (val &lt; s[j]))&#123;</div><div class="line">                s[j + <span class="number">1</span>] = s[j];</div><div class="line">                j--;</div><div class="line">            &#125;</div><div class="line">            s[j + <span class="number">1</span>] = val;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> s;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 배열을 출력하는 메소드</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">(<span class="keyword">int</span>[] s)</span></span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length; i++)&#123;</div><div class="line">            System.out.print(s[i] + <span class="string">" "</span>);</div><div class="line">        &#125;</div><div class="line">        System.out.println();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line"></div><div class="line">        InsertionSort s = <span class="keyword">new</span> InsertionSort();</div><div class="line">        s.display(s.insertionSort(<span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">8</span>, <span class="number">13</span>, <span class="number">20</span>, <span class="number">27</span>, <span class="number">16</span>&#125;));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
       &lt;p&gt;삽입 정렬&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;public class InsertionSort{
-
-    public int[] insertionSort(int[] s){
-
-        int n = s.length;
-        int val; //
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=
     
     </summary>
     
       <category term="Programming" scheme="http://sarojaba.github.io/categories/Programming/"/>
+    
+      <category term="Algorithm" scheme="http://sarojaba.github.io/categories/Programming/Algorithm/"/>
     
     
       <category term="Programming" scheme="http://sarojaba.github.io/tags/Programming/"/>
@@ -798,28 +612,28 @@ public class Virus{
   </entry>
   
   <entry>
-    <title>개미-수열</title>
+    <title>개미 수열</title>
     <link href="http://sarojaba.github.io/2014/08/13/%EA%B0%9C%EB%AF%B8-%EC%88%98%EC%97%B4/"/>
     <id>http://sarojaba.github.io/2014/08/13/개미-수열/</id>
     <published>2014-08-13T14:53:00.000Z</published>
-    <updated>2017-04-13T11:42:11.937Z</updated>
+    <updated>2017-04-15T09:08:35.053Z</updated>
     
     <content type="html"><![CDATA[<p>개미 수열</p>
-<pre><code>public class Ant{
-    public static int[] array1;
-    public static int[] array2;
+<pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Ant</span></span>{
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] array1;
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] array2;
 
-    public static void main(String[] args){
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>{
 
-        int length = Integer.parseInt(args[0]);
+        <span class="keyword">int</span> length = Integer.parseInt(args[<span class="number">0</span>]);
 
-        array1 = new int[50];
-        array1[0] = 1;
+        array1 = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">50</span>];
+        array1[<span class="number">0</span>] = <span class="number">1</span>;
 
-        for(int i = 0; i &lt; length; i++){
-            for(int j = 0; j &lt; array1.length; j++){
-                if(array1[j] != 0){
-                    System.out.print(array1[j]+&quot; &quot;);
+        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; i++){
+            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; array1.length; j++){
+                <span class="keyword">if</span>(array1[j] != <span class="number">0</span>){
+                    System.out.print(array1[j]+<span class="string">" "</span>);
                 }
             }
             array1 = makeNextLine(array1);
@@ -827,41 +641,40 @@ public class Virus{
         }
     }
 
-    public static int[] makeNextLine(int[] array1){
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] makeNextLine(<span class="keyword">int</span>[] array1){
 
-        int[] array2 = new int[50];
-        array2[0] = array1[0];
-        int index = 1;
-        int count = 1;
+        <span class="keyword">int</span>[] array2 = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">50</span>];
+        array2[<span class="number">0</span>] = array1[<span class="number">0</span>];
+        <span class="keyword">int</span> index = <span class="number">1</span>;
+        <span class="keyword">int</span> count = <span class="number">1</span>;
 
-        for(int i = 1; i &lt; array1.length; i++){
-            if(array1[i-1] == array1[i]){
+        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; array1.length; i++){
+            <span class="keyword">if</span>(array1[i-<span class="number">1</span>] == array1[i]){
                 count++;
-            }else{
+            }<span class="keyword">else</span>{
                 array2[index] = count;
                 index++;
                 array2[index] = array1[i];
                 index++;
-                count = 1;
+                count = <span class="number">1</span>;
             }
         }
-        return array2;
+        <span class="keyword">return</span> array2;
     }
 }
-</code></pre>]]></content>
+</code></pre>
+]]></content>
     
     <summary type="html">
     
       &lt;p&gt;개미 수열&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;public class Ant{
-    public static int[] array1;
-    public static int[] array2;
-
-    public static void main(Strin
+&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=
     
     </summary>
     
       <category term="Programming" scheme="http://sarojaba.github.io/categories/Programming/"/>
+    
+      <category term="Algorithm" scheme="http://sarojaba.github.io/categories/Programming/Algorithm/"/>
     
     
       <category term="Programming" scheme="http://sarojaba.github.io/tags/Programming/"/>
