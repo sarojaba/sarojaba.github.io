@@ -3,18 +3,18 @@
 <head>
     <meta charset="utf-8">
     
-    <title>eclipse-rcp-tutorial12 | 사로자바의 블로그</title>
+    <title>Eclipse RCP Tutorial 12 | 사로자바의 블로그</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="작성일: 2010. 10. 27. 원문: http://www.vogella.de/articles/EclipseRCP/article.html Version 5.1 퍼스펙티브퍼스펙티브는 특정 작업과 관련된 UI 요소들을 함께 묶고 조직화한다. 이클립스 RCP 는 어플리케이션에 퍼스펙티브를 추가할 수 있도록 한다. 다음 예제를 보자. 어플리케이션에 퍼스펙티브 추">
 <meta name="keywords" content="Programming,Eclipse,RCP,Tutorial">
 <meta property="og:type" content="article">
-<meta property="og:title" content="eclipse-rcp-tutorial12">
+<meta property="og:title" content="Eclipse RCP Tutorial 12">
 <meta property="og:url" content="http://sarojaba.github.io/2014/06/01/eclipse-rcp-tutorial12/index.html">
 <meta property="og:site_name" content="사로자바의 블로그">
 <meta property="og:description" content="작성일: 2010. 10. 27. 원문: http://www.vogella.de/articles/EclipseRCP/article.html Version 5.1 퍼스펙티브퍼스펙티브는 특정 작업과 관련된 UI 요소들을 함께 묶고 조직화한다. 이클립스 RCP 는 어플리케이션에 퍼스펙티브를 추가할 수 있도록 한다. 다음 예제를 보자. 어플리케이션에 퍼스펙티브 추">
-<meta property="og:updated_time" content="2017-04-10T16:58:19.800Z">
+<meta property="og:updated_time" content="2017-04-15T03:37:14.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="eclipse-rcp-tutorial12">
+<meta name="twitter:title" content="Eclipse RCP Tutorial 12">
 <meta name="twitter:description" content="작성일: 2010. 10. 27. 원문: http://www.vogella.de/articles/EclipseRCP/article.html Version 5.1 퍼스펙티브퍼스펙티브는 특정 작업과 관련된 UI 요소들을 함께 묶고 조직화한다. 이클립스 RCP 는 어플리케이션에 퍼스펙티브를 추가할 수 있도록 한다. 다음 예제를 보자. 어플리케이션에 퍼스펙티브 추">
     
 
@@ -208,7 +208,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            eclipse-rcp-tutorial12
+            Eclipse RCP Tutorial 12
         </h1>
     
 
@@ -226,7 +226,7 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Eclipse/">Eclipse</a>
     </div>
 
                         
@@ -246,62 +246,14 @@
             <p>작성일: 2010. 10. 27.</p>
 <p>원문: <a href="http://www.vogella.de/articles/EclipseRCP/article.html" target="_blank" rel="external">http://www.vogella.de/articles/EclipseRCP/article.html</a> Version 5.1</p>
 <h1 id="퍼스펙티브"><a href="#퍼스펙티브" class="headerlink" title="퍼스펙티브"></a>퍼스펙티브</h1><p>퍼스펙티브는 특정 작업과 관련된 UI 요소들을 함께 묶고 조직화한다. 이클립스 RCP 는 어플리케이션에 퍼스펙티브를 추가할 수 있도록 한다. 다음 예제를 보자.</p>
-<h2 id="어플리케이션에-퍼스펙티브-추가하기"><a href="#어플리케이션에-퍼스펙티브-추가하기" class="headerlink" title="어플리케이션에 퍼스펙티브 추가하기"></a>어플리케이션에 퍼스펙티브 추가하기</h2><p>&ldquo;de.vogella.rcp.intro.perspective&rdquo; 라는 이름으로 RCP 프로젝트를 생성한다. 템플릿은 &ldquo;RCP application with a view&rdquo; 를 사용한다. &ldquo;plugin.xml&rdquo; 에 &ldquo;org.eclipse.ui.perspective&rdquo; 확장점을 추가한다. 퍼스펙티브의 id 에 &ldquo;de.vogella.rcp.intro.perspective.perspective&rdquo; 를, 이름에 &ldquo;vogella.de Perspective&rdquo; 를 적는다. 클래스 이름은 &ldquo;de.vogella.rcp.intro.perspective.Perspective&rdquo; 로 변경한다.</p>
-<p>&ldquo;class*&rdquo; 링크를 눌러 클래스를 생성한다.</p>
+<h2 id="어플리케이션에-퍼스펙티브-추가하기"><a href="#어플리케이션에-퍼스펙티브-추가하기" class="headerlink" title="어플리케이션에 퍼스펙티브 추가하기"></a>어플리케이션에 퍼스펙티브 추가하기</h2><p><code>de.vogella.rcp.intro.perspective</code> 라는 이름으로 RCP 프로젝트를 생성한다. 템플릿은 <code>RCP application with a view</code> 를 사용한다. <code>plugin.xml</code> 에 <code>org.eclipse.ui.perspective</code> 확장점을 추가한다. 퍼스펙티브의 id 에 <code>de.vogella.rcp.intro.perspective.perspective</code> 를, 이름에 <code>vogella.de Perspective</code> 를 적는다. 클래스 이름은 <code>de.vogella.rcp.intro.perspective.Perspective</code> 로 변경한다.</p>
+<p><code>class*</code> 링크를 눌러 클래스를 생성한다.</p>
 <p>새 클래스의 createInitialLayout() 메소드는 새로운 퍼스펙티브를 생성을 책임진다. 기존의 뷰의 코드를 재사용한다. 다음 단계에서 퍼스펙티브는 정의되지만 어플리케이션에서 사용할 수 없다.</p>
-<pre><code>package de.vogella.rcp.intro.perspective;
-import org.eclipse.ui.IPageLayout;
-import org.eclipse.ui.IPerspectiveFactory;
-public class Perspective implements IPerspectiveFactory {
-public void createInitialLayout(IPageLayout layout) {
-String editorArea = layout.getEditorArea();
-layout.setEditorAreaVisible(false);
-layout.setFixed(true);
-layout.addStandaloneView(View.ID,  false, IPageLayout.LEFT, 1.0f, editorArea);
-}
-}
-`&lt;/pre&gt;
-
-## 퍼스펙티브 선택하기
-
-## 툴바/쿨바를 통해 퍼스펙티브 선택하기
-
-ApplicationWorkbenchWindowAdvisor 클래스의 preWindowOpen() 메소드 내에 configurer.setShowPerspectiveBar(true); 를 통해 퍼스펙티브간의 변경을 활성화 할 수 있다.
-
-&lt;pre&gt;`package perspectivetest;
-import org.eclipse.jface.preference.IPreferenceStore;
-import org.eclipse.swt.graphics.Point;
-import org.eclipse.ui.IWorkbenchPreferenceConstants;
-import org.eclipse.ui.PlatformUI;
-import org.eclipse.ui.application.ActionBarAdvisor;
-import org.eclipse.ui.application.IActionBarConfigurer;
-import org.eclipse.ui.application.IWorkbenchWindowConfigurer;
-import org.eclipse.ui.application.WorkbenchWindowAdvisor;
-public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
-public ApplicationWorkbenchWindowAdvisor(
-IWorkbenchWindowConfigurer configurer) {
-super(configurer);
-}
-public ActionBarAdvisor createActionBarAdvisor(
-IActionBarConfigurer configurer) {
-return new ApplicationActionBarAdvisor(configurer);
-}
-public void preWindowOpen() {
-IWorkbenchWindowConfigurer configurer = getWindowConfigurer();
-configurer.setInitialSize(new Point(400, 300));
-configurer.setShowCoolBar(false);
-configurer.setShowStatusLine(false);
-configurer.setTitle(&quot;RCP Application&quot;);
-configurer.setShowPerspectiveBar(true);
-// Set the preference toolbar to the left place
-// If other menus exists then this will be on the left of them
-IPreferenceStore apiStore = PlatformUI.getPreferenceStore();
-apiStore.setValue(IWorkbenchPreferenceConstants.DOCK_PERSPECTIVE_BAR,
-&quot;TOP_LEFT&quot;);
-}
-}
-</code></pre><p>이제 퍼스펙티브를 즉각적으로 변경할 수 있다.</p>
-<h2 id="메뉴를-통해-퍼스펙티브-선택하기"><a href="#메뉴를-통해-퍼스펙티브-선택하기" class="headerlink" title="메뉴를 통해 퍼스펙티브 선택하기"></a>메뉴를 통해 퍼스펙티브 선택하기</h2><p>이클립스 퍼스펙티브를 바꾸는 것은 메뉴의 표준 명령인 &ldquo;org.eclipse.ui.perspectives.showPerspective&rdquo; 를 통해 재사용할 수 있다. 이클립스 커맨드 을 참고하라.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> de.vogella.rcp.intro.perspective;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.eclipse.ui.IPageLayout;</div><div class="line"><span class="keyword">import</span> org.eclipse.ui.IPerspectiveFactory;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Perspective</span> <span class="keyword">implements</span> <span class="title">IPerspectiveFactory</span> </span>&#123;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">createInitialLayout</span><span class="params">(IPageLayout layout)</span> </span>&#123;</div><div class="line">    String editorArea = layout.getEditorArea();</div><div class="line">    layout.setEditorAreaVisible(<span class="keyword">false</span>);</div><div class="line">    layout.setFixed(<span class="keyword">true</span>);</div><div class="line">    layout.addStandaloneView(View.ID,  <span class="keyword">false</span>, IPageLayout.LEFT, <span class="number">1.0f</span>, editorArea);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="퍼스펙티브-선택하기"><a href="#퍼스펙티브-선택하기" class="headerlink" title="퍼스펙티브 선택하기"></a>퍼스펙티브 선택하기</h2><h2 id="툴바-쿨바를-통해-퍼스펙티브-선택하기"><a href="#툴바-쿨바를-통해-퍼스펙티브-선택하기" class="headerlink" title="툴바/쿨바를 통해 퍼스펙티브 선택하기"></a>툴바/쿨바를 통해 퍼스펙티브 선택하기</h2><p>ApplicationWorkbenchWindowAdvisor 클래스의 preWindowOpen() 메소드 내에 configurer.setShowPerspectiveBar(true); 를 통해 퍼스펙티브간의 변경을 활성화 할 수 있다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> perspectivetest;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.eclipse.jface.preference.IPreferenceStore;</div><div class="line"><span class="keyword">import</span> org.eclipse.swt.graphics.Point;</div><div class="line"><span class="keyword">import</span> org.eclipse.ui.IWorkbenchPreferenceConstants;</div><div class="line"><span class="keyword">import</span> org.eclipse.ui.PlatformUI;</div><div class="line"><span class="keyword">import</span> org.eclipse.ui.application.ActionBarAdvisor;</div><div class="line"><span class="keyword">import</span> org.eclipse.ui.application.IActionBarConfigurer;</div><div class="line"><span class="keyword">import</span> org.eclipse.ui.application.IWorkbenchWindowConfigurer;</div><div class="line"><span class="keyword">import</span> org.eclipse.ui.application.WorkbenchWindowAdvisor;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ApplicationWorkbenchWindowAdvisor</span> <span class="keyword">extends</span> <span class="title">WorkbenchWindowAdvisor</span> </span>&#123;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="title">ApplicationWorkbenchWindowAdvisor</span><span class="params">(</span></span></div><div class="line">    IWorkbenchWindowConfigurer configurer) &#123;</div><div class="line">    <span class="keyword">super</span>(configurer);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> ActionBarAdvisor <span class="title">createActionBarAdvisor</span><span class="params">(</span></span></div><div class="line">    IActionBarConfigurer configurer) &#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> ApplicationActionBarAdvisor(configurer);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">preWindowOpen</span><span class="params">()</span> </span>&#123;</div><div class="line">    IWorkbenchWindowConfigurer configurer = getWindowConfigurer();</div><div class="line">    configurer.setInitialSize(<span class="keyword">new</span> Point(<span class="number">400</span>, <span class="number">300</span>));</div><div class="line">    configurer.setShowCoolBar(<span class="keyword">false</span>);</div><div class="line">    configurer.setShowStatusLine(<span class="keyword">false</span>);</div><div class="line">    configurer.setTitle(<span class="string">"RCP Application"</span>);</div><div class="line">    configurer.setShowPerspectiveBar(<span class="keyword">true</span>);</div><div class="line">    <span class="comment">// Set the preference toolbar to the left place</span></div><div class="line">    <span class="comment">// If other menus exists then this will be on the left of them</span></div><div class="line">    IPreferenceStore apiStore = PlatformUI.getPreferenceStore();</div><div class="line">    apiStore.setValue(IWorkbenchPreferenceConstants.DOCK_PERSPECTIVE_BAR, <span class="string">"TOP_LEFT"</span>);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>이제 퍼스펙티브를 즉각적으로 변경할 수 있다.</p>
+<h2 id="메뉴를-통해-퍼스펙티브-선택하기"><a href="#메뉴를-통해-퍼스펙티브-선택하기" class="headerlink" title="메뉴를 통해 퍼스펙티브 선택하기"></a>메뉴를 통해 퍼스펙티브 선택하기</h2><p>이클립스 퍼스펙티브를 바꾸는 것은 메뉴의 표준 명령인 <code>org.eclipse.ui.perspectives.showPerspective</code> 를 통해 재사용할 수 있다. 이클립스 커맨드 을 참고하라.</p>
 
         
         </div>
@@ -312,7 +264,7 @@ apiStore.setValue(IWorkbenchPreferenceConstants.DOCK_PERSPECTIVE_BAR,
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/06/01/eclipse-rcp-tutorial12/" data-id="cj1gegs06003a87zydlymsyaz" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/06/01/eclipse-rcp-tutorial12/" data-id="cj1iq2k0m003dh0zyb65ypdqg" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -393,7 +345,7 @@ apiStore.setValue(IWorkbenchPreferenceConstants.DOCK_PERSPECTIVE_BAR,
             <strong class="article-nav-caption">Newer</strong>
             <div class="article-nav-title">
                 
-                    eclipse-rcp-tutorial11
+                    Eclipse RCP Tutorial 11
                 
             </div>
         </a>
@@ -401,7 +353,7 @@ apiStore.setValue(IWorkbenchPreferenceConstants.DOCK_PERSPECTIVE_BAR,
     
         <a href="/2014/06/01/eclipse-rcp-tutorial13/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">eclipse-rcp-tutorial13</div>
+            <div class="article-nav-title">Eclipse RCP Tutorial 13</div>
         </a>
     
 </nav>
@@ -486,7 +438,7 @@ apiStore.setValue(IWorkbenchPreferenceConstants.DOCK_PERSPECTIVE_BAR,
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">117</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Algorithm/">Algorithm</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ceylon/">Ceylon</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/LibGDX/">LibGDX</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Processing/">Processing</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Rust/">Rust</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ukulele/">Ukulele</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">117</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Algorithm/">Algorithm</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ceylon/">Ceylon</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeScript/">CoffeScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeeScript/">CoffeeScript</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Eclipse/">Eclipse</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Java/">Java</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/LibGDX/">LibGDX</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Processing/">Processing</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Rust/">Rust</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ubuntu/">Ubuntu</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ukulele/">Ukulele</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 

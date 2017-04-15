@@ -3,19 +3,19 @@
 <head>
     <meta charset="utf-8">
     
-    <title>coffeescript-game-tutorial-add-some-color | 사로자바의 블로그</title>
+    <title>Coffeescript Game Tutorial Add Some Color | 사로자바의 블로그</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="색깔 원을 그리는 코드이다. window.onload = -&amp;gt;      # get a reference to the canvas     canvas = document.getElementById(&amp;quot;canvas&amp;quot;)     ctx = canvas.getContext(&amp;quot;2d&amp;quot;)      ctx.fillStyle = &amp;qu">
+    <meta name="description" content="색깔 원을 그리는 코드이다. 123456789101112131415161718192021222324window.onload = -&amp;gt;    # get a reference to the canvas    canvas = document.getElementById(&amp;quot;canvas&amp;quot;)    ctx = canvas.getContext(&amp;quot">
 <meta name="keywords" content="Programming,CoffeeScript,Canvas">
 <meta property="og:type" content="article">
-<meta property="og:title" content="coffeescript-game-tutorial-add-some-color">
+<meta property="og:title" content="Coffeescript Game Tutorial Add Some Color">
 <meta property="og:url" content="http://sarojaba.github.io/2014/06/27/coffeescript-game-tutorial-add-some-color/index.html">
 <meta property="og:site_name" content="사로자바의 블로그">
-<meta property="og:description" content="색깔 원을 그리는 코드이다. window.onload = -&amp;gt;      # get a reference to the canvas     canvas = document.getElementById(&amp;quot;canvas&amp;quot;)     ctx = canvas.getContext(&amp;quot;2d&amp;quot;)      ctx.fillStyle = &amp;qu">
-<meta property="og:updated_time" content="2017-04-09T13:51:38.812Z">
+<meta property="og:description" content="색깔 원을 그리는 코드이다. 123456789101112131415161718192021222324window.onload = -&amp;gt;    # get a reference to the canvas    canvas = document.getElementById(&amp;quot;canvas&amp;quot;)    ctx = canvas.getContext(&amp;quot">
+<meta property="og:updated_time" content="2017-04-15T02:17:27.339Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="coffeescript-game-tutorial-add-some-color">
-<meta name="twitter:description" content="색깔 원을 그리는 코드이다. window.onload = -&amp;gt;      # get a reference to the canvas     canvas = document.getElementById(&amp;quot;canvas&amp;quot;)     ctx = canvas.getContext(&amp;quot;2d&amp;quot;)      ctx.fillStyle = &amp;qu">
+<meta name="twitter:title" content="Coffeescript Game Tutorial Add Some Color">
+<meta name="twitter:description" content="색깔 원을 그리는 코드이다. 123456789101112131415161718192021222324window.onload = -&amp;gt;    # get a reference to the canvas    canvas = document.getElementById(&amp;quot;canvas&amp;quot;)    ctx = canvas.getContext(&amp;quot">
     
 
     
@@ -208,7 +208,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            coffeescript-game-tutorial-add-some-color
+            Coffeescript Game Tutorial Add Some Color
         </h1>
     
 
@@ -226,7 +226,7 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/CoffeeScript/">CoffeeScript</a>
     </div>
 
                         
@@ -244,31 +244,8 @@
         
             
             <p>색깔 원을 그리는 코드이다.</p>
-<pre><code>window.onload = -&gt;
-
-    # get a reference to the canvas
-    canvas = document.getElementById(&quot;canvas&quot;)
-    ctx = canvas.getContext(&quot;2d&quot;)
-
-    ctx.fillStyle = &quot;#00A308&quot;
-    ctx.beginPath()
-    ctx.arc(220, 220, 50, 0, Math.PI*2, true)
-    ctx.closePath()
-    ctx.fill()
-
-    ctx.fillStyle = &quot;#FF1C0A&quot;
-    ctx.beginPath()
-    ctx.arc(100, 100, 100, 0, Math.PI*2, true)
-    ctx.closePath()
-    ctx.fill()
-
-    # the rectangle is half transparent
-    ctx.fillStyle = &quot;rgba(255, 255, 0, 0.5)&quot;
-    ctx.beginPath()
-    ctx.rect(15, 150, 120, 120)
-    ctx.closePath()
-    ctx.fill()
-</code></pre><p><a href="http://billmill.org/static/canvastutorial/color.html" target="_blank" rel="external">Reference</a></p>
+<figure class="highlight coffee"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">window.onload = -&gt;</div><div class="line"></div><div class="line">    # get a reference to the canvas</div><div class="line">    canvas = document.getElementById(&quot;canvas&quot;)</div><div class="line">    ctx = canvas.getContext(&quot;2d&quot;)</div><div class="line"></div><div class="line">    ctx.fillStyle = &quot;#00A308&quot;</div><div class="line">    ctx.beginPath()</div><div class="line">    ctx.arc(220, 220, 50, 0, Math.PI*2, true)</div><div class="line">    ctx.closePath()</div><div class="line">    ctx.fill()</div><div class="line"></div><div class="line">    ctx.fillStyle = &quot;#FF1C0A&quot;</div><div class="line">    ctx.beginPath()</div><div class="line">    ctx.arc(100, 100, 100, 0, Math.PI*2, true)</div><div class="line">    ctx.closePath()</div><div class="line">    ctx.fill()</div><div class="line"></div><div class="line">    # the rectangle is half transparent</div><div class="line">    ctx.fillStyle = &quot;rgba(255, 255, 0, 0.5)&quot;</div><div class="line">    ctx.beginPath()</div><div class="line">    ctx.rect(15, 150, 120, 120)</div><div class="line">    ctx.closePath()</div><div class="line">    ctx.fill()</div></pre></td></tr></table></figure>
+<p><a href="http://billmill.org/static/canvastutorial/color.html" target="_blank" rel="external">Reference</a></p>
 
         
         </div>
@@ -279,7 +256,7 @@
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/06/27/coffeescript-game-tutorial-add-some-color/" data-id="cj1gegrz4001y87zywwh02vhi" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/06/27/coffeescript-game-tutorial-add-some-color/" data-id="cj1iq2jzg001yh0zypauh51vp" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -360,7 +337,7 @@
             <strong class="article-nav-caption">Newer</strong>
             <div class="article-nav-title">
                 
-                    coffeescript-game-tutorial-draw-a-circle
+                    Coffeescript Game Tutorial Draw a Circle
                 
             </div>
         </a>
@@ -368,7 +345,7 @@
     
         <a href="/2014/06/27/coffeescript-game-tutorial-action/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">coffeescript-game-tutorial-action</div>
+            <div class="article-nav-title">Coffeescript Game Tutorial Action</div>
         </a>
     
 </nav>
@@ -453,7 +430,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">117</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Algorithm/">Algorithm</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ceylon/">Ceylon</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/LibGDX/">LibGDX</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Processing/">Processing</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Rust/">Rust</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ukulele/">Ukulele</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">117</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Algorithm/">Algorithm</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ceylon/">Ceylon</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeScript/">CoffeScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeeScript/">CoffeeScript</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Eclipse/">Eclipse</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Java/">Java</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/LibGDX/">LibGDX</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Processing/">Processing</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Rust/">Rust</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ubuntu/">Ubuntu</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ukulele/">Ukulele</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 

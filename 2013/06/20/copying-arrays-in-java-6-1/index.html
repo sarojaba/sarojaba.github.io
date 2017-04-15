@@ -3,18 +3,18 @@
 <head>
     <meta charset="utf-8">
     
-    <title>copying-arrays-in-java-6-1 | 사로자바의 블로그</title>
+    <title>Copying Arrays in Java 6-1 | 사로자바의 블로그</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="자바 언어는 몇몇 대단한 유물을 가지고 있다. 예를 들어, 스위치 구문은 아직도 스트링 오브젝트를 스위칭하는 개념을 지원하지 않는다. (그러나 switch 구문은 이넘 타입을 지원하는 것으로 업데이트 되었다.) 그 이유는 과거로 돌아가 원래 C에서 디자인된 switch 구문의 개념에서 나타난다. 이유가 무엇이든, 내가 필요로 했던 스위치문에서의 스트링 사용">
 <meta name="keywords" content="Programming,Java,Copy">
 <meta property="og:type" content="article">
-<meta property="og:title" content="copying-arrays-in-java-6-1">
+<meta property="og:title" content="Copying Arrays in Java 6-1">
 <meta property="og:url" content="http://sarojaba.github.io/2013/06/20/copying-arrays-in-java-6-1/index.html">
 <meta property="og:site_name" content="사로자바의 블로그">
 <meta property="og:description" content="자바 언어는 몇몇 대단한 유물을 가지고 있다. 예를 들어, 스위치 구문은 아직도 스트링 오브젝트를 스위칭하는 개념을 지원하지 않는다. (그러나 switch 구문은 이넘 타입을 지원하는 것으로 업데이트 되었다.) 그 이유는 과거로 돌아가 원래 C에서 디자인된 switch 구문의 개념에서 나타난다. 이유가 무엇이든, 내가 필요로 했던 스위치문에서의 스트링 사용">
-<meta property="og:updated_time" content="2017-04-09T13:52:50.729Z">
+<meta property="og:updated_time" content="2017-04-15T02:25:05.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="copying-arrays-in-java-6-1">
+<meta name="twitter:title" content="Copying Arrays in Java 6-1">
 <meta name="twitter:description" content="자바 언어는 몇몇 대단한 유물을 가지고 있다. 예를 들어, 스위치 구문은 아직도 스트링 오브젝트를 스위칭하는 개념을 지원하지 않는다. (그러나 switch 구문은 이넘 타입을 지원하는 것으로 업데이트 되었다.) 그 이유는 과거로 돌아가 원래 C에서 디자인된 switch 구문의 개념에서 나타난다. 이유가 무엇이든, 내가 필요로 했던 스위치문에서의 스트링 사용">
     
 
@@ -208,7 +208,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            copying-arrays-in-java-6-1
+            Copying Arrays in Java 6-1
         </h1>
     
 
@@ -226,7 +226,7 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Java/">Java</a>
     </div>
 
                         
@@ -246,57 +246,20 @@
             <p>자바 언어는 몇몇 대단한 유물을 가지고 있다. 예를 들어, 스위치 구문은 아직도 스트링 오브젝트를 스위칭하는 개념을 지원하지 않는다. (그러나 switch 구문은 이넘 타입을 지원하는 것으로 업데이트 되었다.) 그 이유는 과거로 돌아가 원래 C에서 디자인된 switch 구문의 개념에서 나타난다. 이유가 무엇이든, 내가 필요로 했던 스위치문에서의 스트링 사용은 불행하게도 불가능하다는 것을 알게되었다.</p>
 <p>한 배열에서 다른 배열로 내용을 빠르게 복사하기 위해 사용되는 System.arraycopy 메소드도 비슷한 legacy를 기초로 하고 있는 것으로 보인다. 이 메소드의 이름조차 옛 스타일의 C 함수인 memcpy 와 비슷하다. 이 같은 자바에서의 배열 복사 방법은 사람들 사이에서 선호되었고, 처음 출시 후로 전혀 변하지 않았다.</p>
 <p>arraycopy 메소드는 시스템에서 정의된 정적 메소드로서 확실히 충분하게 강력하다. 시스템 클래스는 하나의 범용의 메소드를 제공한다.</p>
-<pre><code>System.arraycopy(sourceArray, sourceStartIndex, targetArray, targetStartIndex, length);
-`&lt;/pre&gt;
-
-arraycopy 메소드는 단순히 원본 배열의 요소들 전체를 대상 배열로 복사하는 것보다 많은 것을 제공한다. 게다가, arraycopy는 원본과 대상의 시작 인덱스를 허용하고, 복사할 요소들의 수를 나타내는 length 또한 허용한다.
-
-나의 경우에 항상 쓰지는 않지만, 이런 추가적인 유연성은 널리 사용된다. 예를 들어 ArrayList 클래스는 배열 내용을 이동시킬때, 사용자가 배열의 중간에 요소를 삽입하고 싶을 때 arraycopy 를 사용한다.
-
-대부분의 경우, 일부분이 아닌 전체 배열을 복사하고 싶음에도 불구하고, 내가 배열 형태로 요소들을 시프트 시킬 일을 자주 없었다. 내가 System.arrayCopy를 사용하는 대부분의 방식은 코드 두줄이면 된다.
-
-&lt;pre&gt;`String[] source = { &quot;alpha&quot;, &quot;beta&quot;, &quot;gamma&quot; };
-String[] target = new String[source.length];
-System.arraycopy(source, 0, target, 0, source.length);
-`&lt;/pre&gt;
-
-이렇게 간단하고 자주 필요한 것에서도, 자바는 너무 많은 코드를 사용한다는 생각이 든다. 만약 이런 구성을 주어진 애플리케이션에서 여러 번 사용하게 된다면, 나는 재사용 가능한 메소드를 원할 것이다.
-
-&lt;pre&gt;`private final &lt;T&gt; T[] copy(T[] source) {
-    T[] target = new T[source.length]; // This will not compile!
-    System.arraycopy(source, 0, target, 0, source.length);
-    return target;
-}
-`&lt;/pre&gt;
-
-음… 안되네. 컴파일하면 에러메시지가 나타난다.
-
-&lt;pre&gt;`Cannot create a generic array of T
-`&lt;/pre&gt;
-
-리플렉션을 이용해 이 에러의 원인을 얻을 수 있다. 이것이 copy 메소드를 만든 코드이다.
-
-&lt;pre&gt;`private final &lt;T&gt; T[] copy(T[] source) {
-    Class type = source.getClass().getComponentType();
-    T[] target = (T[])Array.newInstance(type, source.length);
-    System.arraycopy(source, 0, target, 0, source.length);
-    return target;
-}
-`&lt;/pre&gt;
-
-자바 컴파일러는 newInstance 를 호출함에 있어서 “Type safety: the case from Object to T[] is actually checking against the erased type Object[].” 경고를 주어 주의를 표시한다. 리플렉션을 이용한다는 것은 컴파일러가 이것이 잘못된 캐스트인지 알려주는 정보가 충분하지 않다는 것을 의미한다. 더 나은 해결책이 있다면, 단순한 라우팅과 성가신 경고를 억제하는 것을 취한다.
-
-&lt;pre&gt;`@SuppressWarnings(&quot;unchecked&quot;)
-private final &lt;T&gt; T[] copy(T[] source) {
-    Class type = source.getClass().getComponentType();
-    T[] target = (T[])Array.newInstance(type, source.length);
-    System.arraycopy(source, 0, target, 0, source.length);
-    return target;
-}
-
-String[] source = { &quot;alpha&quot;, &quot;beta&quot;, &quot;gamma&quot; };
-String[] target = copy(source);
-</code></pre><p>여기서 보인 것처럼, 재빠르게 범용적인 배열 복사 유틸리티 메소드를 만들 수 있다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">System.arraycopy(sourceArray, sourceStartIndex, targetArray, targetStartIndex, length);</div></pre></td></tr></table></figure>
+<p>arraycopy 메소드는 단순히 원본 배열의 요소들 전체를 대상 배열로 복사하는 것보다 많은 것을 제공한다. 게다가, arraycopy는 원본과 대상의 시작 인덱스를 허용하고, 복사할 요소들의 수를 나타내는 length 또한 허용한다.</p>
+<p>나의 경우에 항상 쓰지는 않지만, 이런 추가적인 유연성은 널리 사용된다. 예를 들어 ArrayList 클래스는 배열 내용을 이동시킬때, 사용자가 배열의 중간에 요소를 삽입하고 싶을 때 arraycopy 를 사용한다.</p>
+<p>대부분의 경우, 일부분이 아닌 전체 배열을 복사하고 싶음에도 불구하고, 내가 배열 형태로 요소들을 시프트 시킬 일을 자주 없었다. 내가 System.arrayCopy를 사용하는 대부분의 방식은 코드 두줄이면 된다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">String[] source = &#123; <span class="string">"alpha"</span>, <span class="string">"beta"</span>, <span class="string">"gamma"</span> &#125;;</div><div class="line">String[] target = <span class="keyword">new</span> String[source.length];</div><div class="line">System.arraycopy(source, <span class="number">0</span>, target, <span class="number">0</span>, source.length);</div></pre></td></tr></table></figure>
+<p>이렇게 간단하고 자주 필요한 것에서도, 자바는 너무 많은 코드를 사용한다는 생각이 든다. 만약 이런 구성을 주어진 애플리케이션에서 여러 번 사용하게 된다면, 나는 재사용 가능한 메소드를 원할 것이다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="keyword">final</span> &lt;T&gt; T[] copy(T[] source) &#123;</div><div class="line">    T[] target = <span class="keyword">new</span> T[source.length]; <span class="comment">// This will not compile!</span></div><div class="line">    System.arraycopy(source, <span class="number">0</span>, target, <span class="number">0</span>, source.length);</div><div class="line">    <span class="keyword">return</span> target;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>음… 안되네. 컴파일하면 에러메시지가 나타난다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Cannot create a generic array of T</div></pre></td></tr></table></figure>
+<p>리플렉션을 이용해 이 에러의 원인을 얻을 수 있다. 이것이 copy 메소드를 만든 코드이다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="keyword">final</span> &lt;T&gt; T[] copy(T[] source) &#123;</div><div class="line">    Class type = source.getClass().getComponentType();</div><div class="line">    T[] target = (T[])Array.newInstance(type, source.length);</div><div class="line">    System.arraycopy(source, <span class="number">0</span>, target, <span class="number">0</span>, source.length);</div><div class="line">    <span class="keyword">return</span> target;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>자바 컴파일러는 newInstance 를 호출함에 있어서 “Type safety: the case from Object to T[] is actually checking against the erased type Object[].” 경고를 주어 주의를 표시한다. 리플렉션을 이용한다는 것은 컴파일러가 이것이 잘못된 캐스트인지 알려주는 정보가 충분하지 않다는 것을 의미한다. 더 나은 해결책이 있다면, 단순한 라우팅과 성가신 경고를 억제하는 것을 취한다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@SuppressWarnings</span>(<span class="string">"unchecked"</span>)</div><div class="line"><span class="keyword">private</span> <span class="keyword">final</span> &lt;T&gt; T[] copy(T[] source) &#123;</div><div class="line">    Class type = source.getClass().getComponentType();</div><div class="line">    T[] target = (T[])Array.newInstance(type, source.length);</div><div class="line">    System.arraycopy(source, <span class="number">0</span>, target, <span class="number">0</span>, source.length);</div><div class="line">    <span class="keyword">return</span> target;</div><div class="line">&#125;</div><div class="line"></div><div class="line">String[] source = &#123; <span class="string">"alpha"</span>, <span class="string">"beta"</span>, <span class="string">"gamma"</span> &#125;;</div><div class="line">String[] target = copy(source);</div></pre></td></tr></table></figure>
+<p>여기서 보인 것처럼, 재빠르게 범용적인 배열 복사 유틸리티 메소드를 만들 수 있다.</p>
 
         
         </div>
@@ -307,7 +270,7 @@ String[] target = copy(source);
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2013/06/20/copying-arrays-in-java-6-1/" data-id="cj1gegs01002z87zy6ijd4bbe" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2013/06/20/copying-arrays-in-java-6-1/" data-id="cj1iq2k06002rh0zyxh5nwtt4" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -481,7 +444,7 @@ String[] target = copy(source);
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">117</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Algorithm/">Algorithm</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ceylon/">Ceylon</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/LibGDX/">LibGDX</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Processing/">Processing</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Rust/">Rust</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ukulele/">Ukulele</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">117</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Algorithm/">Algorithm</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ceylon/">Ceylon</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeScript/">CoffeScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeeScript/">CoffeeScript</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Eclipse/">Eclipse</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Java/">Java</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/LibGDX/">LibGDX</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Processing/">Processing</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Rust/">Rust</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ubuntu/">Ubuntu</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ukulele/">Ukulele</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 

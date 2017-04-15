@@ -207,7 +207,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2014/05/24/eclipse-rcp-tutorial7/">eclipse-rcp-tutorial7</a>
+            <a class="article-title" href="/2014/05/24/eclipse-rcp-tutorial7/">Eclipse RCP Tutorial 7</a>
         </h1>
     
 
@@ -225,7 +225,7 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Eclipse/">Eclipse</a>
     </div>
 
                         
@@ -245,130 +245,10 @@
             <p>작성일: 2010. 10. 27.</p>
 <p>원문: <a href="http://www.vogella.de/articles/EclipseRCP/article.html" target="_blank" rel="external">http://www.vogella.de/articles/EclipseRCP/article.html</a> Version 5.1</p>
 <h1 id="시스템-트레이"><a href="#시스템-트레이" class="headerlink" title="시스템 트레이"></a>시스템 트레이</h1><p>다음은 시스템 트레이의 RCP 어플리케이션에 아이콘을 추가하고, 이 아이콘에 메뉴를 추가하는 것이다. 윈도우가 최소화되면 프로그램이 작업표시줄에서 보이지 않게 되는(트레이 아이콘을 통해서만 보임) 기능을 추가한다.</p>
-<p>&ldquo;de.vogella.rcp.intro.traytest&rdquo; 라고 프로젝트를 새로 생성한다. &ldquo;Hello RCP&rdquo; 템플릿을 사용한다. 어플리케이션에 &ldquo;de.vogella.rcp.intro.traytest.exitCommand&rdquo; 라는 id 를 가진 명령을 생성한다.</p>
-<p>&ldquo;ApplicationWorkbenchWindowAdvisor&rdquo; 클래스를 열고 다음의 코드를 적용한다.</p>
-<pre><code>package de.vogella.rcp.intro.traytest;
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.ShellAdapter;
-import org.eclipse.swt.events.ShellEvent;
-import org.eclipse.swt.graphics.Image;
-import org.eclipse.swt.graphics.Point;
-import org.eclipse.swt.widgets.Event;
-import org.eclipse.swt.widgets.Listener;
-import org.eclipse.swt.widgets.Menu;
-import org.eclipse.swt.widgets.MenuItem;
-import org.eclipse.swt.widgets.Shell;
-import org.eclipse.swt.widgets.Tray;
-import org.eclipse.swt.widgets.TrayItem;
-import org.eclipse.ui.IWorkbenchWindow;
-import org.eclipse.ui.application.ActionBarAdvisor;
-import org.eclipse.ui.application.IActionBarConfigurer;
-import org.eclipse.ui.application.IWorkbenchWindowConfigurer;
-import org.eclipse.ui.application.WorkbenchWindowAdvisor;
-import org.eclipse.ui.handlers.IHandlerService;
-import org.eclipse.ui.plugin.AbstractUIPlugin;
-public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
-private IWorkbenchWindow window;
-private TrayItem trayItem;
-private Image trayImage;
-private final static String COMMAND_ID = &quot;de.vogella.rcp.intro.traytest.exitCommand&quot;;
-public ApplicationWorkbenchWindowAdvisor(
-IWorkbenchWindowConfigurer configurer) {
-super(configurer);
-}
-public ActionBarAdvisor createActionBarAdvisor(
-IActionBarConfigurer configurer) {
-return new ApplicationActionBarAdvisor(configurer);
-}
-public void preWindowOpen() {
-IWorkbenchWindowConfigurer configurer = getWindowConfigurer();
-configurer.setInitialSize(new Point(400, 300));
-configurer.setShowCoolBar(false);
-configurer.setShowStatusLine(false);
-configurer.setTitle(&quot;Hello RCP&quot;); //$NON-NLS-1$
-}
-// As of here is the new stuff
-@Override
-public void postWindowOpen() {
-super.postWindowOpen();
-window = getWindowConfigurer().getWindow();
-trayItem = initTaskItem(window);
-// Some OS might not support tray items
-if (trayItem != null) {
-minimizeBehavior();
-// Create exit and about action on the icon
-hookPopupMenu();
-}
-}
-// Add a listener to the shell
-private void minimizeBehavior() {
-window.getShell().addShellListener(new ShellAdapter() {
-// If the window is minimized hide the window
-public void shellIconified(ShellEvent e) {
-window.getShell().setVisible(false);
-}
-});
-// If user double-clicks on the tray icons the application will be
-// visible again
-trayItem.addListener(SWT.DefaultSelection, new Listener() {
-public void handleEvent(Event event) {
-Shell shell = window.getShell();
-if (!shell.isVisible()) {
-window.getShell().setMinimized(false);
-shell.setVisible(true);
-}
-}
-});
-}
-// We hook up on menu entry which allows to close the application
-private void hookPopupMenu() {
-trayItem.addListener(SWT.MenuDetect, new Listener() {
-public void handleEvent(Event event) {
-Menu menu = new Menu(window.getShell(), SWT.POP_UP);
-// Creates a new menu item that terminates the program
-// when selected
-MenuItem exit = new MenuItem(menu, SWT.NONE);
-exit.setText(&quot;Goodbye!&quot;);
-exit.addListener(SWT.Selection, new Listener() {
-public void handleEvent(Event event) {
-// Lets call our command
-IHandlerService handlerService = (IHandlerService) window
-.getService(IHandlerService.class);
-try {
-handlerService.executeCommand(COMMAND_ID, null);
-} catch (Exception ex) {
-throw new RuntimeException(COMMAND_ID);
-}
-}
-});
-// We need to make the menu visible
-menu.setVisible(true);
-}
-});
-}
-// This methods create the tray item and return a reference
-private TrayItem initTaskItem(IWorkbenchWindow window) {
-final Tray tray = window.getShell().getDisplay().getSystemTray();
-TrayItem trayItem = new TrayItem(tray, SWT.NONE);
-trayImage = AbstractUIPlugin.imageDescriptorFromPlugin(
-&quot;de.vogella.rcp.intro.traytest&quot;, &quot;/icons/alt_about.gif&quot;)
-.createImage();
-trayItem.setImage(trayImage);
-trayItem.setToolTipText(&quot;TrayItem&quot;);
-return trayItem;
-}
-// We need to clean-up after ourself
-@Override
-public void dispose() {
-if (trayImage != null) {
-trayImage.dispose();
-}
-if (trayItem != null) {
-trayItem.dispose();
-}
-}
-}
-</code></pre><p>어플리케이션을 실행하면 시스템 트레이 아이콘을 볼 수 있다. 메뉴와 최소화 동작을 테스트해라. 만약 어플리케이션이 최소화되면 작업표시줄에서 보이지 않게 되고 시스템 트레이에서만 보일 것이다.</p>
+<p><code>de.vogella.rcp.intro.traytest</code> 라고 프로젝트를 새로 생성한다. <code>Hello RCP</code> 템플릿을 사용한다. 어플리케이션에 <code>de.vogella.rcp.intro.traytest.exitCommand</code> 라는 id 를 가진 명령을 생성한다.</p>
+<p><code>ApplicationWorkbenchWindowAdvisor</code> 클래스를 열고 다음의 코드를 적용한다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> de.vogella.rcp.intro.traytest;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.eclipse.swt.SWT;</div><div class="line"><span class="keyword">import</span> org.eclipse.swt.events.ShellAdapter;</div><div class="line"><span class="keyword">import</span> org.eclipse.swt.events.ShellEvent;</div><div class="line"><span class="keyword">import</span> org.eclipse.swt.graphics.Image;</div><div class="line"><span class="keyword">import</span> org.eclipse.swt.graphics.Point;</div><div class="line"><span class="keyword">import</span> org.eclipse.swt.widgets.Event;</div><div class="line"><span class="keyword">import</span> org.eclipse.swt.widgets.Listener;</div><div class="line"><span class="keyword">import</span> org.eclipse.swt.widgets.Menu;</div><div class="line"><span class="keyword">import</span> org.eclipse.swt.widgets.MenuItem;</div><div class="line"><span class="keyword">import</span> org.eclipse.swt.widgets.Shell;</div><div class="line"><span class="keyword">import</span> org.eclipse.swt.widgets.Tray;</div><div class="line"><span class="keyword">import</span> org.eclipse.swt.widgets.TrayItem;</div><div class="line"><span class="keyword">import</span> org.eclipse.ui.IWorkbenchWindow;</div><div class="line"><span class="keyword">import</span> org.eclipse.ui.application.ActionBarAdvisor;</div><div class="line"><span class="keyword">import</span> org.eclipse.ui.application.IActionBarConfigurer;</div><div class="line"><span class="keyword">import</span> org.eclipse.ui.application.IWorkbenchWindowConfigurer;</div><div class="line"><span class="keyword">import</span> org.eclipse.ui.application.WorkbenchWindowAdvisor;</div><div class="line"><span class="keyword">import</span> org.eclipse.ui.handlers.IHandlerService;</div><div class="line"><span class="keyword">import</span> org.eclipse.ui.plugin.AbstractUIPlugin;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ApplicationWorkbenchWindowAdvisor</span> <span class="keyword">extends</span> <span class="title">WorkbenchWindowAdvisor</span> </span>&#123;</div><div class="line">  <span class="keyword">private</span> IWorkbenchWindow window;</div><div class="line">  <span class="keyword">private</span> TrayItem trayItem;</div><div class="line">  <span class="keyword">private</span> Image trayImage;</div><div class="line">  <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> String COMMAND_ID = <span class="string">"de.vogella.rcp.intro.traytest.exitCommand"</span>;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="title">ApplicationWorkbenchWindowAdvisor</span><span class="params">(</span></span></div><div class="line">    IWorkbenchWindowConfigurer configurer) &#123;</div><div class="line">    <span class="keyword">super</span>(configurer);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> ActionBarAdvisor <span class="title">createActionBarAdvisor</span><span class="params">(</span></span></div><div class="line">    IActionBarConfigurer configurer) &#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> ApplicationActionBarAdvisor(configurer);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">preWindowOpen</span><span class="params">()</span> </span>&#123;</div><div class="line">    IWorkbenchWindowConfigurer configurer = getWindowConfigurer();</div><div class="line">    configurer.setInitialSize(<span class="keyword">new</span> Point(<span class="number">400</span>, <span class="number">300</span>));</div><div class="line">    configurer.setShowCoolBar(<span class="keyword">false</span>);</div><div class="line">    configurer.setShowStatusLine(<span class="keyword">false</span>);</div><div class="line">    configurer.setTitle(<span class="string">"Hello RCP"</span>); <span class="comment">//$NON-NLS-1$</span></div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="comment">// As of here is the new stuff</span></div><div class="line">  <span class="meta">@Override</span></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">postWindowOpen</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>.postWindowOpen();</div><div class="line">    window = getWindowConfigurer().getWindow();</div><div class="line">    trayItem = initTaskItem(window);</div><div class="line">    <span class="comment">// Some OS might not support tray items</span></div><div class="line">    <span class="keyword">if</span> (trayItem != <span class="keyword">null</span>) &#123;</div><div class="line">      minimizeBehavior();</div><div class="line">      <span class="comment">// Create exit and about action on the icon</span></div><div class="line">      hookPopupMenu();</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="comment">// Add a listener to the shell</span></div><div class="line">  <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">minimizeBehavior</span><span class="params">()</span> </span>&#123;</div><div class="line">    window.getShell().addShellListener(<span class="keyword">new</span> ShellAdapter() &#123;</div><div class="line">      <span class="comment">// If the window is minimized hide the window</span></div><div class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">shellIconified</span><span class="params">(ShellEvent e)</span> </span>&#123;</div><div class="line">        window.getShell().setVisible(<span class="keyword">false</span>);</div><div class="line">      &#125;</div><div class="line">    &#125;);</div><div class="line">    <span class="comment">// If user double-clicks on the tray icons the application will be</span></div><div class="line">    <span class="comment">// visible again</span></div><div class="line">    trayItem.addListener(SWT.DefaultSelection, <span class="keyword">new</span> Listener() &#123;</div><div class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleEvent</span><span class="params">(Event event)</span> </span>&#123;</div><div class="line">        Shell shell = window.getShell();</div><div class="line">        <span class="keyword">if</span> (!shell.isVisible()) &#123;</div><div class="line">          window.getShell().setMinimized(<span class="keyword">false</span>);</div><div class="line">          shell.setVisible(<span class="keyword">true</span>);</div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="comment">// We hook up on menu entry which allows to close the application</span></div><div class="line">  <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">hookPopupMenu</span><span class="params">()</span> </span>&#123;</div><div class="line">    trayItem.addListener(SWT.MenuDetect, <span class="keyword">new</span> Listener() &#123;</div><div class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleEvent</span><span class="params">(Event event)</span> </span>&#123;</div><div class="line">        Menu menu = <span class="keyword">new</span> Menu(window.getShell(), SWT.POP_UP);</div><div class="line">        <span class="comment">// Creates a new menu item that terminates the program</span></div><div class="line">        <span class="comment">// when selected</span></div><div class="line">        MenuItem exit = <span class="keyword">new</span> MenuItem(menu, SWT.NONE);</div><div class="line">        exit.setText(<span class="string">"Goodbye!"</span>);</div><div class="line">        exit.addListener(SWT.Selection, <span class="keyword">new</span> Listener() &#123;</div><div class="line">          <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleEvent</span><span class="params">(Event event)</span> </span>&#123;</div><div class="line">            <span class="comment">// Lets call our command</span></div><div class="line">            IHandlerService handlerService = (IHandlerService) window</div><div class="line">                .getService(IHandlerService.class);</div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">              handlerService.executeCommand(COMMAND_ID, <span class="keyword">null</span>);</div><div class="line">            &#125; <span class="keyword">catch</span> (Exception ex) &#123;</div><div class="line">              <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(COMMAND_ID);</div><div class="line">            &#125;</div><div class="line">          &#125;</div><div class="line">        &#125;);</div><div class="line">        <span class="comment">// We need to make the menu visible</span></div><div class="line">        menu.setVisible(<span class="keyword">true</span>);</div><div class="line">      &#125;</div><div class="line">    &#125;);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="comment">// This methods create the tray item and return a reference</span></div><div class="line">  <span class="function"><span class="keyword">private</span> TrayItem <span class="title">initTaskItem</span><span class="params">(IWorkbenchWindow window)</span> </span>&#123;</div><div class="line">    <span class="keyword">final</span> Tray tray = window.getShell().getDisplay().getSystemTray();</div><div class="line">    TrayItem trayItem = <span class="keyword">new</span> TrayItem(tray, SWT.NONE);</div><div class="line">    trayImage = AbstractUIPlugin.imageDescriptorFromPlugin(</div><div class="line">        <span class="string">"de.vogella.rcp.intro.traytest"</span>, <span class="string">"/icons/alt_about.gif"</span>)</div><div class="line">        .createImage();</div><div class="line">    trayItem.setImage(trayImage);</div><div class="line">    trayItem.setToolTipText(<span class="string">"TrayItem"</span>);</div><div class="line">    <span class="keyword">return</span> trayItem;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="comment">// We need to clean-up after ourself</span></div><div class="line">  <span class="meta">@Override</span></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">dispose</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (trayImage != <span class="keyword">null</span>) &#123;</div><div class="line">      trayImage.dispose();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (trayItem != <span class="keyword">null</span>) &#123;</div><div class="line">      trayItem.dispose();</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>어플리케이션을 실행하면 시스템 트레이 아이콘을 볼 수 있다. 메뉴와 최소화 동작을 테스트해라. 만약 어플리케이션이 최소화되면 작업표시줄에서 보이지 않게 되고 시스템 트레이에서만 보일 것이다.</p>
 
         
         </div>
@@ -379,7 +259,7 @@ trayItem.dispose();
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/05/24/eclipse-rcp-tutorial7/" data-id="cj1gegs0u004e87zyeqtnei5d" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/05/24/eclipse-rcp-tutorial7/" data-id="cj1iq2k100041h0zyyw8bgmeh" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -465,7 +345,7 @@ trayItem.dispose();
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2014/05/24/eclipse-rcp-tutorial6/">eclipse-rcp-tutorial6</a>
+            <a class="article-title" href="/2014/05/24/eclipse-rcp-tutorial6/">Eclipse RCP Tutorial 6</a>
         </h1>
     
 
@@ -483,7 +363,7 @@ trayItem.dispose();
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Eclipse/">Eclipse</a>
     </div>
 
                         
@@ -501,85 +381,22 @@ trayItem.dispose();
         
             
             <p>작성일: 2010. 10. 27.</p>
-<p>원문: <a href="http://www.vogella.de/articles/EclipseRCP/article.html" target="_blank" rel="external">http://www.vogella.de/articles/EclipseRCP/article.html</a> Version 5.1<br>Commands</p>
-<h1 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h1><p>명령은 컴포넌트의 명세를 선언하고 상세 구현으로부터 독립적이다. 명령은 분류할 수 있고 단축키를 할당 할 수 있다. 명령은 메뉴, 툴바 그리고 컨텍스트 메뉴에 사용된다. 다음에서는 메뉴에 명령을 적용하는 방법을 시연할 것이다. 명령에 대한 자세한 내용은 Eclipse Commands - Tutorial 을 보아라.</p>
-<h1 id="명령-정의하기"><a href="#명령-정의하기" class="headerlink" title="명령 정의하기"></a>명령 정의하기</h1><p>어플리케이션을 종료하는 명령을 만들 것이다. &ldquo;de.vogella.rcp.commands.first&rdquo; 라는 새로운 RCP 프로젝트를 생성하고, &ldquo;Hello RCP&rdquo; 템플릿을 사용한다. &ldquo;plugin.xml&rdquo; 파일을 더블 클릭하고 &ldquo;Extensions&rdquo; 탭을 선택한다. 그리고 &ldquo;Add&rdquo; 버튼을 누른다.</p>
-<p>&ldquo;org.eclipse.ui.commands&rdquo; 확장을 검색한다. 그것을 선택하고 &ldquo;Finish&rdquo; 를 누른다.</p>
-<p>확장점에 오른쪽 클릭을 하여 New -&gt; Command 를 선택해 새로운 명령을 생성한다.</p>
-<p>ID는 &ldquo;de.vogella.rcp.commands.first.commands.Exit&rdquo; 로, 이름은 &ldquo;Exit&rdquo; 로 설정한다. 기본 핸들러로 &ldquo;de.vogella.rcp.commands.first.commands.ExitHandler&rdquo; 클래스를 넣는다. 이 클래스를 생성하기 위해 &ldquo;defaultHAndler&rdquo; 하이퍼링크를 누르고 부모 클래스로 &ldquo;org.eclipse.core.commands.AbstractHandler&rdquo; 를 선택한다.</p>
+<p>원문: <a href="http://www.vogella.de/articles/EclipseRCP/article.html" target="_blank" rel="external">http://www.vogella.de/articles/EclipseRCP/article.html</a> Version 5.1</p>
+<h1 id="Commands"><a href="#Commands" class="headerlink" title="Commands"></a>Commands</h1><p>#@ 개요</p>
+<p>명령은 컴포넌트의 명세를 선언하고 상세 구현으로부터 독립적이다. 명령은 분류할 수 있고 단축키를 할당 할 수 있다. 명령은 메뉴, 툴바 그리고 컨텍스트 메뉴에 사용된다. 다음에서는 메뉴에 명령을 적용하는 방법을 시연할 것이다. 명령에 대한 자세한 내용은 Eclipse Commands - Tutorial 을 보아라.</p>
+<h2 id="명령-정의하기"><a href="#명령-정의하기" class="headerlink" title="명령 정의하기"></a>명령 정의하기</h2><p>어플리케이션을 종료하는 명령을 만들 것이다. <code>de.vogella.rcp.commands.first</code> 라는 새로운 RCP 프로젝트를 생성하고, <code>Hello RCP</code> 템플릿을 사용한다. <code>plugin.xml</code> 파일을 더블 클릭하고 <code>Extensions</code> 탭을 선택한다. 그리고 <code>Add</code> 버튼을 누른다.</p>
+<p><code>org.eclipse.ui.commands</code> 확장을 검색한다. 그것을 선택하고 <code>Finish</code> 를 누른다.</p>
+<p>확장점에 오른쪽 클릭을 하여 <code>New</code> -&gt; <code>Command</code> 를 선택해 새로운 명령을 생성한다.</p>
+<p>ID는 <code>de.vogella.rcp.commands.first.commands.Exit</code> 로, 이름은 <code>Exit</code> 로 설정한다. 기본 핸들러로 <code>de.vogella.rcp.commands.first.commands.ExitHandler</code> 클래스를 넣는다. 이 클래스를 생성하기 위해 <code>defaultHAndler</code> 하이퍼링크를 누르고 부모 클래스로 <code>org.eclipse.core.commands.AbstractHandler</code> 를 선택한다.</p>
 <p>다음의 코드를 구현한다. 당신의 새로운 명령은 나중에 사용될 준비 상태이다.</p>
-<pre><code>package de.vogella.rcp.commands.first.commands;
-import org.eclipse.core.commands.AbstractHandler;
-import org.eclipse.core.commands.ExecutionEvent;
-import org.eclipse.core.commands.ExecutionException;
-import org.eclipse.ui.handlers.HandlerUtil;
-public class ExitHandler extends AbstractHandler {
-@Override
-public Object execute(ExecutionEvent event) throws ExecutionException {
-HandlerUtil.getActiveWorkbenchWindow(event).close();
-return null;
-}
-}
-`&lt;/pre&gt;
-
-# 메뉴에서 명령 사용하기
-
-우리가 정의한 명령은 메뉴에서 사용될 것이다. “org.eclipse.ui.commands” 확장과 비슷하게 어플리케이션에 “org.eclipse.ui.menus” 확장점을 추가한다. 확장점에서 오른쪽 클릭을 하고 “New” -&gt; “menuContribution” 을 선택한다.
-
-location URI 는 “menu:org.eclipse.ui.main.menu” 라고 하고, 새로운 메뉴 기증을 생성한다. 이 URL이 정확하지 않으면 당신의 메뉴는 보이지 않는다.
-
-메뉴 기증을 오른쪽 클릭하고 “New” -&gt; “Menu” 를 선택한다. label 은 “File”, id 는 “fileMenu” 로 메뉴를 추가한다.
-
-메뉴를 선택하고, 오른쪽 클릭을 하고, New -&gt; Command 를 선택한다. commandID 는 그대로 둔다. 레이블은 “Exit”, 툴팁은 “Exits the application” 으로 설정한다.
-
-위의 과정을 통해 plugin.xml 파일에 다음과 같은 결과를 얻을 것이다.
-
-&lt;pre&gt;`&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;?eclipse version=&quot;3.4&quot;?&gt;
-&lt;plugin&gt;
-   &lt;extension
-         id=&quot;application&quot;
-         point=&quot;org.eclipse.core.runtime.applications&quot;&gt;
-      &lt;application&gt;
-         &lt;run
-               class=&quot;de.vogella.rcp.commands.first.Application&quot;&gt;
-         &lt;/run&gt;
-      &lt;/application&gt;
-   &lt;/extension&gt;
-   &lt;extension
-         point=&quot;org.eclipse.ui.perspectives&quot;&gt;
-      &lt;perspective
-            name=&quot;RCP Perspective&quot;
-            class=&quot;de.vogella.rcp.commands.first.Perspective&quot;
-            id=&quot;de.vogella.rcp.commands.first.perspective&quot;&gt;
-      &lt;/perspective&gt;
-   &lt;/extension&gt;
-   &lt;extension
-         point=&quot;org.eclipse.ui.commands&quot;&gt;
-      &lt;command
-            defaultHandler=&quot;de.vogella.rcp.commands.first.commands.ExitHandler&quot;
-            id=&quot;de.vogella.rcp.commands.first.commands.Exit&quot;
-            name=&quot;Exit&quot;&gt;
-      &lt;/command&gt;
-   &lt;/extension&gt;
-   &lt;extension
-         point=&quot;org.eclipse.ui.menus&quot;&gt;
-      &lt;menuContribution
-            locationURI=&quot;menu:org.eclipse.ui.main.menu&quot;&gt;
-         &lt;menu
-               id=&quot;fileMenu&quot;
-               label=&quot;File&quot;&gt;
-            &lt;command
-                  commandId=&quot;de.vogella.rcp.commands.first.commands.Exit&quot;
-                  label=&quot;Exit&quot;
-                  style=&quot;push&quot;
-                  tooltip=&quot;Exit the application&quot;&gt;
-            &lt;/command&gt;
-         &lt;/menu&gt;
-      &lt;/menuContribution&gt;
-   &lt;/extension&gt;
-&lt;/plugin&gt;
-</code></pre><p>예제를 실행한다. &ldquo;file&rdquo; 메뉴를 보게 될 것이고, &ldquo;Exit&rdquo; 항목을 선택하면 어플리케이션은 종료할 것이다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> de.vogella.rcp.commands.first.commands;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.eclipse.core.commands.AbstractHandler;</div><div class="line"><span class="keyword">import</span> org.eclipse.core.commands.ExecutionEvent;</div><div class="line"><span class="keyword">import</span> org.eclipse.core.commands.ExecutionException;</div><div class="line"><span class="keyword">import</span> org.eclipse.ui.handlers.HandlerUtil;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExitHandler</span> <span class="keyword">extends</span> <span class="title">AbstractHandler</span> </span>&#123;</div><div class="line">  <span class="meta">@Override</span></div><div class="line">  <span class="function"><span class="keyword">public</span> Object <span class="title">execute</span><span class="params">(ExecutionEvent event)</span> <span class="keyword">throws</span> ExecutionException </span>&#123;</div><div class="line">    HandlerUtil.getActiveWorkbenchWindow(event).close();</div><div class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="메뉴에서-명령-사용하기"><a href="#메뉴에서-명령-사용하기" class="headerlink" title="메뉴에서 명령 사용하기"></a>메뉴에서 명령 사용하기</h1><p>우리가 정의한 명령은 메뉴에서 사용될 것이다. <code>org.eclipse.ui.commands</code> 확장과 비슷하게 어플리케이션에 <code>org.eclipse.ui.menus</code> 확장점을 추가한다. 확장점에서 오른쪽 클릭을 하고 <code>New</code> -&gt; <code>menuContribution</code> 을 선택한다.</p>
+<p>location URI 는 <code>menu:org.eclipse.ui.main.menu</code> 라고 하고, 새로운 메뉴 기증을 생성한다. 이 URL이 정확하지 않으면 당신의 메뉴는 보이지 않는다.</p>
+<p>메뉴 기증을 오른쪽 클릭하고 <code>New</code> -&gt; <code>Menu</code> 를 선택한다. label 은 <code>File</code>, id 는 <code>fileMenu</code> 로 메뉴를 추가한다.</p>
+<p>메뉴를 선택하고, 오른쪽 클릭을 하고, <code>New</code> -&gt; <code>Command</code> 를 선택한다. commandID 는 그대로 둔다. 레이블은 <code>Exit</code>, 툴팁은 <code>Exits the application</code> 으로 설정한다.</p>
+<p>위의 과정을 통해 <code>plugin.xml</code> 파일에 다음과 같은 결과를 얻을 것이다.</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line">&lt;?eclipse version="3.4"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">plugin</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">extension</span></span></div><div class="line">            <span class="attr">id</span>=<span class="string">"application"</span></div><div class="line">            <span class="attr">point</span>=<span class="string">"org.eclipse.core.runtime.applications"</span>&gt;</div><div class="line">      <span class="tag">&lt;<span class="name">application</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">run</span></span></div><div class="line">                  <span class="attr">class</span>=<span class="string">"de.vogella.rcp.commands.first.Application"</span>&gt;</div><div class="line">            <span class="tag">&lt;/<span class="name">run</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">application</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">extension</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">extension</span></span></div><div class="line">            <span class="attr">point</span>=<span class="string">"org.eclipse.ui.perspectives"</span>&gt;</div><div class="line">      <span class="tag">&lt;<span class="name">perspective</span></span></div><div class="line">            <span class="attr">name</span>=<span class="string">"RCP Perspective"</span></div><div class="line">            <span class="attr">class</span>=<span class="string">"de.vogella.rcp.commands.first.Perspective"</span></div><div class="line">            <span class="attr">id</span>=<span class="string">"de.vogella.rcp.commands.first.perspective"</span>&gt;</div><div class="line">      <span class="tag">&lt;/<span class="name">perspective</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">extension</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">extension</span></span></div><div class="line">            <span class="attr">point</span>=<span class="string">"org.eclipse.ui.commands"</span>&gt;</div><div class="line">      <span class="tag">&lt;<span class="name">command</span></span></div><div class="line">            <span class="attr">defaultHandler</span>=<span class="string">"de.vogella.rcp.commands.first.commands.ExitHandler"</span></div><div class="line">            <span class="attr">id</span>=<span class="string">"de.vogella.rcp.commands.first.commands.Exit"</span></div><div class="line">            <span class="attr">name</span>=<span class="string">"Exit"</span>&gt;</div><div class="line">      <span class="tag">&lt;/<span class="name">command</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">extension</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">extension</span></span></div><div class="line">            <span class="attr">point</span>=<span class="string">"org.eclipse.ui.menus"</span>&gt;</div><div class="line">      <span class="tag">&lt;<span class="name">menuContribution</span></span></div><div class="line">            <span class="attr">locationURI</span>=<span class="string">"menu:org.eclipse.ui.main.menu"</span>&gt;</div><div class="line">            <span class="tag">&lt;<span class="name">menu</span></span></div><div class="line">                  <span class="attr">id</span>=<span class="string">"fileMenu"</span></div><div class="line">                  <span class="attr">label</span>=<span class="string">"File"</span>&gt;</div><div class="line">            <span class="tag">&lt;<span class="name">command</span></span></div><div class="line">                  <span class="attr">commandId</span>=<span class="string">"de.vogella.rcp.commands.first.commands.Exit"</span></div><div class="line">                  <span class="attr">label</span>=<span class="string">"Exit"</span></div><div class="line">                  <span class="attr">style</span>=<span class="string">"push"</span></div><div class="line">                  <span class="attr">tooltip</span>=<span class="string">"Exit the application"</span>&gt;</div><div class="line">            <span class="tag">&lt;/<span class="name">command</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">menu</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">menuContribution</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">extension</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>예제를 실행한다. <code>file</code> 메뉴를 보게 될 것이고, <code>Exit</code> 항목을 선택하면 어플리케이션은 종료할 것이다.</p>
 
         
         </div>
@@ -590,7 +407,7 @@ location URI 는 “menu:org.eclipse.ui.main.menu” 라고 하고, 새로운 �
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/05/24/eclipse-rcp-tutorial6/" data-id="cj1gegs0p004187zypl3rtcou" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/05/24/eclipse-rcp-tutorial6/" data-id="cj1iq2k0x003xh0zyu39qecnn" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -676,7 +493,7 @@ location URI 는 “menu:org.eclipse.ui.main.menu” 라고 하고, 새로운 �
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2014/05/20/eclipse-rcp-tutorial4-5/">eclipse-rcp-tutorial4-5</a>
+            <a class="article-title" href="/2014/05/20/eclipse-rcp-tutorial4-5/">Eclipse RCP Tutorial 4, 5</a>
         </h1>
     
 
@@ -694,7 +511,7 @@ location URI 는 “menu:org.eclipse.ui.main.menu” 라고 하고, 새로운 �
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Eclipse/">Eclipse</a>
     </div>
 
                         
@@ -713,13 +530,13 @@ location URI 는 “menu:org.eclipse.ui.main.menu” 라고 하고, 새로운 �
             
             <p>작성일: 2010. 10. 27.</p>
 <p>원문: <a href="http://www.vogella.de/articles/EclipseRCP/article.html" target="_blank" rel="external">http://www.vogella.de/articles/EclipseRCP/article.html</a> Version 5.1</p>
-<h1 id="동작-과정과-어드바이저"><a href="#동작-과정과-어드바이저" class="headerlink" title="동작 과정과 어드바이저"></a>동작 과정과 어드바이저</h1><p>이클립스 RCP 어플리케이션을 시작하는 동안 이클립스 런타임은 &ldquo;org.eclipse.core.runtime.application&rdquo; 확장점을 통해 정의된 클래스를 평가할 것이다. 이 클래스는 로드되고 생성되고 워크벤치를 실행할 것이다. 워크벤치는 &ldquo;WorkbenchAdvisor&rdquo; 를 통해 설정된다. 워크벤치는 WorkbenchWindowAdvisor 를 통해 설정된 &ldquo;WorkbenchWindow&rdquo; 를 실행할 것이다. 이 WorkbenchWindow 는 &ldquo;ActionBarAdvisor&rdquo; 를 통해 시작 설정된 어플리케이션의 툴바를 생성할 것이다.</p>
+<h1 id="동작-과정과-어드바이저"><a href="#동작-과정과-어드바이저" class="headerlink" title="동작 과정과 어드바이저"></a>동작 과정과 어드바이저</h1><p>이클립스 RCP 어플리케이션을 시작하는 동안 이클립스 런타임은 <code>org.eclipse.core.runtime.application</code> 확장점을 통해 정의된 클래스를 평가할 것이다. 이 클래스는 로드되고 생성되고 워크벤치를 실행할 것이다. 워크벤치는 <code>WorkbenchAdvisor</code> 를 통해 설정된다. 워크벤치는 WorkbenchWindowAdvisor 를 통해 설정된 <code>WorkbenchWindow</code> 를 실행할 것이다. 이 WorkbenchWindow 는 <code>ActionBarAdvisor</code> 를 통해 시작 설정된 어플리케이션의 툴바를 생성할 것이다.</p>
 <p>각 어드바이저는 어플리케이션의 특정 행동을 설정하도록 한다. 예를 들어, 워크벤치 어드바이저는 preStartUp() 과 preShutdown() 메소드를 오버라이딩 함으로써 시작이나 종료시 특정 행동을 수행하도록 한다.</p>
-<h1 id="동작-설정하기"><a href="#동작-설정하기" class="headerlink" title="동작 설정하기"></a>동작 설정하기</h1><h2 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h2><p>이클립스의 동작 설정은 당신의 어플리케이션이 시작될 환경을 정의한다. 예를들어, 컴파일러 플래그, 플러그인(클래스 패스) 종속성 등. 때때로 동작 환경은 &ldquo;실행 환경&rdquo; 이라고도 불린다. 만약 당신이 RCP 어플리케이션을 시작한다면 동작 설정은 자동으로 생성될 것이다.</p>
-<p>동작 설정을 보고 변경하기 위해 &ldquo;MANIFEST.MF&rdquo; 파일을 선택하고, 오른쪽 클릭해서 Run As -&gt; Run Configurations 를 선택한다.</p>
-<p>&ldquo;location&rdquo; 필드는 RCP 어플리케이션을 실행하기 위한 필요한 파일들이 생성될 곳을 나타낸다.</p>
-<h2 id="런타임-설정-검사하기"><a href="#런타임-설정-검사하기" class="headerlink" title="런타임 설정 검사하기"></a>런타임 설정 검사하기</h2><p>&ldquo;Plug-ins&rdquo; 탭의 &ldquo;Validate plug-ins prior to launching&rdquo; 을 선택한다. 이것은 당신의 실행 설정에 필요한 플러그인을 모두 가지고 있는지 검사할 것이다. 만약 플러그인이 빠졌다고 보고되면, &ldquo;Add Required-Plug-Ins&rdquo; 버튼을 눌러 보아라.</p>
-<p>&ldquo;Arguments&rdquo; 탭에서 &ldquo;-consoleLog&rdquo; 인자를 찾을 수 있을 것이다. 이 옵션은 콘솔 뷰에서 RCP 어플리케이션의 에러를 볼 수 있도록 하며, 문제를 인식하는데 많은 도움이 될 것이다.</p>
+<h1 id="동작-설정하기"><a href="#동작-설정하기" class="headerlink" title="동작 설정하기"></a>동작 설정하기</h1><h2 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h2><p>이클립스의 동작 설정은 당신의 어플리케이션이 시작될 환경을 정의한다. 예를들어, 컴파일러 플래그, 플러그인(클래스 패스) 종속성 등. 때때로 동작 환경은 <code>실행 환경</code> 이라고도 불린다. 만약 당신이 RCP 어플리케이션을 시작한다면 동작 설정은 자동으로 생성될 것이다.</p>
+<p>동작 설정을 보고 변경하기 위해 <code>MANIFEST.MF</code> 파일을 선택하고, 오른쪽 클릭해서 Run As -&gt; Run Configurations 를 선택한다.</p>
+<p><code>location</code> 필드는 RCP 어플리케이션을 실행하기 위한 필요한 파일들이 생성될 곳을 나타낸다.</p>
+<h2 id="런타임-설정-검사하기"><a href="#런타임-설정-검사하기" class="headerlink" title="런타임 설정 검사하기"></a>런타임 설정 검사하기</h2><p><code>Plug-ins</code> 탭의 <code>Validate plug-ins prior to launching</code> 을 선택한다. 이것은 당신의 실행 설정에 필요한 플러그인을 모두 가지고 있는지 검사할 것이다. 만약 플러그인이 빠졌다고 보고되면, <code>Add Required-Plug-Ins</code> 버튼을 눌러 보아라.</p>
+<p><code>Arguments</code> 탭에서 <code>-consoleLog</code> 인자를 찾을 수 있을 것이다. 이 옵션은 콘솔 뷰에서 RCP 어플리케이션의 에러를 볼 수 있도록 하며, 문제를 인식하는데 많은 도움이 될 것이다.</p>
 
         
         </div>
@@ -730,7 +547,7 @@ location URI 는 “menu:org.eclipse.ui.main.menu” 라고 하고, 새로운 �
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/05/20/eclipse-rcp-tutorial4-5/" data-id="cj1gegs0k003u87zyh5tnwp49" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/05/20/eclipse-rcp-tutorial4-5/" data-id="cj1iq2k0v003uh0zy050o5ezs" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -816,7 +633,7 @@ location URI 는 “menu:org.eclipse.ui.main.menu” 라고 하고, 새로운 �
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2014/05/20/eclipse-rcp-tutorial3/">eclipse-rcp-tutorial3</a>
+            <a class="article-title" href="/2014/05/20/eclipse-rcp-tutorial3/">Eclipse RCP Tutorial 3</a>
         </h1>
     
 
@@ -834,7 +651,7 @@ location URI 는 “menu:org.eclipse.ui.main.menu” 라고 하고, 새로운 �
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Eclipse/">Eclipse</a>
     </div>
 
                         
@@ -855,12 +672,12 @@ location URI 는 “menu:org.eclipse.ui.main.menu” 라고 하고, 새로운 �
 <p>원문: <a href="http://www.vogella.de/articles/EclipseRCP/article.html" target="_blank" rel="external">http://www.vogella.de/articles/EclipseRCP/article.html</a> Version 5.1</p>
 <h1 id="처음으로-RCP-어플리케이션-생성하기"><a href="#처음으로-RCP-어플리케이션-생성하기" class="headerlink" title="처음으로 RCP 어플리케이션 생성하기"></a>처음으로 RCP 어플리케이션 생성하기</h1><p>다음은 간단한 RCP 어플리케이션을 생성하는 방법에 대한 빠른 설명을 제시한다.</p>
 <h2 id="RCP-어플리케이션-생성하기"><a href="#RCP-어플리케이션-생성하기" class="headerlink" title="RCP 어플리케이션 생성하기"></a>RCP 어플리케이션 생성하기</h2><p>이클립스에서 File -&gt; New Project 를 선택한다. 리스트에서 Plug-In Project 를 선택한다.</p>
-<p>플러그인 이름을 &ldquo;de.vogella.rcp.intro.first&rdquo; 라고 적는다.</p>
-<p>&ldquo;Next&rdquo; 을 누르고 다음에 나오는 설정을 적는다. RCP 어플리케이션을 만들것이므로 &ldquo;Would you like to create a rich client application&rdquo; 질문에 &ldquo;Yes&rdquo; 를 선택한다.</p>
-<p>&ldquo;Next&rdquo; 를 누르고, &ldquo;Hello RCP&rdquo; 템플릿을 선택한다.</p>
-<p>&ldquo;Next&rdquo; 를 누르고, &ldquo;Add branding&quot;을 선택하고, &quot;Finish&rdquo; 를 누른다.</p>
+<p>플러그인 이름을 <code>de.vogella.rcp.intro.first</code> 라고 적는다.</p>
+<p><code>Next</code> 을 누르고 다음에 나오는 설정을 적는다. RCP 어플리케이션을 만들것이므로 <code>Would you like to create a rich client application</code> 질문에 <code>Yes</code> 를 선택한다.</p>
+<p><code>Next</code> 를 누르고, <code>Hello RCP</code> 템플릿을 선택한다.</p>
+<p><code>Next</code> 를 누르고, <code>Add branding&amp;quot;을 선택하고, &amp;quot;Finish</code> 를 누른다.</p>
 <p>마침내 아래의 프로젝트 구조를 가지는 프로젝트가 생성될 것이다. 프로젝트 구조에 대한 첫 느낌을 얻기위해 자바 파일들과 특히 다른 파일들을 훑어보아라.</p>
-<h2 id="RCP-어플리케이션-실행하기"><a href="#RCP-어플리케이션-실행하기" class="headerlink" title="RCP 어플리케이션 실행하기"></a>RCP 어플리케이션 실행하기</h2><p>&ldquo;MANIFEST.MF&rdquo; 파일을 더블클릭하여 연다. 에디터를 보게될 것이고, &ldquo;Overview&rdquo; 탭이 선택되어 있을 것이다. &ldquo;Launch an Eclipse Application&rdquo; 링크를 클릭한다.</p>
+<h2 id="RCP-어플리케이션-실행하기"><a href="#RCP-어플리케이션-실행하기" class="headerlink" title="RCP 어플리케이션 실행하기"></a>RCP 어플리케이션 실행하기</h2><p><code>MANIFEST.MF</code> 파일을 더블클릭하여 연다. 에디터를 보게될 것이고, <code>Overview</code> 탭이 선택되어 있을 것이다. <code>Launch an Eclipse Application</code> 링크를 클릭한다.</p>
 <p>결과로 다음과 같은 모습을 볼 것이다.</p>
 <p>당신의 첫 RCP 어플리케이션이 만들어진 것에 대해 축하한다.</p>
 
@@ -873,7 +690,7 @@ location URI 는 “menu:org.eclipse.ui.main.menu” 라고 하고, 새로운 �
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/05/20/eclipse-rcp-tutorial3/" data-id="cj1gegs0d003k87zyj6rufwse" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/05/20/eclipse-rcp-tutorial3/" data-id="cj1iq2k0r003mh0zys90hipp2" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -959,7 +776,7 @@ location URI 는 “menu:org.eclipse.ui.main.menu” 라고 하고, 새로운 �
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2014/05/17/eclipse-rcp-tutorial2/">eclipse-rcp-tutorial2</a>
+            <a class="article-title" href="/2014/05/17/eclipse-rcp-tutorial2/">Eclipse RCP Tutorial 2</a>
         </h1>
     
 
@@ -977,7 +794,7 @@ location URI 는 “menu:org.eclipse.ui.main.menu” 라고 하고, 새로운 �
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Eclipse/">Eclipse</a>
     </div>
 
                         
@@ -996,9 +813,9 @@ location URI 는 “menu:org.eclipse.ui.main.menu” 라고 하고, 새로운 �
             
             <p>작성일: 2010. 10. 27.</p>
 <p>원문: <a href="http://www.vogella.de/articles/EclipseRCP/article.html" target="_blank" rel="external">http://www.vogella.de/articles/EclipseRCP/article.html</a> Version 5.1</p>
-<h1 id="설치하기"><a href="#설치하기" class="headerlink" title="설치하기"></a>설치하기</h1><h2 id="설치하기-1"><a href="#설치하기-1" class="headerlink" title="설치하기"></a>설치하기</h2><p>Eclipse.org 홈페이지에서 DOWNLOADS 를 클릭한다. &ldquo;Eclipse for RCP/Plug-in Developers&rdquo; 패키지를 다운로드 한다. 하드 디스크에 압축을 푼다. 이클립스 경로에는 특수 문자나 공백을 피한다.</p>
+<h1 id="설치하기"><a href="#설치하기" class="headerlink" title="설치하기"></a>설치하기</h1><h2 id="설치하기-1"><a href="#설치하기-1" class="headerlink" title="설치하기"></a>설치하기</h2><p>Eclipse.org 홈페이지에서 DOWNLOADS 를 클릭한다. <code>Eclipse for RCP/Plug-in Developers</code> 패키지를 다운로드 한다. 하드 디스크에 압축을 푼다. 이클립스 경로에는 특수 문자나 공백을 피한다.</p>
 <h2 id="이클립스-자바-IDE-업데이트하기"><a href="#이클립스-자바-IDE-업데이트하기" class="headerlink" title="이클립스 자바 IDE 업데이트하기"></a>이클립스 자바 IDE 업데이트하기</h2><p>이미 이클립스 자바 IDE 배포판을 다운 받았을 경우, RCP 개발에 필요한 플러그인을 인스톨하기 위해 이클립스 업데이트 매니저를 이용할 수 있다. 업데이트 매니저를 사용하는 자세한 사항은 Eclipse Update Manager 에서 참고하라.</p>
-<p>헬리오스 업데이트 사이트에서 &ldquo;General Purpose Tools&rdquo; -&gt; &ldquo;Eclipse Plug-in Development Environment&rdquo; 와 &ldquo;Eclipse RCP Plug-in Developer Resources&rdquo; 를 설치한다. 이 기능들을 보기 위해 아마도 &ldquo;Group items by category&rdquo; 플래그를 없애야 할 것이다.</p>
+<p>헬리오스 업데이트 사이트에서 <code>General Purpose Tools</code> -&gt; <code>Eclipse Plug-in Development Environment</code> 와 <code>Eclipse RCP Plug-in Developer Resources</code> 를 설치한다. 이 기능들을 보기 위해 아마도 <code>Group items by category</code> 플래그를 없애야 할 것이다.</p>
 
         
         </div>
@@ -1009,7 +826,7 @@ location URI 는 “menu:org.eclipse.ui.main.menu” 라고 하고, 새로운 �
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/05/17/eclipse-rcp-tutorial2/" data-id="cj1gegs0f003n87zyebt7dlqi" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/05/17/eclipse-rcp-tutorial2/" data-id="cj1iq2k0t003ph0zy7eddoig3" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1095,7 +912,7 @@ location URI 는 “menu:org.eclipse.ui.main.menu” 라고 하고, 새로운 �
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2014/05/16/eclipse-rcp-tutorial1/">eclipse-rcp-tutorial1</a>
+            <a class="article-title" href="/2014/05/16/eclipse-rcp-tutorial1/">Eclipse RCP Tutorial 1</a>
         </h1>
     
 
@@ -1113,7 +930,7 @@ location URI 는 “menu:org.eclipse.ui.main.menu” 라고 하고, 새로운 �
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Eclipse/">Eclipse</a>
     </div>
 
                         
@@ -1167,7 +984,7 @@ location URI 는 “menu:org.eclipse.ui.main.menu” 라고 하고, 새로운 �
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/05/16/eclipse-rcp-tutorial1/" data-id="cj1gegrzx002r87zy5bzh15fx" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/05/16/eclipse-rcp-tutorial1/" data-id="cj1iq2k0e0033h0zybvrsof8w" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1344,7 +1161,7 @@ location URI 는 “menu:org.eclipse.ui.main.menu” 라고 하고, 새로운 �
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/05/16/제5회-대학생-프로그래밍-경시대회-문제-b-ktx/" data-id="cj1gegs5l00de87zy41qxyqyz" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/05/16/제5회-대학생-프로그래밍-경시대회-문제-b-ktx/" data-id="cj1iq2k6j00e2h0zy57w4ux64" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1524,7 +1341,7 @@ location URI 는 “menu:org.eclipse.ui.main.menu” 라고 하고, 새로운 �
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/05/15/제5회-대학생-프로그래밍-경시대회-문제-a-장보기/" data-id="cj1gegs5i00da87zylbjxe8zm" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/05/15/제5회-대학생-프로그래밍-경시대회-문제-a-장보기/" data-id="cj1iq2k6h00dzh0zyyolomffb" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1706,7 +1523,7 @@ public class LetterBank {
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/05/14/제7회-대학생-프로그래밍-경시대회-문제-a-letter-bank/" data-id="cj1gegs5o00dh87zy9gl6dwvg" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/05/14/제7회-대학생-프로그래밍-경시대회-문제-a-letter-bank/" data-id="cj1iq2k6l00e6h0zyb2ccp0oy" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1868,7 +1685,7 @@ public class Honeycomb {
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/05/14/제4회-대학생-프로그래밍-경시대회-문제-b-벌집/" data-id="cj1gegs5g00d787zy71yih2q3" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/05/14/제4회-대학생-프로그래밍-경시대회-문제-b-벌집/" data-id="cj1iq2k6f00dvh0zy7tpmge0t" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -2013,7 +1830,7 @@ public class Honeycomb {
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">117</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Algorithm/">Algorithm</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ceylon/">Ceylon</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/LibGDX/">LibGDX</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Processing/">Processing</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Rust/">Rust</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ukulele/">Ukulele</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">117</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Algorithm/">Algorithm</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ceylon/">Ceylon</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeScript/">CoffeScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeeScript/">CoffeeScript</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Eclipse/">Eclipse</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Java/">Java</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/LibGDX/">LibGDX</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Processing/">Processing</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Rust/">Rust</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ubuntu/">Ubuntu</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ukulele/">Ukulele</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 

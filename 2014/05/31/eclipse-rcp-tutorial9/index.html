@@ -3,19 +3,19 @@
 <head>
     <meta charset="utf-8">
     
-    <title>eclipse-rcp-tutorial9 | 사로자바의 블로그</title>
+    <title>Eclipse RCP Tutorial 9 | 사로자바의 블로그</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="작성일: 2010. 10. 27. 원문: http://www.vogella.de/articles/EclipseRCP/article.html Version 5.1 필드 어시스트와 레이블 데코레이터필드 어시스트는 텍스트 필드나 콤보 박스와 같이 단순 필드의 가능한 입력과 상태에 대한 정보를 제공하는데 사용될 수 있다. &amp;ldquo;org.eclipse.jfac">
+    <meta name="description" content="작성일: 2010. 10. 27. 원문: http://www.vogella.de/articles/EclipseRCP/article.html Version 5.1 필드 어시스트와 레이블 데코레이터필드 어시스트는 텍스트 필드나 콤보 박스와 같이 단순 필드의 가능한 입력과 상태에 대한 정보를 제공하는데 사용될 수 있다. org.eclipse.jface.field">
 <meta name="keywords" content="Programming,Eclipse,RCP,Tutorial">
 <meta property="og:type" content="article">
-<meta property="og:title" content="eclipse-rcp-tutorial9">
+<meta property="og:title" content="Eclipse RCP Tutorial 9">
 <meta property="og:url" content="http://sarojaba.github.io/2014/05/31/eclipse-rcp-tutorial9/index.html">
 <meta property="og:site_name" content="사로자바의 블로그">
-<meta property="og:description" content="작성일: 2010. 10. 27. 원문: http://www.vogella.de/articles/EclipseRCP/article.html Version 5.1 필드 어시스트와 레이블 데코레이터필드 어시스트는 텍스트 필드나 콤보 박스와 같이 단순 필드의 가능한 입력과 상태에 대한 정보를 제공하는데 사용될 수 있다. &amp;ldquo;org.eclipse.jfac">
-<meta property="og:updated_time" content="2017-04-10T16:57:52.448Z">
+<meta property="og:description" content="작성일: 2010. 10. 27. 원문: http://www.vogella.de/articles/EclipseRCP/article.html Version 5.1 필드 어시스트와 레이블 데코레이터필드 어시스트는 텍스트 필드나 콤보 박스와 같이 단순 필드의 가능한 입력과 상태에 대한 정보를 제공하는데 사용될 수 있다. org.eclipse.jface.field">
+<meta property="og:updated_time" content="2017-04-15T03:28:22.056Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="eclipse-rcp-tutorial9">
-<meta name="twitter:description" content="작성일: 2010. 10. 27. 원문: http://www.vogella.de/articles/EclipseRCP/article.html Version 5.1 필드 어시스트와 레이블 데코레이터필드 어시스트는 텍스트 필드나 콤보 박스와 같이 단순 필드의 가능한 입력과 상태에 대한 정보를 제공하는데 사용될 수 있다. &amp;ldquo;org.eclipse.jfac">
+<meta name="twitter:title" content="Eclipse RCP Tutorial 9">
+<meta name="twitter:description" content="작성일: 2010. 10. 27. 원문: http://www.vogella.de/articles/EclipseRCP/article.html Version 5.1 필드 어시스트와 레이블 데코레이터필드 어시스트는 텍스트 필드나 콤보 박스와 같이 단순 필드의 가능한 입력과 상태에 대한 정보를 제공하는데 사용될 수 있다. org.eclipse.jface.field">
     
 
     
@@ -208,7 +208,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            eclipse-rcp-tutorial9
+            Eclipse RCP Tutorial 9
         </h1>
     
 
@@ -226,7 +226,7 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Eclipse/">Eclipse</a>
     </div>
 
                         
@@ -245,64 +245,13 @@
             
             <p>작성일: 2010. 10. 27.</p>
 <p>원문: <a href="http://www.vogella.de/articles/EclipseRCP/article.html" target="_blank" rel="external">http://www.vogella.de/articles/EclipseRCP/article.html</a> Version 5.1</p>
-<h1 id="필드-어시스트와-레이블-데코레이터"><a href="#필드-어시스트와-레이블-데코레이터" class="headerlink" title="필드 어시스트와 레이블 데코레이터"></a>필드 어시스트와 레이블 데코레이터</h1><p>필드 어시스트는 텍스트 필드나 콤보 박스와 같이 단순 필드의 가능한 입력과 상태에 대한 정보를 제공하는데 사용될 수 있다. &ldquo;org.eclipse.jface.fieldassist&rdquo; 패키지는 ControlDecorations 와 Content Proposals 두 가지 방법으로 도움을 제공한다.</p>
+<h1 id="필드-어시스트와-레이블-데코레이터"><a href="#필드-어시스트와-레이블-데코레이터" class="headerlink" title="필드 어시스트와 레이블 데코레이터"></a>필드 어시스트와 레이블 데코레이터</h1><p>필드 어시스트는 텍스트 필드나 콤보 박스와 같이 단순 필드의 가능한 입력과 상태에 대한 정보를 제공하는데 사용될 수 있다. <code>org.eclipse.jface.fieldassist</code> 패키지는 ControlDecorations 와 Content Proposals 두 가지 방법으로 도움을 제공한다.</p>
 <p>콘트롤 장식은 콘트롤에 대한 부가적인 정보를 보여주기 위해 SWT 컨트롤에 이미지 장식을 두도록 한다. 이 장식은 사용자가 마우스를 올려 놓았을때 한번 보여지는 내용을 가지고 있을 수 있다. 화면 배치 중에 이 장식들을 보여주기 위한 충반한 공간이 있다고 확신해야 한다.</p>
 <p>컨텐트 제안은 필드에 사용자 입력에 대해 가능한 선택을 도와주도록 한다.</p>
-<p>&ldquo;de.vogella.rcp.intro.fieldassist&rdquo; 로 새 프로젝트를 생성한다. 예제로 &ldquo;RCP application with a view&rdquo; 를 사용한다. 예제에서 컨텐트 제안은 &ldquo;Cntrl+Space&rdquo; 키 조합으로 특정 키(&ldquo;.&rdquo;, &ldquo;#&rdquo;)를 통해 활성화된다.</p>
+<p><code>de.vogella.rcp.intro.fieldassist</code> 로 새 프로젝트를 생성한다. 예제로 <code>RCP application with a view</code> 를 사용한다. 예제에서 컨텐트 제안은 <code>Cntrl+Space</code> 키 조합으로 특정 키(<code>.</code>, <code>#</code>)를 통해 활성화된다.</p>
 <p>다음으로 View.java를 바꾼다.</p>
-<pre><code>package de.vogella.rcp.intro.fieldassist;
-import org.eclipse.jface.bindings.keys.KeyStroke;
-import org.eclipse.jface.bindings.keys.ParseException;
-import org.eclipse.jface.fieldassist.ContentProposalAdapter;
-import org.eclipse.jface.fieldassist.ControlDecoration;
-import org.eclipse.jface.fieldassist.FieldDecorationRegistry;
-import org.eclipse.jface.fieldassist.SimpleContentProposalProvider;
-import org.eclipse.jface.fieldassist.TextContentAdapter;
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.layout.GridData;
-import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.Text;
-import org.eclipse.ui.part.ViewPart;
-public class View extends ViewPart {
-public static final String ID = &quot;de.vogella.rcp.intro.fieldassist.view&quot;;
-public void createPartControl(Composite parent) {
-GridLayout layout = new GridLayout(2,false);
-parent.setLayout(layout);
-Label label = new Label(parent, SWT.NONE);
-label.setText(&quot;Please select a value:   &quot;);
-Text text = new Text(parent, SWT.BORDER);
-createDeco(text, &quot;Use CNTL + SPACE to see possible values&quot;);
-GridData data = new GridData(GridData.FILL_HORIZONTAL);
-text.setLayoutData(data);
-ControlDecoration deco = new ControlDecoration(text, SWT.LEFT);
-deco.setDescriptionText(&quot;Use CNTL + SPACE to see possible values&quot;);
-deco.setImage(FieldDecorationRegistry.getDefault().getFieldDecoration(FieldDecorationRegistry.DEC_INFORMATION).getImage());
-deco.setShowOnlyOnFocus(false);
-// Help the user with the possible inputs
-// &quot;.&quot; and &quot;#&quot; will also activate the content proposals
-char[] autoActivationCharacters = new char[] { &apos;.&apos;, &apos;#&apos; };
-KeyStroke keyStroke;
-try {
-// 
-keyStroke = KeyStroke.getInstance(&quot;Ctrl+Space&quot;);
-// assume that myTextControl has already been created in some way
-ContentProposalAdapter adapter = new ContentProposalAdapter(text,
-new TextContentAdapter(),
-new SimpleContentProposalProvider(new String[] {
-&quot;ProposalOne&quot;, &quot;ProposalTwo&quot;, &quot;ProposalThree&quot; }),
-keyStroke, autoActivationCharacters);
-} catch (ParseException e) {
-e.printStackTrace();
-}
-}
-public void setFocus() {
-}
-private void createDeco(Text text, String s){
-}
-}
-</code></pre><p>애플리케이션을 실행하고 콘트롤 장식과 컨텐트 제안이 작동하는지 확인한다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> de.vogella.rcp.intro.fieldassist;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.eclipse.jface.bindings.keys.KeyStroke;</div><div class="line"><span class="keyword">import</span> org.eclipse.jface.bindings.keys.ParseException;</div><div class="line"><span class="keyword">import</span> org.eclipse.jface.fieldassist.ContentProposalAdapter;</div><div class="line"><span class="keyword">import</span> org.eclipse.jface.fieldassist.ControlDecoration;</div><div class="line"><span class="keyword">import</span> org.eclipse.jface.fieldassist.FieldDecorationRegistry;</div><div class="line"><span class="keyword">import</span> org.eclipse.jface.fieldassist.SimpleContentProposalProvider;</div><div class="line"><span class="keyword">import</span> org.eclipse.jface.fieldassist.TextContentAdapter;</div><div class="line"><span class="keyword">import</span> org.eclipse.swt.SWT;</div><div class="line"><span class="keyword">import</span> org.eclipse.swt.layout.GridData;</div><div class="line"><span class="keyword">import</span> org.eclipse.swt.layout.GridLayout;</div><div class="line"><span class="keyword">import</span> org.eclipse.swt.widgets.Composite;</div><div class="line"><span class="keyword">import</span> org.eclipse.swt.widgets.Label;</div><div class="line"><span class="keyword">import</span> org.eclipse.swt.widgets.Text;</div><div class="line"><span class="keyword">import</span> org.eclipse.ui.part.ViewPart;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">View</span> <span class="keyword">extends</span> <span class="title">ViewPart</span> </span>&#123;</div><div class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String ID = <span class="string">"de.vogella.rcp.intro.fieldassist.view"</span>;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">createPartControl</span><span class="params">(Composite parent)</span> </span>&#123;</div><div class="line">    GridLayout layout = <span class="keyword">new</span> GridLayout(<span class="number">2</span>,<span class="keyword">false</span>);</div><div class="line">    parent.setLayout(layout);</div><div class="line">    Label label = <span class="keyword">new</span> Label(parent, SWT.NONE);</div><div class="line">    label.setText(<span class="string">"Please select a value:   "</span>);</div><div class="line">    Text text = <span class="keyword">new</span> Text(parent, SWT.BORDER);</div><div class="line">    createDeco(text, <span class="string">"Use CNTL + SPACE to see possible values"</span>);</div><div class="line">    GridData data = <span class="keyword">new</span> GridData(GridData.FILL_HORIZONTAL);</div><div class="line">    text.setLayoutData(data);</div><div class="line">    ControlDecoration deco = <span class="keyword">new</span> ControlDecoration(text, SWT.LEFT);</div><div class="line">    deco.setDescriptionText(<span class="string">"Use CNTL + SPACE to see possible values"</span>);</div><div class="line">    deco.setImage(FieldDecorationRegistry.getDefault().getFieldDecoration(FieldDecorationRegistry.DEC_INFORMATION).getImage());</div><div class="line">    deco.setShowOnlyOnFocus(<span class="keyword">false</span>);</div><div class="line">    <span class="comment">// Help the user with the possible inputs</span></div><div class="line">    <span class="comment">// "." and "#" will also activate the content proposals</span></div><div class="line">    <span class="keyword">char</span>[] autoActivationCharacters = <span class="keyword">new</span> <span class="keyword">char</span>[] &#123; <span class="string">'.'</span>, <span class="string">'#'</span> &#125;;</div><div class="line">    KeyStroke keyStroke;</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">    <span class="comment">// </span></div><div class="line">    keyStroke = KeyStroke.getInstance(<span class="string">"Ctrl+Space"</span>);</div><div class="line">    <span class="comment">// assume that myTextControl has already been created in some way</span></div><div class="line">    ContentProposalAdapter adapter = <span class="keyword">new</span> ContentProposalAdapter(text,</div><div class="line">    <span class="keyword">new</span> TextContentAdapter(),</div><div class="line">    <span class="keyword">new</span> SimpleContentProposalProvider(<span class="keyword">new</span> String[] &#123;</div><div class="line">      <span class="string">"ProposalOne"</span>, <span class="string">"ProposalTwo"</span>, <span class="string">"ProposalThree"</span> &#125;),</div><div class="line">      keyStroke, autoActivationCharacters);</div><div class="line">    &#125; <span class="keyword">catch</span> (ParseException e) &#123;</div><div class="line">      e.printStackTrace();</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setFocus</span><span class="params">()</span> </span>&#123;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">createDeco</span><span class="params">(Text text, String s)</span></span>&#123;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>애플리케이션을 실행하고 콘트롤 장식과 컨텐트 제안이 작동하는지 확인한다.</p>
 
         
         </div>
@@ -313,7 +262,7 @@ private void createDeco(Text text, String s){
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/05/31/eclipse-rcp-tutorial9/" data-id="cj1gegs0x004k87zy2o5x2ryc" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/05/31/eclipse-rcp-tutorial9/" data-id="cj1iq2k160049h0zyyrfhiyga" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -394,7 +343,7 @@ private void createDeco(Text text, String s){
             <strong class="article-nav-caption">Newer</strong>
             <div class="article-nav-title">
                 
-                    eclipse-rcp-tutorial8
+                    Eclipse RCP Tutorial 8
                 
             </div>
         </a>
@@ -402,7 +351,7 @@ private void createDeco(Text text, String s){
     
         <a href="/2014/05/31/eclipse-rcp-tutorial10/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">eclipse-rcp-tutorial10</div>
+            <div class="article-nav-title">Eclipse RCP Tutorial 10</div>
         </a>
     
 </nav>
@@ -487,7 +436,7 @@ private void createDeco(Text text, String s){
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">117</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Algorithm/">Algorithm</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ceylon/">Ceylon</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/LibGDX/">LibGDX</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Processing/">Processing</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Rust/">Rust</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ukulele/">Ukulele</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">117</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Algorithm/">Algorithm</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ceylon/">Ceylon</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeScript/">CoffeScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeeScript/">CoffeeScript</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Eclipse/">Eclipse</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Java/">Java</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/LibGDX/">LibGDX</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Processing/">Processing</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Rust/">Rust</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ubuntu/">Ubuntu</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ukulele/">Ukulele</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 

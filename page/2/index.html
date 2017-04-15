@@ -280,7 +280,7 @@
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/11/19/playn-game-loop/" data-id="cj1gegs21006v87zykcy5tark" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/11/19/playn-game-loop/" data-id="cj1iq2k2r007fh0zyknktvoit" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -420,7 +420,7 @@
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/11/19/playn-개요/" data-id="cj1gegs23006y87zyq8bmodgv" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/11/19/playn-개요/" data-id="cj1iq2k2t007ih0zy4hj25et1" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -574,7 +574,7 @@
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/08/20/완전제곱수/" data-id="cj1gegs4i00bw87zyqqxsg15a" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/08/20/완전제곱수/" data-id="cj1iq2k5g00cmh0zytnx4rapl" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -745,7 +745,7 @@
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/08/13/삽입-정렬/" data-id="cj1gegs4700b587zyetehx10v" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/08/13/삽입-정렬/" data-id="cj1iq2k5400buh0zyifpuwe22" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -920,7 +920,7 @@
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/08/13/개미-수열/" data-id="cj1gegs30008z87zyx0qrbs5v" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/08/13/개미-수열/" data-id="cj1iq2k3u009oh0zyrkvxtvsy" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1082,7 +1082,7 @@
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/08/01/피보나치-수열/" data-id="cj1gegs6d00ev87zy8icurf14" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/08/01/피보나치-수열/" data-id="cj1iq2k7a00fkh0zyp4lp9n24" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1168,7 +1168,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2014/08/01/coffeescript-game-tutorial-the-mouse/">coffeescript-game-tutorial-the-mouse</a>
+            <a class="article-title" href="/2014/08/01/coffeescript-game-tutorial-the-mouse/">Coffeescript Game Tutorial the Mouse</a>
         </h1>
     
 
@@ -1186,7 +1186,7 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/CoffeeScript/">CoffeeScript</a>
     </div>
 
                         
@@ -1204,40 +1204,8 @@
         
             
             <p>마우스 이벤트 처리 코드를 추가하였다.</p>
-<pre><code>###coffee
-init_mouse = -&gt;
-canvasMinX = 0
-canvasMaxX = canvasMinX + WIDTH
-
-document.onmousemove = (evt) -&gt;
-if evt.pageX &gt; canvasMinX and evt.pageX &lt; canvasMaxX
-paddlex = evt.pageX - canvasMinX
-
-draw = -&gt;
-clear()
-circle(x, y, 10)
-
-# move the paddle if left or right is currently pressed
-paddlex += 5 if rightDown
-paddlex -= 5 if leftDown
-rect(paddlex, HEIGHT-paddleh, paddlew, paddleh)
-
-dx = -dx if x + dx &gt; WIDTH or x + dx &lt; 0
-if y + dy &lt; 0 then dy = -dy
-else if y + dy &gt; HEIGHT
-if x &gt; paddlex and x &lt; paddlex + paddlew
-dy = -dy
-else
-# game over, so stop the animation
-clearInterval(intervalId)
-
-x += dx;
-y += dy;
-
-window.onload = -&gt;
-init()
-init_mouse() 
-</code></pre><p><a href="http://billmill.org/static/canvastutorial/mouse.html" target="_blank" rel="external">Reference</a></p>
+<figure class="highlight coffee"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">init_mouse = -&gt;</div><div class="line">canvasMinX = 0</div><div class="line">canvasMaxX = canvasMinX + WIDTH</div><div class="line"></div><div class="line">document.onmousemove = (evt) -&gt;</div><div class="line">if evt.pageX &gt; canvasMinX and evt.pageX &lt; canvasMaxX</div><div class="line">paddlex = evt.pageX - canvasMinX</div><div class="line"></div><div class="line">draw = -&gt;</div><div class="line">clear()</div><div class="line">circle(x, y, 10)</div><div class="line"></div><div class="line"># move the paddle if left or right is currently pressed</div><div class="line">paddlex += 5 if rightDown</div><div class="line">paddlex -= 5 if leftDown</div><div class="line">rect(paddlex, HEIGHT-paddleh, paddlew, paddleh)</div><div class="line"></div><div class="line">dx = -dx if x + dx &gt; WIDTH or x + dx &lt; 0</div><div class="line">if y + dy &lt; 0 then dy = -dy</div><div class="line">else if y + dy &gt; HEIGHT</div><div class="line">if x &gt; paddlex and x &lt; paddlex + paddlew</div><div class="line">dy = -dy</div><div class="line">else</div><div class="line"># game over, so stop the animation</div><div class="line">clearInterval(intervalId)</div><div class="line"></div><div class="line">x += dx;</div><div class="line">y += dy;</div><div class="line"></div><div class="line">window.onload = -&gt;</div><div class="line">init()</div><div class="line">init_mouse()</div></pre></td></tr></table></figure>
+<p><a href="http://billmill.org/static/canvastutorial/mouse.html" target="_blank" rel="external">Reference</a></p>
 
         
         </div>
@@ -1248,7 +1216,7 @@ init_mouse()
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/08/01/coffeescript-game-tutorial-the-mouse/" data-id="cj1gegrzk002o87zyo4pi6fgf" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/08/01/coffeescript-game-tutorial-the-mouse/" data-id="cj1iq2jzs002lh0zyij0484pq" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1334,7 +1302,7 @@ init_mouse()
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2014/07/29/coffeescript-game-tutorial-the-keyboard/">coffeescript-game-tutorial-the-keyboard</a>
+            <a class="article-title" href="/2014/07/29/coffeescript-game-tutorial-the-keyboard/">Coffeescript Game Tutorial the Keyboard</a>
         </h1>
     
 
@@ -1352,7 +1320,7 @@ init_mouse()
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/CoffeScript/">CoffeScript</a>
     </div>
 
                         
@@ -1370,46 +1338,8 @@ init_mouse()
         
             
             <p>키보드 이벤트를 추가한 코드이다.</p>
-<pre><code>###coffee
-rightDown = false
-leftDown = false
-
-# set rightDown or leftDown if the right or left key are down
-document.onkeydown = (evt) -&gt;
-switch evt.keyCode
-when 39 then rightDown = true
-when 37 then leftDown = true
-
-# and unset then when the right or left key is released
-document.onkeyup = (evt) -&gt;
-switch evt.keyCode
-when 39 then rightDown = false
-when 37 then leftDown = false
-
-draw = -&gt;
-clear()
-circle(x, y, 10)
-
-# move the paddle if left or right is currently pressed
-paddlex += 5 if rightDown
-paddlex -= 5 if leftDown
-rect(paddlex, HEIGHT-paddleh, paddlew, paddleh)
-
-dx = -dx if x + dx &gt; WIDTH or x + dx &lt; 0
-if y + dy &lt; 0 then dy = -dy
-else if y + dy &gt; HEIGHT
-if x &gt; paddlex and x &lt; paddlex + paddlew
-dy = -dy
-else
-# game over, so stop the animation
-clearInterval(intervalId)
-
-x += dx;
-y += dy;
-
-window.onload = -&gt;
-init() 
-</code></pre><p><a href="http://billmill.org/static/canvastutorial/keyboard.html" target="_blank" rel="external">Reference</a></p>
+<figure class="highlight coffee"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">rightDown = false</div><div class="line">leftDown = false</div><div class="line"></div><div class="line"># set rightDown or leftDown if the right or left key are down</div><div class="line">document.onkeydown = (evt) -&gt;</div><div class="line">switch evt.keyCode</div><div class="line">when 39 then rightDown = true</div><div class="line">when 37 then leftDown = true</div><div class="line"></div><div class="line"># and unset then when the right or left key is released</div><div class="line">document.onkeyup = (evt) -&gt;</div><div class="line">switch evt.keyCode</div><div class="line">when 39 then rightDown = false</div><div class="line">when 37 then leftDown = false</div><div class="line"></div><div class="line">draw = -&gt;</div><div class="line">clear()</div><div class="line">circle(x, y, 10)</div><div class="line"></div><div class="line"># move the paddle if left or right is currently pressed</div><div class="line">paddlex += 5 if rightDown</div><div class="line">paddlex -= 5 if leftDown</div><div class="line">rect(paddlex, HEIGHT-paddleh, paddlew, paddleh)</div><div class="line"></div><div class="line">dx = -dx if x + dx &gt; WIDTH or x + dx &lt; 0</div><div class="line">if y + dy &lt; 0 then dy = -dy</div><div class="line">else if y + dy &gt; HEIGHT</div><div class="line">if x &gt; paddlex and x &lt; paddlex + paddlew</div><div class="line">dy = -dy</div><div class="line">else</div><div class="line"># game over, so stop the animation</div><div class="line">clearInterval(intervalId)</div><div class="line"></div><div class="line">x += dx;</div><div class="line">y += dy;</div><div class="line"></div><div class="line">window.onload = -&gt;</div><div class="line">init()</div></pre></td></tr></table></figure>
+<p><a href="http://billmill.org/static/canvastutorial/keyboard.html" target="_blank" rel="external">Reference</a></p>
 
         
         </div>
@@ -1420,7 +1350,7 @@ init()
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/07/29/coffeescript-game-tutorial-the-keyboard/" data-id="cj1gegrze002g87zy671vzs8e" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/07/29/coffeescript-game-tutorial-the-keyboard/" data-id="cj1iq2jzq002gh0zy0x4ioqs9" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1506,7 +1436,7 @@ init()
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2014/07/29/coffeescript-game-tutorial-add-a-paddle/">coffeescript-game-tutorial-add-a-paddle</a>
+            <a class="article-title" href="/2014/07/29/coffeescript-game-tutorial-add-a-paddle/">Coffeescript Game Tutorial Add a Paddle</a>
         </h1>
     
 
@@ -1524,7 +1454,7 @@ init()
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/CoffeeScript/">CoffeeScript</a>
     </div>
 
                         
@@ -1542,37 +1472,8 @@ init()
         
             
             <p>화면 하단에 막대기를 추가한 코드이다.</p>
-<pre><code>###coffee
-paddlex = 0
-paddleh = 0
-paddlew = 0
-
-init_paddle = -&gt;
-paddlex = WIDTH / 2
-paddleh = 10
-paddlew = 75
-
-draw = -&gt;
-clear()
-circle(x, y, 10)
-rect(paddlex, HEIGHT - paddleh, paddlew, paddleh)
-
-dx = -dx if x + dx &gt; WIDTH or x + dx &lt; 0
-if y + dy &lt; 0
-dy = -dy
-else if y + dy &gt; HEIGHT
-if x &gt; paddlex and x &lt; paddlex + paddlew
-dy = -dy
-else
-clearInterval(intervalId)
-
-x += dx;
-y += dy;
-
-window.onload = -&gt;
-init()
-init_paddle() 
-</code></pre><p><a href="http://billmill.org/static/canvastutorial/paddle.html" target="_blank" rel="external">Reference</a></p>
+<figure class="highlight coffee"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">paddlex = 0</div><div class="line">paddleh = 0</div><div class="line">paddlew = 0</div><div class="line"></div><div class="line">init_paddle = -&gt;</div><div class="line">paddlex = WIDTH / 2</div><div class="line">paddleh = 10</div><div class="line">paddlew = 75</div><div class="line"></div><div class="line">draw = -&gt;</div><div class="line">clear()</div><div class="line">circle(x, y, 10)</div><div class="line">rect(paddlex, HEIGHT - paddleh, paddlew, paddleh)</div><div class="line"></div><div class="line">dx = -dx if x + dx &gt; WIDTH or x + dx &lt; 0</div><div class="line">if y + dy &lt; 0</div><div class="line">dy = -dy</div><div class="line">else if y + dy &gt; HEIGHT</div><div class="line">if x &gt; paddlex and x &lt; paddlex + paddlew</div><div class="line">dy = -dy</div><div class="line">else</div><div class="line">clearInterval(intervalId)</div><div class="line"></div><div class="line">x += dx;</div><div class="line">y += dy;</div><div class="line"></div><div class="line">window.onload = -&gt;</div><div class="line">init()</div><div class="line">init_paddle()</div></pre></td></tr></table></figure>
+<p><a href="http://billmill.org/static/canvastutorial/paddle.html" target="_blank" rel="external">Reference</a></p>
 
         
         </div>
@@ -1583,7 +1484,7 @@ init_paddle()
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/07/29/coffeescript-game-tutorial-add-a-paddle/" data-id="cj1gegrz0001u87zylme18nar" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/07/29/coffeescript-game-tutorial-add-a-paddle/" data-id="cj1iq2jzc001uh0zy83ir0ycm" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1669,7 +1570,7 @@ init_paddle()
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2014/07/29/coffeescript-game-tutorial-bounce/">coffeescript-game-tutorial-bounce</a>
+            <a class="article-title" href="/2014/07/29/coffeescript-game-tutorial-bounce/">Coffeescript Game Tutorial Bounce</a>
         </h1>
     
 
@@ -1687,7 +1588,7 @@ init_paddle()
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/CoffeScript/">CoffeScript</a>
     </div>
 
                         
@@ -1705,55 +1606,8 @@ init_paddle()
         
             
             <p>공 튀기는 코드이다.</p>
-<pre><code>###coffee
-### BEGIN LIBRARY CODE ###
-
-x = 150
-y = 150
-dx = 2
-dy = 4
-ctx = null
-WIDTH = 0
-HEIGHT = 0
-
-init = -&gt;
-canvas = document.getElementById(&quot;myCanvas&quot;)
-ctx = canvas.getContext(&quot;2d&quot;)
-WIDTH = canvas.width
-HEIGHT = canvas.height
-
-setInterval(draw, 10)
-
-circle = (x, y, r) -&gt;
-ctx.beginPath()
-ctx.arc(x, y, r, 0, Math.PI*2, true)
-ctx.closePath()
-ctx.fill()
-
-rect = (x, y, w, h) -&gt;
-ctx.beginPath()
-ctx.rect(x, y, w, h)
-ctx.closePath()
-ctx.fill()
-
-clear = -&gt;
-ctx.clearRect(0, 0, WIDTH, HEIGHT)
-
-### END LIBRARY CODE ###
-
-draw = -&gt;
-clear()
-circle(x, y, 10)
-
-dx = -dx if x + dx &gt; WIDTH or x + dx &lt; 0
-dy = -dy if y + dy &gt; HEIGHT or y + dy &lt; 0
-
-x += dx;
-y += dy;
-
-window.onload = -&gt;
-init()
-</code></pre><p><a href="http://billmill.org/static/canvastutorial/bounce.html" target="_blank" rel="external">Reference</a></p>
+<figure class="highlight coffee"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line">### BEGIN LIBRARY CODE ###</div><div class="line"></div><div class="line">x = 150</div><div class="line">y = 150</div><div class="line">dx = 2</div><div class="line">dy = 4</div><div class="line">ctx = null</div><div class="line">WIDTH = 0</div><div class="line">HEIGHT = 0</div><div class="line"></div><div class="line">init = -&gt;</div><div class="line">canvas = document.getElementById(&quot;myCanvas&quot;)</div><div class="line">ctx = canvas.getContext(&quot;2d&quot;)</div><div class="line">WIDTH = canvas.width</div><div class="line">HEIGHT = canvas.height</div><div class="line"></div><div class="line">setInterval(draw, 10)</div><div class="line"></div><div class="line">circle = (x, y, r) -&gt;</div><div class="line">ctx.beginPath()</div><div class="line">ctx.arc(x, y, r, 0, Math.PI*2, true)</div><div class="line">ctx.closePath()</div><div class="line">ctx.fill()</div><div class="line"></div><div class="line">rect = (x, y, w, h) -&gt;</div><div class="line">ctx.beginPath()</div><div class="line">ctx.rect(x, y, w, h)</div><div class="line">ctx.closePath()</div><div class="line">ctx.fill()</div><div class="line"></div><div class="line">clear = -&gt;</div><div class="line">ctx.clearRect(0, 0, WIDTH, HEIGHT)</div><div class="line"></div><div class="line">### END LIBRARY CODE ###</div><div class="line"></div><div class="line">draw = -&gt;</div><div class="line">clear()</div><div class="line">circle(x, y, 10)</div><div class="line"></div><div class="line">dx = -dx if x + dx &gt; WIDTH or x + dx &lt; 0</div><div class="line">dy = -dy if y + dy &gt; HEIGHT or y + dy &lt; 0</div><div class="line"></div><div class="line">x += dx;</div><div class="line">y += dy;</div><div class="line"></div><div class="line">window.onload = -&gt;</div><div class="line">init()</div></pre></td></tr></table></figure>
+<p><a href="http://billmill.org/static/canvastutorial/bounce.html" target="_blank" rel="external">Reference</a></p>
 
         
         </div>
@@ -1764,7 +1618,7 @@ init()
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/07/29/coffeescript-game-tutorial-bounce/" data-id="cj1gegrz7002187zy914mamy6" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/07/29/coffeescript-game-tutorial-bounce/" data-id="cj1iq2jzk0021h0zysky46lmm" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1909,7 +1763,7 @@ init()
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">117</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Algorithm/">Algorithm</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ceylon/">Ceylon</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/LibGDX/">LibGDX</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Processing/">Processing</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Rust/">Rust</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ukulele/">Ukulele</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">117</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Algorithm/">Algorithm</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ceylon/">Ceylon</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeScript/">CoffeScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeeScript/">CoffeeScript</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Eclipse/">Eclipse</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Java/">Java</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/LibGDX/">LibGDX</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Processing/">Processing</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Rust/">Rust</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ubuntu/">Ubuntu</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ukulele/">Ukulele</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 

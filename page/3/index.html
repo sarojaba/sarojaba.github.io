@@ -207,7 +207,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2014/07/28/coffeescript-game-tutorial-libary-an-interlude/">coffeescript-game-tutorial-libary-an-interlude</a>
+            <a class="article-title" href="/2014/07/28/coffeescript-game-tutorial-libary-an-interlude/">Coffeescript Game Tutorial Libary an Interlude</a>
         </h1>
     
 
@@ -225,7 +225,7 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/CoffeeScript/">CoffeeScript</a>
     </div>
 
                         
@@ -243,51 +243,8 @@
         
             
             <p>지금까지 했던걸 라이브러리 형태로 정리한 코드이다.</p>
-<pre><code># BEGIN LIBRARY CODE
-
-x = 150
-y = 150
-dx = 2
-dy = 4
-WIDTH = 0
-HEIGHT = 0
-ctx = null
-
-init = -&gt;
-canvas = document.getElementById(&quot;myCanvas&quot;)
-ctx = canvas.getContext(&quot;2d&quot;)
-WIDTH = canvas.width
-HEIGHT = canvas.height
-
-intervalId = setInterval(draw, 10)
-
-circle = (x, y, r) -&gt;
-ctx.beginPath()
-ctx.arc(x, y, r, 0, Math.PI*2, true)
-ctx.closePath()
-ctx.fill()
-
-rect = (x, y, w, h) -&gt;
-ctx.beginPath()
-ctx.rect(x, y, w, h)
-ctx.closePath()
-ctx.fill()
-
-clear = -&gt;
-ctx.clearRect(0, 0, WIDTH, HEIGHT)
-
-# END LIBRARY CODE
-
-draw = -&gt;
-clear()
-circle(x, y, 10)
-
-x += dx;
-y += dy;
-
-window.onload = -&gt;
-init()
-</code></pre><p><a href="http://billmill.org/static/canvastutorial/library.html" target="_blank" rel="external">Reference</a></p>
+<figure class="highlight coffee"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"># BEGIN LIBRARY CODE</div><div class="line"></div><div class="line">x = 150</div><div class="line">y = 150</div><div class="line">dx = 2</div><div class="line">dy = 4</div><div class="line">WIDTH = 0</div><div class="line">HEIGHT = 0</div><div class="line">ctx = null</div><div class="line"></div><div class="line">init = -&gt;</div><div class="line">canvas = document.getElementById(&quot;myCanvas&quot;)</div><div class="line">ctx = canvas.getContext(&quot;2d&quot;)</div><div class="line">WIDTH = canvas.width</div><div class="line">HEIGHT = canvas.height</div><div class="line"></div><div class="line">intervalId = setInterval(draw, 10)</div><div class="line"></div><div class="line">circle = (x, y, r) -&gt;</div><div class="line">ctx.beginPath()</div><div class="line">ctx.arc(x, y, r, 0, Math.PI*2, true)</div><div class="line">ctx.closePath()</div><div class="line">ctx.fill()</div><div class="line"></div><div class="line">rect = (x, y, w, h) -&gt;</div><div class="line">ctx.beginPath()</div><div class="line">ctx.rect(x, y, w, h)</div><div class="line">ctx.closePath()</div><div class="line">ctx.fill()</div><div class="line"></div><div class="line">clear = -&gt;</div><div class="line">ctx.clearRect(0, 0, WIDTH, HEIGHT)</div><div class="line"></div><div class="line"># END LIBRARY CODE</div><div class="line"></div><div class="line">draw = -&gt;</div><div class="line">clear()</div><div class="line">circle(x, y, 10)</div><div class="line"></div><div class="line">x += dx;</div><div class="line">y += dy;</div><div class="line"></div><div class="line">window.onload = -&gt;</div><div class="line">init()</div></pre></td></tr></table></figure>
+<p><a href="http://billmill.org/static/canvastutorial/library.html" target="_blank" rel="external">Reference</a></p>
 
         
         </div>
@@ -298,7 +255,7 @@ init()
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/07/28/coffeescript-game-tutorial-libary-an-interlude/" data-id="cj1gegrzd002d87zyx5asxm2u" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/07/28/coffeescript-game-tutorial-libary-an-interlude/" data-id="cj1iq2jzp002dh0zy40qrlrdo" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -384,7 +341,7 @@ init()
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2014/06/27/coffeescript-game-tutorial-action/">coffeescript-game-tutorial-action</a>
+            <a class="article-title" href="/2014/06/27/coffeescript-game-tutorial-action/">Coffeescript Game Tutorial Action</a>
         </h1>
     
 
@@ -402,7 +359,7 @@ init()
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/CoffeeScript/">CoffeeScript</a>
     </div>
 
                         
@@ -420,31 +377,8 @@ init()
         
             
             <p>원이 대각선 아래로 움직이는 코드이다.</p>
-<pre><code>x = 150
-y = 150
-dx = 2
-dy = 4
-ctx = null
-
-init = -&gt;
-    canvas = document.getElementById(&quot;myCanvas&quot;)
-    ctx = canvas.getContext(&quot;2d&quot;)
-
-    return setInterval(draw, 10)
-
-draw = -&gt;
-    ctx.clearRect(0, 0, 300, 300)
-    ctx.beginPath()
-    ctx.arc(x, y, 10, 0, Math.PI*2, true)
-    ctx.closePath()
-    ctx.fill()
-
-    x += dx;
-    y += dy;
-
-window.onload = -&gt;
-    init() 
-</code></pre><p><a href="http://billmill.org/static/canvastutorial/move.html" target="_blank" rel="external">Reference</a></p>
+<figure class="highlight coffee"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">x = 150</div><div class="line">y = 150</div><div class="line">dx = 2</div><div class="line">dy = 4</div><div class="line">ctx = null</div><div class="line"></div><div class="line">init = -&gt;</div><div class="line">    canvas = document.getElementById(&quot;myCanvas&quot;)</div><div class="line">    ctx = canvas.getContext(&quot;2d&quot;)</div><div class="line"></div><div class="line">    return setInterval(draw, 10)</div><div class="line"></div><div class="line">draw = -&gt;</div><div class="line">    ctx.clearRect(0, 0, 300, 300)</div><div class="line">    ctx.beginPath()</div><div class="line">    ctx.arc(x, y, 10, 0, Math.PI*2, true)</div><div class="line">    ctx.closePath()</div><div class="line">    ctx.fill()</div><div class="line"></div><div class="line">    x += dx;</div><div class="line">    y += dy;</div><div class="line"></div><div class="line">window.onload = -&gt;</div><div class="line">    init()</div></pre></td></tr></table></figure>
+<p><a href="http://billmill.org/static/canvastutorial/move.html" target="_blank" rel="external">Reference</a></p>
 
         
         </div>
@@ -455,7 +389,7 @@ window.onload = -&gt;
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/06/27/coffeescript-game-tutorial-action/" data-id="cj1gegryy001s87zyc180mcwx" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/06/27/coffeescript-game-tutorial-action/" data-id="cj1iq2jz8001sh0zy11cgftfc" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -541,7 +475,7 @@ window.onload = -&gt;
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2014/06/27/coffeescript-game-tutorial-add-some-color/">coffeescript-game-tutorial-add-some-color</a>
+            <a class="article-title" href="/2014/06/27/coffeescript-game-tutorial-add-some-color/">Coffeescript Game Tutorial Add Some Color</a>
         </h1>
     
 
@@ -559,7 +493,7 @@ window.onload = -&gt;
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/CoffeeScript/">CoffeeScript</a>
     </div>
 
                         
@@ -577,31 +511,8 @@ window.onload = -&gt;
         
             
             <p>색깔 원을 그리는 코드이다.</p>
-<pre><code>window.onload = -&gt;
-
-    # get a reference to the canvas
-    canvas = document.getElementById(&quot;canvas&quot;)
-    ctx = canvas.getContext(&quot;2d&quot;)
-
-    ctx.fillStyle = &quot;#00A308&quot;
-    ctx.beginPath()
-    ctx.arc(220, 220, 50, 0, Math.PI*2, true)
-    ctx.closePath()
-    ctx.fill()
-
-    ctx.fillStyle = &quot;#FF1C0A&quot;
-    ctx.beginPath()
-    ctx.arc(100, 100, 100, 0, Math.PI*2, true)
-    ctx.closePath()
-    ctx.fill()
-
-    # the rectangle is half transparent
-    ctx.fillStyle = &quot;rgba(255, 255, 0, 0.5)&quot;
-    ctx.beginPath()
-    ctx.rect(15, 150, 120, 120)
-    ctx.closePath()
-    ctx.fill()
-</code></pre><p><a href="http://billmill.org/static/canvastutorial/color.html" target="_blank" rel="external">Reference</a></p>
+<figure class="highlight coffee"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">window.onload = -&gt;</div><div class="line"></div><div class="line">    # get a reference to the canvas</div><div class="line">    canvas = document.getElementById(&quot;canvas&quot;)</div><div class="line">    ctx = canvas.getContext(&quot;2d&quot;)</div><div class="line"></div><div class="line">    ctx.fillStyle = &quot;#00A308&quot;</div><div class="line">    ctx.beginPath()</div><div class="line">    ctx.arc(220, 220, 50, 0, Math.PI*2, true)</div><div class="line">    ctx.closePath()</div><div class="line">    ctx.fill()</div><div class="line"></div><div class="line">    ctx.fillStyle = &quot;#FF1C0A&quot;</div><div class="line">    ctx.beginPath()</div><div class="line">    ctx.arc(100, 100, 100, 0, Math.PI*2, true)</div><div class="line">    ctx.closePath()</div><div class="line">    ctx.fill()</div><div class="line"></div><div class="line">    # the rectangle is half transparent</div><div class="line">    ctx.fillStyle = &quot;rgba(255, 255, 0, 0.5)&quot;</div><div class="line">    ctx.beginPath()</div><div class="line">    ctx.rect(15, 150, 120, 120)</div><div class="line">    ctx.closePath()</div><div class="line">    ctx.fill()</div></pre></td></tr></table></figure>
+<p><a href="http://billmill.org/static/canvastutorial/color.html" target="_blank" rel="external">Reference</a></p>
 
         
         </div>
@@ -612,7 +523,7 @@ window.onload = -&gt;
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/06/27/coffeescript-game-tutorial-add-some-color/" data-id="cj1gegrz4001y87zywwh02vhi" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/06/27/coffeescript-game-tutorial-add-some-color/" data-id="cj1iq2jzg001yh0zypauh51vp" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -698,7 +609,7 @@ window.onload = -&gt;
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2014/06/27/coffeescript-game-tutorial-draw-a-circle/">coffeescript-game-tutorial-draw-a-circle</a>
+            <a class="article-title" href="/2014/06/27/coffeescript-game-tutorial-draw-a-circle/">Coffeescript Game Tutorial Draw a Circle</a>
         </h1>
     
 
@@ -734,18 +645,8 @@ window.onload = -&gt;
         
             
             <p>캔버스에 동그라미를 그리는 코드이다.</p>
-<pre><code>window.onload = -&gt;
-
-    # get a reference to the canvas
-    canvas = document.getElementById(&quot;canvas&quot;)
-    ctx = canvas.getContext(&quot;2d&quot;)
-
-    # draw a circle
-    ctx.beginPath()
-    ctx.arc(75, 75, 10, 0, Math.PI * 2, true)
-    ctx.closePath()
-    ctx.fill() 
-</code></pre><p><a href="http://billmill.org/static/canvastutorial/ball.html" target="_blank" rel="external">Reference</a></p>
+<figure class="highlight coffee"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">window.onload = -&gt;</div><div class="line"></div><div class="line">    # get a reference to the canvas</div><div class="line">    canvas = document.getElementById(&quot;canvas&quot;)</div><div class="line">    ctx = canvas.getContext(&quot;2d&quot;)</div><div class="line"></div><div class="line">    # draw a circle</div><div class="line">    ctx.beginPath()</div><div class="line">    ctx.arc(75, 75, 10, 0, Math.PI * 2, true)</div><div class="line">    ctx.closePath()</div><div class="line">    ctx.fill()</div></pre></td></tr></table></figure>
+<p><a href="http://billmill.org/static/canvastutorial/ball.html" target="_blank" rel="external">Reference</a></p>
 
         
         </div>
@@ -756,7 +657,7 @@ window.onload = -&gt;
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/06/27/coffeescript-game-tutorial-draw-a-circle/" data-id="cj1gegrz9002687zyukhkxewe" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/06/27/coffeescript-game-tutorial-draw-a-circle/" data-id="cj1iq2jzm0026h0zykqvxqce2" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -842,7 +743,7 @@ window.onload = -&gt;
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2014/06/27/coffeescript-game-tutorial-introduction/">coffeescript-game-tutorial-introduction</a>
+            <a class="article-title" href="/2014/06/27/coffeescript-game-tutorial-introduction/">Coffeescript Game Tutorial Introduction</a>
         </h1>
     
 
@@ -860,7 +761,7 @@ window.onload = -&gt;
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/CoffeeScript/">CoffeeScript</a>
     </div>
 
                         
@@ -891,7 +792,7 @@ window.onload = -&gt;
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/06/27/coffeescript-game-tutorial-introduction/" data-id="cj1gegrzb002987zyreb7kpb2" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/06/27/coffeescript-game-tutorial-introduction/" data-id="cj1iq2jzo0029h0zyyt3vte8b" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1023,7 +924,7 @@ window.onload = -&gt;
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/06/25/basic-audio/" data-id="cj1gegry7000r87zy7h0hfcac" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/06/25/basic-audio/" data-id="cj1iq2jym000rh0zy0fk70s7g" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1159,7 +1060,7 @@ window.onload = -&gt;
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/06/25/basic-file-io/" data-id="cj1gegry8000v87zymswjdaud" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/06/25/basic-file-io/" data-id="cj1iq2jyn000vh0zy1f4m7ndy" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1294,7 +1195,7 @@ window.onload = -&gt;
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/06/24/application-lifecycle-살펴보기/" data-id="cj1gegry0000j87zywtwvesmo" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/06/24/application-lifecycle-살펴보기/" data-id="cj1iq2jyd000jh0zya8udri18" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1481,7 +1382,7 @@ public int price = 200;
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/06/04/serializationutils-클래스-살펴보기/" data-id="cj1gegs26007887zydgygu249" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/06/04/serializationutils-클래스-살펴보기/" data-id="cj1iq2k2y007uh0zy6uk5yao9" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1640,7 +1541,7 @@ Hello world!
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/06/04/wordutils-클래스-살펴보기/" data-id="cj1gegs2u008s87zyz3i2m805" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/06/04/wordutils-클래스-살펴보기/" data-id="cj1iq2k3r009hh0zyilaa6qj2" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1785,7 +1686,7 @@ Hello world!
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">117</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Algorithm/">Algorithm</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ceylon/">Ceylon</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/LibGDX/">LibGDX</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Processing/">Processing</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Rust/">Rust</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ukulele/">Ukulele</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">117</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Algorithm/">Algorithm</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ceylon/">Ceylon</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeScript/">CoffeScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeeScript/">CoffeeScript</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Eclipse/">Eclipse</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Java/">Java</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/LibGDX/">LibGDX</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Processing/">Processing</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Rust/">Rust</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ubuntu/">Ubuntu</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ukulele/">Ukulele</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 

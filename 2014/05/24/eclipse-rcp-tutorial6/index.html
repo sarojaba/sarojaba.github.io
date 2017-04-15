@@ -3,19 +3,19 @@
 <head>
     <meta charset="utf-8">
     
-    <title>eclipse-rcp-tutorial6 | 사로자바의 블로그</title>
+    <title>Eclipse RCP Tutorial 6 | 사로자바의 블로그</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="작성일: 2010. 10. 27. 원문: http://www.vogella.de/articles/EclipseRCP/article.html Version 5.1Commands 개요명령은 컴포넌트의 명세를 선언하고 상세 구현으로부터 독립적이다. 명령은 분류할 수 있고 단축키를 할당 할 수 있다. 명령은 메뉴, 툴바 그리고 컨텍스트 메뉴에 사용된다. 다음에서는">
+    <meta name="description" content="작성일: 2010. 10. 27. 원문: http://www.vogella.de/articles/EclipseRCP/article.html Version 5.1 Commands#@ 개요 명령은 컴포넌트의 명세를 선언하고 상세 구현으로부터 독립적이다. 명령은 분류할 수 있고 단축키를 할당 할 수 있다. 명령은 메뉴, 툴바 그리고 컨텍스트 메뉴에 사용된다. 다">
 <meta name="keywords" content="Programming,Eclipse,RCP,Tutorial">
 <meta property="og:type" content="article">
-<meta property="og:title" content="eclipse-rcp-tutorial6">
+<meta property="og:title" content="Eclipse RCP Tutorial 6">
 <meta property="og:url" content="http://sarojaba.github.io/2014/05/24/eclipse-rcp-tutorial6/index.html">
 <meta property="og:site_name" content="사로자바의 블로그">
-<meta property="og:description" content="작성일: 2010. 10. 27. 원문: http://www.vogella.de/articles/EclipseRCP/article.html Version 5.1Commands 개요명령은 컴포넌트의 명세를 선언하고 상세 구현으로부터 독립적이다. 명령은 분류할 수 있고 단축키를 할당 할 수 있다. 명령은 메뉴, 툴바 그리고 컨텍스트 메뉴에 사용된다. 다음에서는">
-<meta property="og:updated_time" content="2017-04-10T16:57:31.348Z">
+<meta property="og:description" content="작성일: 2010. 10. 27. 원문: http://www.vogella.de/articles/EclipseRCP/article.html Version 5.1 Commands#@ 개요 명령은 컴포넌트의 명세를 선언하고 상세 구현으로부터 독립적이다. 명령은 분류할 수 있고 단축키를 할당 할 수 있다. 명령은 메뉴, 툴바 그리고 컨텍스트 메뉴에 사용된다. 다">
+<meta property="og:updated_time" content="2017-04-15T02:35:43.321Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="eclipse-rcp-tutorial6">
-<meta name="twitter:description" content="작성일: 2010. 10. 27. 원문: http://www.vogella.de/articles/EclipseRCP/article.html Version 5.1Commands 개요명령은 컴포넌트의 명세를 선언하고 상세 구현으로부터 독립적이다. 명령은 분류할 수 있고 단축키를 할당 할 수 있다. 명령은 메뉴, 툴바 그리고 컨텍스트 메뉴에 사용된다. 다음에서는">
+<meta name="twitter:title" content="Eclipse RCP Tutorial 6">
+<meta name="twitter:description" content="작성일: 2010. 10. 27. 원문: http://www.vogella.de/articles/EclipseRCP/article.html Version 5.1 Commands#@ 개요 명령은 컴포넌트의 명세를 선언하고 상세 구현으로부터 독립적이다. 명령은 분류할 수 있고 단축키를 할당 할 수 있다. 명령은 메뉴, 툴바 그리고 컨텍스트 메뉴에 사용된다. 다">
     
 
     
@@ -208,7 +208,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            eclipse-rcp-tutorial6
+            Eclipse RCP Tutorial 6
         </h1>
     
 
@@ -226,7 +226,7 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Eclipse/">Eclipse</a>
     </div>
 
                         
@@ -244,85 +244,22 @@
         
             
             <p>작성일: 2010. 10. 27.</p>
-<p>원문: <a href="http://www.vogella.de/articles/EclipseRCP/article.html" target="_blank" rel="external">http://www.vogella.de/articles/EclipseRCP/article.html</a> Version 5.1<br>Commands</p>
-<h1 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h1><p>명령은 컴포넌트의 명세를 선언하고 상세 구현으로부터 독립적이다. 명령은 분류할 수 있고 단축키를 할당 할 수 있다. 명령은 메뉴, 툴바 그리고 컨텍스트 메뉴에 사용된다. 다음에서는 메뉴에 명령을 적용하는 방법을 시연할 것이다. 명령에 대한 자세한 내용은 Eclipse Commands - Tutorial 을 보아라.</p>
-<h1 id="명령-정의하기"><a href="#명령-정의하기" class="headerlink" title="명령 정의하기"></a>명령 정의하기</h1><p>어플리케이션을 종료하는 명령을 만들 것이다. &ldquo;de.vogella.rcp.commands.first&rdquo; 라는 새로운 RCP 프로젝트를 생성하고, &ldquo;Hello RCP&rdquo; 템플릿을 사용한다. &ldquo;plugin.xml&rdquo; 파일을 더블 클릭하고 &ldquo;Extensions&rdquo; 탭을 선택한다. 그리고 &ldquo;Add&rdquo; 버튼을 누른다.</p>
-<p>&ldquo;org.eclipse.ui.commands&rdquo; 확장을 검색한다. 그것을 선택하고 &ldquo;Finish&rdquo; 를 누른다.</p>
-<p>확장점에 오른쪽 클릭을 하여 New -&gt; Command 를 선택해 새로운 명령을 생성한다.</p>
-<p>ID는 &ldquo;de.vogella.rcp.commands.first.commands.Exit&rdquo; 로, 이름은 &ldquo;Exit&rdquo; 로 설정한다. 기본 핸들러로 &ldquo;de.vogella.rcp.commands.first.commands.ExitHandler&rdquo; 클래스를 넣는다. 이 클래스를 생성하기 위해 &ldquo;defaultHAndler&rdquo; 하이퍼링크를 누르고 부모 클래스로 &ldquo;org.eclipse.core.commands.AbstractHandler&rdquo; 를 선택한다.</p>
+<p>원문: <a href="http://www.vogella.de/articles/EclipseRCP/article.html" target="_blank" rel="external">http://www.vogella.de/articles/EclipseRCP/article.html</a> Version 5.1</p>
+<h1 id="Commands"><a href="#Commands" class="headerlink" title="Commands"></a>Commands</h1><p>#@ 개요</p>
+<p>명령은 컴포넌트의 명세를 선언하고 상세 구현으로부터 독립적이다. 명령은 분류할 수 있고 단축키를 할당 할 수 있다. 명령은 메뉴, 툴바 그리고 컨텍스트 메뉴에 사용된다. 다음에서는 메뉴에 명령을 적용하는 방법을 시연할 것이다. 명령에 대한 자세한 내용은 Eclipse Commands - Tutorial 을 보아라.</p>
+<h2 id="명령-정의하기"><a href="#명령-정의하기" class="headerlink" title="명령 정의하기"></a>명령 정의하기</h2><p>어플리케이션을 종료하는 명령을 만들 것이다. <code>de.vogella.rcp.commands.first</code> 라는 새로운 RCP 프로젝트를 생성하고, <code>Hello RCP</code> 템플릿을 사용한다. <code>plugin.xml</code> 파일을 더블 클릭하고 <code>Extensions</code> 탭을 선택한다. 그리고 <code>Add</code> 버튼을 누른다.</p>
+<p><code>org.eclipse.ui.commands</code> 확장을 검색한다. 그것을 선택하고 <code>Finish</code> 를 누른다.</p>
+<p>확장점에 오른쪽 클릭을 하여 <code>New</code> -&gt; <code>Command</code> 를 선택해 새로운 명령을 생성한다.</p>
+<p>ID는 <code>de.vogella.rcp.commands.first.commands.Exit</code> 로, 이름은 <code>Exit</code> 로 설정한다. 기본 핸들러로 <code>de.vogella.rcp.commands.first.commands.ExitHandler</code> 클래스를 넣는다. 이 클래스를 생성하기 위해 <code>defaultHAndler</code> 하이퍼링크를 누르고 부모 클래스로 <code>org.eclipse.core.commands.AbstractHandler</code> 를 선택한다.</p>
 <p>다음의 코드를 구현한다. 당신의 새로운 명령은 나중에 사용될 준비 상태이다.</p>
-<pre><code>package de.vogella.rcp.commands.first.commands;
-import org.eclipse.core.commands.AbstractHandler;
-import org.eclipse.core.commands.ExecutionEvent;
-import org.eclipse.core.commands.ExecutionException;
-import org.eclipse.ui.handlers.HandlerUtil;
-public class ExitHandler extends AbstractHandler {
-@Override
-public Object execute(ExecutionEvent event) throws ExecutionException {
-HandlerUtil.getActiveWorkbenchWindow(event).close();
-return null;
-}
-}
-`&lt;/pre&gt;
-
-# 메뉴에서 명령 사용하기
-
-우리가 정의한 명령은 메뉴에서 사용될 것이다. “org.eclipse.ui.commands” 확장과 비슷하게 어플리케이션에 “org.eclipse.ui.menus” 확장점을 추가한다. 확장점에서 오른쪽 클릭을 하고 “New” -&gt; “menuContribution” 을 선택한다.
-
-location URI 는 “menu:org.eclipse.ui.main.menu” 라고 하고, 새로운 메뉴 기증을 생성한다. 이 URL이 정확하지 않으면 당신의 메뉴는 보이지 않는다.
-
-메뉴 기증을 오른쪽 클릭하고 “New” -&gt; “Menu” 를 선택한다. label 은 “File”, id 는 “fileMenu” 로 메뉴를 추가한다.
-
-메뉴를 선택하고, 오른쪽 클릭을 하고, New -&gt; Command 를 선택한다. commandID 는 그대로 둔다. 레이블은 “Exit”, 툴팁은 “Exits the application” 으로 설정한다.
-
-위의 과정을 통해 plugin.xml 파일에 다음과 같은 결과를 얻을 것이다.
-
-&lt;pre&gt;`&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;?eclipse version=&quot;3.4&quot;?&gt;
-&lt;plugin&gt;
-   &lt;extension
-         id=&quot;application&quot;
-         point=&quot;org.eclipse.core.runtime.applications&quot;&gt;
-      &lt;application&gt;
-         &lt;run
-               class=&quot;de.vogella.rcp.commands.first.Application&quot;&gt;
-         &lt;/run&gt;
-      &lt;/application&gt;
-   &lt;/extension&gt;
-   &lt;extension
-         point=&quot;org.eclipse.ui.perspectives&quot;&gt;
-      &lt;perspective
-            name=&quot;RCP Perspective&quot;
-            class=&quot;de.vogella.rcp.commands.first.Perspective&quot;
-            id=&quot;de.vogella.rcp.commands.first.perspective&quot;&gt;
-      &lt;/perspective&gt;
-   &lt;/extension&gt;
-   &lt;extension
-         point=&quot;org.eclipse.ui.commands&quot;&gt;
-      &lt;command
-            defaultHandler=&quot;de.vogella.rcp.commands.first.commands.ExitHandler&quot;
-            id=&quot;de.vogella.rcp.commands.first.commands.Exit&quot;
-            name=&quot;Exit&quot;&gt;
-      &lt;/command&gt;
-   &lt;/extension&gt;
-   &lt;extension
-         point=&quot;org.eclipse.ui.menus&quot;&gt;
-      &lt;menuContribution
-            locationURI=&quot;menu:org.eclipse.ui.main.menu&quot;&gt;
-         &lt;menu
-               id=&quot;fileMenu&quot;
-               label=&quot;File&quot;&gt;
-            &lt;command
-                  commandId=&quot;de.vogella.rcp.commands.first.commands.Exit&quot;
-                  label=&quot;Exit&quot;
-                  style=&quot;push&quot;
-                  tooltip=&quot;Exit the application&quot;&gt;
-            &lt;/command&gt;
-         &lt;/menu&gt;
-      &lt;/menuContribution&gt;
-   &lt;/extension&gt;
-&lt;/plugin&gt;
-</code></pre><p>예제를 실행한다. &ldquo;file&rdquo; 메뉴를 보게 될 것이고, &ldquo;Exit&rdquo; 항목을 선택하면 어플리케이션은 종료할 것이다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> de.vogella.rcp.commands.first.commands;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.eclipse.core.commands.AbstractHandler;</div><div class="line"><span class="keyword">import</span> org.eclipse.core.commands.ExecutionEvent;</div><div class="line"><span class="keyword">import</span> org.eclipse.core.commands.ExecutionException;</div><div class="line"><span class="keyword">import</span> org.eclipse.ui.handlers.HandlerUtil;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExitHandler</span> <span class="keyword">extends</span> <span class="title">AbstractHandler</span> </span>&#123;</div><div class="line">  <span class="meta">@Override</span></div><div class="line">  <span class="function"><span class="keyword">public</span> Object <span class="title">execute</span><span class="params">(ExecutionEvent event)</span> <span class="keyword">throws</span> ExecutionException </span>&#123;</div><div class="line">    HandlerUtil.getActiveWorkbenchWindow(event).close();</div><div class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="메뉴에서-명령-사용하기"><a href="#메뉴에서-명령-사용하기" class="headerlink" title="메뉴에서 명령 사용하기"></a>메뉴에서 명령 사용하기</h1><p>우리가 정의한 명령은 메뉴에서 사용될 것이다. <code>org.eclipse.ui.commands</code> 확장과 비슷하게 어플리케이션에 <code>org.eclipse.ui.menus</code> 확장점을 추가한다. 확장점에서 오른쪽 클릭을 하고 <code>New</code> -&gt; <code>menuContribution</code> 을 선택한다.</p>
+<p>location URI 는 <code>menu:org.eclipse.ui.main.menu</code> 라고 하고, 새로운 메뉴 기증을 생성한다. 이 URL이 정확하지 않으면 당신의 메뉴는 보이지 않는다.</p>
+<p>메뉴 기증을 오른쪽 클릭하고 <code>New</code> -&gt; <code>Menu</code> 를 선택한다. label 은 <code>File</code>, id 는 <code>fileMenu</code> 로 메뉴를 추가한다.</p>
+<p>메뉴를 선택하고, 오른쪽 클릭을 하고, <code>New</code> -&gt; <code>Command</code> 를 선택한다. commandID 는 그대로 둔다. 레이블은 <code>Exit</code>, 툴팁은 <code>Exits the application</code> 으로 설정한다.</p>
+<p>위의 과정을 통해 <code>plugin.xml</code> 파일에 다음과 같은 결과를 얻을 것이다.</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line">&lt;?eclipse version="3.4"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">plugin</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">extension</span></span></div><div class="line">            <span class="attr">id</span>=<span class="string">"application"</span></div><div class="line">            <span class="attr">point</span>=<span class="string">"org.eclipse.core.runtime.applications"</span>&gt;</div><div class="line">      <span class="tag">&lt;<span class="name">application</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">run</span></span></div><div class="line">                  <span class="attr">class</span>=<span class="string">"de.vogella.rcp.commands.first.Application"</span>&gt;</div><div class="line">            <span class="tag">&lt;/<span class="name">run</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">application</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">extension</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">extension</span></span></div><div class="line">            <span class="attr">point</span>=<span class="string">"org.eclipse.ui.perspectives"</span>&gt;</div><div class="line">      <span class="tag">&lt;<span class="name">perspective</span></span></div><div class="line">            <span class="attr">name</span>=<span class="string">"RCP Perspective"</span></div><div class="line">            <span class="attr">class</span>=<span class="string">"de.vogella.rcp.commands.first.Perspective"</span></div><div class="line">            <span class="attr">id</span>=<span class="string">"de.vogella.rcp.commands.first.perspective"</span>&gt;</div><div class="line">      <span class="tag">&lt;/<span class="name">perspective</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">extension</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">extension</span></span></div><div class="line">            <span class="attr">point</span>=<span class="string">"org.eclipse.ui.commands"</span>&gt;</div><div class="line">      <span class="tag">&lt;<span class="name">command</span></span></div><div class="line">            <span class="attr">defaultHandler</span>=<span class="string">"de.vogella.rcp.commands.first.commands.ExitHandler"</span></div><div class="line">            <span class="attr">id</span>=<span class="string">"de.vogella.rcp.commands.first.commands.Exit"</span></div><div class="line">            <span class="attr">name</span>=<span class="string">"Exit"</span>&gt;</div><div class="line">      <span class="tag">&lt;/<span class="name">command</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">extension</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">extension</span></span></div><div class="line">            <span class="attr">point</span>=<span class="string">"org.eclipse.ui.menus"</span>&gt;</div><div class="line">      <span class="tag">&lt;<span class="name">menuContribution</span></span></div><div class="line">            <span class="attr">locationURI</span>=<span class="string">"menu:org.eclipse.ui.main.menu"</span>&gt;</div><div class="line">            <span class="tag">&lt;<span class="name">menu</span></span></div><div class="line">                  <span class="attr">id</span>=<span class="string">"fileMenu"</span></div><div class="line">                  <span class="attr">label</span>=<span class="string">"File"</span>&gt;</div><div class="line">            <span class="tag">&lt;<span class="name">command</span></span></div><div class="line">                  <span class="attr">commandId</span>=<span class="string">"de.vogella.rcp.commands.first.commands.Exit"</span></div><div class="line">                  <span class="attr">label</span>=<span class="string">"Exit"</span></div><div class="line">                  <span class="attr">style</span>=<span class="string">"push"</span></div><div class="line">                  <span class="attr">tooltip</span>=<span class="string">"Exit the application"</span>&gt;</div><div class="line">            <span class="tag">&lt;/<span class="name">command</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">menu</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">menuContribution</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">extension</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>예제를 실행한다. <code>file</code> 메뉴를 보게 될 것이고, <code>Exit</code> 항목을 선택하면 어플리케이션은 종료할 것이다.</p>
 
         
         </div>
@@ -333,7 +270,7 @@ location URI 는 “menu:org.eclipse.ui.main.menu” 라고 하고, 새로운 �
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/05/24/eclipse-rcp-tutorial6/" data-id="cj1gegs0p004187zypl3rtcou" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/05/24/eclipse-rcp-tutorial6/" data-id="cj1iq2k0x003xh0zyu39qecnn" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -414,7 +351,7 @@ location URI 는 “menu:org.eclipse.ui.main.menu” 라고 하고, 새로운 �
             <strong class="article-nav-caption">Newer</strong>
             <div class="article-nav-title">
                 
-                    eclipse-rcp-tutorial4-5
+                    Eclipse RCP Tutorial 4, 5
                 
             </div>
         </a>
@@ -422,7 +359,7 @@ location URI 는 “menu:org.eclipse.ui.main.menu” 라고 하고, 새로운 �
     
         <a href="/2014/05/24/eclipse-rcp-tutorial7/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">eclipse-rcp-tutorial7</div>
+            <div class="article-nav-title">Eclipse RCP Tutorial 7</div>
         </a>
     
 </nav>
@@ -507,7 +444,7 @@ location URI 는 “menu:org.eclipse.ui.main.menu” 라고 하고, 새로운 �
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">117</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Algorithm/">Algorithm</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ceylon/">Ceylon</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/LibGDX/">LibGDX</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Processing/">Processing</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Rust/">Rust</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ukulele/">Ukulele</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">117</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Algorithm/">Algorithm</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ceylon/">Ceylon</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeScript/">CoffeScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeeScript/">CoffeeScript</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Eclipse/">Eclipse</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Java/">Java</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/LibGDX/">LibGDX</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Processing/">Processing</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Rust/">Rust</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ubuntu/">Ubuntu</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ukulele/">Ukulele</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 

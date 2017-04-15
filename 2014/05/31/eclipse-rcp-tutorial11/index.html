@@ -3,19 +3,19 @@
 <head>
     <meta charset="utf-8">
     
-    <title>eclipse-rcp-tutorial11 | 사로자바의 블로그</title>
+    <title>Eclipse RCP Tutorial 11 | 사로자바의 블로그</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="작성일: 2010. 10. 27. 원문: http://www.vogella.de/articles/EclipseRCP/article.html Version 5.1 상태표시줄 추가하기상태표시줄 설정하기&amp;ldquo;de.vogella.rcp.intro.statusline&amp;rdquo; 으로 새로운 RCP 프로젝트를 생성한다. 템플릿으로 &amp;ldquo;Hello RC">
+    <meta name="description" content="작성일: 2010. 10. 27. 원문: http://www.vogella.de/articles/EclipseRCP/article.html Version 5.1 상태표시줄 추가하기상태표시줄 설정하기de.vogella.rcp.intro.statusline 으로 새로운 RCP 프로젝트를 생성한다. 템플릿으로 Hello RCP 를 사용한다. Application">
 <meta name="keywords" content="Programming,Eclipse,RCP,Tutorial">
 <meta property="og:type" content="article">
-<meta property="og:title" content="eclipse-rcp-tutorial11">
+<meta property="og:title" content="Eclipse RCP Tutorial 11">
 <meta property="og:url" content="http://sarojaba.github.io/2014/05/31/eclipse-rcp-tutorial11/index.html">
 <meta property="og:site_name" content="사로자바의 블로그">
-<meta property="og:description" content="작성일: 2010. 10. 27. 원문: http://www.vogella.de/articles/EclipseRCP/article.html Version 5.1 상태표시줄 추가하기상태표시줄 설정하기&amp;ldquo;de.vogella.rcp.intro.statusline&amp;rdquo; 으로 새로운 RCP 프로젝트를 생성한다. 템플릿으로 &amp;ldquo;Hello RC">
-<meta property="og:updated_time" content="2017-04-10T16:58:13.880Z">
+<meta property="og:description" content="작성일: 2010. 10. 27. 원문: http://www.vogella.de/articles/EclipseRCP/article.html Version 5.1 상태표시줄 추가하기상태표시줄 설정하기de.vogella.rcp.intro.statusline 으로 새로운 RCP 프로젝트를 생성한다. 템플릿으로 Hello RCP 를 사용한다. Application">
+<meta property="og:updated_time" content="2017-04-15T03:35:06.098Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="eclipse-rcp-tutorial11">
-<meta name="twitter:description" content="작성일: 2010. 10. 27. 원문: http://www.vogella.de/articles/EclipseRCP/article.html Version 5.1 상태표시줄 추가하기상태표시줄 설정하기&amp;ldquo;de.vogella.rcp.intro.statusline&amp;rdquo; 으로 새로운 RCP 프로젝트를 생성한다. 템플릿으로 &amp;ldquo;Hello RC">
+<meta name="twitter:title" content="Eclipse RCP Tutorial 11">
+<meta name="twitter:description" content="작성일: 2010. 10. 27. 원문: http://www.vogella.de/articles/EclipseRCP/article.html Version 5.1 상태표시줄 추가하기상태표시줄 설정하기de.vogella.rcp.intro.statusline 으로 새로운 RCP 프로젝트를 생성한다. 템플릿으로 Hello RCP 를 사용한다. Application">
     
 
     
@@ -208,7 +208,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            eclipse-rcp-tutorial11
+            Eclipse RCP Tutorial 11
         </h1>
     
 
@@ -226,7 +226,7 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Eclipse/">Eclipse</a>
     </div>
 
                         
@@ -245,115 +245,16 @@
             
             <p>작성일: 2010. 10. 27.</p>
 <p>원문: <a href="http://www.vogella.de/articles/EclipseRCP/article.html" target="_blank" rel="external">http://www.vogella.de/articles/EclipseRCP/article.html</a> Version 5.1</p>
-<h1 id="상태표시줄-추가하기"><a href="#상태표시줄-추가하기" class="headerlink" title="상태표시줄 추가하기"></a>상태표시줄 추가하기</h1><h2 id="상태표시줄-설정하기"><a href="#상태표시줄-설정하기" class="headerlink" title="상태표시줄 설정하기"></a>상태표시줄 설정하기</h2><p>&ldquo;de.vogella.rcp.intro.statusline&rdquo; 으로 새로운 RCP 프로젝트를 생성한다. 템플릿으로 &ldquo;Hello RCP&rdquo; 를 사용한다. &ldquo;ApplicationWorkbenchWindowAdvisor&rdquo; 클래스를 열고 preWindowOpen() 메소드를 변경한다. 코드에서 관련된 위치는 &ldquo;configurer.setShowStatusLine(true);&rdquo; 이다.</p>
-<pre><code>package de.vogella.rcp.intro.statusline;
-import org.eclipse.swt.graphics.Point;
-import org.eclipse.ui.application.ActionBarAdvisor;
-import org.eclipse.ui.application.IActionBarConfigurer;
-import org.eclipse.ui.application.IWorkbenchWindowConfigurer;
-import org.eclipse.ui.application.WorkbenchWindowAdvisor;
-public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
-    public ApplicationWorkbenchWindowAdvisor(IWorkbenchWindowConfigurer configurer) {
-        super(configurer);
-    }
-    public ActionBarAdvisor createActionBarAdvisor(IActionBarConfigurer configurer) {
-        return new ApplicationActionBarAdvisor(configurer);
-    }
-
-    @Override
-    public void preWindowOpen() {
-        IWorkbenchWindowConfigurer configurer = getWindowConfigurer();
-        configurer.setInitialSize(new Point(400, 300));
-        configurer.setShowCoolBar(false);
-        configurer.setShowStatusLine(false);
-        configurer.setTitle(&quot;Status Line Example&quot;);
-        configurer.setShowStatusLine(true);
-    }
-}
-`&lt;/pre&gt;
-
-애플리케이션을 실행하면 이미 상태표시줄을 볼 수 있을 것이다. 중요한 점은 상태표시줄은 텍스트를 포함하지 않는다는 것이다.
-
-## 공유된 상태표시줄
-
-공유된 메시지 영역은 이 영역에 메시지를 쓰기위해 애플리케이션의 모든 영역에서 사용될 수 있다.
-
-다음은 상태표시줄에 텍스트를 쓰는 코드이다.
-
-&lt;pre&gt;`package de.vogella.rcp.intro.statusline;
-import org.eclipse.jface.action.IStatusLineManager;
-import org.eclipse.swt.graphics.Point;
-import org.eclipse.ui.application.ActionBarAdvisor;
-import org.eclipse.ui.application.IActionBarConfigurer;
-import org.eclipse.ui.application.IWorkbenchWindowConfigurer;
-import org.eclipse.ui.application.WorkbenchWindowAdvisor;
-public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
-    public ApplicationWorkbenchWindowAdvisor(IWorkbenchWindowConfigurer configurer) {
-        super(configurer);
-    }
-    public ActionBarAdvisor createActionBarAdvisor(IActionBarConfigurer configurer) {
-        return new ApplicationActionBarAdvisor(configurer);
-    }
-
-    @Override
-    public void preWindowOpen() {
-        IWorkbenchWindowConfigurer configurer = getWindowConfigurer();
-        configurer.setInitialSize(new Point(400, 300));
-        configurer.setShowCoolBar(false);
-        configurer.setShowStatusLine(false);
-        configurer.setTitle(&quot;Status Line Example&quot;);
-        configurer.setShowStatusLine(true);
-    }
-
- // This is the new method
-@Override
-public void postWindowOpen() {
-IStatusLineManager statusline = getWindowConfigurer()
-.getActionBarConfigurer().getStatusLineManager();
-statusline.setMessage(null, &quot;Status line is ready&quot;);
-}
-}
-`&lt;/pre&gt;
-
-애플리케이션을 실행한다. 다음과 같은 화면을 볼 수 있을 것이다.
-
-ID가 “de.vogella.rcp.intro.statusline.View1” 인 뷰를 추가하고 “de.vogella.rcp.intro.statusline.ViewPart1” 클래스를 구현한다. 이 뷰는 상태표시줄을설정하는 버튼을 포함한다.
-
-&lt;pre&gt;`package de.vogella.rcp.intro.statusline;
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.SelectionAdapter;
-import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.widgets.Button;
-import org.eclipse.swt.widgets.Composite;
-import org.eclipse.ui.IActionBars;
-import org.eclipse.ui.part.ViewPart;
-public class ViewPart1 extends ViewPart {
-boolean pressed = false;
-@Override
-public void createPartControl(Composite parent) {
-Button setStatusLine = new Button(parent, SWT.PUSH);
-setStatusLine.setText(&quot;Set Statusline &quot;);
-setStatusLine.addSelectionListener(new SelectionAdapter() {
-public void widgetSelected(SelectionEvent e) {
-String message = &quot;I would like to say hello to you.&quot;;
-if (pressed) {
-message = &quot;Thank you for using me&quot;;
-}
-setStatusLine(message);
-pressed = !pressed;
-}
-});
-}
-private void setStatusLine(String message) {
-// Get the status line and set the text
-IActionBars bars = getViewSite().getActionBars();
-bars.getStatusLineManager().setMessage(message);
-}
-@Override
-public void setFocus() {
-}
-}
-</code></pre><p>결과를 실행하면 다음과 같은 화면을 볼 수 있다.</p>
+<h1 id="상태표시줄-추가하기"><a href="#상태표시줄-추가하기" class="headerlink" title="상태표시줄 추가하기"></a>상태표시줄 추가하기</h1><h2 id="상태표시줄-설정하기"><a href="#상태표시줄-설정하기" class="headerlink" title="상태표시줄 설정하기"></a>상태표시줄 설정하기</h2><p><code>de.vogella.rcp.intro.statusline</code> 으로 새로운 RCP 프로젝트를 생성한다. 템플릿으로 <code>Hello RCP</code> 를 사용한다. <code>ApplicationWorkbenchWindowAdvisor</code> 클래스를 열고 preWindowOpen() 메소드를 변경한다. 코드에서 관련된 위치는 <code>configurer.setShowStatusLine(true);</code> 이다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> de.vogella.rcp.intro.statusline;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.eclipse.swt.graphics.Point;</div><div class="line"><span class="keyword">import</span> org.eclipse.ui.application.ActionBarAdvisor;</div><div class="line"><span class="keyword">import</span> org.eclipse.ui.application.IActionBarConfigurer;</div><div class="line"><span class="keyword">import</span> org.eclipse.ui.application.IWorkbenchWindowConfigurer;</div><div class="line"><span class="keyword">import</span> org.eclipse.ui.application.WorkbenchWindowAdvisor;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ApplicationWorkbenchWindowAdvisor</span> <span class="keyword">extends</span> <span class="title">WorkbenchWindowAdvisor</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ApplicationWorkbenchWindowAdvisor</span><span class="params">(IWorkbenchWindowConfigurer configurer)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(configurer);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> ActionBarAdvisor <span class="title">createActionBarAdvisor</span><span class="params">(IActionBarConfigurer configurer)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ApplicationActionBarAdvisor(configurer);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">preWindowOpen</span><span class="params">()</span> </span>&#123;</div><div class="line">        IWorkbenchWindowConfigurer configurer = getWindowConfigurer();</div><div class="line">        configurer.setInitialSize(<span class="keyword">new</span> Point(<span class="number">400</span>, <span class="number">300</span>));</div><div class="line">        configurer.setShowCoolBar(<span class="keyword">false</span>);</div><div class="line">        configurer.setShowStatusLine(<span class="keyword">false</span>);</div><div class="line">        configurer.setTitle(<span class="string">"Status Line Example"</span>);</div><div class="line">        configurer.setShowStatusLine(<span class="keyword">true</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>애플리케이션을 실행하면 이미 상태표시줄을 볼 수 있을 것이다. 중요한 점은 상태표시줄은 텍스트를 포함하지 않는다는 것이다.</p>
+<h2 id="공유된-상태표시줄"><a href="#공유된-상태표시줄" class="headerlink" title="공유된 상태표시줄"></a>공유된 상태표시줄</h2><p>공유된 메시지 영역은 이 영역에 메시지를 쓰기위해 애플리케이션의 모든 영역에서 사용될 수 있다.</p>
+<p>다음은 상태표시줄에 텍스트를 쓰는 코드이다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> de.vogella.rcp.intro.statusline;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.eclipse.jface.action.IStatusLineManager;</div><div class="line"><span class="keyword">import</span> org.eclipse.swt.graphics.Point;</div><div class="line"><span class="keyword">import</span> org.eclipse.ui.application.ActionBarAdvisor;</div><div class="line"><span class="keyword">import</span> org.eclipse.ui.application.IActionBarConfigurer;</div><div class="line"><span class="keyword">import</span> org.eclipse.ui.application.IWorkbenchWindowConfigurer;</div><div class="line"><span class="keyword">import</span> org.eclipse.ui.application.WorkbenchWindowAdvisor;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ApplicationWorkbenchWindowAdvisor</span> <span class="keyword">extends</span> <span class="title">WorkbenchWindowAdvisor</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ApplicationWorkbenchWindowAdvisor</span><span class="params">(IWorkbenchWindowConfigurer configurer)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(configurer);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> ActionBarAdvisor <span class="title">createActionBarAdvisor</span><span class="params">(IActionBarConfigurer configurer)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ApplicationActionBarAdvisor(configurer);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">preWindowOpen</span><span class="params">()</span> </span>&#123;</div><div class="line">        IWorkbenchWindowConfigurer configurer = getWindowConfigurer();</div><div class="line">        configurer.setInitialSize(<span class="keyword">new</span> Point(<span class="number">400</span>, <span class="number">300</span>));</div><div class="line">        configurer.setShowCoolBar(<span class="keyword">false</span>);</div><div class="line">        configurer.setShowStatusLine(<span class="keyword">false</span>);</div><div class="line">        configurer.setTitle(<span class="string">"Status Line Example"</span>);</div><div class="line">        configurer.setShowStatusLine(<span class="keyword">true</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// This is the new method</span></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">postWindowOpen</span><span class="params">()</span> </span>&#123;</div><div class="line">        IStatusLineManager statusline = getWindowConfigurer()</div><div class="line">            .getActionBarConfigurer().getStatusLineManager();</div><div class="line">        statusline.setMessage(<span class="keyword">null</span>, <span class="string">"Status line is ready"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>애플리케이션을 실행한다. 다음과 같은 화면을 볼 수 있을 것이다.</p>
+<p>ID가 “de.vogella.rcp.intro.statusline.View1” 인 뷰를 추가하고 “de.vogella.rcp.intro.statusline.ViewPart1” 클래스를 구현한다. 이 뷰는 상태표시줄을설정하는 버튼을 포함한다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> de.vogella.rcp.intro.statusline;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.eclipse.swt.SWT;</div><div class="line"><span class="keyword">import</span> org.eclipse.swt.events.SelectionAdapter;</div><div class="line"><span class="keyword">import</span> org.eclipse.swt.events.SelectionEvent;</div><div class="line"><span class="keyword">import</span> org.eclipse.swt.widgets.Button;</div><div class="line"><span class="keyword">import</span> org.eclipse.swt.widgets.Composite;</div><div class="line"><span class="keyword">import</span> org.eclipse.ui.IActionBars;</div><div class="line"><span class="keyword">import</span> org.eclipse.ui.part.ViewPart;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ViewPart1</span> <span class="keyword">extends</span> <span class="title">ViewPart</span> </span>&#123;</div><div class="line">    <span class="keyword">boolean</span> pressed = <span class="keyword">false</span>;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">createPartControl</span><span class="params">(Composite parent)</span> </span>&#123;</div><div class="line">        Button setStatusLine = <span class="keyword">new</span> Button(parent, SWT.PUSH);</div><div class="line">        setStatusLine.setText(<span class="string">"Set Statusline "</span>);</div><div class="line">        setStatusLine.addSelectionListener(<span class="keyword">new</span> SelectionAdapter() &#123;</div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">widgetSelected</span><span class="params">(SelectionEvent e)</span> </span>&#123;</div><div class="line">                String message = <span class="string">"I would like to say hello to you."</span>;</div><div class="line">                <span class="keyword">if</span> (pressed) &#123;</div><div class="line">                    message = <span class="string">"Thank you for using me"</span>;</div><div class="line">                &#125;</div><div class="line">                setStatusLine(message);</div><div class="line">                pressed = !pressed;</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">setStatusLine</span><span class="params">(String message)</span> </span>&#123;</div><div class="line">        <span class="comment">// Get the status line and set the text</span></div><div class="line">        IActionBars bars = getViewSite().getActionBars();</div><div class="line">        bars.getStatusLineManager().setMessage(message);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setFocus</span><span class="params">()</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>결과를 실행하면 다음과 같은 화면을 볼 수 있다.</p>
 
         
         </div>
@@ -364,7 +265,7 @@ public void setFocus() {
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/05/31/eclipse-rcp-tutorial11/" data-id="cj1gegs03003787zyp3mwpwoy" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/05/31/eclipse-rcp-tutorial11/" data-id="cj1iq2k0k003ah0zycsetrdau" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -445,7 +346,7 @@ public void setFocus() {
             <strong class="article-nav-caption">Newer</strong>
             <div class="article-nav-title">
                 
-                    eclipse-rcp-tutorial10
+                    Eclipse RCP Tutorial 10
                 
             </div>
         </a>
@@ -453,7 +354,7 @@ public void setFocus() {
     
         <a href="/2014/06/01/eclipse-rcp-tutorial12/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">eclipse-rcp-tutorial12</div>
+            <div class="article-nav-title">Eclipse RCP Tutorial 12</div>
         </a>
     
 </nav>
@@ -538,7 +439,7 @@ public void setFocus() {
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">117</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Algorithm/">Algorithm</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ceylon/">Ceylon</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/LibGDX/">LibGDX</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Processing/">Processing</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Rust/">Rust</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ukulele/">Ukulele</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">117</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Algorithm/">Algorithm</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ceylon/">Ceylon</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeScript/">CoffeScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeeScript/">CoffeeScript</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Eclipse/">Eclipse</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Java/">Java</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/LibGDX/">LibGDX</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Processing/">Processing</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Rust/">Rust</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ubuntu/">Ubuntu</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ukulele/">Ukulele</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 

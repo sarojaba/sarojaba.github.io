@@ -3,19 +3,19 @@
 <head>
     <meta charset="utf-8">
     
-    <title>coffeescript-game-tutorial-the-mouse | 사로자바의 블로그</title>
+    <title>Coffeescript Game Tutorial the Mouse | 사로자바의 블로그</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="마우스 이벤트 처리 코드를 추가하였다. ###coffee init_mouse = -&amp;gt; canvasMinX = 0 canvasMaxX = canvasMinX + WIDTH  document.onmousemove = (evt) -&amp;gt; if evt.pageX &amp;gt; canvasMinX and evt.pageX &amp;lt; canvasMaxX paddlex">
+    <meta name="description" content="마우스 이벤트 처리 코드를 추가하였다. 1234567891011121314151617181920212223242526272829303132init_mouse = -&amp;gt;canvasMinX = 0canvasMaxX = canvasMinX + WIDTHdocument.onmousemove = (evt) -&amp;gt;if evt.pageX &amp;gt; canvasMi">
 <meta name="keywords" content="Programming,Game,CoffeeScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="coffeescript-game-tutorial-the-mouse">
+<meta property="og:title" content="Coffeescript Game Tutorial the Mouse">
 <meta property="og:url" content="http://sarojaba.github.io/2014/08/01/coffeescript-game-tutorial-the-mouse/index.html">
 <meta property="og:site_name" content="사로자바의 블로그">
-<meta property="og:description" content="마우스 이벤트 처리 코드를 추가하였다. ###coffee init_mouse = -&amp;gt; canvasMinX = 0 canvasMaxX = canvasMinX + WIDTH  document.onmousemove = (evt) -&amp;gt; if evt.pageX &amp;gt; canvasMinX and evt.pageX &amp;lt; canvasMaxX paddlex">
-<meta property="og:updated_time" content="2017-04-09T13:52:20.892Z">
+<meta property="og:description" content="마우스 이벤트 처리 코드를 추가하였다. 1234567891011121314151617181920212223242526272829303132init_mouse = -&amp;gt;canvasMinX = 0canvasMaxX = canvasMinX + WIDTHdocument.onmousemove = (evt) -&amp;gt;if evt.pageX &amp;gt; canvasMi">
+<meta property="og:updated_time" content="2017-04-15T02:21:56.861Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="coffeescript-game-tutorial-the-mouse">
-<meta name="twitter:description" content="마우스 이벤트 처리 코드를 추가하였다. ###coffee init_mouse = -&amp;gt; canvasMinX = 0 canvasMaxX = canvasMinX + WIDTH  document.onmousemove = (evt) -&amp;gt; if evt.pageX &amp;gt; canvasMinX and evt.pageX &amp;lt; canvasMaxX paddlex">
+<meta name="twitter:title" content="Coffeescript Game Tutorial the Mouse">
+<meta name="twitter:description" content="마우스 이벤트 처리 코드를 추가하였다. 1234567891011121314151617181920212223242526272829303132init_mouse = -&amp;gt;canvasMinX = 0canvasMaxX = canvasMinX + WIDTHdocument.onmousemove = (evt) -&amp;gt;if evt.pageX &amp;gt; canvasMi">
     
 
     
@@ -208,7 +208,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            coffeescript-game-tutorial-the-mouse
+            Coffeescript Game Tutorial the Mouse
         </h1>
     
 
@@ -226,7 +226,7 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/CoffeeScript/">CoffeeScript</a>
     </div>
 
                         
@@ -244,40 +244,8 @@
         
             
             <p>마우스 이벤트 처리 코드를 추가하였다.</p>
-<pre><code>###coffee
-init_mouse = -&gt;
-canvasMinX = 0
-canvasMaxX = canvasMinX + WIDTH
-
-document.onmousemove = (evt) -&gt;
-if evt.pageX &gt; canvasMinX and evt.pageX &lt; canvasMaxX
-paddlex = evt.pageX - canvasMinX
-
-draw = -&gt;
-clear()
-circle(x, y, 10)
-
-# move the paddle if left or right is currently pressed
-paddlex += 5 if rightDown
-paddlex -= 5 if leftDown
-rect(paddlex, HEIGHT-paddleh, paddlew, paddleh)
-
-dx = -dx if x + dx &gt; WIDTH or x + dx &lt; 0
-if y + dy &lt; 0 then dy = -dy
-else if y + dy &gt; HEIGHT
-if x &gt; paddlex and x &lt; paddlex + paddlew
-dy = -dy
-else
-# game over, so stop the animation
-clearInterval(intervalId)
-
-x += dx;
-y += dy;
-
-window.onload = -&gt;
-init()
-init_mouse() 
-</code></pre><p><a href="http://billmill.org/static/canvastutorial/mouse.html" target="_blank" rel="external">Reference</a></p>
+<figure class="highlight coffee"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">init_mouse = -&gt;</div><div class="line">canvasMinX = 0</div><div class="line">canvasMaxX = canvasMinX + WIDTH</div><div class="line"></div><div class="line">document.onmousemove = (evt) -&gt;</div><div class="line">if evt.pageX &gt; canvasMinX and evt.pageX &lt; canvasMaxX</div><div class="line">paddlex = evt.pageX - canvasMinX</div><div class="line"></div><div class="line">draw = -&gt;</div><div class="line">clear()</div><div class="line">circle(x, y, 10)</div><div class="line"></div><div class="line"># move the paddle if left or right is currently pressed</div><div class="line">paddlex += 5 if rightDown</div><div class="line">paddlex -= 5 if leftDown</div><div class="line">rect(paddlex, HEIGHT-paddleh, paddlew, paddleh)</div><div class="line"></div><div class="line">dx = -dx if x + dx &gt; WIDTH or x + dx &lt; 0</div><div class="line">if y + dy &lt; 0 then dy = -dy</div><div class="line">else if y + dy &gt; HEIGHT</div><div class="line">if x &gt; paddlex and x &lt; paddlex + paddlew</div><div class="line">dy = -dy</div><div class="line">else</div><div class="line"># game over, so stop the animation</div><div class="line">clearInterval(intervalId)</div><div class="line"></div><div class="line">x += dx;</div><div class="line">y += dy;</div><div class="line"></div><div class="line">window.onload = -&gt;</div><div class="line">init()</div><div class="line">init_mouse()</div></pre></td></tr></table></figure>
+<p><a href="http://billmill.org/static/canvastutorial/mouse.html" target="_blank" rel="external">Reference</a></p>
 
         
         </div>
@@ -288,7 +256,7 @@ init_mouse()
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/08/01/coffeescript-game-tutorial-the-mouse/" data-id="cj1gegrzk002o87zyo4pi6fgf" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/08/01/coffeescript-game-tutorial-the-mouse/" data-id="cj1iq2jzs002lh0zyij0484pq" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -369,7 +337,7 @@ init_mouse()
             <strong class="article-nav-caption">Newer</strong>
             <div class="article-nav-title">
                 
-                    coffeescript-game-tutorial-the-keyboard
+                    Coffeescript Game Tutorial the Keyboard
                 
             </div>
         </a>
@@ -462,7 +430,7 @@ init_mouse()
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">117</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Algorithm/">Algorithm</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ceylon/">Ceylon</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/LibGDX/">LibGDX</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Processing/">Processing</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Rust/">Rust</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ukulele/">Ukulele</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">117</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Algorithm/">Algorithm</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ceylon/">Ceylon</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeScript/">CoffeScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeeScript/">CoffeeScript</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Eclipse/">Eclipse</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Java/">Java</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/LibGDX/">LibGDX</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Processing/">Processing</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Rust/">Rust</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ubuntu/">Ubuntu</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ukulele/">Ukulele</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 

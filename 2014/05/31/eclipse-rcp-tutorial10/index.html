@@ -3,18 +3,18 @@
 <head>
     <meta charset="utf-8">
     
-    <title>eclipse-rcp-tutorial10 | 사로자바의 블로그</title>
+    <title>Eclipse RCP Tutorial 10 | 사로자바의 블로그</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="작성일: 2010. 10. 27. 원문: http://www.vogella.de/articles/EclipseRCP/article.html Version 5.1 JFace 뷰어개요JFace는 사용자 인터페이스를 생성시 자바 객체를 바로 사용할 수 있는 뷰어를 제공한다. 뷰어는 트리, 테이블, 리스트와 콤보박스가 가능하다. 다음에서 콤보 뷰어의 사용 예를 보">
 <meta name="keywords" content="Programming,Eclipse,RCP,Tutorial">
 <meta property="og:type" content="article">
-<meta property="og:title" content="eclipse-rcp-tutorial10">
+<meta property="og:title" content="Eclipse RCP Tutorial 10">
 <meta property="og:url" content="http://sarojaba.github.io/2014/05/31/eclipse-rcp-tutorial10/index.html">
 <meta property="og:site_name" content="사로자바의 블로그">
 <meta property="og:description" content="작성일: 2010. 10. 27. 원문: http://www.vogella.de/articles/EclipseRCP/article.html Version 5.1 JFace 뷰어개요JFace는 사용자 인터페이스를 생성시 자바 객체를 바로 사용할 수 있는 뷰어를 제공한다. 뷰어는 트리, 테이블, 리스트와 콤보박스가 가능하다. 다음에서 콤보 뷰어의 사용 예를 보">
-<meta property="og:updated_time" content="2017-04-10T16:58:08.244Z">
+<meta property="og:updated_time" content="2017-04-15T03:31:52.379Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="eclipse-rcp-tutorial10">
+<meta name="twitter:title" content="Eclipse RCP Tutorial 10">
 <meta name="twitter:description" content="작성일: 2010. 10. 27. 원문: http://www.vogella.de/articles/EclipseRCP/article.html Version 5.1 JFace 뷰어개요JFace는 사용자 인터페이스를 생성시 자바 객체를 바로 사용할 수 있는 뷰어를 제공한다. 뷰어는 트리, 테이블, 리스트와 콤보박스가 가능하다. 다음에서 콤보 뷰어의 사용 예를 보">
     
 
@@ -208,7 +208,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            eclipse-rcp-tutorial10
+            Eclipse RCP Tutorial 10
         </h1>
     
 
@@ -226,7 +226,7 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Eclipse/">Eclipse</a>
     </div>
 
                         
@@ -247,83 +247,64 @@
 <p>원문: <a href="http://www.vogella.de/articles/EclipseRCP/article.html" target="_blank" rel="external">http://www.vogella.de/articles/EclipseRCP/article.html</a> Version 5.1</p>
 <h1 id="JFace-뷰어"><a href="#JFace-뷰어" class="headerlink" title="JFace 뷰어"></a>JFace 뷰어</h1><h2 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h2><p>JFace는 사용자 인터페이스를 생성시 자바 객체를 바로 사용할 수 있는 뷰어를 제공한다. 뷰어는 트리, 테이블, 리스트와 콤보박스가 가능하다. 다음에서 콤보 뷰어의 사용 예를 보여줄 것이다. 테이블 뷰어의 자세한 사용법은 Eclipse JFaces Tables 에서 찾을 수 있다.</p>
 <p>트리 뷰어의 간략한 사용 예는 JFace Tree Viewer 에서 찾을 수 있다.</p>
-<h2 id="콤보뷰어"><a href="#콤보뷰어" class="headerlink" title="콤보뷰어"></a>콤보뷰어</h2><p>새로운 RCP 프로젝트 &ldquo;de.vogella.rcp.intro.jfaceviewer&rdquo; 를 만들고 &ldquo;RCP application with a view&rdquo; 템플릿을 선택한다. 다음의 자바 클래스를 생성한다.</p>
-<pre><code>package de.vogella.rcp.intro.jfaceviewer;
-public class Person {
-private String firstName;
-private String lastName;
-public Person(String firstName, String lastName){
-this.firstName = firstName;
-this.lastName = lastName;
-}
-public String getFirstName() {
-return firstName;
-}
-public void setFirstName(String firstName) {
-this.firstName = firstName;
-}
-public String getLastName() {
-return lastName;
-}
-public void setLastName(String lastName) {
-this.lastName = lastName;
-}
-}
-`&lt;/pre&gt;
+<h2 id="콤보뷰어"><a href="#콤보뷰어" class="headerlink" title="콤보뷰어"></a>콤보뷰어</h2><p>새로운 RCP 프로젝트 <code>de.vogella.rcp.intro.jfaceviewer</code> 를 만들고 <code>RCP application with a view</code> 템플릿을 선택한다. 다음의 자바 클래스를 생성한다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> de.vogella.rcp.intro.jfaceviewer;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</div><div class="line">  <span class="keyword">private</span> String firstName;</div><div class="line">  <span class="keyword">private</span> String lastName;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(String firstName, String lastName)</span></span>&#123;</div><div class="line">    <span class="keyword">this</span>.firstName = firstName;</div><div class="line">    <span class="keyword">this</span>.lastName = lastName;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">getFirstName</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> firstName;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setFirstName</span><span class="params">(String firstName)</span> </span>&#123;</div><div class="line">    <span class="keyword">this</span>.firstName = firstName;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">getLastName</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> lastName;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setLastName</span><span class="params">(String lastName)</span> </span>&#123;</div><div class="line">    <span class="keyword">this</span>.lastName = lastName;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>View.java 를 다음과 같이 변경한다.</p>
+<pre><code class="java"><span class="keyword">package</span> de.vogella.rcp.intro.jfaceviewer;
 
-View.java 를 다음과 같이 변경한다.
+<span class="keyword">import</span> org.eclipse.jface.viewers.ArrayContentProvider;
 
-&lt;pre&gt;`package de.vogella.rcp.intro.jfaceviewer;
-import org.eclipse.jface.viewers.ArrayContentProvider;
-public class View extends ViewPart {
-public static final String ID = &quot;de.vogella.rcp.intro.jfaceviewer.view&quot;;
-private ComboViewer viewer;
-public void createPartControl(Composite parent) {
-GridLayout layout = new GridLayout(2, false);
-parent.setLayout(layout);
-Label label = new Label(parent, SWT.NONE);
-label.setText(&quot;Select a person:&quot;);
-viewer = new ComboViewer(parent, SWT.READ_ONLY);
-viewer.setContentProvider(new ArrayContentProvider());
-viewer.setLabelProvider(new LabelProvider() {
-@Override
-public String getText(Object element) {
-if (element instanceof Person) {
-Person person = (Person) element;
-return person.getFirstName();
-}
-return super.getText(element);
-}
-});
-Person[] persons = new Person[] { new Person(&quot;Lars&quot;, &quot;Vogel&quot;),
-new Person(&quot;Tim&quot;, &quot;Taler&quot;), new Person(&quot;Jim&quot;, &quot;Knopf&quot;) };
-// Set set the input to the viewer this input will be send to the
-// content provider
-viewer.setInput(persons);
-// React to the selection of the viewer
-// Note that the viewer return the real object and not just a string
-// representation
-viewer.addSelectionChangedListener(new ISelectionChangedListener() {
-@Override
-public void selectionChanged(SelectionChangedEvent event) {
-IStructuredSelection selection = (IStructuredSelection) event
-.getSelection();
-System.out.println(((Person) selection.getFirstElement())
-.getLastName());
-}
-});
-// You can select a object directly via the domain object
-Person person = persons[0];
-viewer.setSelection(new StructuredSelection(person));
-}
-/**
-* Passing the focus request to the viewer&apos;s control.
-*/
-public void setFocus() {
-viewer.getControl().setFocus();
-}
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">View</span> <span class="keyword">extends</span> <span class="title">ViewPart</span> </span>{
+  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String ID = <span class="string">"de.vogella.rcp.intro.jfaceviewer.view"</span>;
+
+  <span class="keyword">private</span> ComboViewer viewer;
+
+  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">createPartControl</span><span class="params">(Composite parent)</span> </span>{
+    GridLayout layout = <span class="keyword">new</span> GridLayout(<span class="number">2</span>, <span class="keyword">false</span>);
+    parent.setLayout(layout);
+    Label label = <span class="keyword">new</span> Label(parent, SWT.NONE);
+    label.setText(<span class="string">"Select a person:"</span>);
+    viewer = <span class="keyword">new</span> ComboViewer(parent, SWT.READ_ONLY);
+    viewer.setContentProvider(<span class="keyword">new</span> ArrayContentProvider());
+    viewer.setLabelProvider(<span class="keyword">new</span> LabelProvider() {
+      <span class="meta">@Override</span>
+      <span class="function"><span class="keyword">public</span> String <span class="title">getText</span><span class="params">(Object element)</span> </span>{
+        <span class="keyword">if</span> (element <span class="keyword">instanceof</span> Person) {
+          Person person = (Person) element;
+          <span class="keyword">return</span> person.getFirstName();
+        }
+      <span class="keyword">return</span> <span class="keyword">super</span>.getText(element);
+      }
+    });
+    Person[] persons = <span class="keyword">new</span> Person[] { <span class="keyword">new</span> Person(<span class="string">"Lars"</span>, <span class="string">"Vogel"</span>),
+    <span class="keyword">new</span> Person(<span class="string">"Tim"</span>, <span class="string">"Taler"</span>), <span class="keyword">new</span> Person(<span class="string">"Jim"</span>, <span class="string">"Knopf"</span>) };
+    <span class="comment">// Set set the input to the viewer this input will be send to the</span>
+    <span class="comment">// content provider</span>
+    viewer.setInput(persons);
+    <span class="comment">// React to the selection of the viewer</span>
+    <span class="comment">// Note that the viewer return the real object and not just a string</span>
+    <span class="comment">// representation</span>
+    viewer.addSelectionChangedListener(<span class="keyword">new</span> ISelectionChangedListener() {
+      <span class="meta">@Override</span>
+      <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">selectionChanged</span><span class="params">(SelectionChangedEvent event)</span> </span>{
+        IStructuredSelection selection = (IStructuredSelection) event.getSelection();
+        System.out.println(((Person) selection.getFirstElement()).getLastName());
+      }
+    });
+    <span class="comment">// You can select a object directly via the domain object</span>
+    Person person = persons[<span class="number">0</span>];
+    viewer.setSelection(<span class="keyword">new</span> StructuredSelection(person));
+  }
+
+  <span class="comment">/**
+  * Passing the focus request to the viewer's control.
+  */</span>
+  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setFocus</span><span class="params">()</span> </span>{
+    viewer.getControl().setFocus();
+  }
 }
 </code></pre>
+
         
         </div>
         <footer class="article-footer">
@@ -333,7 +314,7 @@ viewer.getControl().setFocus();
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/05/31/eclipse-rcp-tutorial10/" data-id="cj1gegs02003387zyymztaxm2" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/05/31/eclipse-rcp-tutorial10/" data-id="cj1iq2k0h0037h0zyd7u184o3" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -414,7 +395,7 @@ viewer.getControl().setFocus();
             <strong class="article-nav-caption">Newer</strong>
             <div class="article-nav-title">
                 
-                    eclipse-rcp-tutorial9
+                    Eclipse RCP Tutorial 9
                 
             </div>
         </a>
@@ -422,7 +403,7 @@ viewer.getControl().setFocus();
     
         <a href="/2014/05/31/eclipse-rcp-tutorial11/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">eclipse-rcp-tutorial11</div>
+            <div class="article-nav-title">Eclipse RCP Tutorial 11</div>
         </a>
     
 </nav>
@@ -507,7 +488,7 @@ viewer.getControl().setFocus();
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">117</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Algorithm/">Algorithm</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ceylon/">Ceylon</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/LibGDX/">LibGDX</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Processing/">Processing</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Rust/">Rust</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ukulele/">Ukulele</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">117</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Algorithm/">Algorithm</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ceylon/">Ceylon</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeScript/">CoffeScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeeScript/">CoffeeScript</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Eclipse/">Eclipse</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Java/">Java</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/LibGDX/">LibGDX</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Processing/">Processing</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Rust/">Rust</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ubuntu/">Ubuntu</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ukulele/">Ukulele</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 

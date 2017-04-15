@@ -3,18 +3,18 @@
 <head>
     <meta charset="utf-8">
     
-    <title>eclipse-rcp-tutorial3 | 사로자바의 블로그</title>
+    <title>Eclipse RCP Tutorial 3 | 사로자바의 블로그</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="작성일: 2010. 10. 27. 원문: http://www.vogella.de/articles/EclipseRCP/article.html Version 5.1 처음으로 RCP 어플리케이션 생성하기다음은 간단한 RCP 어플리케이션을 생성하는 방법에 대한 빠른 설명을 제시한다. RCP 어플리케이션 생성하기이클립스에서 File -&amp;gt; New Project">
 <meta name="keywords" content="Programming,Eclipse,RCP,Tutorial">
 <meta property="og:type" content="article">
-<meta property="og:title" content="eclipse-rcp-tutorial3">
+<meta property="og:title" content="Eclipse RCP Tutorial 3">
 <meta property="og:url" content="http://sarojaba.github.io/2014/05/20/eclipse-rcp-tutorial3/index.html">
 <meta property="og:site_name" content="사로자바의 블로그">
 <meta property="og:description" content="작성일: 2010. 10. 27. 원문: http://www.vogella.de/articles/EclipseRCP/article.html Version 5.1 처음으로 RCP 어플리케이션 생성하기다음은 간단한 RCP 어플리케이션을 생성하는 방법에 대한 빠른 설명을 제시한다. RCP 어플리케이션 생성하기이클립스에서 File -&amp;gt; New Project">
-<meta property="og:updated_time" content="2017-04-10T16:57:19.068Z">
+<meta property="og:updated_time" content="2017-04-15T02:37:16.279Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="eclipse-rcp-tutorial3">
+<meta name="twitter:title" content="Eclipse RCP Tutorial 3">
 <meta name="twitter:description" content="작성일: 2010. 10. 27. 원문: http://www.vogella.de/articles/EclipseRCP/article.html Version 5.1 처음으로 RCP 어플리케이션 생성하기다음은 간단한 RCP 어플리케이션을 생성하는 방법에 대한 빠른 설명을 제시한다. RCP 어플리케이션 생성하기이클립스에서 File -&amp;gt; New Project">
     
 
@@ -208,7 +208,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            eclipse-rcp-tutorial3
+            Eclipse RCP Tutorial 3
         </h1>
     
 
@@ -226,7 +226,7 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Eclipse/">Eclipse</a>
     </div>
 
                         
@@ -247,12 +247,12 @@
 <p>원문: <a href="http://www.vogella.de/articles/EclipseRCP/article.html" target="_blank" rel="external">http://www.vogella.de/articles/EclipseRCP/article.html</a> Version 5.1</p>
 <h1 id="처음으로-RCP-어플리케이션-생성하기"><a href="#처음으로-RCP-어플리케이션-생성하기" class="headerlink" title="처음으로 RCP 어플리케이션 생성하기"></a>처음으로 RCP 어플리케이션 생성하기</h1><p>다음은 간단한 RCP 어플리케이션을 생성하는 방법에 대한 빠른 설명을 제시한다.</p>
 <h2 id="RCP-어플리케이션-생성하기"><a href="#RCP-어플리케이션-생성하기" class="headerlink" title="RCP 어플리케이션 생성하기"></a>RCP 어플리케이션 생성하기</h2><p>이클립스에서 File -&gt; New Project 를 선택한다. 리스트에서 Plug-In Project 를 선택한다.</p>
-<p>플러그인 이름을 &ldquo;de.vogella.rcp.intro.first&rdquo; 라고 적는다.</p>
-<p>&ldquo;Next&rdquo; 을 누르고 다음에 나오는 설정을 적는다. RCP 어플리케이션을 만들것이므로 &ldquo;Would you like to create a rich client application&rdquo; 질문에 &ldquo;Yes&rdquo; 를 선택한다.</p>
-<p>&ldquo;Next&rdquo; 를 누르고, &ldquo;Hello RCP&rdquo; 템플릿을 선택한다.</p>
-<p>&ldquo;Next&rdquo; 를 누르고, &ldquo;Add branding&quot;을 선택하고, &quot;Finish&rdquo; 를 누른다.</p>
+<p>플러그인 이름을 <code>de.vogella.rcp.intro.first</code> 라고 적는다.</p>
+<p><code>Next</code> 을 누르고 다음에 나오는 설정을 적는다. RCP 어플리케이션을 만들것이므로 <code>Would you like to create a rich client application</code> 질문에 <code>Yes</code> 를 선택한다.</p>
+<p><code>Next</code> 를 누르고, <code>Hello RCP</code> 템플릿을 선택한다.</p>
+<p><code>Next</code> 를 누르고, <code>Add branding&amp;quot;을 선택하고, &amp;quot;Finish</code> 를 누른다.</p>
 <p>마침내 아래의 프로젝트 구조를 가지는 프로젝트가 생성될 것이다. 프로젝트 구조에 대한 첫 느낌을 얻기위해 자바 파일들과 특히 다른 파일들을 훑어보아라.</p>
-<h2 id="RCP-어플리케이션-실행하기"><a href="#RCP-어플리케이션-실행하기" class="headerlink" title="RCP 어플리케이션 실행하기"></a>RCP 어플리케이션 실행하기</h2><p>&ldquo;MANIFEST.MF&rdquo; 파일을 더블클릭하여 연다. 에디터를 보게될 것이고, &ldquo;Overview&rdquo; 탭이 선택되어 있을 것이다. &ldquo;Launch an Eclipse Application&rdquo; 링크를 클릭한다.</p>
+<h2 id="RCP-어플리케이션-실행하기"><a href="#RCP-어플리케이션-실행하기" class="headerlink" title="RCP 어플리케이션 실행하기"></a>RCP 어플리케이션 실행하기</h2><p><code>MANIFEST.MF</code> 파일을 더블클릭하여 연다. 에디터를 보게될 것이고, <code>Overview</code> 탭이 선택되어 있을 것이다. <code>Launch an Eclipse Application</code> 링크를 클릭한다.</p>
 <p>결과로 다음과 같은 모습을 볼 것이다.</p>
 <p>당신의 첫 RCP 어플리케이션이 만들어진 것에 대해 축하한다.</p>
 
@@ -265,7 +265,7 @@
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/05/20/eclipse-rcp-tutorial3/" data-id="cj1gegs0d003k87zyj6rufwse" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/05/20/eclipse-rcp-tutorial3/" data-id="cj1iq2k0r003mh0zys90hipp2" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -346,7 +346,7 @@
             <strong class="article-nav-caption">Newer</strong>
             <div class="article-nav-title">
                 
-                    eclipse-rcp-tutorial2
+                    Eclipse RCP Tutorial 2
                 
             </div>
         </a>
@@ -354,7 +354,7 @@
     
         <a href="/2014/05/20/eclipse-rcp-tutorial4-5/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">eclipse-rcp-tutorial4-5</div>
+            <div class="article-nav-title">Eclipse RCP Tutorial 4, 5</div>
         </a>
     
 </nav>
@@ -439,7 +439,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">117</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Algorithm/">Algorithm</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ceylon/">Ceylon</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/LibGDX/">LibGDX</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Processing/">Processing</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Rust/">Rust</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ukulele/">Ukulele</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">117</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Algorithm/">Algorithm</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ceylon/">Ceylon</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeScript/">CoffeScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeeScript/">CoffeeScript</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Eclipse/">Eclipse</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Java/">Java</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/LibGDX/">LibGDX</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Processing/">Processing</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Rust/">Rust</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ubuntu/">Ubuntu</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ukulele/">Ukulele</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 

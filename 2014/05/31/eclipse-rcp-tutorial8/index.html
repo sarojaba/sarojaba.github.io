@@ -3,19 +3,19 @@
 <head>
     <meta charset="utf-8">
     
-    <title>eclipse-rcp-tutorial8 | 사로자바의 블로그</title>
+    <title>Eclipse RCP Tutorial 8 | 사로자바의 블로그</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="작성일: 2010. 10. 27. 원문: http://www.vogella.de/articles/EclipseRCP/article.html Version 5.1 뷰개요뷰와 뷰 파트는 어플리케이션에서 정보를 보여주고 데이터를 변경하는 데에 사용된다. 다음은 어플리케이션에 뷰를 추가하는 방법을 설명한다. &amp;ldquo;de.vogella.rcp.intro.vie">
+    <meta name="description" content="작성일: 2010. 10. 27. 원문: http://www.vogella.de/articles/EclipseRCP/article.html Version 5.1 뷰개요뷰와 뷰 파트는 어플리케이션에서 정보를 보여주고 데이터를 변경하는 데에 사용된다. 다음은 어플리케이션에 뷰를 추가하는 방법을 설명한다. de.vogella.rcp.intro.view 라는 이름">
 <meta name="keywords" content="Programming,Eclipse,RCP,Tutorial">
 <meta property="og:type" content="article">
-<meta property="og:title" content="eclipse-rcp-tutorial8">
+<meta property="og:title" content="Eclipse RCP Tutorial 8">
 <meta property="og:url" content="http://sarojaba.github.io/2014/05/31/eclipse-rcp-tutorial8/index.html">
 <meta property="og:site_name" content="사로자바의 블로그">
-<meta property="og:description" content="작성일: 2010. 10. 27. 원문: http://www.vogella.de/articles/EclipseRCP/article.html Version 5.1 뷰개요뷰와 뷰 파트는 어플리케이션에서 정보를 보여주고 데이터를 변경하는 데에 사용된다. 다음은 어플리케이션에 뷰를 추가하는 방법을 설명한다. &amp;ldquo;de.vogella.rcp.intro.vie">
-<meta property="og:updated_time" content="2017-04-10T16:57:45.676Z">
+<meta property="og:description" content="작성일: 2010. 10. 27. 원문: http://www.vogella.de/articles/EclipseRCP/article.html Version 5.1 뷰개요뷰와 뷰 파트는 어플리케이션에서 정보를 보여주고 데이터를 변경하는 데에 사용된다. 다음은 어플리케이션에 뷰를 추가하는 방법을 설명한다. de.vogella.rcp.intro.view 라는 이름">
+<meta property="og:updated_time" content="2017-04-15T03:25:33.360Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="eclipse-rcp-tutorial8">
-<meta name="twitter:description" content="작성일: 2010. 10. 27. 원문: http://www.vogella.de/articles/EclipseRCP/article.html Version 5.1 뷰개요뷰와 뷰 파트는 어플리케이션에서 정보를 보여주고 데이터를 변경하는 데에 사용된다. 다음은 어플리케이션에 뷰를 추가하는 방법을 설명한다. &amp;ldquo;de.vogella.rcp.intro.vie">
+<meta name="twitter:title" content="Eclipse RCP Tutorial 8">
+<meta name="twitter:description" content="작성일: 2010. 10. 27. 원문: http://www.vogella.de/articles/EclipseRCP/article.html Version 5.1 뷰개요뷰와 뷰 파트는 어플리케이션에서 정보를 보여주고 데이터를 변경하는 데에 사용된다. 다음은 어플리케이션에 뷰를 추가하는 방법을 설명한다. de.vogella.rcp.intro.view 라는 이름">
     
 
     
@@ -208,7 +208,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            eclipse-rcp-tutorial8
+            Eclipse RCP Tutorial 8
         </h1>
     
 
@@ -226,7 +226,7 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Eclipse/">Eclipse</a>
     </div>
 
                         
@@ -245,51 +245,16 @@
             
             <p>작성일: 2010. 10. 27.</p>
 <p>원문: <a href="http://www.vogella.de/articles/EclipseRCP/article.html" target="_blank" rel="external">http://www.vogella.de/articles/EclipseRCP/article.html</a> Version 5.1</p>
-<h1 id="뷰"><a href="#뷰" class="headerlink" title="뷰"></a>뷰</h1><h2 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h2><p>뷰와 뷰 파트는 어플리케이션에서 정보를 보여주고 데이터를 변경하는 데에 사용된다. 다음은 어플리케이션에 뷰를 추가하는 방법을 설명한다. &ldquo;de.vogella.rcp.intro.view&rdquo; 라는 이름의 RCP 프로젝트를 생성하라. &ldquo;Hello RCP&rdquo; 템플릿을 사용하라.</p>
-<h2 id="뷰-생성하기"><a href="#뷰-생성하기" class="headerlink" title="뷰 생성하기"></a>뷰 생성하기</h2><p>플러그인에 &ldquo;org.eclipse.ui.views&rdquo; 확장을 추가한다. 새로운 뷰 확장에 마우스 오른쪽 클릭을 하고 New -&gt; View 를 선택한다. id 는 &ldquo;de.vogella.rcp.intro.view.MyView&rdquo;, 클래스는 &ldquo;de.vogella.rcp.intro.view.MyView&rdquo; 로 설정한다.</p>
-<p>&ldquo;class&rdquo; 하이퍼링크를 클릭하여 &ldquo;MyView&rdquo; 클래스를 생성하고 다음의 코드를 작성하라. 그러면 뷰를 사용할 준비가 된다.</p>
-<pre><code>package de.vogella.rcp.intro.view;
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Text;
-import org.eclipse.ui.part.ViewPart;
-public class MyView extends ViewPart {
-@Override
-public void createPartControl(Composite parent) {
-Text text = new Text(parent, SWT.BORDER);
-text.setText(&quot;Imagine a fantastic user interface here&quot;);
-}
-@Override
-public void setFocus() {
-}
-}
-`&lt;/pre&gt;
-
-## 퍼스펙티브에 뷰 추가하기
-
-당신의 퍼스펙티브에 뷰를 추가해야 한다. 플러그인에 “org.eclipse.ui.perspectiveExtensions” 확장을 추가한다.
-
-오른쪽 클릭을 하고 뷰를 선택한다. id 로 “de.vogella.rcp.intro.view.MyView” 를 기입한다. relative 는 현재 안보이는 편집 영역인 “org.eclipse.ui.editorss” 를 적고 “0.95f” 의 최대 비율을 선택함으로써 모든 여백을 사용한다.
-
-## 결과
-
-결과를 보기 위해 어플리케이션을 실행한다.
-
-## 코드를 통해 퍼스펙티브에 뷰를 추가하기
-
-나는 개인적으로 코드 상의 확장점을 더 선호한다. 하지만 “org.eclipse.ui.perspectiveExtensions” 확장점을 사용하는 대신 퍼스펙티브로 코드를 통해 뷰를 추가할 수도 있다. 다음의 변경된 “Perspective.java” 파일을 보자.
-
-&lt;pre&gt;`package de.vogella.rcp.intro.view;
-
-import org.eclipse.ui.IPageLayout;
-import org.eclipse.ui.IPerspectiveFactory;
-public class Perspective implements IPerspectiveFactory {
-public void createInitialLayout(IPageLayout layout) {
-layout.addView(&quot;de.vogella.rcp.intro.view.MyView&quot;, IPageLayout.TOP,
-IPageLayout.RATIO_MAX, IPageLayout.ID_EDITOR_AREA);
-}
-}
-</code></pre><h2 id="에디터-뷰-상호작용"><a href="#에디터-뷰-상호작용" class="headerlink" title="에디터 / 뷰 상호작용"></a>에디터 / 뷰 상호작용</h2><p>이클립스 에디터를 사용하고 뷰와 에디터 사이의 통신을 하는 방법을 배우려면 Eclipse Editors 를 보아라.</p>
+<h1 id="뷰"><a href="#뷰" class="headerlink" title="뷰"></a>뷰</h1><h2 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h2><p>뷰와 뷰 파트는 어플리케이션에서 정보를 보여주고 데이터를 변경하는 데에 사용된다. 다음은 어플리케이션에 뷰를 추가하는 방법을 설명한다. <code>de.vogella.rcp.intro.view</code> 라는 이름의 RCP 프로젝트를 생성하라. <code>Hello RCP</code> 템플릿을 사용하라.</p>
+<h2 id="뷰-생성하기"><a href="#뷰-생성하기" class="headerlink" title="뷰 생성하기"></a>뷰 생성하기</h2><p>플러그인에 <code>org.eclipse.ui.views</code> 확장을 추가한다. 새로운 뷰 확장에 마우스 오른쪽 클릭을 하고 New -&gt; View 를 선택한다. id 는 <code>de.vogella.rcp.intro.view.MyView</code>, 클래스는 <code>de.vogella.rcp.intro.view.MyView</code> 로 설정한다.</p>
+<p><code>class</code> 하이퍼링크를 클릭하여 <code>MyView</code> 클래스를 생성하고 다음의 코드를 작성하라. 그러면 뷰를 사용할 준비가 된다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> de.vogella.rcp.intro.view;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.eclipse.swt.SWT;</div><div class="line"><span class="keyword">import</span> org.eclipse.swt.widgets.Composite;</div><div class="line"><span class="keyword">import</span> org.eclipse.swt.widgets.Text;</div><div class="line"><span class="keyword">import</span> org.eclipse.ui.part.ViewPart;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyView</span> <span class="keyword">extends</span> <span class="title">ViewPart</span> </span>&#123;</div><div class="line">  <span class="meta">@Override</span></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">createPartControl</span><span class="params">(Composite parent)</span> </span>&#123;</div><div class="line">    Text text = <span class="keyword">new</span> Text(parent, SWT.BORDER);</div><div class="line">    text.setText(<span class="string">"Imagine a fantastic user interface here"</span>);</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  <span class="meta">@Override</span></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setFocus</span><span class="params">()</span> </span>&#123;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="퍼스펙티브에-뷰-추가하기"><a href="#퍼스펙티브에-뷰-추가하기" class="headerlink" title="퍼스펙티브에 뷰 추가하기"></a>퍼스펙티브에 뷰 추가하기</h2><p>당신의 퍼스펙티브에 뷰를 추가해야 한다. 플러그인에 “org.eclipse.ui.perspectiveExtensions” 확장을 추가한다.</p>
+<p>오른쪽 클릭을 하고 뷰를 선택한다. id 로 “de.vogella.rcp.intro.view.MyView” 를 기입한다. relative 는 현재 안보이는 편집 영역인 “org.eclipse.ui.editorss” 를 적고 “0.95f” 의 최대 비율을 선택함으로써 모든 여백을 사용한다.</p>
+<h2 id="결과"><a href="#결과" class="headerlink" title="결과"></a>결과</h2><p>결과를 보기 위해 어플리케이션을 실행한다.</p>
+<h2 id="코드를-통해-퍼스펙티브에-뷰를-추가하기"><a href="#코드를-통해-퍼스펙티브에-뷰를-추가하기" class="headerlink" title="코드를 통해 퍼스펙티브에 뷰를 추가하기"></a>코드를 통해 퍼스펙티브에 뷰를 추가하기</h2><p>나는 개인적으로 코드 상의 확장점을 더 선호한다. 하지만 “org.eclipse.ui.perspectiveExtensions” 확장점을 사용하는 대신 퍼스펙티브로 코드를 통해 뷰를 추가할 수도 있다. 다음의 변경된 “Perspective.java” 파일을 보자.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> de.vogella.rcp.intro.view;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.eclipse.ui.IPageLayout;</div><div class="line"><span class="keyword">import</span> org.eclipse.ui.IPerspectiveFactory;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Perspective</span> <span class="keyword">implements</span> <span class="title">IPerspectiveFactory</span> </span>&#123;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">createInitialLayout</span><span class="params">(IPageLayout layout)</span> </span>&#123;</div><div class="line">    layout.addView(<span class="string">"de.vogella.rcp.intro.view.MyView"</span>, IPageLayout.TOP,</div><div class="line">    IPageLayout.RATIO_MAX, IPageLayout.ID_EDITOR_AREA);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="에디터-뷰-상호작용"><a href="#에디터-뷰-상호작용" class="headerlink" title="에디터 / 뷰 상호작용"></a>에디터 / 뷰 상호작용</h2><p>이클립스 에디터를 사용하고 뷰와 에디터 사이의 통신을 하는 방법을 배우려면 Eclipse Editors 를 보아라.</p>
 
         
         </div>
@@ -300,7 +265,7 @@ IPageLayout.RATIO_MAX, IPageLayout.ID_EDITOR_AREA);
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/05/31/eclipse-rcp-tutorial8/" data-id="cj1gegs0i003r87zyffh6v9w4" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/05/31/eclipse-rcp-tutorial8/" data-id="cj1iq2k130045h0zy2s3g7lk5" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -381,7 +346,7 @@ IPageLayout.RATIO_MAX, IPageLayout.ID_EDITOR_AREA);
             <strong class="article-nav-caption">Newer</strong>
             <div class="article-nav-title">
                 
-                    eclipse-rcp-tutorial7
+                    Eclipse RCP Tutorial 7
                 
             </div>
         </a>
@@ -389,7 +354,7 @@ IPageLayout.RATIO_MAX, IPageLayout.ID_EDITOR_AREA);
     
         <a href="/2014/05/31/eclipse-rcp-tutorial9/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">eclipse-rcp-tutorial9</div>
+            <div class="article-nav-title">Eclipse RCP Tutorial 9</div>
         </a>
     
 </nav>
@@ -474,7 +439,7 @@ IPageLayout.RATIO_MAX, IPageLayout.ID_EDITOR_AREA);
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">117</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Algorithm/">Algorithm</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ceylon/">Ceylon</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/LibGDX/">LibGDX</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Processing/">Processing</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Rust/">Rust</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ukulele/">Ukulele</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">117</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Algorithm/">Algorithm</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ceylon/">Ceylon</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeScript/">CoffeScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeeScript/">CoffeeScript</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Eclipse/">Eclipse</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Java/">Java</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/LibGDX/">LibGDX</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Processing/">Processing</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Rust/">Rust</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ubuntu/">Ubuntu</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ukulele/">Ukulele</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 

@@ -936,62 +936,27 @@ public class Virus{
   </entry>
   
   <entry>
-    <title>coffeescript-game-tutorial-the-mouse</title>
+    <title>Coffeescript Game Tutorial the Mouse</title>
     <link href="http://sarojaba.github.io/2014/08/01/coffeescript-game-tutorial-the-mouse/"/>
     <id>http://sarojaba.github.io/2014/08/01/coffeescript-game-tutorial-the-mouse/</id>
     <published>2014-07-31T15:01:00.000Z</published>
-    <updated>2017-04-09T13:52:20.892Z</updated>
+    <updated>2017-04-15T02:21:56.861Z</updated>
     
     <content type="html"><![CDATA[<p>마우스 이벤트 처리 코드를 추가하였다.</p>
-<pre><code>###coffee
-init_mouse = -&gt;
-canvasMinX = 0
-canvasMaxX = canvasMinX + WIDTH
-
-document.onmousemove = (evt) -&gt;
-if evt.pageX &gt; canvasMinX and evt.pageX &lt; canvasMaxX
-paddlex = evt.pageX - canvasMinX
-
-draw = -&gt;
-clear()
-circle(x, y, 10)
-
-# move the paddle if left or right is currently pressed
-paddlex += 5 if rightDown
-paddlex -= 5 if leftDown
-rect(paddlex, HEIGHT-paddleh, paddlew, paddleh)
-
-dx = -dx if x + dx &gt; WIDTH or x + dx &lt; 0
-if y + dy &lt; 0 then dy = -dy
-else if y + dy &gt; HEIGHT
-if x &gt; paddlex and x &lt; paddlex + paddlew
-dy = -dy
-else
-# game over, so stop the animation
-clearInterval(intervalId)
-
-x += dx;
-y += dy;
-
-window.onload = -&gt;
-init()
-init_mouse() 
-</code></pre><p><a href="http://billmill.org/static/canvastutorial/mouse.html" target="_blank" rel="external">Reference</a></p>
+<figure class="highlight coffee"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">init_mouse = -&gt;</div><div class="line">canvasMinX = 0</div><div class="line">canvasMaxX = canvasMinX + WIDTH</div><div class="line"></div><div class="line">document.onmousemove = (evt) -&gt;</div><div class="line">if evt.pageX &gt; canvasMinX and evt.pageX &lt; canvasMaxX</div><div class="line">paddlex = evt.pageX - canvasMinX</div><div class="line"></div><div class="line">draw = -&gt;</div><div class="line">clear()</div><div class="line">circle(x, y, 10)</div><div class="line"></div><div class="line"># move the paddle if left or right is currently pressed</div><div class="line">paddlex += 5 if rightDown</div><div class="line">paddlex -= 5 if leftDown</div><div class="line">rect(paddlex, HEIGHT-paddleh, paddlew, paddleh)</div><div class="line"></div><div class="line">dx = -dx if x + dx &gt; WIDTH or x + dx &lt; 0</div><div class="line">if y + dy &lt; 0 then dy = -dy</div><div class="line">else if y + dy &gt; HEIGHT</div><div class="line">if x &gt; paddlex and x &lt; paddlex + paddlew</div><div class="line">dy = -dy</div><div class="line">else</div><div class="line"># game over, so stop the animation</div><div class="line">clearInterval(intervalId)</div><div class="line"></div><div class="line">x += dx;</div><div class="line">y += dy;</div><div class="line"></div><div class="line">window.onload = -&gt;</div><div class="line">init()</div><div class="line">init_mouse()</div></pre></td></tr></table></figure>
+<p><a href="http://billmill.org/static/canvastutorial/mouse.html" target="_blank" rel="external">Reference</a></p>
 ]]></content>
     
     <summary type="html">
     
       &lt;p&gt;마우스 이벤트 처리 코드를 추가하였다.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;###coffee
-init_mouse = -&amp;gt;
-canvasMinX = 0
-canvasMaxX = canvasMinX + WIDTH
-
-document.onmousemove = 
+&lt;figure class=&quot;highlight coffee&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;
     
     </summary>
     
       <category term="Programming" scheme="http://sarojaba.github.io/categories/Programming/"/>
+    
+      <category term="CoffeeScript" scheme="http://sarojaba.github.io/categories/Programming/CoffeeScript/"/>
     
     
       <category term="Programming" scheme="http://sarojaba.github.io/tags/Programming/"/>
@@ -1003,67 +968,27 @@ document.onmousemove =
   </entry>
   
   <entry>
-    <title>coffeescript-game-tutorial-the-keyboard</title>
+    <title>Coffeescript Game Tutorial the Keyboard</title>
     <link href="http://sarojaba.github.io/2014/07/29/coffeescript-game-tutorial-the-keyboard/"/>
     <id>http://sarojaba.github.io/2014/07/29/coffeescript-game-tutorial-the-keyboard/</id>
     <published>2014-07-29T14:30:00.000Z</published>
-    <updated>2017-04-09T13:52:15.520Z</updated>
+    <updated>2017-04-15T02:21:14.394Z</updated>
     
     <content type="html"><![CDATA[<p>키보드 이벤트를 추가한 코드이다.</p>
-<pre><code>###coffee
-rightDown = false
-leftDown = false
-
-# set rightDown or leftDown if the right or left key are down
-document.onkeydown = (evt) -&gt;
-switch evt.keyCode
-when 39 then rightDown = true
-when 37 then leftDown = true
-
-# and unset then when the right or left key is released
-document.onkeyup = (evt) -&gt;
-switch evt.keyCode
-when 39 then rightDown = false
-when 37 then leftDown = false
-
-draw = -&gt;
-clear()
-circle(x, y, 10)
-
-# move the paddle if left or right is currently pressed
-paddlex += 5 if rightDown
-paddlex -= 5 if leftDown
-rect(paddlex, HEIGHT-paddleh, paddlew, paddleh)
-
-dx = -dx if x + dx &gt; WIDTH or x + dx &lt; 0
-if y + dy &lt; 0 then dy = -dy
-else if y + dy &gt; HEIGHT
-if x &gt; paddlex and x &lt; paddlex + paddlew
-dy = -dy
-else
-# game over, so stop the animation
-clearInterval(intervalId)
-
-x += dx;
-y += dy;
-
-window.onload = -&gt;
-init() 
-</code></pre><p><a href="http://billmill.org/static/canvastutorial/keyboard.html" target="_blank" rel="external">Reference</a></p>
+<figure class="highlight coffee"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">rightDown = false</div><div class="line">leftDown = false</div><div class="line"></div><div class="line"># set rightDown or leftDown if the right or left key are down</div><div class="line">document.onkeydown = (evt) -&gt;</div><div class="line">switch evt.keyCode</div><div class="line">when 39 then rightDown = true</div><div class="line">when 37 then leftDown = true</div><div class="line"></div><div class="line"># and unset then when the right or left key is released</div><div class="line">document.onkeyup = (evt) -&gt;</div><div class="line">switch evt.keyCode</div><div class="line">when 39 then rightDown = false</div><div class="line">when 37 then leftDown = false</div><div class="line"></div><div class="line">draw = -&gt;</div><div class="line">clear()</div><div class="line">circle(x, y, 10)</div><div class="line"></div><div class="line"># move the paddle if left or right is currently pressed</div><div class="line">paddlex += 5 if rightDown</div><div class="line">paddlex -= 5 if leftDown</div><div class="line">rect(paddlex, HEIGHT-paddleh, paddlew, paddleh)</div><div class="line"></div><div class="line">dx = -dx if x + dx &gt; WIDTH or x + dx &lt; 0</div><div class="line">if y + dy &lt; 0 then dy = -dy</div><div class="line">else if y + dy &gt; HEIGHT</div><div class="line">if x &gt; paddlex and x &lt; paddlex + paddlew</div><div class="line">dy = -dy</div><div class="line">else</div><div class="line"># game over, so stop the animation</div><div class="line">clearInterval(intervalId)</div><div class="line"></div><div class="line">x += dx;</div><div class="line">y += dy;</div><div class="line"></div><div class="line">window.onload = -&gt;</div><div class="line">init()</div></pre></td></tr></table></figure>
+<p><a href="http://billmill.org/static/canvastutorial/keyboard.html" target="_blank" rel="external">Reference</a></p>
 ]]></content>
     
     <summary type="html">
     
       &lt;p&gt;키보드 이벤트를 추가한 코드이다.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;###coffee
-rightDown = false
-leftDown = false
-
-# set rightDown or leftDown if the right or left key are 
+&lt;figure class=&quot;highlight coffee&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/
     
     </summary>
     
       <category term="Programming" scheme="http://sarojaba.github.io/categories/Programming/"/>
+    
+      <category term="CoffeScript" scheme="http://sarojaba.github.io/categories/Programming/CoffeScript/"/>
     
     
       <category term="Programming" scheme="http://sarojaba.github.io/tags/Programming/"/>
@@ -1075,62 +1000,27 @@ leftDown = false
   </entry>
   
   <entry>
-    <title>coffeescript-game-tutorial-add-a-paddle</title>
+    <title>Coffeescript Game Tutorial Add a Paddle</title>
     <link href="http://sarojaba.github.io/2014/07/29/coffeescript-game-tutorial-add-a-paddle/"/>
     <id>http://sarojaba.github.io/2014/07/29/coffeescript-game-tutorial-add-a-paddle/</id>
     <published>2014-07-29T14:27:00.000Z</published>
-    <updated>2017-04-09T13:51:32.796Z</updated>
+    <updated>2017-04-15T02:16:37.100Z</updated>
     
     <content type="html"><![CDATA[<p>화면 하단에 막대기를 추가한 코드이다.</p>
-<pre><code>###coffee
-paddlex = 0
-paddleh = 0
-paddlew = 0
-
-init_paddle = -&gt;
-paddlex = WIDTH / 2
-paddleh = 10
-paddlew = 75
-
-draw = -&gt;
-clear()
-circle(x, y, 10)
-rect(paddlex, HEIGHT - paddleh, paddlew, paddleh)
-
-dx = -dx if x + dx &gt; WIDTH or x + dx &lt; 0
-if y + dy &lt; 0
-dy = -dy
-else if y + dy &gt; HEIGHT
-if x &gt; paddlex and x &lt; paddlex + paddlew
-dy = -dy
-else
-clearInterval(intervalId)
-
-x += dx;
-y += dy;
-
-window.onload = -&gt;
-init()
-init_paddle() 
-</code></pre><p><a href="http://billmill.org/static/canvastutorial/paddle.html" target="_blank" rel="external">Reference</a></p>
+<figure class="highlight coffee"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">paddlex = 0</div><div class="line">paddleh = 0</div><div class="line">paddlew = 0</div><div class="line"></div><div class="line">init_paddle = -&gt;</div><div class="line">paddlex = WIDTH / 2</div><div class="line">paddleh = 10</div><div class="line">paddlew = 75</div><div class="line"></div><div class="line">draw = -&gt;</div><div class="line">clear()</div><div class="line">circle(x, y, 10)</div><div class="line">rect(paddlex, HEIGHT - paddleh, paddlew, paddleh)</div><div class="line"></div><div class="line">dx = -dx if x + dx &gt; WIDTH or x + dx &lt; 0</div><div class="line">if y + dy &lt; 0</div><div class="line">dy = -dy</div><div class="line">else if y + dy &gt; HEIGHT</div><div class="line">if x &gt; paddlex and x &lt; paddlex + paddlew</div><div class="line">dy = -dy</div><div class="line">else</div><div class="line">clearInterval(intervalId)</div><div class="line"></div><div class="line">x += dx;</div><div class="line">y += dy;</div><div class="line"></div><div class="line">window.onload = -&gt;</div><div class="line">init()</div><div class="line">init_paddle()</div></pre></td></tr></table></figure>
+<p><a href="http://billmill.org/static/canvastutorial/paddle.html" target="_blank" rel="external">Reference</a></p>
 ]]></content>
     
     <summary type="html">
     
       &lt;p&gt;화면 하단에 막대기를 추가한 코드이다.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;###coffee
-paddlex = 0
-paddleh = 0
-paddlew = 0
-
-init_paddle = -&amp;gt;
-paddlex = WIDTH / 2
-paddleh = 10
-
+&lt;figure class=&quot;highlight coffee&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;
     
     </summary>
     
       <category term="Programming" scheme="http://sarojaba.github.io/categories/Programming/"/>
+    
+      <category term="CoffeeScript" scheme="http://sarojaba.github.io/categories/Programming/CoffeeScript/"/>
     
     
       <category term="Programming" scheme="http://sarojaba.github.io/tags/Programming/"/>
@@ -1142,83 +1032,27 @@ paddleh = 10
   </entry>
   
   <entry>
-    <title>coffeescript-game-tutorial-bounce</title>
+    <title>Coffeescript Game Tutorial Bounce</title>
     <link href="http://sarojaba.github.io/2014/07/29/coffeescript-game-tutorial-bounce/"/>
     <id>http://sarojaba.github.io/2014/07/29/coffeescript-game-tutorial-bounce/</id>
     <published>2014-07-28T18:45:00.000Z</published>
-    <updated>2017-04-09T13:51:48.428Z</updated>
+    <updated>2017-04-15T02:18:15.882Z</updated>
     
     <content type="html"><![CDATA[<p>공 튀기는 코드이다.</p>
-<pre><code>###coffee
-### BEGIN LIBRARY CODE ###
-
-x = 150
-y = 150
-dx = 2
-dy = 4
-ctx = null
-WIDTH = 0
-HEIGHT = 0
-
-init = -&gt;
-canvas = document.getElementById(&quot;myCanvas&quot;)
-ctx = canvas.getContext(&quot;2d&quot;)
-WIDTH = canvas.width
-HEIGHT = canvas.height
-
-setInterval(draw, 10)
-
-circle = (x, y, r) -&gt;
-ctx.beginPath()
-ctx.arc(x, y, r, 0, Math.PI*2, true)
-ctx.closePath()
-ctx.fill()
-
-rect = (x, y, w, h) -&gt;
-ctx.beginPath()
-ctx.rect(x, y, w, h)
-ctx.closePath()
-ctx.fill()
-
-clear = -&gt;
-ctx.clearRect(0, 0, WIDTH, HEIGHT)
-
-### END LIBRARY CODE ###
-
-draw = -&gt;
-clear()
-circle(x, y, 10)
-
-dx = -dx if x + dx &gt; WIDTH or x + dx &lt; 0
-dy = -dy if y + dy &gt; HEIGHT or y + dy &lt; 0
-
-x += dx;
-y += dy;
-
-window.onload = -&gt;
-init()
-</code></pre><p><a href="http://billmill.org/static/canvastutorial/bounce.html" target="_blank" rel="external">Reference</a></p>
+<figure class="highlight coffee"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line">### BEGIN LIBRARY CODE ###</div><div class="line"></div><div class="line">x = 150</div><div class="line">y = 150</div><div class="line">dx = 2</div><div class="line">dy = 4</div><div class="line">ctx = null</div><div class="line">WIDTH = 0</div><div class="line">HEIGHT = 0</div><div class="line"></div><div class="line">init = -&gt;</div><div class="line">canvas = document.getElementById(&quot;myCanvas&quot;)</div><div class="line">ctx = canvas.getContext(&quot;2d&quot;)</div><div class="line">WIDTH = canvas.width</div><div class="line">HEIGHT = canvas.height</div><div class="line"></div><div class="line">setInterval(draw, 10)</div><div class="line"></div><div class="line">circle = (x, y, r) -&gt;</div><div class="line">ctx.beginPath()</div><div class="line">ctx.arc(x, y, r, 0, Math.PI*2, true)</div><div class="line">ctx.closePath()</div><div class="line">ctx.fill()</div><div class="line"></div><div class="line">rect = (x, y, w, h) -&gt;</div><div class="line">ctx.beginPath()</div><div class="line">ctx.rect(x, y, w, h)</div><div class="line">ctx.closePath()</div><div class="line">ctx.fill()</div><div class="line"></div><div class="line">clear = -&gt;</div><div class="line">ctx.clearRect(0, 0, WIDTH, HEIGHT)</div><div class="line"></div><div class="line">### END LIBRARY CODE ###</div><div class="line"></div><div class="line">draw = -&gt;</div><div class="line">clear()</div><div class="line">circle(x, y, 10)</div><div class="line"></div><div class="line">dx = -dx if x + dx &gt; WIDTH or x + dx &lt; 0</div><div class="line">dy = -dy if y + dy &gt; HEIGHT or y + dy &lt; 0</div><div class="line"></div><div class="line">x += dx;</div><div class="line">y += dy;</div><div class="line"></div><div class="line">window.onload = -&gt;</div><div class="line">init()</div></pre></td></tr></table></figure>
+<p><a href="http://billmill.org/static/canvastutorial/bounce.html" target="_blank" rel="external">Reference</a></p>
 ]]></content>
     
     <summary type="html">
     
       &lt;p&gt;공 튀기는 코드이다.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;###coffee
-### BEGIN LIBRARY CODE ###
-
-x = 150
-y = 150
-dx = 2
-dy = 4
-ctx = null
-WIDTH = 0
-HEIGHT = 0
-
-init = -&amp;
+&lt;figure class=&quot;highlight coffee&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;di
     
     </summary>
     
       <category term="Programming" scheme="http://sarojaba.github.io/categories/Programming/"/>
+    
+      <category term="CoffeScript" scheme="http://sarojaba.github.io/categories/Programming/CoffeScript/"/>
     
     
       <category term="Programming" scheme="http://sarojaba.github.io/tags/Programming/"/>
