@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://sarojaba.github.io/"/>
-  <updated>2017-04-16T10:09:07.660Z</updated>
+  <updated>2017-04-16T12:38:31.666Z</updated>
   <id>http://sarojaba.github.io/</id>
   
   <author>
@@ -17,10 +17,10 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://sarojaba.github.io/2017/04/16/hello-world/"/>
-    <id>http://sarojaba.github.io/2017/04/16/hello-world/</id>
-    <published>2017-04-16T10:09:07.660Z</published>
-    <updated>2017-04-16T10:09:07.660Z</updated>
+    <link href="http://sarojaba.github.io/2017/04/13/hello-world/"/>
+    <id>http://sarojaba.github.io/2017/04/13/hello-world/</id>
+    <published>2017-04-13T12:21:00.000Z</published>
+    <updated>2017-04-16T12:38:31.666Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
@@ -42,6 +42,8 @@
       <category term="Programming" scheme="http://sarojaba.github.io/categories/Programming/"/>
     
     
+      <category term="Hexo" scheme="http://sarojaba.github.io/tags/Hexo/"/>
+    
   </entry>
   
   <entry>
@@ -49,9 +51,9 @@
     <link href="http://sarojaba.github.io/2015/07/20/reverse-array-recursively/"/>
     <id>http://sarojaba.github.io/2015/07/20/reverse-array-recursively/</id>
     <published>2015-07-19T15:48:00.000Z</published>
-    <updated>2017-04-15T08:28:14.222Z</updated>
+    <updated>2017-04-16T12:36:32.938Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Source-code"><a href="#Source-code" class="headerlink" title="Source code"></a>Source code</h2><pre><code class="cpp"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span>
+    <content type="html"><![CDATA[<h2 id="Source-code"><a href="#Source-code" class="headerlink" title="Source code"></a>Source code</h2><pre><code class="c++"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span>
 <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;
 
 <span class="function"><span class="keyword">void</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span> *A, <span class="keyword">int</span> N, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span>
@@ -92,7 +94,7 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;Source-code&quot;&gt;&lt;a href=&quot;#Source-code&quot; class=&quot;headerlink&quot; title=&quot;Source code&quot;&gt;&lt;/a&gt;Source code&lt;/h2&gt;&lt;pre&gt;&lt;code class=&quot;cpp&quot;&gt;&lt;span class=&quot;m
+      &lt;h2 id=&quot;Source-code&quot;&gt;&lt;a href=&quot;#Source-code&quot; class=&quot;headerlink&quot; title=&quot;Source code&quot;&gt;&lt;/a&gt;Source code&lt;/h2&gt;&lt;pre&gt;&lt;code class=&quot;c++&quot;&gt;&lt;span class=&quot;m
     
     </summary>
     
@@ -110,14 +112,14 @@
     <link href="http://sarojaba.github.io/2015/06/17/back-to-high-school-physics/"/>
     <id>http://sarojaba.github.io/2015/06/17/back-to-high-school-physics/</id>
     <published>2015-06-17T01:23:00.000Z</published>
-    <updated>2017-04-13T12:28:06.000Z</updated>
+    <updated>2017-04-16T12:36:58.707Z</updated>
     
     <content type="html"><![CDATA[<p>A particle has initial velocity and constant acceleration. If its velocity after certain time is v then what will its displacement be in twice of that time?</p>
 <h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>The input will contain two integers in each line. Each line makes one set of input. These two integers denote the value of v (-100 &lt;= v &lt;= 100) and t(0&lt;=t&lt;= 200) ( t means at the time the particle gains that velocity)</p>
 <h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>For each line of input print a single integer in one line denoting the displacement in double of that time.</p>
 <h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><p>0 0<br>5 12</p>
 <h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><p>0<br>120</p>
-<h2 id="Source-Code"><a href="#Source-Code" class="headerlink" title="Source Code"></a>Source Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>** argv)</span></span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">int</span> v, t;</div><div class="line">  <span class="keyword">while</span>(<span class="built_in">cin</span> &gt;&gt; v)</div><div class="line">  &#123;</div><div class="line">    <span class="built_in">cin</span> &gt;&gt; t;</div><div class="line">    <span class="built_in">cout</span> &lt;&lt; v * t * <span class="number">2</span> &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Source-Code"><a href="#Source-Code" class="headerlink" title="Source Code"></a>Source Code</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>** argv)</span></span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">int</span> v, t;</div><div class="line">  <span class="keyword">while</span>(<span class="built_in">cin</span> &gt;&gt; v)</div><div class="line">  &#123;</div><div class="line">    <span class="built_in">cin</span> &gt;&gt; t;</div><div class="line">    <span class="built_in">cout</span> &lt;&lt; v * t * <span class="number">2</span> &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="http://uva.onlinejudge.org/external/100/10071.html" target="_blank" rel="external">http://uva.onlinejudge.org/external/100/10071.html</a></p>
 ]]></content>
     
