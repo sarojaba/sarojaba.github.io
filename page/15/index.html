@@ -257,7 +257,7 @@
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2013/02/13/flight/" data-id="cj1j3knxn004umuzyo4qhfb9y" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2013/02/13/flight/" data-id="cj1ko9ogo004uyuzy11h4j3iu" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -392,7 +392,7 @@
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2013/02/12/7번방의-선물/" data-id="cj1j3knu40005muzyyd327ls8" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2013/02/12/7번방의-선물/" data-id="cj1ko9ocv0005yuzyp7thjxpr" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -478,7 +478,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2013/02/04/정리-못하는-정리베/">정리-못하는-정리베</a>
+            <a class="article-title" href="/2013/02/04/정리-못하는-정리베/">정리 못하는 정리베</a>
         </h1>
     
 
@@ -496,7 +496,7 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Algorithm/">Algorithm</a>
     </div>
 
                         
@@ -535,175 +535,9 @@
 <p>2번째 형식의 경우 중첩된 폴더 구조에 위치한 파일을 의미합니다.</p>
 <h1 id="출력"><a href="#출력" class="headerlink" title="출력"></a>출력</h1><p>한 줄에 중복을 모두 제외한 곡의 개수를 출력합니다.</p>
 <h1 id="입력-파일"><a href="#입력-파일" class="headerlink" title="입력 파일"></a>입력 파일</h1><p>A1.txt A2.txt</p>
-<h1 id="제약-조건"><a href="#제약-조건" class="headerlink" title="제약 조건"></a>제약 조건</h1><h1 id="예제-입력"><a href="#예제-입력" class="headerlink" title="예제 입력"></a>예제 입력</h1><pre><code>9
-
-Above and Beyond Feat Zoe Johnston - Alchemy (Above and Beyond Club Mix).mp3
-
-Coldplay - Every Teardrop Is A Waterfall (Swedish House Mafia Remix).mp3
-
-/Andrew Rayel/Armin Van Buuren - Serenity (Andrew Rayel Aether Remix).mp3
-
-Armin Van Buuren - Serenity (Andrew Rayel Aether Remix).mp3
-
-/Above and Beyond Feat Zoe Johnston - Alchemy/Above and Beyond Feat Zoe Johnston - Alchemy (Above and Beyond Club Mix).mp3
-
-Nuera - Transatlantic 2009 (Original Mix).mp3
-
-/Discograph/Nuera/Nuera - Transatlantic 2011 (Original Mix).mp3
-
-/Alex M O R P H - Eternal Flame (Alex M O R P H s Reach Out For The Stars Mix).mp3
-
-01. Armin Van Buuren Feat Fiora - Waiting For The Night (Radio Edit).mp3
-`&lt;/pre&gt;
-
-# 예제 출력
-
-&lt;pre&gt;`7
-`&lt;/pre&gt;
-
-# Source Code
-
-&lt;pre&gt;`package com.sarojaba.algospot.newbie;
-
-import java.io.File;
-import java.util.HashSet;
-import java.util.Scanner;
-import java.util.Set;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-public class A {
-
-    public static void main(String[] args) throws Exception {
-
-        Scanner scanner = new Scanner(new File(&quot;a.txt&quot;));
-
-        int N = scanner.nextInt();
-
-        String[] lines = new String[N];
-        for (int i = 0; i &lt; N; i++) {
-            lines[i] = scanner.nextLine();
-        }
-
-        System.out.println(solve(lines));
-
-        scanner.close();
-    }
-
-    public static int solve(String[] lines) {
-
-        Set mp3s = new HashSet&lt;&gt;();
-
-        Pattern pattern = Pattern.compile(&quot;(?:/.*)*/(.*)&quot;);
-
-        for (String l : lines) {
-
-            Matcher matcher = pattern.matcher(l);
-
-            String f = l;
-            if (matcher.matches()) {
-                f = matcher.group(1);
-            }
-            mp3s.add(MP3.parse(f));
-        }
-
-        return mp3s.size();
-    }
-}
-
-class MP3 {
-
-    private String artist;
-
-    private String song;
-
-    private int track;
-
-    public MP3(String artist, String song) {
-        this(artist, song, 0);
-    }
-
-    public MP3(String artist, String song, int track) {
-        this.artist = artist;
-        this.song = song;
-        this.track = track;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (!(obj instanceof MP3)) {
-            return false;
-        }
-
-        MP3 mp3 = (MP3) obj;
-
-        if (!artist.equalsIgnoreCase(mp3.artist)) {
-            return false;
-        }
-
-        if (!song.equalsIgnoreCase(mp3.song)) {
-            return false;
-        }
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        return (artist.toLowerCase().hashCode() + song.toLowerCase().hashCode())
-                % Integer.MAX_VALUE;
-    }
-
-    @Override
-    public String toString() {
-        return String.format(&quot;{artist: %s, song: %s}&quot;, artist, song);
-    }
-
-    public static MP3 parse(String file) {
-
-        Pattern[] patterns = new Pattern[2];
-        patterns[0] = Pattern.compile(&quot;(.*)_(.*)_(.*)\\.mp3&quot;);
-        patterns[1] = Pattern.compile(&quot;(.*)\\. (.*) - (.*)\\.mp3&quot;);
-
-        for (Pattern p : patterns) {
-
-            Matcher matcher = p.matcher(file);
-
-            if (matcher.matches()) {
-                try {
-                    int track = Integer.parseInt(matcher.group(1));
-                    String artist = matcher.group(2);
-                    String song = matcher.group(3);
-
-                    return new MP3(artist, song, track);
-
-                } catch (NumberFormatException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-            }
-        }
-
-        patterns[0] = Pattern.compile(&quot;(.*) - (.*)\\.mp3&quot;);
-        patterns[1] = Pattern.compile(&quot;(.*)_(.*)\\.mp3&quot;);
-
-        for (Pattern p : patterns) {
-
-            Matcher matcher = p.matcher(file);
-
-            if (matcher.matches()) {
-
-                String artist = matcher.group(1);
-                String song = matcher.group(2);
-
-                return new MP3(artist, song);
-            }
-        }
-
-        return null;
-    }
-}
-</code></pre>
+<h1 id="제약-조건"><a href="#제약-조건" class="headerlink" title="제약 조건"></a>제약 조건</h1><h1 id="예제-입력"><a href="#예제-입력" class="headerlink" title="예제 입력"></a>예제 입력</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">9</div><div class="line"></div><div class="line">Above and Beyond Feat Zoe Johnston - Alchemy (Above and Beyond Club Mix).mp3</div><div class="line"></div><div class="line">Coldplay - Every Teardrop Is A Waterfall (Swedish House Mafia Remix).mp3</div><div class="line"></div><div class="line">/Andrew Rayel/Armin Van Buuren - Serenity (Andrew Rayel Aether Remix).mp3</div><div class="line"></div><div class="line">Armin Van Buuren - Serenity (Andrew Rayel Aether Remix).mp3</div><div class="line"></div><div class="line">/Above and Beyond Feat Zoe Johnston - Alchemy/Above and Beyond Feat Zoe Johnston - Alchemy (Above and Beyond Club Mix).mp3</div><div class="line"></div><div class="line">Nuera - Transatlantic 2009 (Original Mix).mp3</div><div class="line"></div><div class="line">/Discograph/Nuera/Nuera - Transatlantic 2011 (Original Mix).mp3</div><div class="line"></div><div class="line">/Alex M O R P H - Eternal Flame (Alex M O R P H s Reach Out For The Stars Mix).mp3</div><div class="line"></div><div class="line">01. Armin Van Buuren Feat Fiora - Waiting For The Night (Radio Edit).mp3</div></pre></td></tr></table></figure>
+<h1 id="예제-출력"><a href="#예제-출력" class="headerlink" title="예제 출력"></a>예제 출력</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">7</div></pre></td></tr></table></figure>
+<h1 id="Source-Code"><a href="#Source-Code" class="headerlink" title="Source Code"></a>Source Code</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.sarojaba.algospot.newbie;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.io.File;</div><div class="line"><span class="keyword">import</span> java.util.HashSet;</div><div class="line"><span class="keyword">import</span> java.util.Scanner;</div><div class="line"><span class="keyword">import</span> java.util.Set;</div><div class="line"><span class="keyword">import</span> java.util.regex.Matcher;</div><div class="line"><span class="keyword">import</span> java.util.regex.Pattern;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line"></div><div class="line">        Scanner scanner = <span class="keyword">new</span> Scanner(<span class="keyword">new</span> File(<span class="string">"a.txt"</span>));</div><div class="line"></div><div class="line">        <span class="keyword">int</span> N = scanner.nextInt();</div><div class="line"></div><div class="line">        String[] lines = <span class="keyword">new</span> String[N];</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) &#123;</div><div class="line">            lines[i] = scanner.nextLine();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        System.out.println(solve(lines));</div><div class="line"></div><div class="line">        scanner.close();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">solve</span><span class="params">(String[] lines)</span> </span>&#123;</div><div class="line"></div><div class="line">        Set mp3s = <span class="keyword">new</span> HashSet&lt;&gt;();</div><div class="line"></div><div class="line">        Pattern pattern = Pattern.compile(<span class="string">"(?:/.*)*/(.*)"</span>);</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (String l : lines) &#123;</div><div class="line"></div><div class="line">            Matcher matcher = pattern.matcher(l);</div><div class="line"></div><div class="line">            String f = l;</div><div class="line">            <span class="keyword">if</span> (matcher.matches()) &#123;</div><div class="line">                f = matcher.group(<span class="number">1</span>);</div><div class="line">            &#125;</div><div class="line">            mp3s.add(MP3.parse(f));</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> mp3s.size();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MP3</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> String artist;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> String song;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> track;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MP3</span><span class="params">(String artist, String song)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>(artist, song, <span class="number">0</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MP3</span><span class="params">(String artist, String song, <span class="keyword">int</span> track)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.artist = artist;</div><div class="line">        <span class="keyword">this</span>.song = song;</div><div class="line">        <span class="keyword">this</span>.track = track;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (!(obj <span class="keyword">instanceof</span> MP3)) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        MP3 mp3 = (MP3) obj;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (!artist.equalsIgnoreCase(mp3.artist)) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (!song.equalsIgnoreCase(mp3.song)) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> (artist.toLowerCase().hashCode() + song.toLowerCase().hashCode())</div><div class="line">                % Integer.MAX_VALUE;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> String.format(<span class="string">"&#123;artist: %s, song: %s&#125;"</span>, artist, song);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> MP3 <span class="title">parse</span><span class="params">(String file)</span> </span>&#123;</div><div class="line"></div><div class="line">        Pattern[] patterns = <span class="keyword">new</span> Pattern[<span class="number">2</span>];</div><div class="line">        patterns[<span class="number">0</span>] = Pattern.compile(<span class="string">"(.*)_(.*)_(.*)\\.mp3"</span>);</div><div class="line">        patterns[<span class="number">1</span>] = Pattern.compile(<span class="string">"(.*)\\. (.*) - (.*)\\.mp3"</span>);</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (Pattern p : patterns) &#123;</div><div class="line"></div><div class="line">            Matcher matcher = p.matcher(file);</div><div class="line"></div><div class="line">            <span class="keyword">if</span> (matcher.matches()) &#123;</div><div class="line">                <span class="keyword">try</span> &#123;</div><div class="line">                    <span class="keyword">int</span> track = Integer.parseInt(matcher.group(<span class="number">1</span>));</div><div class="line">                    String artist = matcher.group(<span class="number">2</span>);</div><div class="line">                    String song = matcher.group(<span class="number">3</span>);</div><div class="line"></div><div class="line">                    <span class="keyword">return</span> <span class="keyword">new</span> MP3(artist, song, track);</div><div class="line"></div><div class="line">                &#125; <span class="keyword">catch</span> (NumberFormatException e) &#123;</div><div class="line">                    <span class="comment">// TODO Auto-generated catch block</span></div><div class="line">                    e.printStackTrace();</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        patterns[<span class="number">0</span>] = Pattern.compile(<span class="string">"(.*) - (.*)\\.mp3"</span>);</div><div class="line">        patterns[<span class="number">1</span>] = Pattern.compile(<span class="string">"(.*)_(.*)\\.mp3"</span>);</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (Pattern p : patterns) &#123;</div><div class="line"></div><div class="line">            Matcher matcher = p.matcher(file);</div><div class="line"></div><div class="line">            <span class="keyword">if</span> (matcher.matches()) &#123;</div><div class="line"></div><div class="line">                String artist = matcher.group(<span class="number">1</span>);</div><div class="line">                String song = matcher.group(<span class="number">2</span>);</div><div class="line"></div><div class="line">                <span class="keyword">return</span> <span class="keyword">new</span> MP3(artist, song);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
         
         </div>
         <footer class="article-footer">
@@ -713,7 +547,7 @@ class MP3 {
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2013/02/04/정리-못하는-정리베/" data-id="cj1j3ko2e00dnmuzyvtz2dlr0" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2013/02/04/정리-못하는-정리베/" data-id="cj1ko9old00dnyuzyhuzqlwuy" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -849,7 +683,7 @@ class MP3 {
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2013/02/03/베를린/" data-id="cj1j3ko1e00bzmuzy6k06vgv8" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2013/02/03/베를린/" data-id="cj1ko9oka00bzyuzyqx8cgie3" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -983,7 +817,7 @@ class MP3 {
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2013/01/31/markdown/" data-id="cj1j3kny4005smuzylc8ngben" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2013/01/31/markdown/" data-id="cj1ko9oh4005syuzyz09ycpic" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1119,7 +953,7 @@ class MP3 {
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2013/01/30/시리우스/" data-id="cj1j3ko1l00cdmuzy6t10ncjo" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2013/01/30/시리우스/" data-id="cj1ko9okk00cdyuzy2mu0hhc2" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1255,7 +1089,7 @@ class MP3 {
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2013/01/27/내가-살인범이다/" data-id="cj1j3ko0l00admuzybhdafdv8" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2013/01/27/내가-살인범이다/" data-id="cj1ko9ojk00adyuzykk3j2phk" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1389,7 +1223,7 @@ class MP3 {
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2013/01/26/firefox-os-app-days/" data-id="cj1j3knxh004gmuzy4zv3o46e" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2013/01/26/firefox-os-app-days/" data-id="cj1ko9ogi004kyuzyi4iutcw7" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1524,7 +1358,7 @@ class MP3 {
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2013/01/24/워스토리-for-kakao/" data-id="cj1j3ko1x00d1muzym8lt6gis" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2013/01/24/워스토리-for-kakao/" data-id="cj1ko9okv00d1yuzyyruhbgvk" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1658,7 +1492,7 @@ class MP3 {
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2013/01/22/루돌프-사슴코-우쿨렐레-버전/" data-id="cj1j3ko0x00axmuzy94t4xan3" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2013/01/22/루돌프-사슴코-우쿨렐레-버전/" data-id="cj1ko9ojs00axyuzyd1t4ztry" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1752,9 +1586,9 @@ class MP3 {
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2017/04/09/hello-world/" class="title">Hello World</a></p>
-                            <p class="item-date"><time datetime="2017-04-08T17:15:07.522Z" itemprop="datePublished">2017-04-09</time></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2017/04/16/hello-world/" class="title">Hello World</a></p>
+                            <p class="item-date"><time datetime="2017-04-16T10:09:07.660Z" itemprop="datePublished">2017-04-16</time></p>
                         </div>
                     </li>
                 
@@ -1788,8 +1622,8 @@ class MP3 {
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
-                            <p class="item-title"><a href="/2015/06/08/후위-표현식/" class="title">후위-표현식</a></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Algorithm/">Algorithm</a></p>
+                            <p class="item-title"><a href="/2015/06/08/후위-표현식/" class="title">후위 표현식</a></p>
                             <p class="item-date"><time datetime="2015-06-07T15:34:00.000Z" itemprop="datePublished">2015-06-08</time></p>
                         </div>
                     </li>
@@ -1803,7 +1637,7 @@ class MP3 {
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">117</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Algorithm/">Algorithm</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ceylon/">Ceylon</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeScript/">CoffeScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeeScript/">CoffeeScript</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Design-Pattern/">Design Pattern</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Eclipse/">Eclipse</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Java/">Java</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/LibGDX/">LibGDX</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/OpenGL/">OpenGL</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/PlayN/">PlayN</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Processing/">Processing</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Rust/">Rust</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ubuntu/">Ubuntu</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ukulele/">Ukulele</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">118</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Algorithm/">Algorithm</a><span class="category-list-count">27</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ceylon/">Ceylon</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeScript/">CoffeScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeeScript/">CoffeeScript</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Design-Pattern/">Design Pattern</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Eclipse/">Eclipse</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Java/">Java</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/LibGDX/">LibGDX</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/OpenGL/">OpenGL</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/PlayN/">PlayN</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Processing/">Processing</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Rust/">Rust</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ubuntu/">Ubuntu</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ukulele/">Ukulele</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 

@@ -207,7 +207,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2013/03/29/커맨드-라인에서-프로그램-실행하기/">커맨드-라인에서-프로그램-실행하기</a>
+            <a class="article-title" href="/2013/03/29/커맨드-라인에서-프로그램-실행하기/">커맨드 라인에서 프로그램 실행하기</a>
         </h1>
     
 
@@ -225,7 +225,7 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Ceylon/">Ceylon</a>
     </div>
 
                         
@@ -242,49 +242,25 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>한번 해보자. 위 코드를 ./source/hello.ceylon 으로 저장하고 아래의 명령을 수행하라.</p>
-<pre><code>ceylon-0.5/bin/ceylon compile source/hello.ceylon
-ceylon-0.5/bin/ceylon run --run hello default
-`&lt;/pre&gt;
-
-ceylon-0.5 는 Ceylon 이 설치된 디렉토리의 경로이다. Hello, World! 라는 메시지를 볼 수 있을 것이다. ./modules/default 디렉토리에 default.car 라는 컴파일된 모듈 아카이브가 있을 것이다.
-
-다음은 아주 유용한 트릭이다.
-
-&lt;pre&gt;`ceylon-0.5/bin/ceylon help compile
-ceylon-0.5/bin/ceylon help run
-`&lt;/pre&gt;
-
-ceylon help 명령은 ceylon 서브명령에 대한 사용 정보를 출력한다.
-
-만약 커맨드 라인 툴을 시작하는데 문제가 있다면 예제 컴파일과 실행을 해보자.
-
-## JDK 선택하기
-
-Ceylon 은 Java 7 이 필요하기 때문에 사용하고 있는 Java 버전이 맞는지 확인할 필요가 있다.
-
-&lt;pre&gt;`bash$ java -version
-java version &quot;1.7.0_05&quot;
-Java(TM) SE Runtime Environment (build 1.7.0_05-b06)
-Java HotSpot(TM) 64-Bit Server VM (build 23.1-b03, mixed mode)
-bash$ javac -version
-javac 1.7.0_05
-`&lt;/pre&gt;
-
-만약 다른 버전의 Java 를 사용하고 있다면, Java 7 로 변경해야 한다.
-</code></pre><ul>
+            <p>한번 해보자. 위 코드를 <code>./source/hello.ceylon</code> 으로 저장하고 아래의 명령을 수행하라.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ceylon-0.5/bin/ceylon compile source/hello.ceylon</div><div class="line">ceylon-0.5/bin/ceylon run --run hello default</div></pre></td></tr></table></figure>
+<p>ceylon-0.5 는 Ceylon 이 설치된 디렉토리의 경로이다. Hello, World! 라는 메시지를 볼 수 있을 것이다. ./modules/default 디렉토리에 default.car 라는 컴파일된 모듈 아카이브가 있을 것이다.</p>
+<p>다음은 아주 유용한 트릭이다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ceylon-0.5/bin/ceylon help compile</div><div class="line">ceylon-0.5/bin/ceylon help run</div></pre></td></tr></table></figure>
+<p>ceylon help 명령은 ceylon 서브명령에 대한 사용 정보를 출력한다.</p>
+<p>만약 커맨드 라인 툴을 시작하는데 문제가 있다면 예제 컴파일과 실행을 해보자.</p>
+<h2 id="JDK-선택하기"><a href="#JDK-선택하기" class="headerlink" title="JDK 선택하기"></a>JDK 선택하기</h2><p>Ceylon 은 Java 7 이 필요하기 때문에 사용하고 있는 Java 버전이 맞는지 확인할 필요가 있다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">bash$ java -version</div><div class="line">java version &quot;1.7.0_05&quot;</div><div class="line">Java(TM) SE Runtime Environment (build 1.7.0_05-b06)</div><div class="line">Java HotSpot(TM) 64-Bit Server VM (build 23.1-b03, mixed mode)</div><div class="line">bash$ javac -version</div><div class="line">javac 1.7.0_05</div></pre></td></tr></table></figure>
+<p>만약 다른 버전의 Java 를 사용하고 있다면, Java 7 로 변경해야 한다.</p>
+<ul>
 <li>Linux 에서는 update-java-alternatives 를 사용한다.</li>
 <li>Mac 에서는 System Preferences applet 를 이용한다.</li>
-<li><p>Windows 에서는 JAVA-HOME 환경 변수를 설정한다.</p>
-<h2 id="문자-인코딩-설정하기"><a href="#문자-인코딩-설정하기" class="headerlink" title="문자 인코딩 설정하기"></a>문자 인코딩 설정하기</h2><p>만약 Ceylon 프로그램을 컴파일 하는 중에 다음의 에러나 비슷한 것을 본다면</p>
-<pre>`unmappable character for encoding ASCII
-`</pre>
-
-<p>소스 파일의 인코딩과 OS 의 기본 문자 인코딩이 일치하지 않는 것이다. 아래와 같은 명령줄로 문자 인코딩을 명시적으로 정해야 한다.</p>
-<p><pre>`ceylon compile –encoding UTF-8 source/hello.ceylon</pre></p>
-</li>
+<li>Windows 에서는 JAVA-HOME 환경 변수를 설정한다.</li>
 </ul>
-
+<h2 id="문자-인코딩-설정하기"><a href="#문자-인코딩-설정하기" class="headerlink" title="문자 인코딩 설정하기"></a>문자 인코딩 설정하기</h2><p>만약 Ceylon 프로그램을 컴파일 하는 중에 다음의 에러나 비슷한 것을 본다면</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">unmappable character for encoding ASCII</div></pre></td></tr></table></figure>
+<p>소스 파일의 인코딩과 OS 의 기본 문자 인코딩이 일치하지 않는 것이다. 아래와 같은 명령줄로 문자 인코딩을 명시적으로 정해야 한다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ceylon compile --encoding UTF-8 source/hello.ceylon</div></pre></td></tr></table></figure>
         
         </div>
         <footer class="article-footer">
@@ -294,7 +270,7 @@ javac 1.7.0_05
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2013/03/29/커맨드-라인에서-프로그램-실행하기/" data-id="cj1j3ko3800f6muzy3zc2koob" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2013/03/29/커맨드-라인에서-프로그램-실행하기/" data-id="cj1ko9om800fayuzyni95kpqb" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -432,7 +408,7 @@ javac 1.7.0_05
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2013/03/29/a-really-simple-program/" data-id="cj1j3knu60006muzyv1hoy9xp" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2013/03/29/a-really-simple-program/" data-id="cj1ko9ocz0006yuzyd0n9gqxo" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -568,7 +544,7 @@ javac 1.7.0_05
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2013/03/16/another-earth/" data-id="cj1j3knui000fmuzyya5iugwb" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2013/03/16/another-earth/" data-id="cj1ko9odl000fyuzyqn64il8r" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -699,7 +675,7 @@ javac 1.7.0_05
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2013/03/14/ubuntu-에-enlightenment-e17-설치하기/" data-id="cj1j3knzs0099muzy2lqwkpe7" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2013/03/14/ubuntu-에-enlightenment-e17-설치하기/" data-id="cj1ko9oim0091yuzy17s7qz3y" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -820,7 +796,7 @@ javac 1.7.0_05
         <div class="article-entry" itemprop="articleBody">
         
             
-            <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ sudo add-apt-repository ppa:webupd8team/sublime-text-2</div><div class="line">$ sudo apt-get update</div><div class="line">$ sudo apt-get install sublime-text</div></pre></td></tr></table></figure>
+            <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ sudo add-apt-repository ppa:webupd8team/sublime-text-2</div><div class="line">$ sudo apt-get update</div><div class="line">$ sudo apt-get install sublime-text</div></pre></td></tr></table></figure>
         
         </div>
         <footer class="article-footer">
@@ -830,7 +806,7 @@ javac 1.7.0_05
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2013/03/10/ubuntu-에-sublime-text-설치하기/" data-id="cj1j3knzj008tmuzy4jvanhi5" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2013/03/10/ubuntu-에-sublime-text-설치하기/" data-id="cj1ko9oip0095yuzyh6rdq19c" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -962,7 +938,7 @@ javac 1.7.0_05
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2013/02/26/ubuntu-1104-에서-마우스-휠-속도가-너무-빨라요/" data-id="cj1j3knze008imuzy9q9grhjs" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2013/02/26/ubuntu-1104-에서-마우스-휠-속도가-너무-빨라요/" data-id="cj1ko9oii008tyuzycsu0rujn" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1098,7 +1074,7 @@ javac 1.7.0_05
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2013/02/18/the-quck-change-show-movie-theme-from-korea/" data-id="cj1j3knz70086muzy63oqsjas" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2013/02/18/the-quck-change-show-movie-theme-from-korea/" data-id="cj1ko9oia008eyuzy3lnpy218" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1234,7 +1210,7 @@ javac 1.7.0_05
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2013/02/15/짝패/" data-id="cj1j3ko3500ezmuzymi3rea18" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2013/02/15/짝패/" data-id="cj1ko9om300ezyuzy7scp974x" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1370,7 +1346,7 @@ javac 1.7.0_05
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2013/02/15/devkit/" data-id="cj1j3knw8002zmuzyeqg0ybw4" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2013/02/15/devkit/" data-id="cj1ko9of9002zyuzymddp1kxm" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1504,7 +1480,7 @@ javac 1.7.0_05
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2013/02/14/boggle/" data-id="cj1j3knuz0016muzy8savlc63" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2013/02/14/boggle/" data-id="cj1ko9oe30016yuzys9oh4kih" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1598,9 +1574,9 @@ javac 1.7.0_05
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2017/04/09/hello-world/" class="title">Hello World</a></p>
-                            <p class="item-date"><time datetime="2017-04-08T17:15:07.522Z" itemprop="datePublished">2017-04-09</time></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2017/04/16/hello-world/" class="title">Hello World</a></p>
+                            <p class="item-date"><time datetime="2017-04-16T10:09:07.660Z" itemprop="datePublished">2017-04-16</time></p>
                         </div>
                     </li>
                 
@@ -1634,8 +1610,8 @@ javac 1.7.0_05
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
-                            <p class="item-title"><a href="/2015/06/08/후위-표현식/" class="title">후위-표현식</a></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Algorithm/">Algorithm</a></p>
+                            <p class="item-title"><a href="/2015/06/08/후위-표현식/" class="title">후위 표현식</a></p>
                             <p class="item-date"><time datetime="2015-06-07T15:34:00.000Z" itemprop="datePublished">2015-06-08</time></p>
                         </div>
                     </li>
@@ -1649,7 +1625,7 @@ javac 1.7.0_05
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">117</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Algorithm/">Algorithm</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ceylon/">Ceylon</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeScript/">CoffeScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeeScript/">CoffeeScript</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Design-Pattern/">Design Pattern</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Eclipse/">Eclipse</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Java/">Java</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/LibGDX/">LibGDX</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/OpenGL/">OpenGL</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/PlayN/">PlayN</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Processing/">Processing</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Rust/">Rust</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ubuntu/">Ubuntu</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ukulele/">Ukulele</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">118</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Algorithm/">Algorithm</a><span class="category-list-count">27</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ceylon/">Ceylon</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeScript/">CoffeScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeeScript/">CoffeeScript</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Design-Pattern/">Design Pattern</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Eclipse/">Eclipse</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Java/">Java</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/LibGDX/">LibGDX</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/OpenGL/">OpenGL</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/PlayN/">PlayN</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Processing/">Processing</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Rust/">Rust</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ubuntu/">Ubuntu</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ukulele/">Ukulele</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 

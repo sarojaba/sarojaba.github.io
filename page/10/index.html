@@ -354,7 +354,7 @@ void draw() {
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2013/07/26/untitled-1/" data-id="cj1j3knzl008xmuzy4pjbpn8q" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2013/07/26/untitled-1/" data-id="cj1ko9oir0099yuzyb8lomxlm" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -490,7 +490,7 @@ void draw() {
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2013/07/25/oblivion/" data-id="cj1j3knyf006cmuzygj2cbbkn" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2013/07/25/oblivion/" data-id="cj1ko9ohe006cyuzyla432i7t" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -744,7 +744,7 @@ void reset() {
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2013/07/21/breakout/" data-id="cj1j3knv00018muzymw1esadr" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2013/07/21/breakout/" data-id="cj1ko9oe40018yuzy4jcxbyz3" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -884,7 +884,7 @@ void reset() {
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2013/07/20/tumblr에-processing-포스팅-하기/" data-id="cj1j3knzd008emuzy393b3xt0" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2013/07/20/tumblr에-processing-포스팅-하기/" data-id="cj1ko9oie008myuzyxzwjyc0u" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -970,7 +970,7 @@ void reset() {
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2013/07/20/태극-마크/">태극-마크</a>
+            <a class="article-title" href="/2013/07/20/태극-마크/">태극 마크</a>
         </h1>
     
 
@@ -1059,54 +1059,55 @@ void draw() {
 
 <canvas id="processing-canvas-korea_mark"></canvas>
 
-<pre><code>void setup() {
+<pre><code class="processing"><span class="keyword">void</span> <span class="title">setup</span>() {
 
-  int unit = 150;
+  <span class="built_in">int</span> unit = <span class="number">150</span>;
 
-  // 3:2
-  size(unit * 3, unit * 2);
+  <span class="comment">// 3:2</span>
+  <span class="built_in">size</span>(unit * <span class="number">3</span>, unit * <span class="number">2</span>);
 
-  noLoop();
+  <span class="built_in">noLoop</span>();
 
-  smooth();
+  <span class="built_in">smooth</span>();
 }
 
-void draw() {
+<span class="keyword">void</span> <span class="title">draw</span>() {
 
-  noStroke();
+  <span class="built_in">noStroke</span>();
 
-  // white
-  background(255);
+  <span class="comment">// white</span>
+  <span class="built_in">background</span>(<span class="number">255</span>);
 
-  // center
-  translate(width / 2, height / 2);  
-  float t = atan2(height, width);
-  rotate(t);  
-  scale(0.5);
+  <span class="comment">// center</span>
+  <span class="built_in">translate</span>(<span class="built_in">width</span> / <span class="number">2</span>, <span class="built_in">height</span> / <span class="number">2</span>);  
+  <span class="built_in">float</span> t = <span class="built_in">atan2</span>(<span class="built_in">height</span>, <span class="built_in">width</span>);
+  <span class="built_in">rotate</span>(t);  
+  <span class="built_in">scale</span>(<span class="number">0.5</span>);
 
-  // north
-  fill(255, 0, 0);  
-  arc(0, 0, height, height, PI, PI * 2);
+  <span class="comment">// north</span>
+  <span class="built_in">fill</span>(<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>);  
+  <span class="built_in">arc</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="built_in">height</span>, <span class="built_in">height</span>, <span class="literal">PI</span>, <span class="literal">PI</span> * <span class="number">2</span>);
 
-  // south
-  fill(0, 0, 255);  
-  arc(0, 0, height, height, 0, PI);
+  <span class="comment">// south</span>
+  <span class="built_in">fill</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">255</span>);  
+  <span class="built_in">arc</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="built_in">height</span>, <span class="built_in">height</span>, <span class="number">0</span>, <span class="literal">PI</span>);
 
-  scale(0.5);
+  <span class="built_in">scale</span>(<span class="number">0.5</span>);
 
-  pushMatrix();
-  translate(-height / 2, 0);  
-  fill(255, 0, 0);
-  ellipse(0, 0, height, height);    
-  popMatrix();
+  <span class="built_in">pushMatrix</span>();
+  <span class="built_in">translate</span>(-<span class="built_in">height</span> / <span class="number">2</span>, <span class="number">0</span>);  
+  <span class="built_in">fill</span>(<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>);
+  <span class="built_in">ellipse</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="built_in">height</span>, <span class="built_in">height</span>);    
+  <span class="built_in">popMatrix</span>();
 
-  pushMatrix();
-  translate(height / 2, 0);  
-  fill(0, 0, 255);
-  ellipse(0, 0, height, height);  
-  popMatrix();  
+  <span class="built_in">pushMatrix</span>();
+  <span class="built_in">translate</span>(<span class="built_in">height</span> / <span class="number">2</span>, <span class="number">0</span>);  
+  <span class="built_in">fill</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">255</span>);
+  <span class="built_in">ellipse</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="built_in">height</span>, <span class="built_in">height</span>);  
+  <span class="built_in">popMatrix</span>();  
 }
 </code></pre>
+
         
         </div>
         <footer class="article-footer">
@@ -1116,7 +1117,7 @@ void draw() {
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2013/07/20/태극-마크/" data-id="cj1j3ko3i00fomuzykvmkafsg" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2013/07/20/태극-마크/" data-id="cj1ko9ome00fkyuzyooyukabi" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1252,7 +1253,7 @@ void draw() {
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2013/07/12/notting-hill/" data-id="cj1j3kny90064muzystxtrxbm" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2013/07/12/notting-hill/" data-id="cj1ko9oh90064yuzydxwelgg3" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1388,7 +1389,7 @@ void draw() {
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2013/06/24/미인도/" data-id="cj1j3ko1700blmuzysjklhpkr" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2013/06/24/미인도/" data-id="cj1ko9ok300blyuzyyi0pu7wk" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1531,7 +1532,7 @@ void draw() {
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2013/06/23/copying-arrays-in-java-6-2/" data-id="cj1j3knw5002vmuzy5xwwudyd" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2013/06/23/copying-arrays-in-java-6-2/" data-id="cj1ko9of8002vyuzy5tyjkc6i" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1887,7 +1888,7 @@ void breakLine(int x0, int y0, int x1, int y1){
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2013/06/20/moon-night/" data-id="cj1j3kny6005wmuzymihic4sm" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2013/06/20/moon-night/" data-id="cj1ko9oh70060yuzym3fj6cdz" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -2035,7 +2036,7 @@ void breakLine(int x0, int y0, int x1, int y1){
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2013/06/20/copying-arrays-in-java-6-1/" data-id="cj1j3knw2002rmuzykpyjukzx" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2013/06/20/copying-arrays-in-java-6-1/" data-id="cj1ko9of6002ryuzyqdhjhghi" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -2129,9 +2130,9 @@ void breakLine(int x0, int y0, int x1, int y1){
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2017/04/09/hello-world/" class="title">Hello World</a></p>
-                            <p class="item-date"><time datetime="2017-04-08T17:15:07.522Z" itemprop="datePublished">2017-04-09</time></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2017/04/16/hello-world/" class="title">Hello World</a></p>
+                            <p class="item-date"><time datetime="2017-04-16T10:09:07.660Z" itemprop="datePublished">2017-04-16</time></p>
                         </div>
                     </li>
                 
@@ -2165,8 +2166,8 @@ void breakLine(int x0, int y0, int x1, int y1){
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
-                            <p class="item-title"><a href="/2015/06/08/후위-표현식/" class="title">후위-표현식</a></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Algorithm/">Algorithm</a></p>
+                            <p class="item-title"><a href="/2015/06/08/후위-표현식/" class="title">후위 표현식</a></p>
                             <p class="item-date"><time datetime="2015-06-07T15:34:00.000Z" itemprop="datePublished">2015-06-08</time></p>
                         </div>
                     </li>
@@ -2180,7 +2181,7 @@ void breakLine(int x0, int y0, int x1, int y1){
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">117</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Algorithm/">Algorithm</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ceylon/">Ceylon</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeScript/">CoffeScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeeScript/">CoffeeScript</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Design-Pattern/">Design Pattern</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Eclipse/">Eclipse</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Java/">Java</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/LibGDX/">LibGDX</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/OpenGL/">OpenGL</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/PlayN/">PlayN</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Processing/">Processing</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Rust/">Rust</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ubuntu/">Ubuntu</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ukulele/">Ukulele</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">118</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Algorithm/">Algorithm</a><span class="category-list-count">27</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ceylon/">Ceylon</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeScript/">CoffeScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeeScript/">CoffeeScript</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Design-Pattern/">Design Pattern</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Eclipse/">Eclipse</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Java/">Java</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/LibGDX/">LibGDX</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/OpenGL/">OpenGL</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/PlayN/">PlayN</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Processing/">Processing</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Rust/">Rust</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ubuntu/">Ubuntu</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ukulele/">Ukulele</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 

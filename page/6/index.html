@@ -207,7 +207,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2014/05/11/제4회-대학생-프로그래밍-경시대회-문제-a-점수-집계/">제4회-대학생-프로그래밍-경시대회-문제-a-점수-집계</a>
+            <a class="article-title" href="/2014/05/11/제4회-대학생-프로그래밍-경시대회-문제-a-점수-집계/">제4회 대학생 프로그래밍 경시대회 문제 A 점수 집계</a>
         </h1>
     
 
@@ -225,7 +225,7 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Algorithm/">Algorithm</a>
     </div>
 
                         
@@ -242,45 +242,8 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h2 id="소스코드"><a href="#소스코드" class="headerlink" title="소스코드"></a>소스코드</h2><pre><code>import java.util.Arrays;
-import java.util.Scanner;
-
-public class Score {
-    private static final int NUM_REFEREE = 5;    // 심판의 수
-    private static final int MAX_GAP = 4;    // 최고점과 최저점의 차이
-
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-
-        int T = scan.nextInt();    // 테스트 케이스 개수
-
-        int[] N = new int[NUM_REFEREE];    // 다섯 심판이 준 점수
-
-        for(int i = 0; i &lt; T; i++) {
-            for(int j = 0; j &lt; N.length; j++) {
-                N[j] = scan.nextInt();               
-            }
-
-            process(N);
-        }
-    }
-
-    public static void process(int[] n) {
-        // 정렬한다.
-        Arrays.sort(n);
-
-        // 최고점과 최저점을 제외한다.
-        // 나머지 최고점과 최저점의 차이가 4점 이상 나면 KIN을 출력하고
-        // 아니면 총점을 출력한다.
-        if(Math.abs(n[1] - n[3]) &gt;= MAX_GAP) {
-            System.out.println(&quot;KIN&quot;);
-        }
-        else {
-            System.out.println(n[1] + n[2] + n[3]);
-        }
-    }
-}
-</code></pre><h2 id="주절주절"><a href="#주절주절" class="headerlink" title="주절주절"></a>주절주절</h2><p>최소값과 최대값은 정렬을 하면 쉽게 구할 수 있다. 다행히 자바에서는 정렬 라이브러리가 있기에 쉽게 풀 수 있었다.</p>
+            <h2 id="소스코드"><a href="#소스코드" class="headerlink" title="소스코드"></a>소스코드</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.Arrays;</div><div class="line"><span class="keyword">import</span> java.util.Scanner;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Score</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> NUM_REFEREE = <span class="number">5</span>;    <span class="comment">// 심판의 수</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> MAX_GAP = <span class="number">4</span>;    <span class="comment">// 최고점과 최저점의 차이</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        Scanner scan = <span class="keyword">new</span> Scanner(System.in);</div><div class="line"></div><div class="line">        <span class="keyword">int</span> T = scan.nextInt();    <span class="comment">// 테스트 케이스 개수</span></div><div class="line"></div><div class="line">        <span class="keyword">int</span>[] N = <span class="keyword">new</span> <span class="keyword">int</span>[NUM_REFEREE];    <span class="comment">// 다섯 심판이 준 점수</span></div><div class="line"></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; T; i++) &#123;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; N.length; j++) &#123;</div><div class="line">                N[j] = scan.nextInt();               </div><div class="line">            &#125;</div><div class="line"></div><div class="line">            process(N);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">process</span><span class="params">(<span class="keyword">int</span>[] n)</span> </span>&#123;</div><div class="line">        <span class="comment">// 정렬한다.</span></div><div class="line">        Arrays.sort(n);</div><div class="line"></div><div class="line">        <span class="comment">// 최고점과 최저점을 제외한다.</span></div><div class="line">        <span class="comment">// 나머지 최고점과 최저점의 차이가 4점 이상 나면 KIN을 출력하고</span></div><div class="line">        <span class="comment">// 아니면 총점을 출력한다.</span></div><div class="line">        <span class="keyword">if</span>(Math.abs(n[<span class="number">1</span>] - n[<span class="number">3</span>]) &gt;= MAX_GAP) &#123;</div><div class="line">            System.out.println(<span class="string">"KIN"</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> &#123;</div><div class="line">            System.out.println(n[<span class="number">1</span>] + n[<span class="number">2</span>] + n[<span class="number">3</span>]);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="주절주절"><a href="#주절주절" class="headerlink" title="주절주절"></a>주절주절</h2><p>최소값과 최대값은 정렬을 하면 쉽게 구할 수 있다. 다행히 자바에서는 정렬 라이브러리가 있기에 쉽게 풀 수 있었다.</p>
 
         
         </div>
@@ -291,7 +254,7 @@ public class Score {
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/05/11/제4회-대학생-프로그래밍-경시대회-문제-a-점수-집계/" data-id="cj1j3ko2l00e1muzywm64vv6h" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/05/11/제4회-대학생-프로그래밍-경시대회-문제-a-점수-집계/" data-id="cj1ko9olm00e4yuzymzwcomqz" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -377,7 +340,7 @@ public class Score {
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2014/05/11/제9회-대학생-프로그래밍-경시대회-문제-e-maze/">제9회-대학생-프로그래밍-경시대회-문제-e-maze</a>
+            <a class="article-title" href="/2014/05/11/제9회-대학생-프로그래밍-경시대회-문제-e-maze/">제9회 대학생 프로그래밍 경시대회 문제 E Maze</a>
         </h1>
     
 
@@ -395,7 +358,7 @@ public class Score {
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Algorithm/">Algorithm</a>
     </div>
 
                         
@@ -412,156 +375,8 @@ public class Score {
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h2 id="소스코드"><a href="#소스코드" class="headerlink" title="소스코드"></a>소스코드</h2><pre><code>#include &lt;iostream&gt;
-#include &lt;cmath&gt;
-
-using namespace std;
-
-char** maze;    // 미로
-int** usedEnergyMaze;    // 에너지 사용량
-int M, N;    // 행, 열
-
-// 재귀적으로 미로 전 영역의 에너지 사용량을 기록한다.
-void GetUsedEnergy(int row, int col, int energy)
-{
-    // 미로 밖으로 벗어난 경우
-    if(row &lt; 0 || col &lt; 0 || row &gt;= M || col &gt;= N)
-    {
-        return;
-    }
-
-    // 벽을 만나면 에너지 사용량을 증가시킨다.
-    if(maze[row][col] == &apos;*&apos;)
-    {
-        energy++;
-    }
-
-    // 알려진 에너지 사용량보다 적으면 갱신한다.
-    if(energy &lt; usedEnergyMaze[row][col])
-    {
-        usedEnergyMaze[row][col] = energy;
-    }
-    else
-    {
-        return;
-    }
-
-    // 네 방향으로 반복해서 탐색한다.
-    GetUsedEnergy(row - 1, col, energy);
-    GetUsedEnergy(row + 1, col, energy);
-    GetUsedEnergy(row, col - 1, energy);
-    GetUsedEnergy(row, col + 1, energy);
-}
-
-// 해당 에너지량으로 로봇을 구출할 수 있을지 판단한다.
-bool canRescue(int energy)
-{
-    // 출발 위치를 구한다.
-    int row, col;
-
-    for(int i = 0; i &lt; M; i++)
-    {
-        for(int j = 0; j &lt; N; j++)
-        {
-            if(maze[i][j] == &apos;S&apos;)
-            {
-                row = i;
-                col = j;
-            }
-        }
-    }
-
-    // 미로 전 영역의 에너지 사용량을 구한다.
-    GetUsedEnergy(row, col, 0);
-
-    // 도착 위치까지의 에너지 사용량이 로봇의 에너지보다 작은지 판단한다.
-    for(int i = 0; i &lt; M; i++)
-    {
-        for(int j = 0; j &lt; N; j++)
-        {
-            if(maze[i][j] == &apos;T&apos;)
-            {
-                if(usedEnergyMaze[i][j] &lt;= energy)
-                {
-                    return true;
-                }
-            }
-        }
-    }
-    return false;
-}
-
-int main()
-{
-    int T;    // 테스트 케이스의 개수
-    cin &gt;&gt; T;
-
-    for(int i = 0; i &lt; T; i++)
-    {
-        int k;    // 로봇의 충전된 에너지
-        cin &gt;&gt; k;
-
-        cin &gt;&gt; M &gt;&gt; N;
-
-        // 미로를 초기화한다.
-        maze = new char*[M];
-        for(int j = 0; j &lt; M; j++)
-        {
-            maze[j] = new char[N];
-        }
-
-        for(int j = 0; j &lt; M; j++)
-        {
-            for(int k = 0; k &lt; N; k++)
-            {
-                cin &gt;&gt; maze[j][k];
-            }
-        }
-
-        // 에너지 사용량을 초기화한다.
-        usedEnergyMaze = new int*[M];
-        for(int j = 0; j &lt; M; j++)
-        {
-            usedEnergyMaze[j] = new int[N];
-        }
-
-        int intMax = pow(2, 31) - 1;    // 정수의 최대값
-
-        for(int j = 0; j &lt; M; j++)
-        {
-            for(int k = 0; k &lt; N; k++)
-            {
-                usedEnergyMaze[j][k] = intMax;
-            }
-        }
-
-        // 로봇을 구하면 y를 구하고, 아니면 n을 구한다
-        if(canRescue(k))
-        {
-            cout &lt;&lt; &apos;y&apos; &lt;&lt; endl;
-        }
-        else
-        {
-            cout &lt;&lt; &apos;n&apos; &lt;&lt; endl;
-        }
-
-        // 메모리를 해제한다.
-        for(int j = 0; j &lt; M; j++)
-        {
-            delete[] usedEnergyMaze[j];
-        }
-        delete[] usedEnergyMaze;
-
-        for(int j = 0; j &lt; M; j++)
-        {
-            delete[] maze[j];
-        }
-        delete[] maze;
-    }
-
-    return 0;
-}
-</code></pre><h2 id="주절주절"><a href="#주절주절" class="headerlink" title="주절주절"></a>주절주절</h2><p>재귀적인 탐색 문제이다. 4방향으로 탐색하며 각 셀마다 이동하는데 사용되는 최소 에너지량을 구한다. 이미 방문한 셀이라도 더 적은 에너지로 갈 수 있으면 이동해야 한다.</p>
+            <h2 id="소스코드"><a href="#소스코드" class="headerlink" title="소스코드"></a>소스코드</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">char</span>** maze;    <span class="comment">// 미로</span></div><div class="line"><span class="keyword">int</span>** usedEnergyMaze;    <span class="comment">// 에너지 사용량</span></div><div class="line"><span class="keyword">int</span> M, N;    <span class="comment">// 행, 열</span></div><div class="line"></div><div class="line"><span class="comment">// 재귀적으로 미로 전 영역의 에너지 사용량을 기록한다.</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">GetUsedEnergy</span><span class="params">(<span class="keyword">int</span> row, <span class="keyword">int</span> col, <span class="keyword">int</span> energy)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="comment">// 미로 밖으로 벗어난 경우</span></div><div class="line">    <span class="keyword">if</span>(row &lt; <span class="number">0</span> || col &lt; <span class="number">0</span> || row &gt;= M || col &gt;= N)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 벽을 만나면 에너지 사용량을 증가시킨다.</span></div><div class="line">    <span class="keyword">if</span>(maze[row][col] == <span class="string">'*'</span>)</div><div class="line">    &#123;</div><div class="line">        energy++;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 알려진 에너지 사용량보다 적으면 갱신한다.</span></div><div class="line">    <span class="keyword">if</span>(energy &lt; usedEnergyMaze[row][col])</div><div class="line">    &#123;</div><div class="line">        usedEnergyMaze[row][col] = energy;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 네 방향으로 반복해서 탐색한다.</span></div><div class="line">    GetUsedEnergy(row - <span class="number">1</span>, col, energy);</div><div class="line">    GetUsedEnergy(row + <span class="number">1</span>, col, energy);</div><div class="line">    GetUsedEnergy(row, col - <span class="number">1</span>, energy);</div><div class="line">    GetUsedEnergy(row, col + <span class="number">1</span>, energy);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 해당 에너지량으로 로봇을 구출할 수 있을지 판단한다.</span></div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">canRescue</span><span class="params">(<span class="keyword">int</span> energy)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="comment">// 출발 위치를 구한다.</span></div><div class="line">    <span class="keyword">int</span> row, col;</div><div class="line"></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; M; i++)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; N; j++)</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">if</span>(maze[i][j] == <span class="string">'S'</span>)</div><div class="line">            &#123;</div><div class="line">                row = i;</div><div class="line">                col = j;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 미로 전 영역의 에너지 사용량을 구한다.</span></div><div class="line">    GetUsedEnergy(row, col, <span class="number">0</span>);</div><div class="line"></div><div class="line">    <span class="comment">// 도착 위치까지의 에너지 사용량이 로봇의 에너지보다 작은지 판단한다.</span></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; M; i++)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; N; j++)</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">if</span>(maze[i][j] == <span class="string">'T'</span>)</div><div class="line">            &#123;</div><div class="line">                <span class="keyword">if</span>(usedEnergyMaze[i][j] &lt;= energy)</div><div class="line">                &#123;</div><div class="line">                    <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> T;    <span class="comment">// 테스트 케이스의 개수</span></div><div class="line">    <span class="built_in">cin</span> &gt;&gt; T;</div><div class="line"></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; T; i++)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">int</span> k;    <span class="comment">// 로봇의 충전된 에너지</span></div><div class="line">        <span class="built_in">cin</span> &gt;&gt; k;</div><div class="line"></div><div class="line">        <span class="built_in">cin</span> &gt;&gt; M &gt;&gt; N;</div><div class="line"></div><div class="line">        <span class="comment">// 미로를 초기화한다.</span></div><div class="line">        maze = <span class="keyword">new</span> <span class="keyword">char</span>*[M];</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; M; j++)</div><div class="line">        &#123;</div><div class="line">            maze[j] = <span class="keyword">new</span> <span class="keyword">char</span>[N];</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; M; j++)</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; N; k++)</div><div class="line">            &#123;</div><div class="line">                <span class="built_in">cin</span> &gt;&gt; maze[j][k];</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// 에너지 사용량을 초기화한다.</span></div><div class="line">        usedEnergyMaze = <span class="keyword">new</span> <span class="keyword">int</span>*[M];</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; M; j++)</div><div class="line">        &#123;</div><div class="line">            usedEnergyMaze[j] = <span class="keyword">new</span> <span class="keyword">int</span>[N];</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> intMax = <span class="built_in">pow</span>(<span class="number">2</span>, <span class="number">31</span>) - <span class="number">1</span>;    <span class="comment">// 정수의 최대값</span></div><div class="line"></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; M; j++)</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; N; k++)</div><div class="line">            &#123;</div><div class="line">                usedEnergyMaze[j][k] = intMax;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// 로봇을 구하면 y를 구하고, 아니면 n을 구한다</span></div><div class="line">        <span class="keyword">if</span>(canRescue(k))</div><div class="line">        &#123;</div><div class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">'y'</span> &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span></div><div class="line">        &#123;</div><div class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">'n'</span> &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// 메모리를 해제한다.</span></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; M; j++)</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">delete</span>[] usedEnergyMaze[j];</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">delete</span>[] usedEnergyMaze;</div><div class="line"></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; M; j++)</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">delete</span>[] maze[j];</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">delete</span>[] maze;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="주절주절"><a href="#주절주절" class="headerlink" title="주절주절"></a>주절주절</h2><p>재귀적인 탐색 문제이다. 4방향으로 탐색하며 각 셀마다 이동하는데 사용되는 최소 에너지량을 구한다. 이미 방문한 셀이라도 더 적은 에너지로 갈 수 있으면 이동해야 한다.</p>
 
         
         </div>
@@ -572,7 +387,7 @@ int main()
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/05/11/제9회-대학생-프로그래밍-경시대회-문제-e-maze/" data-id="cj1j3ko3100esmuzyputqnjpr" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/05/11/제9회-대학생-프로그래밍-경시대회-문제-e-maze/" data-id="cj1ko9oly00epyuzy27mma5de" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -658,7 +473,7 @@ int main()
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2014/05/11/제9회-대학생-프로그래밍-경시대회-문제-d-노선도/">제9회-대학생-프로그래밍-경시대회-문제-d-노선도</a>
+            <a class="article-title" href="/2014/05/11/제9회-대학생-프로그래밍-경시대회-문제-d-노선도/">제9회 대학생 프로그래밍 경시대회 문제 D 노선도</a>
         </h1>
     
 
@@ -676,7 +491,7 @@ int main()
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Algorithm/">Algorithm</a>
     </div>
 
                         
@@ -693,63 +508,8 @@ int main()
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h2 id="Source-Code"><a href="#Source-Code" class="headerlink" title="Source Code"></a>Source Code</h2><pre><code>#include &lt;iostream&gt;
-
-using namespace std;
-
-struct Station
-{
-    int x;
-    int r;
-};
-
-bool IsGoodLine(Station* stations, int len)
-{
-    for(int j = 1; j &lt; len - 1; j++)
-    {
-        int width = stations[j+1].x - stations[j-1].x;
-
-        if(stations[j].r &gt; width)
-        {
-            return false;
-        }
-    }
-
-    return true;
-}
-
-int main()
-{
-    int T;  // 테스트 케이스의 개수
-    cin &gt;&gt; T;
-
-    for(int i = 0; i &lt; T; i++)
-    {
-        int N;
-        cin &gt;&gt; N;
-
-        Station* stations = new Station[N];
-
-        for(int j = 0; j &lt; N; j++)
-        {
-            cin &gt;&gt; stations[j].x &gt;&gt; stations[j].r;
-        }
-
-        if(IsGoodLine(stations, N))
-        {
-            cout &lt;&lt; &quot;YES&quot; &lt;&lt; endl;
-        }
-        else
-        {
-            cout &lt;&lt; &quot;NO&quot; &lt;&lt; endl;
-        }
-
-        delete[] stations;
-    }
-
-    return 0;
-}
-</code></pre><h2 id="Comment"><a href="#Comment" class="headerlink" title="Comment"></a>Comment</h2><p>생각보다 간단한 문제였네요.</p>
+            <h2 id="Source-Code"><a href="#Source-Code" class="headerlink" title="Source Code"></a>Source Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">struct</span> Station</div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> x;</div><div class="line">    <span class="keyword">int</span> r;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">IsGoodLine</span><span class="params">(Station* stations, <span class="keyword">int</span> len)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; len - <span class="number">1</span>; j++)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">int</span> width = stations[j+<span class="number">1</span>].x - stations[j<span class="number">-1</span>].x;</div><div class="line"></div><div class="line">        <span class="keyword">if</span>(stations[j].r &gt; width)</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> T;  <span class="comment">// 테스트 케이스의 개수</span></div><div class="line">    <span class="built_in">cin</span> &gt;&gt; T;</div><div class="line"></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; T; i++)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">int</span> N;</div><div class="line">        <span class="built_in">cin</span> &gt;&gt; N;</div><div class="line"></div><div class="line">        Station* stations = <span class="keyword">new</span> Station[N];</div><div class="line"></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; N; j++)</div><div class="line">        &#123;</div><div class="line">            <span class="built_in">cin</span> &gt;&gt; stations[j].x &gt;&gt; stations[j].r;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">if</span>(IsGoodLine(stations, N))</div><div class="line">        &#123;</div><div class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">"YES"</span> &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span></div><div class="line">        &#123;</div><div class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">"NO"</span> &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">delete</span>[] stations;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Comment"><a href="#Comment" class="headerlink" title="Comment"></a>Comment</h2><p>생각보다 간단한 문제였네요.</p>
 <p>키포인트는 해당 역의 이름표의 길이가 주변 역과의 거리보다 길면 안된다는 사실&hellip;</p>
 
         
@@ -761,7 +521,7 @@ int main()
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/05/11/제9회-대학생-프로그래밍-경시대회-문제-d-노선도/" data-id="cj1j3ko2u00eimuzyfds1me1g" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/05/11/제9회-대학생-프로그래밍-경시대회-문제-d-노선도/" data-id="cj1ko9olw00elyuzyls03lvg7" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -847,7 +607,7 @@ int main()
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2014/05/09/제3회-대학생-프로그래밍-경시대회-문제-a-수-뒤집기/">제3회-대학생-프로그래밍-경시대회-문제-a-수-뒤집기</a>
+            <a class="article-title" href="/2014/05/09/제3회-대학생-프로그래밍-경시대회-문제-a-수-뒤집기/">제3회 대학생 프로그래밍 경시대회 문제 A 수 뒤집기</a>
         </h1>
     
 
@@ -865,7 +625,7 @@ int main()
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Algorithm/">Algorithm</a>
     </div>
 
                         
@@ -882,61 +642,8 @@ int main()
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h2 id="소스코드"><a href="#소스코드" class="headerlink" title="소스코드"></a>소스코드</h2><pre><code>import java.util.Scanner;
-
-public class Reverse {
-    public static void main(String[] args) {
-
-        Scanner scan = new Scanner(System.in);
-
-        int T = scan.nextInt();// 테스트 케이스 개수
-
-        for(int i = 0; i &lt; T; i++) {
-            int N = scan.nextInt();// 정수
-
-            process(N);
-        }
-    }
-
-    public static void process(int n) {
-
-        // 원래 수와 뒤집은 수를 합한다.
-        int sum = n + reverse(n);
-
-        // 합한 수를 뒤집어 비교한다.
-        if(sum == reverse(sum)) {
-            System.out.println(&quot;YES&quot;);
-        } else {
-            System.out.println(&quot;NO&quot;);
-        }
-    }
-
-    /**
-    * 수를 뒤집는다. ex) 123 -&gt; 321
-    * 
-    * @param num 뒤집을 수
-    * @return 뒤집힌 수
-    */
-    public static int reverse(int num) {
-
-        int ret = 0;
-
-        while(num &gt; 0) {
-
-            // 기존 숫자를 왼쪽 시프트 한다.
-            ret *= 10;
-
-            // 마지막 한자리를 떼어낸다.
-            double temp = num % 10;
-            num /= 10;
-
-            ret += temp;
-        }
-
-        return ret;
-    }
-}
-</code></pre><h2 id="주절주절"><a href="#주절주절" class="headerlink" title="주절주절"></a>주절주절</h2><p>Palindrome(회문: 뒤집어도 같은 단어(ex: 별똥별)) 문제이다. 숫자를 문자열로 바꾸어서 처리해도 되지만, 문자로 바꾸지 않고 바로 뒤집어 보았다.</p>
+            <h2 id="소스코드"><a href="#소스코드" class="headerlink" title="소스코드"></a>소스코드</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.Scanner;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Reverse</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line"></div><div class="line">        Scanner scan = <span class="keyword">new</span> Scanner(System.in);</div><div class="line"></div><div class="line">        <span class="keyword">int</span> T = scan.nextInt();<span class="comment">// 테스트 케이스 개수</span></div><div class="line"></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; T; i++) &#123;</div><div class="line">            <span class="keyword">int</span> N = scan.nextInt();<span class="comment">// 정수</span></div><div class="line"></div><div class="line">            process(N);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">process</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="comment">// 원래 수와 뒤집은 수를 합한다.</span></div><div class="line">        <span class="keyword">int</span> sum = n + reverse(n);</div><div class="line"></div><div class="line">        <span class="comment">// 합한 수를 뒤집어 비교한다.</span></div><div class="line">        <span class="keyword">if</span>(sum == reverse(sum)) &#123;</div><div class="line">            System.out.println(<span class="string">"YES"</span>);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            System.out.println(<span class="string">"NO"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">    * 수를 뒤집는다. ex) 123 -&gt; 321</div><div class="line">    * </div><div class="line">    * <span class="doctag">@param</span> num 뒤집을 수</div><div class="line">    * <span class="doctag">@return</span> 뒤집힌 수</div><div class="line">    */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> ret = <span class="number">0</span>;</div><div class="line"></div><div class="line">        <span class="keyword">while</span>(num &gt; <span class="number">0</span>) &#123;</div><div class="line"></div><div class="line">            <span class="comment">// 기존 숫자를 왼쪽 시프트 한다.</span></div><div class="line">            ret *= <span class="number">10</span>;</div><div class="line"></div><div class="line">            <span class="comment">// 마지막 한자리를 떼어낸다.</span></div><div class="line">            <span class="keyword">double</span> temp = num % <span class="number">10</span>;</div><div class="line">            num /= <span class="number">10</span>;</div><div class="line"></div><div class="line">            ret += temp;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> ret;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="주절주절"><a href="#주절주절" class="headerlink" title="주절주절"></a>주절주절</h2><p>Palindrome(회문: 뒤집어도 같은 단어(ex: 별똥별)) 문제이다. 숫자를 문자열로 바꾸어서 처리해도 되지만, 문자로 바꾸지 않고 바로 뒤집어 보았다.</p>
 
         
         </div>
@@ -947,7 +654,7 @@ public class Reverse {
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/05/09/제3회-대학생-프로그래밍-경시대회-문제-a-수-뒤집기/" data-id="cj1j3ko2j00dxmuzyxlszdrtb" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/05/09/제3회-대학생-프로그래밍-경시대회-문제-a-수-뒤집기/" data-id="cj1ko9olk00e1yuzy37pw6e5q" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1033,7 +740,7 @@ public class Reverse {
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2014/05/09/제2회-대학생-프로그래밍-온라인대회-문제-a-게시판/">제2회-대학생-프로그래밍-온라인대회-문제-a-게시판</a>
+            <a class="article-title" href="/2014/05/09/제2회-대학생-프로그래밍-온라인대회-문제-a-게시판/">제2회 대학생 프로그래밍 온라인대회 문제 A 게시판</a>
         </h1>
     
 
@@ -1051,7 +758,7 @@ public class Reverse {
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Algorithm/">Algorithm</a>
     </div>
 
                         
@@ -1068,47 +775,8 @@ public class Reverse {
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h2 id="소스코드"><a href="#소스코드" class="headerlink" title="소스코드"></a>소스코드</h2><pre><code>import java.util.Scanner;
-
-public class Board {
-    public static void main(String[] args) {       
-        Scanner scan = new Scanner(System.in);
-
-        int T = scan.nextInt();    // 테스트 케이스의 개수
-
-        for(int i = 0; i &lt; T; i++) {
-            int x1 = scan.nextInt();
-            int y1 = scan.nextInt();
-            int x2 = scan.nextInt();
-            int y2 = scan.nextInt();
-            int x3 = scan.nextInt();
-            int y3 = scan.nextInt();
-            int x4 = scan.nextInt();
-            int y4 = scan.nextInt();
-
-            process(x1, y1, x2, y2, x3, y3, x4, y4);           
-        }      
-    }
-
-    public static void process(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4) {
-        int maxX = Math.max(x1, x3);
-        //int maxX = x1 &gt; x3 ? x1 : x3;
-
-        int maxY = Math.max(y1, y3);
-        //int maxY = y1 &gt; y3 ? y1 : y3;
-
-        int minX = Math.min(x2, x4);       
-        // int minX = x2 &lt; x4 ? x2 : x4;
-
-        int minY = Math.min(y2, y4);       
-        //int minY = y2 &lt; y4 ? y2 : y4;
-
-        int area = (x2 - x1) * (y2 - y1) - (minX - maxX) * (minY - maxY);
-
-        System.out.println(area);
-    }
-}
-</code></pre><h2 id="주절주절"><a href="#주절주절" class="headerlink" title="주절주절"></a>주절주절</h2><p>간단한 기하 문제이다. 먼저 붙힌 포스터의 넓이를 구한뒤 나중에 붙힌 포스터와 겹치는 넓이를 빼주면 된다.</p>
+            <h2 id="소스코드"><a href="#소스코드" class="headerlink" title="소스코드"></a>소스코드</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.Scanner;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Board</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;       </div><div class="line">        Scanner scan = <span class="keyword">new</span> Scanner(System.in);</div><div class="line"></div><div class="line">        <span class="keyword">int</span> T = scan.nextInt();    <span class="comment">// 테스트 케이스의 개수</span></div><div class="line"></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; T; i++) &#123;</div><div class="line">            <span class="keyword">int</span> x1 = scan.nextInt();</div><div class="line">            <span class="keyword">int</span> y1 = scan.nextInt();</div><div class="line">            <span class="keyword">int</span> x2 = scan.nextInt();</div><div class="line">            <span class="keyword">int</span> y2 = scan.nextInt();</div><div class="line">            <span class="keyword">int</span> x3 = scan.nextInt();</div><div class="line">            <span class="keyword">int</span> y3 = scan.nextInt();</div><div class="line">            <span class="keyword">int</span> x4 = scan.nextInt();</div><div class="line">            <span class="keyword">int</span> y4 = scan.nextInt();</div><div class="line"></div><div class="line">            process(x1, y1, x2, y2, x3, y3, x4, y4);           </div><div class="line">        &#125;      </div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">process</span><span class="params">(<span class="keyword">int</span> x1, <span class="keyword">int</span> y1, <span class="keyword">int</span> x2, <span class="keyword">int</span> y2, <span class="keyword">int</span> x3, <span class="keyword">int</span> y3, <span class="keyword">int</span> x4, <span class="keyword">int</span> y4)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> maxX = Math.max(x1, x3);</div><div class="line">        <span class="comment">//int maxX = x1 &gt; x3 ? x1 : x3;</span></div><div class="line"></div><div class="line">        <span class="keyword">int</span> maxY = Math.max(y1, y3);</div><div class="line">        <span class="comment">//int maxY = y1 &gt; y3 ? y1 : y3;</span></div><div class="line"></div><div class="line">        <span class="keyword">int</span> minX = Math.min(x2, x4);       </div><div class="line">        <span class="comment">// int minX = x2 &lt; x4 ? x2 : x4;</span></div><div class="line"></div><div class="line">        <span class="keyword">int</span> minY = Math.min(y2, y4);       </div><div class="line">        <span class="comment">//int minY = y2 &lt; y4 ? y2 : y4;</span></div><div class="line"></div><div class="line">        <span class="keyword">int</span> area = (x2 - x1) * (y2 - y1) - (minX - maxX) * (minY - maxY);</div><div class="line"></div><div class="line">        System.out.println(area);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="주절주절"><a href="#주절주절" class="headerlink" title="주절주절"></a>주절주절</h2><p>간단한 기하 문제이다. 먼저 붙힌 포스터의 넓이를 구한뒤 나중에 붙힌 포스터와 겹치는 넓이를 빼주면 된다.</p>
 
         
         </div>
@@ -1119,7 +787,7 @@ public class Board {
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/05/09/제2회-대학생-프로그래밍-온라인대회-문제-a-게시판/" data-id="cj1j3ko2g00dqmuzyprqgxp9m" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/05/09/제2회-대학생-프로그래밍-온라인대회-문제-a-게시판/" data-id="cj1ko9olf00dqyuzyqsmp0x4y" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1252,7 +920,7 @@ public class Board {
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/05/06/acm-icpc-2000-asia-problem-a-car-racing/" data-id="cj1j3knuc000amuzylqzhazy6" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/05/06/acm-icpc-2000-asia-problem-a-car-racing/" data-id="cj1ko9odf000ayuzyv53odre5" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1385,7 +1053,7 @@ public class Board {
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/05/06/acm-icpc-2000-asia-practice-problem-b-cross-a/" data-id="cj1j3knub0009muzyydlqz1hb" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/05/06/acm-icpc-2000-asia-practice-problem-b-cross-a/" data-id="cj1ko9od90009yuzysscr9ksg" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1471,7 +1139,7 @@ public class Board {
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2014/05/02/제2회-대학생-프로그래밍-온라인대회-연습문제-b-테이블-정리/">제2회-대학생-프로그래밍-온라인대회-연습문제-b-테이블-정리</a>
+            <a class="article-title" href="/2014/05/02/제2회-대학생-프로그래밍-온라인대회-연습문제-b-테이블-정리/">제2회 대학생 프로그래밍 온라인대회 연습문제 B 테이블 정리</a>
         </h1>
     
 
@@ -1489,7 +1157,7 @@ public class Board {
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Algorithm/">Algorithm</a>
     </div>
 
                         
@@ -1506,66 +1174,8 @@ public class Board {
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h2 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h2><h2 id="소스코드"><a href="#소스코드" class="headerlink" title="소스코드"></a>소스코드</h2><pre><code>#include &lt;iostream&gt;
-
-using namespace std;
-
-int tables[4][4];    // 테이블 상태
-
-int Move(int, int);
-
-int main()
-{
-    int T;
-    cin &gt;&gt; T;    // 테스트 케이스의 개수
-
-    for(int i = 0; i &lt; T; i++)
-    {
-        int sum = 0;
-
-        for(int j = 0; j &lt; 4; j++)
-        {
-            for(int k = 0; k &lt; 4; k++)
-            {
-                cin &gt;&gt; tables[j][k];
-
-                sum += tables[j][k];
-            }
-        }
-
-        cout &lt;&lt; sum - Move(0, 0) &lt;&lt; endl;
-    }
-
-    return 0;
-}
-
-int Move(int col, int flag)
-{
-    if(col &gt;= 4)
-    {
-        return 0;
-    }
-
-    int max = 0;
-
-    for(int i = 0; i &lt; 4; i++)
-    {
-        if(flag &amp; (1 &lt;&lt; i))
-        {
-            continue;
-        }
-
-        int val = tables[i][col] + Move(col + 1, flag | (1 &lt;&lt; i));
-
-        if(val &gt; max)
-        {
-            max = val;
-        }
-    }
-
-    return max;
-}
-</code></pre><h2 id="코멘트"><a href="#코멘트" class="headerlink" title="코멘트"></a>코멘트</h2><p>실수로 배열에 행과 열을 반대로 저장해 푸는데 오래걸렸다. 가장 적게 이동한 인원을 찾는것과 전체 인원에서 이동안한 인원을 제외한 인원이 같기에 후자로 구하였다. 재귀적으로 백트래킹을 수행하였다.</p>
+            <h2 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h2><h2 id="소스코드"><a href="#소스코드" class="headerlink" title="소스코드"></a>소스코드</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">int</span> tables[<span class="number">4</span>][<span class="number">4</span>];    <span class="comment">// 테이블 상태</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">Move</span><span class="params">(<span class="keyword">int</span>, <span class="keyword">int</span>)</span></span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> T;</div><div class="line">    <span class="built_in">cin</span> &gt;&gt; T;    <span class="comment">// 테스트 케이스의 개수</span></div><div class="line"></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; T; i++)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</div><div class="line"></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">4</span>; j++)</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; <span class="number">4</span>; k++)</div><div class="line">            &#123;</div><div class="line">                <span class="built_in">cin</span> &gt;&gt; tables[j][k];</div><div class="line"></div><div class="line">                sum += tables[j][k];</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="built_in">cout</span> &lt;&lt; sum - Move(<span class="number">0</span>, <span class="number">0</span>) &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">Move</span><span class="params">(<span class="keyword">int</span> col, <span class="keyword">int</span> flag)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span>(col &gt;= <span class="number">4</span>)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">int</span> max = <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span>(flag &amp; (<span class="number">1</span> &lt;&lt; i))</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">continue</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> val = tables[i][col] + Move(col + <span class="number">1</span>, flag | (<span class="number">1</span> &lt;&lt; i));</div><div class="line"></div><div class="line">        <span class="keyword">if</span>(val &gt; max)</div><div class="line">        &#123;</div><div class="line">            max = val;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> max;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="코멘트"><a href="#코멘트" class="headerlink" title="코멘트"></a>코멘트</h2><p>실수로 배열에 행과 열을 반대로 저장해 푸는데 오래걸렸다. 가장 적게 이동한 인원을 찾는것과 전체 인원에서 이동안한 인원을 제외한 인원이 같기에 후자로 구하였다. 재귀적으로 백트래킹을 수행하였다.</p>
 
         
         </div>
@@ -1576,7 +1186,7 @@ int Move(int col, int flag)
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/05/02/제2회-대학생-프로그래밍-온라인대회-연습문제-b-테이블-정리/" data-id="cj1j3ko2m00e4muzym6d0khk8" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/05/02/제2회-대학생-프로그래밍-온라인대회-연습문제-b-테이블-정리/" data-id="cj1ko9oli00dxyuzyfaad5yuf" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1662,7 +1272,7 @@ int Move(int col, int flag)
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2014/05/02/제2회-대학생-프로그래밍-온라인대회-연습문제-a-소수-판정/">제2회-대학생-프로그래밍-온라인대회-연습문제-a-소수-판정</a>
+            <a class="article-title" href="/2014/05/02/제2회-대학생-프로그래밍-온라인대회-연습문제-a-소수-판정/">제2회 대학생 프로그래밍 온라인대회 연습문제 A 소수 판정</a>
         </h1>
     
 
@@ -1680,7 +1290,7 @@ int Move(int col, int flag)
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Algorithm/">Algorithm</a>
     </div>
 
                         
@@ -1697,47 +1307,8 @@ int Move(int col, int flag)
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h2 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h2><h2 id="소스-코드"><a href="#소스-코드" class="headerlink" title="소스 코드"></a>소스 코드</h2><pre><code>#include &lt;iostream&gt;
-#include &lt;cmath&gt;
-using namespace std;
-
-bool IsPrime(int);
-
-int main() {
-
-    int T;// 테스트 케이스 개수(1 &lt;= T &lt;= 10)
-    cin &gt;&gt; T;
-
-    for(int i = 0; i &lt; T; i++)
-    {
-        int N;// 소수인지 판정할 자연수(1 &lt;= N &lt;= 100,000,000)
-        cin &gt;&gt; N;
-
-        if(IsPrime(N))
-        {
-            cout &lt;&lt; &quot;YES&quot; &lt;&lt; endl;
-        }
-        else
-        {
-            cout &lt;&lt; &quot;NO&quot; &lt;&lt; endl;
-        }
-    }
-
-    return 0;
-}
-
-bool IsPrime(int n)
-{
-    for(int i = 2; i &lt; sqrt(n); i++)
-    {
-        if(n % i == 0)
-        {
-            return false;
-        }
-    }
-    return true;
-}
-</code></pre><h2 id="코멘트"><a href="#코멘트" class="headerlink" title="코멘트"></a>코멘트</h2><p>소수를 구하는 문제이다. 이 문제의 키 포인트는 제곱근 이상은 해볼 필요가 없다는 사실인것 같다.</p>
+            <h2 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h2><h2 id="소스-코드"><a href="#소스-코드" class="headerlink" title="소스 코드"></a>소스 코드</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">IsPrime</span><span class="params">(<span class="keyword">int</span>)</span></span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">int</span> T;<span class="comment">// 테스트 케이스 개수(1 &lt;= T &lt;= 10)</span></div><div class="line">    <span class="built_in">cin</span> &gt;&gt; T;</div><div class="line"></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; T; i++)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">int</span> N;<span class="comment">// 소수인지 판정할 자연수(1 &lt;= N &lt;= 100,000,000)</span></div><div class="line">        <span class="built_in">cin</span> &gt;&gt; N;</div><div class="line"></div><div class="line">        <span class="keyword">if</span>(IsPrime(N))</div><div class="line">        &#123;</div><div class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">"YES"</span> &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span></div><div class="line">        &#123;</div><div class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">"NO"</span> &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">IsPrime</span><span class="params">(<span class="keyword">int</span> n)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; <span class="built_in">sqrt</span>(n); i++)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span>(n % i == <span class="number">0</span>)</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="코멘트"><a href="#코멘트" class="headerlink" title="코멘트"></a>코멘트</h2><p>소수를 구하는 문제이다. 이 문제의 키 포인트는 제곱근 이상은 해볼 필요가 없다는 사실인것 같다.</p>
 
         
         </div>
@@ -1748,7 +1319,7 @@ bool IsPrime(int n)
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/05/02/제2회-대학생-프로그래밍-온라인대회-연습문제-a-소수-판정/" data-id="cj1j3ko2h00dumuzyg41fgwq7" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/05/02/제2회-대학생-프로그래밍-온라인대회-연습문제-a-소수-판정/" data-id="cj1ko9olh00duyuzyvzz57q8t" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1884,7 +1455,7 @@ bool IsPrime(int n)
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/04/30/visual-studio-에서-컴파일시-계속-프로세스-잡고-있는-문제-해결-방법/" data-id="cj1j3knzm0091muzy6ki9rz3d" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/04/30/visual-studio-에서-컴파일시-계속-프로세스-잡고-있는-문제-해결-방법/" data-id="cj1ko9oit009dyuzy83ep607b" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1978,9 +1549,9 @@ bool IsPrime(int n)
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2017/04/09/hello-world/" class="title">Hello World</a></p>
-                            <p class="item-date"><time datetime="2017-04-08T17:15:07.522Z" itemprop="datePublished">2017-04-09</time></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2017/04/16/hello-world/" class="title">Hello World</a></p>
+                            <p class="item-date"><time datetime="2017-04-16T10:09:07.660Z" itemprop="datePublished">2017-04-16</time></p>
                         </div>
                     </li>
                 
@@ -2014,8 +1585,8 @@ bool IsPrime(int n)
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
-                            <p class="item-title"><a href="/2015/06/08/후위-표현식/" class="title">후위-표현식</a></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Algorithm/">Algorithm</a></p>
+                            <p class="item-title"><a href="/2015/06/08/후위-표현식/" class="title">후위 표현식</a></p>
                             <p class="item-date"><time datetime="2015-06-07T15:34:00.000Z" itemprop="datePublished">2015-06-08</time></p>
                         </div>
                     </li>
@@ -2029,7 +1600,7 @@ bool IsPrime(int n)
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">117</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Algorithm/">Algorithm</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ceylon/">Ceylon</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeScript/">CoffeScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeeScript/">CoffeeScript</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Design-Pattern/">Design Pattern</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Eclipse/">Eclipse</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Java/">Java</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/LibGDX/">LibGDX</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/OpenGL/">OpenGL</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/PlayN/">PlayN</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Processing/">Processing</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Rust/">Rust</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ubuntu/">Ubuntu</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ukulele/">Ukulele</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">118</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Algorithm/">Algorithm</a><span class="category-list-count">27</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ceylon/">Ceylon</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeScript/">CoffeScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeeScript/">CoffeeScript</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Design-Pattern/">Design Pattern</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Eclipse/">Eclipse</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Java/">Java</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/LibGDX/">LibGDX</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/OpenGL/">OpenGL</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/PlayN/">PlayN</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Processing/">Processing</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Rust/">Rust</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ubuntu/">Ubuntu</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ukulele/">Ukulele</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 

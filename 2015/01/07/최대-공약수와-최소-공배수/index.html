@@ -3,19 +3,19 @@
 <head>
     <meta charset="utf-8">
     
-    <title>최대-공약수와-최소-공배수 | 사로자바의 블로그</title>
+    <title>최대 공약수와 최소 공배수 | 사로자바의 블로그</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="public class GCDLCM {     public static void main(String[] args) {         System.out.println(gcd(24, 18));         System.out.println(lcm(24, 18));     }      public static int gcd(int a, int b) {">
 <meta name="keywords" content="Programming,Algorithm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="최대-공약수와-최소-공배수">
+<meta property="og:title" content="최대 공약수와 최소 공배수">
 <meta property="og:url" content="http://sarojaba.github.io/2015/01/07/최대-공약수와-최소-공배수/index.html">
 <meta property="og:site_name" content="사로자바의 블로그">
 <meta property="og:description" content="public class GCDLCM {     public static void main(String[] args) {         System.out.println(gcd(24, 18));         System.out.println(lcm(24, 18));     }      public static int gcd(int a, int b) {">
 <meta property="og:image" content="http://68.media.tumblr.com/10a5739b83eaea8c48b227b4c5f60e13/tumblr_inline_nhrijmBsV31rubmdv.jpg">
-<meta property="og:updated_time" content="2017-04-13T11:50:41.963Z">
+<meta property="og:updated_time" content="2017-04-16T09:02:21.601Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="최대-공약수와-최소-공배수">
+<meta name="twitter:title" content="최대 공약수와 최소 공배수">
 <meta name="twitter:description" content="public class GCDLCM {     public static void main(String[] args) {         System.out.println(gcd(24, 18));         System.out.println(lcm(24, 18));     }      public static int gcd(int a, int b) {">
 <meta name="twitter:image" content="http://68.media.tumblr.com/10a5739b83eaea8c48b227b4c5f60e13/tumblr_inline_nhrijmBsV31rubmdv.jpg">
     
@@ -210,7 +210,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            최대-공약수와-최소-공배수
+            최대 공약수와 최소 공배수
         </h1>
     
 
@@ -228,7 +228,7 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Algorithm/">Algorithm</a>
     </div>
 
                         
@@ -246,38 +246,39 @@
         
             
             <p><img src="http://68.media.tumblr.com/10a5739b83eaea8c48b227b4c5f60e13/tumblr_inline_nhrijmBsV31rubmdv.jpg" alt=""></p>
-<pre><code>public class GCDLCM {
-    public static void main(String[] args) {
-        System.out.println(gcd(24, 18));
-        System.out.println(lcm(24, 18));
+<pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GCDLCM</span> </span>{
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{
+        System.out.println(gcd(<span class="number">24</span>, <span class="number">18</span>));
+        System.out.println(lcm(<span class="number">24</span>, <span class="number">18</span>));
     }
 
-    public static int gcd(int a, int b) {
-        int c = a % b;
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>{
+        <span class="keyword">int</span> c = a % b;
 
-        if (c == 0) {
-            return b;
+        <span class="keyword">if</span> (c == <span class="number">0</span>) {
+            <span class="keyword">return</span> b;
         }
 
-        return gcd(b, c);
+        <span class="keyword">return</span> gcd(b, c);
     }
 
-    public static int lcm(int a, int b) {
-        int m = a, n = b;
-        int i = 1, j = 1;
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">lcm</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>{
+        <span class="keyword">int</span> m = a, n = b;
+        <span class="keyword">int</span> i = <span class="number">1</span>, j = <span class="number">1</span>;
 
-        while (m != n) {
-            if (m &lt; n) {
+        <span class="keyword">while</span> (m != n) {
+            <span class="keyword">if</span> (m &lt; n) {
                 m = a * ++i;
-            } else {
+            } <span class="keyword">else</span> {
                 n = b * ++j;
             }
         }
 
-        return m;
+        <span class="keyword">return</span> m;
     }
 }
 </code></pre>
+
         
         </div>
         <footer class="article-footer">
@@ -287,7 +288,7 @@
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2015/01/07/최대-공약수와-최소-공배수/" data-id="cj1j3ko3b00famuzyffl0tirz" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2015/01/07/최대-공약수와-최소-공배수/" data-id="cj1ko9om700f6yuzytoca01dh" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -410,9 +411,9 @@
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2017/04/09/hello-world/" class="title">Hello World</a></p>
-                            <p class="item-date"><time datetime="2017-04-08T17:15:07.522Z" itemprop="datePublished">2017-04-09</time></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2017/04/16/hello-world/" class="title">Hello World</a></p>
+                            <p class="item-date"><time datetime="2017-04-16T10:09:07.660Z" itemprop="datePublished">2017-04-16</time></p>
                         </div>
                     </li>
                 
@@ -446,8 +447,8 @@
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
-                            <p class="item-title"><a href="/2015/06/08/후위-표현식/" class="title">후위-표현식</a></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Algorithm/">Algorithm</a></p>
+                            <p class="item-title"><a href="/2015/06/08/후위-표현식/" class="title">후위 표현식</a></p>
                             <p class="item-date"><time datetime="2015-06-07T15:34:00.000Z" itemprop="datePublished">2015-06-08</time></p>
                         </div>
                     </li>
@@ -461,7 +462,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">117</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Algorithm/">Algorithm</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ceylon/">Ceylon</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeScript/">CoffeScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeeScript/">CoffeeScript</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Design-Pattern/">Design Pattern</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Eclipse/">Eclipse</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Java/">Java</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/LibGDX/">LibGDX</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/OpenGL/">OpenGL</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/PlayN/">PlayN</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Processing/">Processing</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Rust/">Rust</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ubuntu/">Ubuntu</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ukulele/">Ukulele</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">118</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Algorithm/">Algorithm</a><span class="category-list-count">27</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ceylon/">Ceylon</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeScript/">CoffeScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeeScript/">CoffeeScript</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Design-Pattern/">Design Pattern</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Eclipse/">Eclipse</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Java/">Java</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/LibGDX/">LibGDX</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/OpenGL/">OpenGL</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/PlayN/">PlayN</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Processing/">Processing</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Rust/">Rust</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ubuntu/">Ubuntu</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ukulele/">Ukulele</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 

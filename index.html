@@ -207,7 +207,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2017/04/09/hello-world/">Hello World</a>
+            <a class="article-title" href="/2017/04/16/hello-world/">Hello World</a>
         </h1>
     
 
@@ -216,13 +216,18 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/04/09/hello-world/">
-            <time datetime="2017-04-08T17:15:07.522Z" itemprop="datePublished">2017-04-09</time>
+        <a href="/2017/04/16/hello-world/">
+            <time datetime="2017-04-16T10:09:07.660Z" itemprop="datePublished">2017-04-16</time>
         </a>
     </div>
 
 
                         
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+    </div>
+
                         
                     </div>
                 
@@ -251,7 +256,7 @@
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2017/04/09/hello-world/" data-id="cj1j3knxo004xmuzypoa1woop" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2017/04/16/hello-world/" data-id="cj1ko9ogp004xyuzyfzqnmicd" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -319,7 +324,7 @@
 
             
     
-        <a href="http://sarojaba.github.io/2017/04/09/hello-world/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://sarojaba.github.io/2017/04/09/hello-world/">Comments</a>
+        <a href="http://sarojaba.github.io/2017/04/16/hello-world/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://sarojaba.github.io/2017/04/16/hello-world/">Comments</a>
     
 
         </footer>
@@ -419,7 +424,7 @@
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2015/07/20/reverse-array-recursively/" data-id="cj1j3knyt007amuzyiy3kvgcl" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2015/07/20/reverse-array-recursively/" data-id="cj1ko9ohx007nyuzyb8szj4gc" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -557,7 +562,7 @@
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2015/06/17/back-to-high-school-physics/" data-id="cj1j3knum000kmuzye8yfx56k" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2015/06/17/back-to-high-school-physics/" data-id="cj1ko9ods000oyuzy3x9z0b8i" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -712,7 +717,7 @@
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2015/06/17/연속-부분-최대곱-public-class-max-public-static/" data-id="cj1j3ko1t00cumuzysp9m3ehl" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2015/06/17/연속-부분-최대곱-public-class-max-public-static/" data-id="cj1ko9okr00cuyuzy70by3mxf" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -798,7 +803,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2015/06/08/후위-표현식/">후위-표현식</a>
+            <a class="article-title" href="/2015/06/08/후위-표현식/">후위 표현식</a>
         </h1>
     
 
@@ -816,7 +821,7 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Algorithm/">Algorithm</a>
     </div>
 
                         
@@ -833,68 +838,8 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>중위 표현식을 후위 표현식으로 변경하라.<br>ex) 5 + (4 - 2) - 3 <em> 2  ===  5 4 2 - + 3 2 </em> -</p>
-<pre><code>import java.util.*;
-public class Postfix{
-  public static void main(String[] args){
-    String expression = &quot;5+(4-2)-3*2&quot;;
-    Stack stack = new Stack();
-    StringBuilder sb = new StringBuilder();
-    for(int i = 0; i &lt; expression.length(); i++){
-      char c = expression.charAt(i);
-      switch(c){
-        case &apos;0&apos;:
-        case &apos;1&apos;:
-        case &apos;2&apos;:
-        case &apos;3&apos;:
-        case &apos;4&apos;:
-        case &apos;5&apos;:
-        case &apos;6&apos;:
-        case &apos;7&apos;:
-        case &apos;8&apos;:
-        case &apos;9&apos;:
-        sb.append(c);
-        break;
-        case &apos;+&apos;:
-        case &apos;-&apos;:
-        case &apos;*&apos;:
-        case &apos;/&apos;:
-        if(!stack.empty() &amp;&amp; (stack.peek() != &apos;(&apos;)){
-          if(order(stack.peek()) &lt;= order(c)){
-            sb.append(stack.pop());
-          }
-        }
-        stack.push(c);
-        break;
-        case &apos;(&apos;:
-        stack.push(c);
-        break;
-        case &apos;)&apos;:
-        char op;
-        while((op = stack.pop()) != &apos;(&apos;){
-          sb.append(op);
-        }
-        break;
-        default:
-        System.out.println(&quot;Error&quot;);
-        return;
-      }
-    }
-
-    while(!stack.empty()){
-      sb.append(stack.pop());
-    }
-    System.out.println(sb.toString());
-  }
-
-  public static int order(char op){
-    switch(op){
-      case &apos;*&apos;: case &apos;/&apos;: return 1;
-      case &apos;+&apos;: case &apos;-&apos;: return 2;
-      default: return 0; }
-    }
-  }
-</code></pre>
+            <p>중위 표현식을 후위 표현식으로 변경하라.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ex) 5 + (4 - 2) - 3 * 2  ===  5 4 2 - + 3 2 * -</div></pre></td></tr></table></figure></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.*;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Postfix</span></span>&#123;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">    String expression = <span class="string">"5+(4-2)-3*2"</span>;</div><div class="line">    Stack stack = <span class="keyword">new</span> Stack();</div><div class="line">    StringBuilder sb = <span class="keyword">new</span> StringBuilder();</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; expression.length(); i++)&#123;</div><div class="line">      <span class="keyword">char</span> c = expression.charAt(i);</div><div class="line">      <span class="keyword">switch</span>(c)&#123;</div><div class="line">        <span class="keyword">case</span> <span class="string">'0'</span>:</div><div class="line">        <span class="keyword">case</span> <span class="string">'1'</span>:</div><div class="line">        <span class="keyword">case</span> <span class="string">'2'</span>:</div><div class="line">        <span class="keyword">case</span> <span class="string">'3'</span>:</div><div class="line">        <span class="keyword">case</span> <span class="string">'4'</span>:</div><div class="line">        <span class="keyword">case</span> <span class="string">'5'</span>:</div><div class="line">        <span class="keyword">case</span> <span class="string">'6'</span>:</div><div class="line">        <span class="keyword">case</span> <span class="string">'7'</span>:</div><div class="line">        <span class="keyword">case</span> <span class="string">'8'</span>:</div><div class="line">        <span class="keyword">case</span> <span class="string">'9'</span>:</div><div class="line">        sb.append(c);</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> <span class="string">'+'</span>:</div><div class="line">        <span class="keyword">case</span> <span class="string">'-'</span>:</div><div class="line">        <span class="keyword">case</span> <span class="string">'*'</span>:</div><div class="line">        <span class="keyword">case</span> <span class="string">'/'</span>:</div><div class="line">        <span class="keyword">if</span>(!stack.empty() &amp;&amp; (stack.peek() != <span class="string">'('</span>))&#123;</div><div class="line">          <span class="keyword">if</span>(order(stack.peek()) &lt;= order(c))&#123;</div><div class="line">            sb.append(stack.pop());</div><div class="line">          &#125;</div><div class="line">        &#125;</div><div class="line">        stack.push(c);</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> <span class="string">'('</span>:</div><div class="line">        stack.push(c);</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> <span class="string">')'</span>:</div><div class="line">        <span class="keyword">char</span> op;</div><div class="line">        <span class="keyword">while</span>((op = stack.pop()) != <span class="string">'('</span>)&#123;</div><div class="line">          sb.append(op);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">default</span>:</div><div class="line">        System.out.println(<span class="string">"Error"</span>);</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">while</span>(!stack.empty())&#123;</div><div class="line">      sb.append(stack.pop());</div><div class="line">    &#125;</div><div class="line">    System.out.println(sb.toString());</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">order</span><span class="params">(<span class="keyword">char</span> op)</span></span>&#123;</div><div class="line">    <span class="keyword">switch</span>(op)&#123;</div><div class="line">      <span class="keyword">case</span> <span class="string">'*'</span>: <span class="keyword">case</span> <span class="string">'/'</span>: <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">      <span class="keyword">case</span> <span class="string">'+'</span>: <span class="keyword">case</span> <span class="string">'-'</span>: <span class="keyword">return</span> <span class="number">2</span>;</div><div class="line">      <span class="keyword">default</span>: <span class="keyword">return</span> <span class="number">0</span>; &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
         
         </div>
         <footer class="article-footer">
@@ -904,7 +849,7 @@ public class Postfix{
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2015/06/08/후위-표현식/" data-id="cj1j3ko3x00gbmuzyrd8c1pxw" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2015/06/08/후위-표현식/" data-id="cj1ko9omt00g6yuzydekx8k9q" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1036,7 +981,7 @@ public class Postfix{
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2015/06/04/1과-2의-합/" data-id="cj1j3kntw0001muzy1u2m3zym" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2015/06/04/1과-2의-합/" data-id="cj1ko9ocl0001yuzy21osw88s" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1170,7 +1115,7 @@ public class Postfix{
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2015/06/04/바이러스/" data-id="cj1j3ko1a00bsmuzystgyh1gi" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2015/06/04/바이러스/" data-id="cj1ko9ok600bsyuzyj6fpiljh" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1316,7 +1261,7 @@ public class Postfix{
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2015/02/16/java-iterator-pattern-on-colletions/" data-id="cj1j3knxs0055muzywszvvgw0" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2015/02/16/java-iterator-pattern-on-colletions/" data-id="cj1ko9ogu0059yuzyk804knwj" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1402,7 +1347,7 @@ public class Postfix{
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2015/01/07/최대-공약수와-최소-공배수/">최대-공약수와-최소-공배수</a>
+            <a class="article-title" href="/2015/01/07/최대-공약수와-최소-공배수/">최대 공약수와 최소 공배수</a>
         </h1>
     
 
@@ -1420,7 +1365,7 @@ public class Postfix{
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Algorithm/">Algorithm</a>
     </div>
 
                         
@@ -1438,38 +1383,39 @@ public class Postfix{
         
             
             <p><img src="http://68.media.tumblr.com/10a5739b83eaea8c48b227b4c5f60e13/tumblr_inline_nhrijmBsV31rubmdv.jpg" alt=""></p>
-<pre><code>public class GCDLCM {
-    public static void main(String[] args) {
-        System.out.println(gcd(24, 18));
-        System.out.println(lcm(24, 18));
+<pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GCDLCM</span> </span>{
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{
+        System.out.println(gcd(<span class="number">24</span>, <span class="number">18</span>));
+        System.out.println(lcm(<span class="number">24</span>, <span class="number">18</span>));
     }
 
-    public static int gcd(int a, int b) {
-        int c = a % b;
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>{
+        <span class="keyword">int</span> c = a % b;
 
-        if (c == 0) {
-            return b;
+        <span class="keyword">if</span> (c == <span class="number">0</span>) {
+            <span class="keyword">return</span> b;
         }
 
-        return gcd(b, c);
+        <span class="keyword">return</span> gcd(b, c);
     }
 
-    public static int lcm(int a, int b) {
-        int m = a, n = b;
-        int i = 1, j = 1;
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">lcm</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>{
+        <span class="keyword">int</span> m = a, n = b;
+        <span class="keyword">int</span> i = <span class="number">1</span>, j = <span class="number">1</span>;
 
-        while (m != n) {
-            if (m &lt; n) {
+        <span class="keyword">while</span> (m != n) {
+            <span class="keyword">if</span> (m &lt; n) {
                 m = a * ++i;
-            } else {
+            } <span class="keyword">else</span> {
                 n = b * ++j;
             }
         }
 
-        return m;
+        <span class="keyword">return</span> m;
     }
 }
 </code></pre>
+
         
         </div>
         <footer class="article-footer">
@@ -1479,7 +1425,7 @@ public class Postfix{
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2015/01/07/최대-공약수와-최소-공배수/" data-id="cj1j3ko3b00famuzyffl0tirz" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2015/01/07/최대-공약수와-최소-공배수/" data-id="cj1ko9om700f6yuzytoca01dh" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1600,7 +1546,7 @@ public class Postfix{
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p><img src="http://68.media.tumblr.com/d382dbdcce18e8482b7064e4ec3c276b/tumblr_inline_nhri7qnong1rubmdv.jpg" alt=""></p>
+            <img src="/2015/01/07/로마숫자/tumblr_inline_nhri7qnong1rubmdv.jpg" alt="tumblr_inline_nhri7qnong1rubmdv.jpg" title="">
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RomaNum</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">char</span>[] signs = &#123;</div><div class="line">        <span class="string">'I'</span>, <span class="string">'V'</span>, <span class="string">'X'</span>, <span class="string">'L'</span>, <span class="string">'C'</span>, <span class="string">'D'</span>, <span class="string">'M'</span></div><div class="line">    &#125;;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[] values = &#123;</div><div class="line">        <span class="number">1</span>, <span class="number">5</span>, <span class="number">10</span>, <span class="number">50</span>, <span class="number">100</span>, <span class="number">500</span>, <span class="number">1000</span></div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toRomaNum</span><span class="params">(<span class="keyword">int</span> digitNum)</span> </span>&#123;</div><div class="line">        StringBuilder sb = <span class="keyword">new</span> StringBuilder();</div><div class="line"></div><div class="line">        String s = Integer.toString(digitNum);</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); i++) &#123;</div><div class="line">            <span class="keyword">int</span> d = s.length() - i - <span class="number">1</span>;</div><div class="line"></div><div class="line">            <span class="keyword">char</span> ch = s.charAt(i);</div><div class="line"></div><div class="line">            <span class="keyword">switch</span> (ch) &#123;</div><div class="line">                <span class="keyword">case</span> <span class="string">'1'</span>:</div><div class="line">                    sb.append(signs[d * <span class="number">2</span>]);</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">case</span> <span class="string">'2'</span>:</div><div class="line">                    sb.append(signs[d * <span class="number">2</span>]);</div><div class="line">                    sb.append(signs[d * <span class="number">2</span>]);</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">case</span> <span class="string">'3'</span>:</div><div class="line">                    sb.append(signs[d * <span class="number">2</span>]);</div><div class="line">                    sb.append(signs[d * <span class="number">2</span>]);</div><div class="line">                    sb.append(signs[d * <span class="number">2</span>]);</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">case</span> <span class="string">'4'</span>:</div><div class="line">                    sb.append(signs[d * <span class="number">2</span>]);</div><div class="line">                    sb.append(signs[d * <span class="number">2</span> + <span class="number">1</span>]);</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">case</span> <span class="string">'5'</span>:</div><div class="line">                    sb.append(signs[d * <span class="number">2</span> + <span class="number">1</span>]);</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">case</span> <span class="string">'6'</span>:</div><div class="line">                    sb.append(signs[d * <span class="number">2</span> + <span class="number">1</span>]);</div><div class="line">                    sb.append(signs[d * <span class="number">2</span>]);</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">case</span> <span class="string">'7'</span>:</div><div class="line">                    sb.append(signs[d * <span class="number">2</span> + <span class="number">1</span>]);</div><div class="line">                    sb.append(signs[d * <span class="number">2</span>]);</div><div class="line">                    sb.append(signs[d * <span class="number">2</span>]);</div><div class="line">                <span class="keyword">case</span> <span class="string">'8'</span>:</div><div class="line">                    sb.append(signs[d * <span class="number">2</span> + <span class="number">1</span>]);</div><div class="line">                    sb.append(signs[d * <span class="number">2</span>]);</div><div class="line">                    sb.append(signs[d * <span class="number">2</span>]);</div><div class="line">                    sb.append(signs[d * <span class="number">2</span>]);</div><div class="line">                <span class="keyword">case</span> <span class="string">'9'</span>:</div><div class="line">                    sb.append(signs[d * <span class="number">2</span>]);</div><div class="line">                    sb.append(signs[d * <span class="number">2</span> + <span class="number">2</span>]);</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">default</span>:</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> sb.toString();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">toDigitNum</span><span class="params">(String romaNum)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span>[] n = <span class="keyword">new</span> <span class="keyword">int</span>[romaNum.length() * <span class="number">3</span>];</div><div class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; romaNum.length(); i++) &#123;</div><div class="line">            <span class="keyword">char</span> sign = romaNum.charAt(i);</div><div class="line"></div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; signs.length; j++) &#123;</div><div class="line">                <span class="keyword">if</span> (sign == signs[j]) &#123;</div><div class="line">                    n[i] = values[j];</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n.length; i++) &#123;</div><div class="line">            <span class="keyword">if</span> (n[i - <span class="number">1</span>] &lt; n[i]) &#123;</div><div class="line">                sum += n[i] - n[i - <span class="number">1</span>];</div><div class="line">                i++;</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                sum += n[i - <span class="number">1</span>];</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> sum;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        RomaNum rn = <span class="keyword">new</span> RomaNum();</div><div class="line"></div><div class="line">        System.out.println(rn.toRomaNum(<span class="number">2493</span>));</div><div class="line">        System.out.println(rn.toDigitNum(<span class="string">"MMMCCCXXXIII"</span>));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>예전 블로그에 있던 소스를 옮기고 있는데 지금 보니 무슨 생각으로 짰는지 모르겠다;; ㅎㄷㄷ</p>
 
@@ -1613,7 +1559,7 @@ public class Postfix{
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2015/01/07/로마숫자/" data-id="cj1j3ko0t00atmuzyo4bqgmj1" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2015/01/07/로마숫자/" data-id="cj1ko9ojq00atyuzyihi6s3r1" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1707,9 +1653,9 @@ public class Postfix{
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2017/04/09/hello-world/" class="title">Hello World</a></p>
-                            <p class="item-date"><time datetime="2017-04-08T17:15:07.522Z" itemprop="datePublished">2017-04-09</time></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2017/04/16/hello-world/" class="title">Hello World</a></p>
+                            <p class="item-date"><time datetime="2017-04-16T10:09:07.660Z" itemprop="datePublished">2017-04-16</time></p>
                         </div>
                     </li>
                 
@@ -1743,8 +1689,8 @@ public class Postfix{
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
-                            <p class="item-title"><a href="/2015/06/08/후위-표현식/" class="title">후위-표현식</a></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Algorithm/">Algorithm</a></p>
+                            <p class="item-title"><a href="/2015/06/08/후위-표현식/" class="title">후위 표현식</a></p>
                             <p class="item-date"><time datetime="2015-06-07T15:34:00.000Z" itemprop="datePublished">2015-06-08</time></p>
                         </div>
                     </li>
@@ -1758,7 +1704,7 @@ public class Postfix{
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">117</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Algorithm/">Algorithm</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ceylon/">Ceylon</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeScript/">CoffeScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeeScript/">CoffeeScript</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Design-Pattern/">Design Pattern</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Eclipse/">Eclipse</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Java/">Java</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/LibGDX/">LibGDX</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/OpenGL/">OpenGL</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/PlayN/">PlayN</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Processing/">Processing</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Rust/">Rust</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ubuntu/">Ubuntu</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ukulele/">Ukulele</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">118</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Algorithm/">Algorithm</a><span class="category-list-count">27</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ceylon/">Ceylon</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeScript/">CoffeScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeeScript/">CoffeeScript</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Design-Pattern/">Design Pattern</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Eclipse/">Eclipse</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Java/">Java</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/LibGDX/">LibGDX</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/OpenGL/">OpenGL</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/PlayN/">PlayN</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Processing/">Processing</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Rust/">Rust</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ubuntu/">Ubuntu</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ukulele/">Ukulele</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 

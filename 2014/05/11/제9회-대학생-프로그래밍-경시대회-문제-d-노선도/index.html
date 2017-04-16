@@ -3,19 +3,19 @@
 <head>
     <meta charset="utf-8">
     
-    <title>제9회-대학생-프로그래밍-경시대회-문제-d-노선도 | 사로자바의 블로그</title>
+    <title>제9회 대학생 프로그래밍 경시대회 문제 D 노선도 | 사로자바의 블로그</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Source Code#include &amp;lt;iostream&amp;gt;  using namespace std;  struct Station {     int x;     int r; };  bool IsGoodLine(Station* stations, int len) {     for(int j = 1; j &amp;lt; len - 1; j++)     {">
+    <meta name="description" content="Source Code1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556#include &amp;lt;iostream&amp;gt;using namespace std;struct Station&amp;#123;    int x;    int r;&amp;">
 <meta name="keywords" content="Programming,Algorithm,ICPC,C++">
 <meta property="og:type" content="article">
-<meta property="og:title" content="제9회-대학생-프로그래밍-경시대회-문제-d-노선도">
+<meta property="og:title" content="제9회 대학생 프로그래밍 경시대회 문제 D 노선도">
 <meta property="og:url" content="http://sarojaba.github.io/2014/05/11/제9회-대학생-프로그래밍-경시대회-문제-d-노선도/index.html">
 <meta property="og:site_name" content="사로자바의 블로그">
-<meta property="og:description" content="Source Code#include &amp;lt;iostream&amp;gt;  using namespace std;  struct Station {     int x;     int r; };  bool IsGoodLine(Station* stations, int len) {     for(int j = 1; j &amp;lt; len - 1; j++)     {">
-<meta property="og:updated_time" content="2017-04-13T11:50:01.887Z">
+<meta property="og:description" content="Source Code1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556#include &amp;lt;iostream&amp;gt;using namespace std;struct Station&amp;#123;    int x;    int r;&amp;">
+<meta property="og:updated_time" content="2017-04-16T08:57:17.388Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="제9회-대학생-프로그래밍-경시대회-문제-d-노선도">
-<meta name="twitter:description" content="Source Code#include &amp;lt;iostream&amp;gt;  using namespace std;  struct Station {     int x;     int r; };  bool IsGoodLine(Station* stations, int len) {     for(int j = 1; j &amp;lt; len - 1; j++)     {">
+<meta name="twitter:title" content="제9회 대학생 프로그래밍 경시대회 문제 D 노선도">
+<meta name="twitter:description" content="Source Code1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556#include &amp;lt;iostream&amp;gt;using namespace std;struct Station&amp;#123;    int x;    int r;&amp;">
     
 
     
@@ -208,7 +208,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            제9회-대학생-프로그래밍-경시대회-문제-d-노선도
+            제9회 대학생 프로그래밍 경시대회 문제 D 노선도
         </h1>
     
 
@@ -226,7 +226,7 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Algorithm/">Algorithm</a>
     </div>
 
                         
@@ -243,63 +243,8 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h2 id="Source-Code"><a href="#Source-Code" class="headerlink" title="Source Code"></a>Source Code</h2><pre><code>#include &lt;iostream&gt;
-
-using namespace std;
-
-struct Station
-{
-    int x;
-    int r;
-};
-
-bool IsGoodLine(Station* stations, int len)
-{
-    for(int j = 1; j &lt; len - 1; j++)
-    {
-        int width = stations[j+1].x - stations[j-1].x;
-
-        if(stations[j].r &gt; width)
-        {
-            return false;
-        }
-    }
-
-    return true;
-}
-
-int main()
-{
-    int T;  // 테스트 케이스의 개수
-    cin &gt;&gt; T;
-
-    for(int i = 0; i &lt; T; i++)
-    {
-        int N;
-        cin &gt;&gt; N;
-
-        Station* stations = new Station[N];
-
-        for(int j = 0; j &lt; N; j++)
-        {
-            cin &gt;&gt; stations[j].x &gt;&gt; stations[j].r;
-        }
-
-        if(IsGoodLine(stations, N))
-        {
-            cout &lt;&lt; &quot;YES&quot; &lt;&lt; endl;
-        }
-        else
-        {
-            cout &lt;&lt; &quot;NO&quot; &lt;&lt; endl;
-        }
-
-        delete[] stations;
-    }
-
-    return 0;
-}
-</code></pre><h2 id="Comment"><a href="#Comment" class="headerlink" title="Comment"></a>Comment</h2><p>생각보다 간단한 문제였네요.</p>
+            <h2 id="Source-Code"><a href="#Source-Code" class="headerlink" title="Source Code"></a>Source Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">struct</span> Station</div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> x;</div><div class="line">    <span class="keyword">int</span> r;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">IsGoodLine</span><span class="params">(Station* stations, <span class="keyword">int</span> len)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; len - <span class="number">1</span>; j++)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">int</span> width = stations[j+<span class="number">1</span>].x - stations[j<span class="number">-1</span>].x;</div><div class="line"></div><div class="line">        <span class="keyword">if</span>(stations[j].r &gt; width)</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> T;  <span class="comment">// 테스트 케이스의 개수</span></div><div class="line">    <span class="built_in">cin</span> &gt;&gt; T;</div><div class="line"></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; T; i++)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">int</span> N;</div><div class="line">        <span class="built_in">cin</span> &gt;&gt; N;</div><div class="line"></div><div class="line">        Station* stations = <span class="keyword">new</span> Station[N];</div><div class="line"></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; N; j++)</div><div class="line">        &#123;</div><div class="line">            <span class="built_in">cin</span> &gt;&gt; stations[j].x &gt;&gt; stations[j].r;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">if</span>(IsGoodLine(stations, N))</div><div class="line">        &#123;</div><div class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">"YES"</span> &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span></div><div class="line">        &#123;</div><div class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">"NO"</span> &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">delete</span>[] stations;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Comment"><a href="#Comment" class="headerlink" title="Comment"></a>Comment</h2><p>생각보다 간단한 문제였네요.</p>
 <p>키포인트는 해당 역의 이름표의 길이가 주변 역과의 거리보다 길면 안된다는 사실&hellip;</p>
 
         
@@ -311,7 +256,7 @@ int main()
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/05/11/제9회-대학생-프로그래밍-경시대회-문제-d-노선도/" data-id="cj1j3ko2u00eimuzyfds1me1g" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/05/11/제9회-대학생-프로그래밍-경시대회-문제-d-노선도/" data-id="cj1ko9olw00elyuzyls03lvg7" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -392,7 +337,7 @@ int main()
             <strong class="article-nav-caption">Newer</strong>
             <div class="article-nav-title">
                 
-                    제3회-대학생-프로그래밍-경시대회-문제-a-수-뒤집기
+                    제3회 대학생 프로그래밍 경시대회 문제 A 수 뒤집기
                 
             </div>
         </a>
@@ -400,7 +345,7 @@ int main()
     
         <a href="/2014/05/11/제9회-대학생-프로그래밍-경시대회-문제-e-maze/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">제9회-대학생-프로그래밍-경시대회-문제-e-maze</div>
+            <div class="article-nav-title">제9회 대학생 프로그래밍 경시대회 문제 E Maze</div>
         </a>
     
 </nav>
@@ -434,9 +379,9 @@ int main()
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2017/04/09/hello-world/" class="title">Hello World</a></p>
-                            <p class="item-date"><time datetime="2017-04-08T17:15:07.522Z" itemprop="datePublished">2017-04-09</time></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2017/04/16/hello-world/" class="title">Hello World</a></p>
+                            <p class="item-date"><time datetime="2017-04-16T10:09:07.660Z" itemprop="datePublished">2017-04-16</time></p>
                         </div>
                     </li>
                 
@@ -470,8 +415,8 @@ int main()
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
-                            <p class="item-title"><a href="/2015/06/08/후위-표현식/" class="title">후위-표현식</a></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Algorithm/">Algorithm</a></p>
+                            <p class="item-title"><a href="/2015/06/08/후위-표현식/" class="title">후위 표현식</a></p>
                             <p class="item-date"><time datetime="2015-06-07T15:34:00.000Z" itemprop="datePublished">2015-06-08</time></p>
                         </div>
                     </li>
@@ -485,7 +430,7 @@ int main()
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">117</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Algorithm/">Algorithm</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ceylon/">Ceylon</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeScript/">CoffeScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeeScript/">CoffeeScript</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Design-Pattern/">Design Pattern</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Eclipse/">Eclipse</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Java/">Java</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/LibGDX/">LibGDX</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/OpenGL/">OpenGL</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/PlayN/">PlayN</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Processing/">Processing</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Rust/">Rust</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ubuntu/">Ubuntu</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ukulele/">Ukulele</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">118</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Algorithm/">Algorithm</a><span class="category-list-count">27</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ceylon/">Ceylon</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeScript/">CoffeScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeeScript/">CoffeeScript</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Design-Pattern/">Design Pattern</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Eclipse/">Eclipse</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Java/">Java</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/LibGDX/">LibGDX</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/OpenGL/">OpenGL</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/PlayN/">PlayN</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Processing/">Processing</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Rust/">Rust</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ubuntu/">Ubuntu</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ukulele/">Ukulele</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 
