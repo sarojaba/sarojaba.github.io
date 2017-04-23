@@ -3,21 +3,21 @@
 <head>
     <meta charset="utf-8">
     
-    <title>사로자바의 블로그</title>
+    <title>게으른 개발자가 되자</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="공부한 내용들을 정리하는 곳">
 <meta property="og:type" content="website">
-<meta property="og:title" content="사로자바의 블로그">
+<meta property="og:title" content="게으른 개발자가 되자">
 <meta property="og:url" content="http://sarojaba.github.io/page/8/index.html">
-<meta property="og:site_name" content="사로자바의 블로그">
+<meta property="og:site_name" content="게으른 개발자가 되자">
 <meta property="og:description" content="공부한 내용들을 정리하는 곳">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="사로자바의 블로그">
+<meta name="twitter:title" content="게으른 개발자가 되자">
 <meta name="twitter:description" content="공부한 내용들을 정리하는 곳">
     
 
     
-        <link rel="alternate" href="/" title="사로자바의 블로그" type="application/atom+xml" />
+        <link rel="alternate" href="atom.xml" title="게으른 개발자가 되자" type="application/atom+xml" />
     
 
     
@@ -52,7 +52,7 @@
         <div class="outer">
             <a href="/" id="logo">
                 <i class="logo"></i>
-                <span class="site-title">사로자바의 블로그</span>
+                <span class="site-title">게으른 개발자가 되자</span>
             </a>
             <nav id="main-nav">
                 
@@ -151,18 +151,18 @@
     <div class="inner profile-inner">
         <div class="base-info profile-block">
             <img id="avatar" src="/css/images/avatar.png" />
-            <h2 id="name">사로자바</h2>
+            <h2 id="name">우준혁</h2>
             <h3 id="title">Software Developer</h3>
             <span id="location"><i class="fa fa-map-marker"></i>Suwon, South Korea</span>
             <a id="follow" target="_blank" href="https://github.com/sarojaba">FOLLOW</a>
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                164
+                167
                 <span>posts</span>
             </div>
             <div class="article-info-block">
-                125
+                128
                 <span>tags</span>
             </div>
         </div>
@@ -185,7 +185,7 @@
                     </td>
                     
                     <td>
-                        <a href="/" target="_blank" title="rss" class=tooltip>
+                        <a href="/atom.xml" target="_blank" title="rss" class=tooltip>
                             <i class="fa fa-rss"></i>
                         </a>
                     </td>
@@ -199,6 +199,432 @@
 
             
             <section id="main">
+    <article id="post-opengl을-이용한-polyspirals-그리기" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2014/04/20/opengl을-이용한-polyspirals-그리기/">OpenGL을 이용한 Polyspirals 그리기</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2014/04/20/opengl을-이용한-polyspirals-그리기/">
+            <time datetime="2014-04-20T05:09:00.000Z" itemprop="datePublished">2014-04-20</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/OpenGL/">OpenGL</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/OpenGL/">OpenGL</a>, <a class="tag-link" href="/tags/Programming/">Programming</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="육각형"><a href="#육각형" class="headerlink" title="육각형"></a>육각형</h2><p>60도씩 돌고, 이동거리는 100에서 1씩 감소함.</p>
+<img src="/2014/04/20/opengl을-이용한-polyspirals-그리기/tumblr_inline_n4bcu6gf7j1rubmdv.jpg" alt="tumblr_inline_n4bcu6gf7j1rubmdv.jpg" title="">
+<h2 id="바람개비"><a href="#바람개비" class="headerlink" title="바람개비"></a>바람개비</h2><p>89.5도씩 돌고, 이동거리는 200에서 1씩 감소함.</p>
+<img src="/2014/04/20/opengl을-이용한-polyspirals-그리기/tumblr_inline_n4bcupWF5D1rubmdv.jpg" alt="tumblr_inline_n4bcupWF5D1rubmdv.jpg" title="">
+<h2 id="별"><a href="#별" class="headerlink" title="별"></a>별</h2><p>-144도씩 돌고, 이동거리는 200에서 2씩 감소함.</p>
+<img src="/2014/04/20/opengl을-이용한-polyspirals-그리기/tumblr_inline_n4bcuxO78x1rubmdv.jpg" alt="tumblr_inline_n4bcuxO78x1rubmdv.jpg" title="">
+<h2 id="성게"><a href="#성게" class="headerlink" title="성게"></a>성게</h2><p>170도씩 돌고, 이동거리는 200에서 2씩 감소함.</p>
+<img src="/2014/04/20/opengl을-이용한-polyspirals-그리기/tumblr_inline_n4bcv50bOw1rubmdv.jpg" alt="tumblr_inline_n4bcv50bOw1rubmdv.jpg" title="">
+<h2 id="오리"><a href="#오리" class="headerlink" title="오리"></a>오리</h2><p>179도씩 돌고, 이동거리는 200에서 1씩 감소함.</p>
+<img src="/2014/04/20/opengl을-이용한-polyspirals-그리기/tumblr_inline_n4bcvbroMP1rubmdv.jpg" alt="tumblr_inline_n4bcvbroMP1rubmdv.jpg" title="">
+<h2 id="장미"><a href="#장미" class="headerlink" title="장미"></a>장미</h2><p>100도씩 돌고, 이동거리는 200에서 4씩 감소함.</p>
+<img src="/2014/04/20/opengl을-이용한-polyspirals-그리기/tumblr_inline_n4bcviNKfg1rubmdv.jpg" alt="tumblr_inline_n4bcviNKfg1rubmdv.jpg" title="">
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://sarojaba.github.io/2014/04/20/opengl을-이용한-polyspirals-그리기/" data-id="cj1uz2ep900760gzygyzhzwp5" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://sarojaba.github.io/2014/04/20/opengl을-이용한-polyspirals-그리기/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://sarojaba.github.io/2014/04/20/opengl을-이용한-polyspirals-그리기/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-opengl을-이용한-지형-그리기" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2014/04/20/opengl을-이용한-지형-그리기/">OpenGL을 이용한 지형 그리기</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2014/04/20/opengl을-이용한-지형-그리기/">
+            <time datetime="2014-04-20T05:03:00.000Z" itemprop="datePublished">2014-04-20</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/OpenGL/">OpenGL</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/OpenGL/">OpenGL</a>, <a class="tag-link" href="/tags/Programming/">Programming</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="내용설명"><a href="#내용설명" class="headerlink" title="내용설명"></a>내용설명</h2><ol>
+<li>노을진 밤하늘을 표현하기 위해 화면 크기로 폴리곤을 쉐이드 모드로 그린다.</li>
+<li>랜덤한 좌표에 점을 찍어 별을 그린다.</li>
+<li>두 개의 원을 이용해 그 사이를 폴리곤으로 채워 달을 그린다.</li>
+<li>프랙탈을 이용해 재귀적으로 지형의 좌표를 구하고 내부를 폴리곤으로 채운다.</li>
+</ol>
+<h2 id="출력화면"><a href="#출력화면" class="headerlink" title="출력화면"></a>출력화면</h2><img src="/2014/04/20/opengl을-이용한-지형-그리기/tumblr_inline_n4bcnlqnL41rubmdv.jpg" alt="tumblr_inline_n4bcnlqnL41rubmdv.jpg" title="">
+<img src="/2014/04/20/opengl을-이용한-지형-그리기/tumblr_inline_n4bcnqnCqL1rubmdv.jpg" alt="tumblr_inline_n4bcnqnCqL1rubmdv.jpg" title="">
+<img src="/2014/04/20/opengl을-이용한-지형-그리기/tumblr_inline_n4bcnzIbfR1rubmdv.jpg" alt="tumblr_inline_n4bcnzIbfR1rubmdv.jpg" title="">
+<img src="/2014/04/20/opengl을-이용한-지형-그리기/tumblr_inline_n4bco6y63P1rubmdv.jpg" alt="tumblr_inline_n4bco6y63P1rubmdv.jpg" title="">
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://sarojaba.github.io/2014/04/20/opengl을-이용한-지형-그리기/" data-id="cj1uz2epe007i0gzyzvdja0b2" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://sarojaba.github.io/2014/04/20/opengl을-이용한-지형-그리기/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://sarojaba.github.io/2014/04/20/opengl을-이용한-지형-그리기/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-opengl을-이용한-학교-로고-그리기" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2014/04/19/opengl을-이용한-학교-로고-그리기/">OpenGL을 이용한 학교 로고 그리기</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2014/04/19/opengl을-이용한-학교-로고-그리기/">
+            <time datetime="2014-04-18T16:17:00.000Z" itemprop="datePublished">2014-04-19</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/OpenGL/">OpenGL</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/OpenGL/">OpenGL</a>, <a class="tag-link" href="/tags/Programming/">Programming</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="내용-설명"><a href="#내용-설명" class="headerlink" title="내용 설명"></a>내용 설명</h2><ol>
+<li>왼쪽 반원을 그리고 그 위에 중점을 오른쪽으로 조금 옮겨 반지름을 조금 늘려 흰색 반원을 덮어 남색 초승달 모양을 만든다.</li>
+<li>1번과 대칭되게(중점을 왼쪽으로 옮겨) 오른쪽 하늘색 초승달 모양을 만든다.</li>
+<li>0,0을 중점으로 대칭되게 하늘색, 남색 반원을 그린다.</li>
+<li>0,0을 중심으로 동일한 너비와 높이의 직각 삼각형을 로고에 맞는 색상으로 그린다.</li>
+</ol>
+<h2 id="출력-화면"><a href="#출력-화면" class="headerlink" title="출력 화면"></a>출력 화면</h2><img src="/2014/04/19/opengl을-이용한-학교-로고-그리기/tumblr_inline_n48igvuacR1rubmdv.jpg" alt="tumblr_inline_n48igvuacR1rubmdv.jpg" title="">
+<img src="/2014/04/19/opengl을-이용한-학교-로고-그리기/tumblr_inline_n48ihcjtQV1rubmdv.jpg" alt="tumblr_inline_n48ihcjtQV1rubmdv.jpg" title="">
+<img src="/2014/04/19/opengl을-이용한-학교-로고-그리기/tumblr_inline_n48ihvMSAY1rubmdv.jpg" alt="tumblr_inline_n48ihvMSAY1rubmdv.jpg" title="">
+<img src="/2014/04/19/opengl을-이용한-학교-로고-그리기/tumblr_inline_n48ii4wUgk1rubmdv.jpg" alt="tumblr_inline_n48ii4wUgk1rubmdv.jpg" title="">
+<img src="/2014/04/19/opengl을-이용한-학교-로고-그리기/tumblr_inline_n48iiiuBwt1rubmdv.jpg" alt="tumblr_inline_n48iiiuBwt1rubmdv.jpg" title="">
+<img src="/2014/04/19/opengl을-이용한-학교-로고-그리기/tumblr_inline_n48ij3r4Gq1rubmdv.jpg" alt="tumblr_inline_n48ij3r4Gq1rubmdv.jpg" title="">
+<img src="/2014/04/19/opengl을-이용한-학교-로고-그리기/tumblr_inline_n48ijc2bdG1rubmdv.jpg" alt="tumblr_inline_n48ijc2bdG1rubmdv.jpg" title="">
+<img src="/2014/04/19/opengl을-이용한-학교-로고-그리기/tumblr_inline_n48ijnWCsW1rubmdv.jpg" alt="tumblr_inline_n48ijnWCsW1rubmdv.jpg" title="">
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://sarojaba.github.io/2014/04/19/opengl을-이용한-학교-로고-그리기/" data-id="cj1uz2epg007m0gzy60nynodc" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://sarojaba.github.io/2014/04/19/opengl을-이용한-학교-로고-그리기/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://sarojaba.github.io/2014/04/19/opengl을-이용한-학교-로고-그리기/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-opengl을-이용한-이름-쓰기" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -258,7 +684,7 @@
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/04/19/opengl을-이용한-이름-쓰기/" data-id="cj1kpuqsj006vlwzyvmqe4y20" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/04/19/opengl을-이용한-이름-쓰기/" data-id="cj1uz2epb007a0gzyvhqvt4cp" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -407,7 +833,7 @@
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/04/19/baby-hoola/" data-id="cj1kpuqoo000klwzy84sodu6r" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/04/19/baby-hoola/" data-id="cj1uz2ekx00170gzyyuw66iae" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -556,7 +982,7 @@ END
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/04/18/단일-패스-매크로-프로세서/" data-id="cj1kpuquj00allwzys688thv3" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/04/18/단일-패스-매크로-프로세서/" data-id="cj1uz2erw00br0gzym6fi2o3h" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -725,7 +1151,7 @@ END
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/04/17/java로-작성한-도서관리-프로그램/" data-id="cj1kpuqrv005hlwzysilpn99z" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/04/17/java로-작성한-도서관리-프로그램/" data-id="cj1uz2eoq00610gzyw96uq2t9" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -911,7 +1337,7 @@ PGraphics createCircleMask(float r) {
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2013/10/30/알고리즘-아트/" data-id="cj1kpuqvp00crlwzyemgsifba" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2013/10/30/알고리즘-아트/" data-id="cj1uz2esf00ct0gzyc3b27po2" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1047,7 +1473,7 @@ PGraphics createCircleMask(float r) {
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2013/10/27/코딩을-지탱하는-기술/" data-id="cj1kpuqxi00fhlwzym9h8t2as" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2013/10/27/코딩을-지탱하는-기술/" data-id="cj1uz2eue00fn0gzymjyq8a23" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1183,7 +1609,7 @@ PGraphics createCircleMask(float r) {
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2013/10/13/화이/" data-id="cj1kpuqxs00g3lwzy6eptqixv" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2013/10/13/화이/" data-id="cj1uz2eup00g90gzy16jfnjkw" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1261,414 +1687,6 @@ PGraphics createCircleMask(float r) {
 
 
 
-    <article id="post-감시자들" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2013/10/10/감시자들/">감시자들</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2013/10/10/감시자들/">
-            <time datetime="2013-10-09T17:45:00.000Z" itemprop="datePublished">2013-10-10</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Movie/">Movie</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Movie/">Movie</a>, <a class="tag-link" href="/tags/감시자들/">감시자들</a>, <a class="tag-link" href="/tags/설경구/">설경구</a>, <a class="tag-link" href="/tags/정우성/">정우성</a>, <a class="tag-link" href="/tags/한효주/">한효주</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <iframe width="560" height="315" src="//www.youtube.com/embed/V0mAE1JEPMg" frameborder="0" allowfullscreen></iframe>
-
-<p>용의자들을 감시하는 경찰들의 이야기를 액션감있게 그린 영화이다.</p>
-<p>주연 배우(설경구, 한효주, 정우성)들의 사실적인 연기가 극의 재미를 더해준다.</p>
-<p>반전에 길들여진 나에게 결말이 약하게 느껴지는건, 마치 조미료에 길들여져 음식 맛을 못느끼게 된 것은 아닐까?</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://sarojaba.github.io/2013/10/10/감시자들/" data-id="cj1kpuqu4009plwzyk7b0fgfu" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://sarojaba.github.io/2013/10/10/감시자들/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://sarojaba.github.io/2013/10/10/감시자들/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-bling-ring" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2013/09/09/bling-ring/">Bling Ring</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2013/09/09/bling-ring/">
-            <time datetime="2013-09-09T11:24:00.000Z" itemprop="datePublished">2013-09-09</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Movie/">Movie</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Bling-Ring/">Bling Ring</a>, <a class="tag-link" href="/tags/Movie/">Movie</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <iframe width="560" height="315" src="//www.youtube.com/embed/BwZBsjhvK6s" frameborder="0" allowfullscreen></iframe>
-
-<p>고등학생들이 유명 연예인들의 집을 털다가 잡힌다는 내용의 영화이다.</p>
-<p>실화를 바탕으로 제작되었고, 허영심에 사로잡혀 범죄라고 인식하지 못하는 성숙하지 못한 10대들의 모습을 잘 보여준다.</p>
-<p>긴장감을 불러 일으키는 요소는 전혀 없고, 그냥 아무 생각없이 끝까지 보았다.</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://sarojaba.github.io/2013/09/09/bling-ring/" data-id="cj1kpuqox000zlwzy0j6lj6x0" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://sarojaba.github.io/2013/09/09/bling-ring/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://sarojaba.github.io/2013/09/09/bling-ring/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-now-you-see-me" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2013/08/25/now-you-see-me/">Now You See Me</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2013/08/25/now-you-see-me/">
-            <time datetime="2013-08-25T10:40:00.000Z" itemprop="datePublished">2013-08-25</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Movie/">Movie</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Magic/">Magic</a>, <a class="tag-link" href="/tags/Movie/">Movie</a>, <a class="tag-link" href="/tags/Now-You-See-Me/">Now You See Me</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <iframe width="560" height="315" src="//www.youtube.com/embed/8MHDYZJWLXA" frameborder="0" allowfullscreen></iframe>
-
-<p>길거리 마술사 4명이 한 팀이 되어 은행을 턴다는 내용이다.</p>
-<p>마술을 취미로 했던 나에게는 더욱 뜻있는 영화이다.</p>
-<p>감독이 마술사들에게 조언을 많이 구한 듯 보인다. 특히 마술이란 무엇인가에 대한 고찰을 엿볼 수 있었다.</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://sarojaba.github.io/2013/08/25/now-you-see-me/" data-id="cj1kpuqs90068lwzybk0mll3m" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://sarojaba.github.io/2013/08/25/now-you-see-me/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://sarojaba.github.io/2013/08/25/now-you-see-me/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <nav id="page-nav">
         <a class="extend prev" rel="prev" href="/page/7/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/9/">Next &raquo;</a>
     </nav>
@@ -1694,6 +1712,24 @@ PGraphics createCircleMask(float r) {
                     <li>
                         
                         <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Movie/">Movie</a></p>
+                            <p class="item-title"><a href="/2015/12/13/암살교실/" class="title">암살교실</a></p>
+                            <p class="item-date"><time datetime="2015-12-13T10:06:00.000Z" itemprop="datePublished">2015-12-13</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Movie/">Movie</a></p>
+                            <p class="item-title"><a href="/2015/09/04/베테랑/" class="title">베테랑</a></p>
+                            <p class="item-date"><time datetime="2015-09-04T14:31:00.000Z" itemprop="datePublished">2015-09-04</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Algorithm/">Algorithm</a></p>
                             <p class="item-title"><a href="/2015/07/20/reverse-array-recursively/" class="title">Reverse Array Recursively</a></p>
                             <p class="item-date"><time datetime="2015-07-19T15:48:00.000Z" itemprop="datePublished">2015-07-20</time></p>
@@ -1709,24 +1745,6 @@ PGraphics createCircleMask(float r) {
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
-                            <p class="item-title"><a href="/2015/06/17/연속-부분-최대곱-public-class-max-public-static/" class="title">연속 부분 최대곱</a></p>
-                            <p class="item-date"><time datetime="2015-06-17T01:19:00.000Z" itemprop="datePublished">2015-06-17</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Algorithm/">Algorithm</a></p>
-                            <p class="item-title"><a href="/2015/06/08/후위-표현식/" class="title">후위 표현식</a></p>
-                            <p class="item-date"><time datetime="2015-06-07T15:34:00.000Z" itemprop="datePublished">2015-06-08</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1736,7 +1754,7 @@ PGraphics createCircleMask(float r) {
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">118</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Algorithm/">Algorithm</a><span class="category-list-count">27</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ceylon/">Ceylon</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeScript/">CoffeScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeeScript/">CoffeeScript</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Design-Pattern/">Design Pattern</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Eclipse/">Eclipse</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Java/">Java</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/LibGDX/">LibGDX</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/OpenGL/">OpenGL</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/PlayN/">PlayN</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Processing/">Processing</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Rust/">Rust</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ubuntu/">Ubuntu</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ukulele/">Ukulele</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">41</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">118</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Algorithm/">Algorithm</a><span class="category-list-count">28</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ceylon/">Ceylon</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeScript/">CoffeScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeeScript/">CoffeeScript</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Design-Pattern/">Design Pattern</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Eclipse/">Eclipse</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Java/">Java</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/LibGDX/">LibGDX</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/OpenGL/">OpenGL</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/PlayN/">PlayN</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Processing/">Processing</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Rust/">Rust</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ubuntu/">Ubuntu</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ukulele/">Ukulele</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1745,7 +1763,7 @@ PGraphics createCircleMask(float r) {
     <div class="widget-wrap">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/tags/1과-2의-합/" style="font-size: 10px;">1과 2의 합</a> <a href="/tags/Algorithm/" style="font-size: 18.46px;">Algorithm</a> <a href="/tags/Analog-Clock/" style="font-size: 10px;">Analog Clock</a> <a href="/tags/Android/" style="font-size: 11.54px;">Android</a> <a href="/tags/Apache-Commons/" style="font-size: 11.54px;">Apache Commons</a> <a href="/tags/Array/" style="font-size: 10px;">Array</a> <a href="/tags/B2G/" style="font-size: 10px;">B2G</a> <a href="/tags/Back-To-High-School-Physics/" style="font-size: 10px;">Back To High School Physics</a> <a href="/tags/Bling-Ring/" style="font-size: 10px;">Bling Ring</a> <a href="/tags/Book/" style="font-size: 10.77px;">Book</a> <a href="/tags/Breakout/" style="font-size: 10px;">Breakout</a> <a href="/tags/Bubble-Pop/" style="font-size: 10px;">Bubble Pop</a> <a href="/tags/C/" style="font-size: 10px;">C</a> <a href="/tags/C/" style="font-size: 11.54px;">C++</a> <a href="/tags/CSS/" style="font-size: 10.77px;">CSS</a> <a href="/tags/Canvas/" style="font-size: 11.54px;">Canvas</a> <a href="/tags/Captain-America/" style="font-size: 10px;">Captain America</a> <a href="/tags/Card/" style="font-size: 10px;">Card</a> <a href="/tags/Ceylon/" style="font-size: 14.62px;">Ceylon</a> <a href="/tags/CoffeScript/" style="font-size: 10.77px;">CoffeScript</a> <a href="/tags/CoffeeScript/" style="font-size: 13.85px;">CoffeeScript</a> <a href="/tags/Collection/" style="font-size: 10px;">Collection</a> <a href="/tags/Copy/" style="font-size: 10px;">Copy</a> <a href="/tags/Design-Pattern/" style="font-size: 10px;">Design Pattern</a> <a href="/tags/Documentation/" style="font-size: 10px;">Documentation</a> <a href="/tags/Eclipse/" style="font-size: 16.92px;">Eclipse</a> <a href="/tags/Enlightenment/" style="font-size: 10.77px;">Enlightenment</a> <a href="/tags/Escape-Sequence/" style="font-size: 10px;">Escape Sequence</a> <a href="/tags/FXML/" style="font-size: 10px;">FXML</a> <a href="/tags/Factory-Method/" style="font-size: 10px;">Factory Method</a> <a href="/tags/Fibonacci-Number/" style="font-size: 10px;">Fibonacci Number</a> <a href="/tags/Firefox-OS/" style="font-size: 10.77px;">Firefox OS</a> <a href="/tags/Fish-Monger/" style="font-size: 10px;">Fish Monger</a> <a href="/tags/GCC/" style="font-size: 10px;">GCC</a> <a href="/tags/GOF/" style="font-size: 10px;">GOF</a> <a href="/tags/Game/" style="font-size: 14.62px;">Game</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Histogram/" style="font-size: 10px;">Histogram</a> <a href="/tags/Hugh-Grant/" style="font-size: 10px;">Hugh Grant</a> <a href="/tags/ICPC/" style="font-size: 15.38px;">ICPC</a> <a href="/tags/Image-Processing/" style="font-size: 10.77px;">Image Processing</a> <a href="/tags/Iterator/" style="font-size: 10px;">Iterator</a> <a href="/tags/Jack-the-Giant-Slayer/" style="font-size: 10px;">Jack the Giant Slayer</a> <a href="/tags/Java/" style="font-size: 17.69px;">Java</a> <a href="/tags/JavaFX/" style="font-size: 10px;">JavaFX</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Julia-Roberts/" style="font-size: 10px;">Julia Roberts</a> <a href="/tags/Justin-Willman/" style="font-size: 10px;">Justin Willman</a> <a href="/tags/Lex/" style="font-size: 10px;">Lex</a> <a href="/tags/LibGDX/" style="font-size: 11.54px;">LibGDX</a> <a href="/tags/Linux/" style="font-size: 10.77px;">Linux</a> <a href="/tags/Magic/" style="font-size: 13.08px;">Magic</a> <a href="/tags/Man-of-Steel/" style="font-size: 10px;">Man of Steel</a> <a href="/tags/Marco-Tempest/" style="font-size: 10px;">Marco Tempest</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Math/" style="font-size: 10px;">Math</a> <a href="/tags/Mobile/" style="font-size: 10px;">Mobile</a> <a href="/tags/Moon/" style="font-size: 10px;">Moon</a> <a href="/tags/Movie/" style="font-size: 19.23px;">Movie</a> <a href="/tags/Mozilla/" style="font-size: 10px;">Mozilla</a> <a href="/tags/Notting-Hill/" style="font-size: 10px;">Notting Hill</a> <a href="/tags/Now-You-See-Me/" style="font-size: 10px;">Now You See Me</a> <a href="/tags/Oblivion/" style="font-size: 10px;">Oblivion</a> <a href="/tags/OpenGL/" style="font-size: 13.85px;">OpenGL</a> <a href="/tags/PKNU/" style="font-size: 10px;">PKNU</a> <a href="/tags/PlayN/" style="font-size: 10.77px;">PlayN</a> <a href="/tags/Processing/" style="font-size: 15.38px;">Processing</a> <a href="/tags/Programming/" style="font-size: 20px;">Programming</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Qt/" style="font-size: 10px;">Qt</a> <a href="/tags/Queue/" style="font-size: 10px;">Queue</a> <a href="/tags/RCP/" style="font-size: 16.15px;">RCP</a> <a href="/tags/Robots/" style="font-size: 10px;">Robots</a> <a href="/tags/Rust/" style="font-size: 10px;">Rust</a> <a href="/tags/Stream/" style="font-size: 10px;">Stream</a> <a href="/tags/String/" style="font-size: 12.31px;">String</a> <a href="/tags/Sublime-Text/" style="font-size: 10px;">Sublime Text</a> <a href="/tags/Swing/" style="font-size: 10px;">Swing</a> <a href="/tags/TED/" style="font-size: 10px;">TED</a> <a href="/tags/The-Ellen-Show/" style="font-size: 10px;">The Ellen Show</a> <a href="/tags/The-Fantastic-Four/" style="font-size: 10px;">The Fantastic Four</a> <a href="/tags/The-First-Avenger/" style="font-size: 10px;">The First Avenger</a> <a href="/tags/The-Host/" style="font-size: 10px;">The Host</a> <a href="/tags/Timsort/" style="font-size: 10px;">Timsort</a> <a href="/tags/Triangle/" style="font-size: 10px;">Triangle</a> <a href="/tags/Tutorial/" style="font-size: 16.15px;">Tutorial</a> <a href="/tags/UVa/" style="font-size: 10px;">UVa</a> <a href="/tags/Ubuntu/" style="font-size: 12.31px;">Ubuntu</a> <a href="/tags/Ukulele/" style="font-size: 10px;">Ukulele</a> <a href="/tags/Visual-Studio/" style="font-size: 10px;">Visual Studio</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/Yacc/" style="font-size: 10px;">Yacc</a> <a href="/tags/e17/" style="font-size: 10px;">e17</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/jQuery-Mobile/" style="font-size: 10px;">jQuery Mobile</a> <a href="/tags/mozilla/" style="font-size: 10px;">mozilla</a> <a href="/tags/감시자들/" style="font-size: 10px;">감시자들</a> <a href="/tags/광해/" style="font-size: 10px;">광해</a> <a href="/tags/김윤석/" style="font-size: 10px;">김윤석</a> <a href="/tags/나의-PS-파트너/" style="font-size: 10px;">나의 PS 파트너</a> <a href="/tags/남자사용설명서/" style="font-size: 10px;">남자사용설명서</a> <a href="/tags/노리개/" style="font-size: 10px;">노리개</a> <a href="/tags/더-웹툰/" style="font-size: 10px;">더 웹툰</a> <a href="/tags/미인도/" style="font-size: 10px;">미인도</a> <a href="/tags/바람과-함께-사라지다/" style="font-size: 10px;">바람과 함께 사라지다</a> <a href="/tags/바이러스/" style="font-size: 10px;">바이러스</a> <a href="/tags/서툰-사람들/" style="font-size: 10px;">서툰 사람들</a> <a href="/tags/설경구/" style="font-size: 10px;">설경구</a> <a href="/tags/신세계/" style="font-size: 10px;">신세계</a> <a href="/tags/아이언맨3/" style="font-size: 10px;">아이언맨3</a> <a href="/tags/여진구/" style="font-size: 10px;">여진구</a> <a href="/tags/연속-부분-최대곱/" style="font-size: 10px;">연속 부분 최대곱</a> <a href="/tags/완전제곱수/" style="font-size: 10px;">완전제곱수</a> <a href="/tags/의뢰인/" style="font-size: 10px;">의뢰인</a> <a href="/tags/인류멸망보고서/" style="font-size: 10px;">인류멸망보고서</a> <a href="/tags/정우성/" style="font-size: 10px;">정우성</a> <a href="/tags/진격의-거인/" style="font-size: 10px;">진격의 거인</a> <a href="/tags/째째한-로맨스/" style="font-size: 10px;">째째한 로맨스</a> <a href="/tags/코딩을-지탱하는-기술/" style="font-size: 10px;">코딩을 지탱하는 기술</a> <a href="/tags/한설희/" style="font-size: 10px;">한설희</a> <a href="/tags/한효주/" style="font-size: 10px;">한효주</a> <a href="/tags/혜화동/" style="font-size: 10px;">혜화동</a> <a href="/tags/화이/" style="font-size: 10px;">화이</a> <a href="/tags/후위-표현식/" style="font-size: 10px;">후위 표현식</a>
+            <a href="/tags/1과-2의-합/" style="font-size: 10px;">1과 2의 합</a> <a href="/tags/Algorithm/" style="font-size: 18.46px;">Algorithm</a> <a href="/tags/Analog-Clock/" style="font-size: 10px;">Analog Clock</a> <a href="/tags/Android/" style="font-size: 11.54px;">Android</a> <a href="/tags/Apache-Commons/" style="font-size: 11.54px;">Apache Commons</a> <a href="/tags/Array/" style="font-size: 10px;">Array</a> <a href="/tags/B2G/" style="font-size: 10px;">B2G</a> <a href="/tags/Back-To-High-School-Physics/" style="font-size: 10px;">Back To High School Physics</a> <a href="/tags/Bling-Ring/" style="font-size: 10px;">Bling Ring</a> <a href="/tags/Book/" style="font-size: 10.77px;">Book</a> <a href="/tags/Breakout/" style="font-size: 10px;">Breakout</a> <a href="/tags/Bubble-Pop/" style="font-size: 10px;">Bubble Pop</a> <a href="/tags/C/" style="font-size: 10px;">C</a> <a href="/tags/C/" style="font-size: 11.54px;">C++</a> <a href="/tags/CSS/" style="font-size: 10.77px;">CSS</a> <a href="/tags/Canvas/" style="font-size: 11.54px;">Canvas</a> <a href="/tags/Captain-America/" style="font-size: 10px;">Captain America</a> <a href="/tags/Card/" style="font-size: 10px;">Card</a> <a href="/tags/Ceylon/" style="font-size: 14.62px;">Ceylon</a> <a href="/tags/CoffeScript/" style="font-size: 10.77px;">CoffeScript</a> <a href="/tags/CoffeeScript/" style="font-size: 13.85px;">CoffeeScript</a> <a href="/tags/Collection/" style="font-size: 10px;">Collection</a> <a href="/tags/Copy/" style="font-size: 10px;">Copy</a> <a href="/tags/Design-Pattern/" style="font-size: 10px;">Design Pattern</a> <a href="/tags/Documentation/" style="font-size: 10px;">Documentation</a> <a href="/tags/Eclipse/" style="font-size: 16.92px;">Eclipse</a> <a href="/tags/Enlightenment/" style="font-size: 10.77px;">Enlightenment</a> <a href="/tags/Escape-Sequence/" style="font-size: 10px;">Escape Sequence</a> <a href="/tags/FXML/" style="font-size: 10px;">FXML</a> <a href="/tags/Factory-Method/" style="font-size: 10px;">Factory Method</a> <a href="/tags/Fibonacci-Number/" style="font-size: 10px;">Fibonacci Number</a> <a href="/tags/Firefox-OS/" style="font-size: 10.77px;">Firefox OS</a> <a href="/tags/Fish-Monger/" style="font-size: 10px;">Fish Monger</a> <a href="/tags/GCC/" style="font-size: 10px;">GCC</a> <a href="/tags/GOF/" style="font-size: 10px;">GOF</a> <a href="/tags/Game/" style="font-size: 14.62px;">Game</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Histogram/" style="font-size: 10px;">Histogram</a> <a href="/tags/Home/" style="font-size: 10px;">Home</a> <a href="/tags/Hugh-Grant/" style="font-size: 10px;">Hugh Grant</a> <a href="/tags/ICPC/" style="font-size: 15.38px;">ICPC</a> <a href="/tags/Image-Processing/" style="font-size: 10.77px;">Image Processing</a> <a href="/tags/Iterator/" style="font-size: 10px;">Iterator</a> <a href="/tags/Jack-the-Giant-Slayer/" style="font-size: 10px;">Jack the Giant Slayer</a> <a href="/tags/Java/" style="font-size: 17.69px;">Java</a> <a href="/tags/JavaFX/" style="font-size: 10px;">JavaFX</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Julia-Roberts/" style="font-size: 10px;">Julia Roberts</a> <a href="/tags/Justin-Willman/" style="font-size: 10px;">Justin Willman</a> <a href="/tags/Lex/" style="font-size: 10px;">Lex</a> <a href="/tags/LibGDX/" style="font-size: 11.54px;">LibGDX</a> <a href="/tags/Linux/" style="font-size: 10.77px;">Linux</a> <a href="/tags/Magic/" style="font-size: 13.08px;">Magic</a> <a href="/tags/Man-of-Steel/" style="font-size: 10px;">Man of Steel</a> <a href="/tags/Marco-Tempest/" style="font-size: 10px;">Marco Tempest</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Math/" style="font-size: 10px;">Math</a> <a href="/tags/Mobile/" style="font-size: 10px;">Mobile</a> <a href="/tags/Moon/" style="font-size: 10px;">Moon</a> <a href="/tags/Movie/" style="font-size: 19.23px;">Movie</a> <a href="/tags/Mozilla/" style="font-size: 10px;">Mozilla</a> <a href="/tags/Notting-Hill/" style="font-size: 10px;">Notting Hill</a> <a href="/tags/Now-You-See-Me/" style="font-size: 10px;">Now You See Me</a> <a href="/tags/Oblivion/" style="font-size: 10px;">Oblivion</a> <a href="/tags/OpenGL/" style="font-size: 13.85px;">OpenGL</a> <a href="/tags/PKNU/" style="font-size: 10px;">PKNU</a> <a href="/tags/PlayN/" style="font-size: 10.77px;">PlayN</a> <a href="/tags/Processing/" style="font-size: 15.38px;">Processing</a> <a href="/tags/Programming/" style="font-size: 20px;">Programming</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Qt/" style="font-size: 10px;">Qt</a> <a href="/tags/Queue/" style="font-size: 10px;">Queue</a> <a href="/tags/RCP/" style="font-size: 16.15px;">RCP</a> <a href="/tags/Robots/" style="font-size: 10px;">Robots</a> <a href="/tags/Rust/" style="font-size: 10px;">Rust</a> <a href="/tags/Stream/" style="font-size: 10px;">Stream</a> <a href="/tags/String/" style="font-size: 12.31px;">String</a> <a href="/tags/Sublime-Text/" style="font-size: 10px;">Sublime Text</a> <a href="/tags/Swing/" style="font-size: 10px;">Swing</a> <a href="/tags/TED/" style="font-size: 10px;">TED</a> <a href="/tags/The-Ellen-Show/" style="font-size: 10px;">The Ellen Show</a> <a href="/tags/The-Fantastic-Four/" style="font-size: 10px;">The Fantastic Four</a> <a href="/tags/The-First-Avenger/" style="font-size: 10px;">The First Avenger</a> <a href="/tags/The-Host/" style="font-size: 10px;">The Host</a> <a href="/tags/Timsort/" style="font-size: 10px;">Timsort</a> <a href="/tags/Triangle/" style="font-size: 10px;">Triangle</a> <a href="/tags/Tutorial/" style="font-size: 16.15px;">Tutorial</a> <a href="/tags/UVa/" style="font-size: 10px;">UVa</a> <a href="/tags/Ubuntu/" style="font-size: 12.31px;">Ubuntu</a> <a href="/tags/Ukulele/" style="font-size: 10px;">Ukulele</a> <a href="/tags/Visual-Studio/" style="font-size: 10px;">Visual Studio</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/Yacc/" style="font-size: 10px;">Yacc</a> <a href="/tags/e17/" style="font-size: 10px;">e17</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/jQuery-Mobile/" style="font-size: 10px;">jQuery Mobile</a> <a href="/tags/mozilla/" style="font-size: 10px;">mozilla</a> <a href="/tags/감시자들/" style="font-size: 10px;">감시자들</a> <a href="/tags/광해/" style="font-size: 10px;">광해</a> <a href="/tags/김윤석/" style="font-size: 10px;">김윤석</a> <a href="/tags/나의-PS-파트너/" style="font-size: 10px;">나의 PS 파트너</a> <a href="/tags/남자사용설명서/" style="font-size: 10px;">남자사용설명서</a> <a href="/tags/노리개/" style="font-size: 10px;">노리개</a> <a href="/tags/더-웹툰/" style="font-size: 10px;">더 웹툰</a> <a href="/tags/미인도/" style="font-size: 10px;">미인도</a> <a href="/tags/바람과-함께-사라지다/" style="font-size: 10px;">바람과 함께 사라지다</a> <a href="/tags/바이러스/" style="font-size: 10px;">바이러스</a> <a href="/tags/베테랑/" style="font-size: 10px;">베테랑</a> <a href="/tags/서툰-사람들/" style="font-size: 10px;">서툰 사람들</a> <a href="/tags/설경구/" style="font-size: 10px;">설경구</a> <a href="/tags/신세계/" style="font-size: 10px;">신세계</a> <a href="/tags/아이언맨3/" style="font-size: 10px;">아이언맨3</a> <a href="/tags/암살교실/" style="font-size: 10px;">암살교실</a> <a href="/tags/여진구/" style="font-size: 10px;">여진구</a> <a href="/tags/연속-부분-최대곱/" style="font-size: 10px;">연속 부분 최대곱</a> <a href="/tags/완전제곱수/" style="font-size: 10px;">완전제곱수</a> <a href="/tags/의뢰인/" style="font-size: 10px;">의뢰인</a> <a href="/tags/인류멸망보고서/" style="font-size: 10px;">인류멸망보고서</a> <a href="/tags/정우성/" style="font-size: 10px;">정우성</a> <a href="/tags/진격의-거인/" style="font-size: 10px;">진격의 거인</a> <a href="/tags/째째한-로맨스/" style="font-size: 10px;">째째한 로맨스</a> <a href="/tags/코딩을-지탱하는-기술/" style="font-size: 10px;">코딩을 지탱하는 기술</a> <a href="/tags/한설희/" style="font-size: 10px;">한설희</a> <a href="/tags/한효주/" style="font-size: 10px;">한효주</a> <a href="/tags/혜화동/" style="font-size: 10px;">혜화동</a> <a href="/tags/화이/" style="font-size: 10px;">화이</a> <a href="/tags/후위-표현식/" style="font-size: 10px;">후위 표현식</a>
         </div>
     </div>
 

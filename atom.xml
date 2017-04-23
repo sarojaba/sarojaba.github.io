@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>사로자바의 블로그</title>
+  <title>게으른 개발자가 되자</title>
   <subtitle>소프트웨어 개발</subtitle>
   <link href="/atom.xml" rel="self"/>
   
@@ -47,54 +47,79 @@
   </entry>
   
   <entry>
-    <title>Reverse Array Recursively</title>
-    <link href="http://sarojaba.github.io/2015/07/20/reverse-array-recursively/"/>
-    <id>http://sarojaba.github.io/2015/07/20/reverse-array-recursively/</id>
-    <published>2015-07-19T15:48:00.000Z</published>
-    <updated>2017-04-16T12:36:32.938Z</updated>
+    <title>암살교실</title>
+    <link href="http://sarojaba.github.io/2015/12/13/%EC%95%94%EC%82%B4%EA%B5%90%EC%8B%A4/"/>
+    <id>http://sarojaba.github.io/2015/12/13/암살교실/</id>
+    <published>2015-12-13T10:06:00.000Z</published>
+    <updated>2017-04-23T00:40:44.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Source-code"><a href="#Source-code" class="headerlink" title="Source code"></a>Source code</h2><pre><code class="c++"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span>
-<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;
+    <content type="html"><![CDATA[<iframe width="560" height="315" src="https://www.youtube.com/embed/dCDSsjTBOQ8" frameborder="0" allowfullscreen></iframe>
 
-<span class="function"><span class="keyword">void</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span> *A, <span class="keyword">int</span> N, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span>
-</span>{
-  <span class="comment">// base case</span>
-  <span class="keyword">if</span>(i &gt;= j) <span class="keyword">return</span>;
-
-  <span class="comment">// swap</span>
-  <span class="keyword">int</span> t = A[i];
-  A[i] = A[j];
-  A[j] = t;
-
-  <span class="comment">// recursive</span>
-  reverse(A, N, ++i, --j);
-}
-
-<span class="function"><span class="keyword">void</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span> *A, <span class="keyword">int</span> N)</span>
-</span>{
-  reverse(A, N, <span class="number">0</span>, N<span class="number">-1</span>);
-}
-
-<span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>{
-  <span class="comment">// your code goes here</span>
-
-  <span class="keyword">int</span> A[<span class="number">5</span>] = {<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>};
-
-  reverse(A, <span class="number">5</span>);
-
-  <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) {
-    <span class="built_in">cout</span> &lt;&lt; A[i] &lt;&lt; <span class="string">","</span>;
-  }
-  <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;
-
-  <span class="keyword">return</span> <span class="number">0</span>;
-}
-</code></pre>
+<p>지구를 멸망시키려는 정체불명의 초생명체가 학급의 담임교사가 되고, 학생들은 그를 암살하는 훈련을 받는다.</p>
+<p>원작이 만화라고는 하지만 너무 병맛이다 ㅋ</p>
+<p>오글오글거리면서 끝까지 봤다 ㅋㅋ</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;Source-code&quot;&gt;&lt;a href=&quot;#Source-code&quot; class=&quot;headerlink&quot; title=&quot;Source code&quot;&gt;&lt;/a&gt;Source code&lt;/h2&gt;&lt;pre&gt;&lt;code class=&quot;c++&quot;&gt;&lt;span class=&quot;m
+      &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/dCDSsjTBOQ8&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;지구를 멸망시키려는 정체
+    
+    </summary>
+    
+      <category term="Movie" scheme="http://sarojaba.github.io/categories/Movie/"/>
+    
+    
+      <category term="Movie" scheme="http://sarojaba.github.io/tags/Movie/"/>
+    
+      <category term="암살교실" scheme="http://sarojaba.github.io/tags/%EC%95%94%EC%82%B4%EA%B5%90%EC%8B%A4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>베테랑</title>
+    <link href="http://sarojaba.github.io/2015/09/04/%EB%B2%A0%ED%85%8C%EB%9E%91/"/>
+    <id>http://sarojaba.github.io/2015/09/04/베테랑/</id>
+    <published>2015-09-04T14:31:00.000Z</published>
+    <updated>2017-04-23T00:43:10.732Z</updated>
+    
+    <content type="html"><![CDATA[<iframe width="560" height="315" src="https://www.youtube.com/embed/El8gg8XH7X4" frameborder="0" allowfullscreen></iframe>
+
+<p>열혈 베테랑 형사와 악한 재벌 2세의 대결을 그린 영화이다.</p>
+<p>배우 황정민과 유아인 뿐만 아니라 비중있는 조연 배우들의 캐릭터가 돋보였다.</p>
+<p>근래 본 영화들 중에 가장 쫄깃쫄깃한 액션을 보여줬다.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/El8gg8XH7X4&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;열혈 베테랑 형사와 악한
+    
+    </summary>
+    
+      <category term="Movie" scheme="http://sarojaba.github.io/categories/Movie/"/>
+    
+    
+      <category term="Movie" scheme="http://sarojaba.github.io/tags/Movie/"/>
+    
+      <category term="베테랑" scheme="http://sarojaba.github.io/tags/%EB%B2%A0%ED%85%8C%EB%9E%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Reverse Array Recursively</title>
+    <link href="http://sarojaba.github.io/2015/07/20/reverse-array-recursively/"/>
+    <id>http://sarojaba.github.io/2015/07/20/reverse-array-recursively/</id>
+    <published>2015-07-19T15:48:00.000Z</published>
+    <updated>2017-04-16T13:24:27.551Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Source-code"><a href="#Source-code" class="headerlink" title="Source code"></a>Source code</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span> *A, <span class="keyword">int</span> N, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span></span></div><div class="line">&#123;</div><div class="line">  <span class="comment">// base case</span></div><div class="line">  <span class="keyword">if</span>(i &gt;= j) <span class="keyword">return</span>;</div><div class="line"></div><div class="line">  <span class="comment">// swap</span></div><div class="line">  <span class="keyword">int</span> t = A[i];</div><div class="line">  A[i] = A[j];</div><div class="line">  A[j] = t;</div><div class="line"></div><div class="line">  <span class="comment">// recursive</span></div><div class="line">  reverse(A, N, ++i, --j);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span> *A, <span class="keyword">int</span> N)</span></span></div><div class="line">&#123;</div><div class="line">  reverse(A, N, <span class="number">0</span>, N<span class="number">-1</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">  <span class="comment">// your code goes here</span></div><div class="line"></div><div class="line">  <span class="keyword">int</span> A[<span class="number">5</span>] = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;;</div><div class="line"></div><div class="line">  reverse(A, <span class="number">5</span>);</div><div class="line"></div><div class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</div><div class="line">    <span class="built_in">cout</span> &lt;&lt; A[i] &lt;&lt; <span class="string">","</span>;</div><div class="line">  &#125;</div><div class="line">  <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</div><div class="line"></div><div class="line">  <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Source-code&quot;&gt;&lt;a href=&quot;#Source-code&quot; class=&quot;headerlink&quot; title=&quot;Source code&quot;&gt;&lt;/a&gt;Source code&lt;/h2&gt;&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;
     
     </summary>
     
@@ -147,33 +172,10 @@
     <link href="http://sarojaba.github.io/2015/06/17/%EC%97%B0%EC%86%8D-%EB%B6%80%EB%B6%84-%EC%B5%9C%EB%8C%80%EA%B3%B1-public-class-max-public-static/"/>
     <id>http://sarojaba.github.io/2015/06/17/연속-부분-최대곱-public-class-max-public-static/</id>
     <published>2015-06-17T01:19:00.000Z</published>
-    <updated>2017-04-15T09:58:48.240Z</updated>
+    <updated>2017-04-16T13:24:42.515Z</updated>
     
     <content type="html"><![CDATA[<h1 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h1><img src="/2015/06/17/연속-부분-최대곱-public-class-max-public-static/tumblr_nq2ebtMpel1rd6870o1_500.jpg" alt="문제" title="문제">
-<h1 id="소스-코드"><a href="#소스-코드" class="headerlink" title="소스 코드"></a>소스 코드</h1><pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MAX</span></span>{
-
-  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span>[] nums = {<span class="number">1.1</span>, <span class="number">0.7</span>, <span class="number">1.3</span>, <span class="number">0.9</span>, <span class="number">1.4</span>, <span class="number">0.8</span>, <span class="number">0.7</span>, <span class="number">1.4</span>};
-  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>{
-    <span class="keyword">float</span> max = <span class="number">1</span>;
-    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++){
-
-      <span class="keyword">if</span>(nums[i] &gt; <span class="number">1</span>){
-        <span class="keyword">float</span> m = <span class="number">1</span>;
-        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; nums.length - i; j++){
-
-          m *= nums[i + j];
-
-          <span class="keyword">if</span>(max &lt; m){
-            max = m;
-          }
-        }
-      }
-    }
-    System.out.println(max);
-  }
-}
-</code></pre>
-]]></content>
+<h1 id="소스-코드"><a href="#소스-코드" class="headerlink" title="소스 코드"></a>소스 코드</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MAX</span></span>&#123;</div><div class="line"></div><div class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span>[] nums = &#123;<span class="number">1.1</span>, <span class="number">0.7</span>, <span class="number">1.3</span>, <span class="number">0.9</span>, <span class="number">1.4</span>, <span class="number">0.8</span>, <span class="number">0.7</span>, <span class="number">1.4</span>&#125;;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">    <span class="keyword">float</span> max = <span class="number">1</span>;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++)&#123;</div><div class="line"></div><div class="line">      <span class="keyword">if</span>(nums[i] &gt; <span class="number">1</span>)&#123;</div><div class="line">        <span class="keyword">float</span> m = <span class="number">1</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; nums.length - i; j++)&#123;</div><div class="line"></div><div class="line">          m *= nums[i + j];</div><div class="line"></div><div class="line">          <span class="keyword">if</span>(max &lt; m)&#123;</div><div class="line">            max = m;</div><div class="line">          &#125;</div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">    System.out.println(max);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
@@ -183,10 +185,43 @@
     
       <category term="Programming" scheme="http://sarojaba.github.io/categories/Programming/"/>
     
+      <category term="Algorithm" scheme="http://sarojaba.github.io/categories/Programming/Algorithm/"/>
+    
     
       <category term="Algorithm" scheme="http://sarojaba.github.io/tags/Algorithm/"/>
     
       <category term="연속 부분 최대곱" scheme="http://sarojaba.github.io/tags/%EC%97%B0%EC%86%8D-%EB%B6%80%EB%B6%84-%EC%B5%9C%EB%8C%80%EA%B3%B1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>홈 (2015)</title>
+    <link href="http://sarojaba.github.io/2015/06/15/%ED%99%88/"/>
+    <id>http://sarojaba.github.io/2015/06/15/홈/</id>
+    <published>2015-06-15T08:21:00.000Z</published>
+    <updated>2017-04-23T08:40:40.000Z</updated>
+    
+    <content type="html"><![CDATA[<iframe width="560" height="315" src="https://www.youtube.com/embed/MyqZf8LiWvM" frameborder="0" allowfullscreen></iframe>
+
+<p>외계인의 침공으로 엄마와 이별하게 된 주인공이 외계인과 함께 엄마를 찾아 떠난다는 이야기이다.</p>
+<p>드림웍스의 작품답게 중간중간 재미난 요소들이 많이 나온다.</p>
+<p>가슴 뭉클한 감동을 주는 영화이다.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/MyqZf8LiWvM&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;외계인의 침공으로 엄마와
+    
+    </summary>
+    
+      <category term="Movie" scheme="http://sarojaba.github.io/categories/Movie/"/>
+    
+    
+      <category term="Movie" scheme="http://sarojaba.github.io/tags/Movie/"/>
+    
+      <category term="Home" scheme="http://sarojaba.github.io/tags/Home/"/>
     
   </entry>
   
@@ -321,47 +356,15 @@
     <link href="http://sarojaba.github.io/2015/01/07/%EC%B5%9C%EB%8C%80-%EA%B3%B5%EC%95%BD%EC%88%98%EC%99%80-%EC%B5%9C%EC%86%8C-%EA%B3%B5%EB%B0%B0%EC%88%98/"/>
     <id>http://sarojaba.github.io/2015/01/07/최대-공약수와-최소-공배수/</id>
     <published>2015-01-06T15:48:00.000Z</published>
-    <updated>2017-04-16T09:02:21.601Z</updated>
+    <updated>2017-04-16T13:27:16.000Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="http://68.media.tumblr.com/10a5739b83eaea8c48b227b4c5f60e13/tumblr_inline_nhrijmBsV31rubmdv.jpg" alt=""></p>
-<pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GCDLCM</span> </span>{
-    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{
-        System.out.println(gcd(<span class="number">24</span>, <span class="number">18</span>));
-        System.out.println(lcm(<span class="number">24</span>, <span class="number">18</span>));
-    }
-
-    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>{
-        <span class="keyword">int</span> c = a % b;
-
-        <span class="keyword">if</span> (c == <span class="number">0</span>) {
-            <span class="keyword">return</span> b;
-        }
-
-        <span class="keyword">return</span> gcd(b, c);
-    }
-
-    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">lcm</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>{
-        <span class="keyword">int</span> m = a, n = b;
-        <span class="keyword">int</span> i = <span class="number">1</span>, j = <span class="number">1</span>;
-
-        <span class="keyword">while</span> (m != n) {
-            <span class="keyword">if</span> (m &lt; n) {
-                m = a * ++i;
-            } <span class="keyword">else</span> {
-                n = b * ++j;
-            }
-        }
-
-        <span class="keyword">return</span> m;
-    }
-}
-</code></pre>
-]]></content>
+    <content type="html"><![CDATA[<img src="/2015/01/07/최대-공약수와-최소-공배수/tumblr_inline_nhrijmBsV31rubmdv.jpg" alt="tumblr_inline_nhrijmBsV31rubmdv.jpg" title="">
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GCDLCM</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        System.out.println(gcd(<span class="number">24</span>, <span class="number">18</span>));</div><div class="line">        System.out.println(lcm(<span class="number">24</span>, <span class="number">18</span>));</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> c = a % b;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (c == <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">return</span> b;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> gcd(b, c);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">lcm</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> m = a, n = b;</div><div class="line">        <span class="keyword">int</span> i = <span class="number">1</span>, j = <span class="number">1</span>;</div><div class="line"></div><div class="line">        <span class="keyword">while</span> (m != n) &#123;</div><div class="line">            <span class="keyword">if</span> (m &lt; n) &#123;</div><div class="line">                m = a * ++i;</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                n = b * ++j;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> m;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;http://68.media.tumblr.com/10a5739b83eaea8c48b227b4c5f60e13/tumblr_inline_nhrijmBsV31rubmdv.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;
+      &lt;img src=&quot;/2015/01/07/최대-공약수와-최소-공배수/tumblr_inline_nhrijmBsV31rubmdv.jpg&quot; alt=&quot;tumblr_inline_nhrijmBsV31rubmdv.jpg&quot; title=&quot;&quot;&gt;
+&lt;figure class=
     
     </summary>
     
@@ -722,102 +725,6 @@
       <category term="Game" scheme="http://sarojaba.github.io/tags/Game/"/>
     
       <category term="CoffeeScript" scheme="http://sarojaba.github.io/tags/CoffeeScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Coffeescript Game Tutorial the Keyboard</title>
-    <link href="http://sarojaba.github.io/2014/07/29/coffeescript-game-tutorial-the-keyboard/"/>
-    <id>http://sarojaba.github.io/2014/07/29/coffeescript-game-tutorial-the-keyboard/</id>
-    <published>2014-07-29T14:30:00.000Z</published>
-    <updated>2017-04-15T02:21:14.394Z</updated>
-    
-    <content type="html"><![CDATA[<p>키보드 이벤트를 추가한 코드이다.</p>
-<figure class="highlight coffee"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">rightDown = false</div><div class="line">leftDown = false</div><div class="line"></div><div class="line"># set rightDown or leftDown if the right or left key are down</div><div class="line">document.onkeydown = (evt) -&gt;</div><div class="line">switch evt.keyCode</div><div class="line">when 39 then rightDown = true</div><div class="line">when 37 then leftDown = true</div><div class="line"></div><div class="line"># and unset then when the right or left key is released</div><div class="line">document.onkeyup = (evt) -&gt;</div><div class="line">switch evt.keyCode</div><div class="line">when 39 then rightDown = false</div><div class="line">when 37 then leftDown = false</div><div class="line"></div><div class="line">draw = -&gt;</div><div class="line">clear()</div><div class="line">circle(x, y, 10)</div><div class="line"></div><div class="line"># move the paddle if left or right is currently pressed</div><div class="line">paddlex += 5 if rightDown</div><div class="line">paddlex -= 5 if leftDown</div><div class="line">rect(paddlex, HEIGHT-paddleh, paddlew, paddleh)</div><div class="line"></div><div class="line">dx = -dx if x + dx &gt; WIDTH or x + dx &lt; 0</div><div class="line">if y + dy &lt; 0 then dy = -dy</div><div class="line">else if y + dy &gt; HEIGHT</div><div class="line">if x &gt; paddlex and x &lt; paddlex + paddlew</div><div class="line">dy = -dy</div><div class="line">else</div><div class="line"># game over, so stop the animation</div><div class="line">clearInterval(intervalId)</div><div class="line"></div><div class="line">x += dx;</div><div class="line">y += dy;</div><div class="line"></div><div class="line">window.onload = -&gt;</div><div class="line">init()</div></pre></td></tr></table></figure>
-<p><a href="http://billmill.org/static/canvastutorial/keyboard.html" target="_blank" rel="external">Reference</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;키보드 이벤트를 추가한 코드이다.&lt;/p&gt;
-&lt;figure class=&quot;highlight coffee&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/
-    
-    </summary>
-    
-      <category term="Programming" scheme="http://sarojaba.github.io/categories/Programming/"/>
-    
-      <category term="CoffeScript" scheme="http://sarojaba.github.io/categories/Programming/CoffeScript/"/>
-    
-    
-      <category term="Programming" scheme="http://sarojaba.github.io/tags/Programming/"/>
-    
-      <category term="Game" scheme="http://sarojaba.github.io/tags/Game/"/>
-    
-      <category term="CoffeScript" scheme="http://sarojaba.github.io/tags/CoffeScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Coffeescript Game Tutorial Add a Paddle</title>
-    <link href="http://sarojaba.github.io/2014/07/29/coffeescript-game-tutorial-add-a-paddle/"/>
-    <id>http://sarojaba.github.io/2014/07/29/coffeescript-game-tutorial-add-a-paddle/</id>
-    <published>2014-07-29T14:27:00.000Z</published>
-    <updated>2017-04-15T02:16:37.100Z</updated>
-    
-    <content type="html"><![CDATA[<p>화면 하단에 막대기를 추가한 코드이다.</p>
-<figure class="highlight coffee"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">paddlex = 0</div><div class="line">paddleh = 0</div><div class="line">paddlew = 0</div><div class="line"></div><div class="line">init_paddle = -&gt;</div><div class="line">paddlex = WIDTH / 2</div><div class="line">paddleh = 10</div><div class="line">paddlew = 75</div><div class="line"></div><div class="line">draw = -&gt;</div><div class="line">clear()</div><div class="line">circle(x, y, 10)</div><div class="line">rect(paddlex, HEIGHT - paddleh, paddlew, paddleh)</div><div class="line"></div><div class="line">dx = -dx if x + dx &gt; WIDTH or x + dx &lt; 0</div><div class="line">if y + dy &lt; 0</div><div class="line">dy = -dy</div><div class="line">else if y + dy &gt; HEIGHT</div><div class="line">if x &gt; paddlex and x &lt; paddlex + paddlew</div><div class="line">dy = -dy</div><div class="line">else</div><div class="line">clearInterval(intervalId)</div><div class="line"></div><div class="line">x += dx;</div><div class="line">y += dy;</div><div class="line"></div><div class="line">window.onload = -&gt;</div><div class="line">init()</div><div class="line">init_paddle()</div></pre></td></tr></table></figure>
-<p><a href="http://billmill.org/static/canvastutorial/paddle.html" target="_blank" rel="external">Reference</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;화면 하단에 막대기를 추가한 코드이다.&lt;/p&gt;
-&lt;figure class=&quot;highlight coffee&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;
-    
-    </summary>
-    
-      <category term="Programming" scheme="http://sarojaba.github.io/categories/Programming/"/>
-    
-      <category term="CoffeeScript" scheme="http://sarojaba.github.io/categories/Programming/CoffeeScript/"/>
-    
-    
-      <category term="Programming" scheme="http://sarojaba.github.io/tags/Programming/"/>
-    
-      <category term="Game" scheme="http://sarojaba.github.io/tags/Game/"/>
-    
-      <category term="CoffeeScript" scheme="http://sarojaba.github.io/tags/CoffeeScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Coffeescript Game Tutorial Bounce</title>
-    <link href="http://sarojaba.github.io/2014/07/29/coffeescript-game-tutorial-bounce/"/>
-    <id>http://sarojaba.github.io/2014/07/29/coffeescript-game-tutorial-bounce/</id>
-    <published>2014-07-28T18:45:00.000Z</published>
-    <updated>2017-04-15T02:18:15.882Z</updated>
-    
-    <content type="html"><![CDATA[<p>공 튀기는 코드이다.</p>
-<figure class="highlight coffee"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line">### BEGIN LIBRARY CODE ###</div><div class="line"></div><div class="line">x = 150</div><div class="line">y = 150</div><div class="line">dx = 2</div><div class="line">dy = 4</div><div class="line">ctx = null</div><div class="line">WIDTH = 0</div><div class="line">HEIGHT = 0</div><div class="line"></div><div class="line">init = -&gt;</div><div class="line">canvas = document.getElementById(&quot;myCanvas&quot;)</div><div class="line">ctx = canvas.getContext(&quot;2d&quot;)</div><div class="line">WIDTH = canvas.width</div><div class="line">HEIGHT = canvas.height</div><div class="line"></div><div class="line">setInterval(draw, 10)</div><div class="line"></div><div class="line">circle = (x, y, r) -&gt;</div><div class="line">ctx.beginPath()</div><div class="line">ctx.arc(x, y, r, 0, Math.PI*2, true)</div><div class="line">ctx.closePath()</div><div class="line">ctx.fill()</div><div class="line"></div><div class="line">rect = (x, y, w, h) -&gt;</div><div class="line">ctx.beginPath()</div><div class="line">ctx.rect(x, y, w, h)</div><div class="line">ctx.closePath()</div><div class="line">ctx.fill()</div><div class="line"></div><div class="line">clear = -&gt;</div><div class="line">ctx.clearRect(0, 0, WIDTH, HEIGHT)</div><div class="line"></div><div class="line">### END LIBRARY CODE ###</div><div class="line"></div><div class="line">draw = -&gt;</div><div class="line">clear()</div><div class="line">circle(x, y, 10)</div><div class="line"></div><div class="line">dx = -dx if x + dx &gt; WIDTH or x + dx &lt; 0</div><div class="line">dy = -dy if y + dy &gt; HEIGHT or y + dy &lt; 0</div><div class="line"></div><div class="line">x += dx;</div><div class="line">y += dy;</div><div class="line"></div><div class="line">window.onload = -&gt;</div><div class="line">init()</div></pre></td></tr></table></figure>
-<p><a href="http://billmill.org/static/canvastutorial/bounce.html" target="_blank" rel="external">Reference</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;공 튀기는 코드이다.&lt;/p&gt;
-&lt;figure class=&quot;highlight coffee&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;di
-    
-    </summary>
-    
-      <category term="Programming" scheme="http://sarojaba.github.io/categories/Programming/"/>
-    
-      <category term="CoffeScript" scheme="http://sarojaba.github.io/categories/Programming/CoffeScript/"/>
-    
-    
-      <category term="Programming" scheme="http://sarojaba.github.io/tags/Programming/"/>
-    
-      <category term="Game" scheme="http://sarojaba.github.io/tags/Game/"/>
-    
-      <category term="CoffeScript" scheme="http://sarojaba.github.io/tags/CoffeScript/"/>
     
   </entry>
   

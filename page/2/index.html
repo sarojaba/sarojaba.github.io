@@ -3,21 +3,21 @@
 <head>
     <meta charset="utf-8">
     
-    <title>사로자바의 블로그</title>
+    <title>게으른 개발자가 되자</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="공부한 내용들을 정리하는 곳">
 <meta property="og:type" content="website">
-<meta property="og:title" content="사로자바의 블로그">
+<meta property="og:title" content="게으른 개발자가 되자">
 <meta property="og:url" content="http://sarojaba.github.io/page/2/index.html">
-<meta property="og:site_name" content="사로자바의 블로그">
+<meta property="og:site_name" content="게으른 개발자가 되자">
 <meta property="og:description" content="공부한 내용들을 정리하는 곳">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="사로자바의 블로그">
+<meta name="twitter:title" content="게으른 개발자가 되자">
 <meta name="twitter:description" content="공부한 내용들을 정리하는 곳">
     
 
     
-        <link rel="alternate" href="/" title="사로자바의 블로그" type="application/atom+xml" />
+        <link rel="alternate" href="atom.xml" title="게으른 개발자가 되자" type="application/atom+xml" />
     
 
     
@@ -52,7 +52,7 @@
         <div class="outer">
             <a href="/" id="logo">
                 <i class="logo"></i>
-                <span class="site-title">사로자바의 블로그</span>
+                <span class="site-title">게으른 개발자가 되자</span>
             </a>
             <nav id="main-nav">
                 
@@ -151,18 +151,18 @@
     <div class="inner profile-inner">
         <div class="base-info profile-block">
             <img id="avatar" src="/css/images/avatar.png" />
-            <h2 id="name">사로자바</h2>
+            <h2 id="name">우준혁</h2>
             <h3 id="title">Software Developer</h3>
             <span id="location"><i class="fa fa-map-marker"></i>Suwon, South Korea</span>
             <a id="follow" target="_blank" href="https://github.com/sarojaba">FOLLOW</a>
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                164
+                167
                 <span>posts</span>
             </div>
             <div class="article-info-block">
-                125
+                128
                 <span>tags</span>
             </div>
         </div>
@@ -185,7 +185,7 @@
                     </td>
                     
                     <td>
-                        <a href="/" target="_blank" title="rss" class=tooltip>
+                        <a href="/atom.xml" target="_blank" title="rss" class=tooltip>
                             <i class="fa fa-rss"></i>
                         </a>
                     </td>
@@ -199,6 +199,418 @@
 
             
             <section id="main">
+    <article id="post-java-iterator-pattern-on-colletions" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2015/02/16/java-iterator-pattern-on-colletions/">Java Iterator Pattern on Colletions</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2015/02/16/java-iterator-pattern-on-colletions/">
+            <time datetime="2015-02-16T11:18:00.000Z" itemprop="datePublished">2015-02-16</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Java/">Java</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Iterator/">Iterator</a>, <a class="tag-link" href="/tags/Java/">Java</a>, <a class="tag-link" href="/tags/Programming/">Programming</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="The-Iterator-pattern"><a href="#The-Iterator-pattern" class="headerlink" title="The Iterator pattern"></a>The Iterator pattern</h2><p>Iterator 패턴은 Collection을 탐색하는 방법과 클라이언트가 수행할 작업을 분리하는 GoF의 패턴 중 하나입니다. index, cursor, enumeration 등으로도 불립니다.</p>
+<p>Iterator는 Active 또는 Passive한 형태로 나뉩니다. Active Iterator는 클라이언트가 Iterator를 생성하고, 다음 아이템의 존재 여부를 확인하고, 다음 아이템을 얻는 작업을 합니다. 반면, Passive Iterator는 이 작업을 내부적으로 수행합니다.</p>
+<p>Java는 Iterator 패턴을 이용하여 Collection을 탐색합니다. Active에서 Passive한 형태로 발전했습니다.</p>
+<h2 id="Enumeration"><a href="#Enumeration" class="headerlink" title="Enumeration"></a>Enumeration</h2><p>초기 Java 1.0 때는 Collection에 Vector와 Hashtable만 있었고, Enumeration을 이용해 탐색하였습니다. Java 5 이후부터는 enum 타입과 헷갈리기 때문에 위 클래스들을 사용하지 않는 것이 좋습니다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Vector names = <span class="keyword">new</span> Vector();</div><div class="line"></div><div class="line"><span class="comment">// ... add some names to the collection</span></div><div class="line"></div><div class="line">Enumeration e = names.elements();</div><div class="line"><span class="keyword">while</span> (e.hasMoreElements())</div><div class="line">&#123;</div><div class="line">  String name = (String) e.nextElement();</div><div class="line">  System.out.println(name);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Iterator"><a href="#Iterator" class="headerlink" title="Iterator"></a>Iterator</h2><p>Java 1.2부터 Collections Framework를 설계하면서 Iterator라는 명확한 이름으로 구현되었습니다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">List names = <span class="keyword">new</span> LinkedList();</div><div class="line"></div><div class="line"><span class="comment">// ... add some names to the collection</span></div><div class="line"></div><div class="line">Iterator i = names.iterator();</div><div class="line"><span class="keyword">while</span> (i.hasNext())</div><div class="line">&#123;</div><div class="line">  String name = (String) i.next();</div><div class="line">  System.out.println(name);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Generics-and-the-Enhanced-for-loop"><a href="#Generics-and-the-Enhanced-for-loop" class="headerlink" title="Generics and the Enhanced for-loop"></a>Generics and the Enhanced for-loop</h2><p>Java 5부터는 Iteratable 인터페이스를 구현한 객체라면 for-each 구문을 이용할 수 있습니다. 기존에는 Active한 형태였지만 이제는 Passive한 형태로 진화하고 있는 과도기입니다. Java 7에서는 Diamond Operator를 이용해 타입 추론이 가능합니다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">List&lt;String&gt; names = <span class="keyword">new</span> LinkedList&lt;String&gt;();  <span class="comment">// Java 5</span></div><div class="line">List&lt;String&gt; names = <span class="keyword">new</span> LinkedList&lt;&gt;();        <span class="comment">// Java 7</span></div><div class="line"></div><div class="line"><span class="comment">// ... add some names to the collection</span></div><div class="line"></div><div class="line"><span class="keyword">for</span> (String name : names)</div><div class="line">  System.out.println(name);</div></pre></td></tr></table></figure>
+<h2 id="forEach"><a href="#forEach" class="headerlink" title="forEach"></a>forEach</h2><p>Java 8에서는 Iterable 인터페이스에 default 메소드로 forEach 메소드를 제공합니다. forEach 메소드의 인자로 lambda 표현식이 들어갑니다. 기존에는 ‘반복’이라는 개념을 명시적으로 표현했다면, forEach는 이것을 암묵적으로 표현합니다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">List&lt;String&gt; names = <span class="keyword">new</span> LinkedList&lt;&gt;();</div><div class="line"></div><div class="line"><span class="comment">// ... add some names to the collection</span></div><div class="line"></div><div class="line">names.forEach(name -&gt; System.out.println(name));</div></pre></td></tr></table></figure>
+<h2 id="Stream-API"><a href="#Stream-API" class="headerlink" title="Stream API"></a>Stream API</h2><p>Java 8에서는 stream 메소드를 이용해 컬렉션을 다룰 수 있습니다. filter(), distinct(), sorted(), map() 등의 중간 연산과 count(), average(), sum(), max(), forEach() 등의 종단 연산을 연결할 수 있습니다. 각 아이템에 대한 연산을 병렬화 하려면 parallelStream() 메소드를 이용하면 됩니다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">List&lt;String&gt; names = <span class="keyword">new</span> LinkedList&lt;&gt;();</div><div class="line"></div><div class="line"><span class="comment">// ... add some names to the collection</span></div><div class="line"></div><div class="line"><span class="keyword">long</span> count = names.stream()</div><div class="line">                  .filter(name -&gt; name.startsWith(<span class="string">"A"</span>))</div><div class="line">                  .count();</div></pre></td></tr></table></figure>
+<h2 id="Performance"><a href="#Performance" class="headerlink" title="Performance"></a>Performance</h2><p>Active와 Passive 사이에는 큰 차이가 없습니다.<br>LinkedList, LinkedHashSet은 stream과 parallelStream 사이에는 큰 차이가 없습니다.(순차 참조 자료 구조)<br>ArrayList, TreeSet, HashSet은 parallelStream이 성능이 좋습니다.(직접 참조 자료 구조)</p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="http://www.javaworld.com/article/2461744/java-language/java-language-iterating-over-collections-in-java-8.html" target="_blank" rel="external">Iterating over collections in Java 8</a></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://sarojaba.github.io/2015/02/16/java-iterator-pattern-on-colletions/" data-id="cj1uz2eom005v0gzyskacha6m" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://sarojaba.github.io/2015/02/16/java-iterator-pattern-on-colletions/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://sarojaba.github.io/2015/02/16/java-iterator-pattern-on-colletions/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-최대-공약수와-최소-공배수" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2015/01/07/최대-공약수와-최소-공배수/">최대 공약수와 최소 공배수</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2015/01/07/최대-공약수와-최소-공배수/">
+            <time datetime="2015-01-06T15:48:00.000Z" itemprop="datePublished">2015-01-07</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Algorithm/">Algorithm</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Algorithm/">Algorithm</a>, <a class="tag-link" href="/tags/Programming/">Programming</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <img src="/2015/01/07/최대-공약수와-최소-공배수/tumblr_inline_nhrijmBsV31rubmdv.jpg" alt="tumblr_inline_nhrijmBsV31rubmdv.jpg" title="">
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GCDLCM</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        System.out.println(gcd(<span class="number">24</span>, <span class="number">18</span>));</div><div class="line">        System.out.println(lcm(<span class="number">24</span>, <span class="number">18</span>));</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> c = a % b;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (c == <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">return</span> b;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> gcd(b, c);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">lcm</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> m = a, n = b;</div><div class="line">        <span class="keyword">int</span> i = <span class="number">1</span>, j = <span class="number">1</span>;</div><div class="line"></div><div class="line">        <span class="keyword">while</span> (m != n) &#123;</div><div class="line">            <span class="keyword">if</span> (m &lt; n) &#123;</div><div class="line">                m = a * ++i;</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                n = b * ++j;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> m;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://sarojaba.github.io/2015/01/07/최대-공약수와-최소-공배수/" data-id="cj1uz2eu900fd0gzy6vt8hj6x" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://sarojaba.github.io/2015/01/07/최대-공약수와-최소-공배수/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://sarojaba.github.io/2015/01/07/최대-공약수와-최소-공배수/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-로마숫자" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2015/01/07/로마숫자/">로마숫자</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2015/01/07/로마숫자/">
+            <time datetime="2015-01-06T15:44:00.000Z" itemprop="datePublished">2015-01-07</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Algorithm/">Algorithm</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Algorithm/">Algorithm</a>, <a class="tag-link" href="/tags/Programming/">Programming</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <img src="/2015/01/07/로마숫자/tumblr_inline_nhri7qnong1rubmdv.jpg" alt="tumblr_inline_nhri7qnong1rubmdv.jpg" title="">
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RomaNum</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">char</span>[] signs = &#123;</div><div class="line">        <span class="string">'I'</span>, <span class="string">'V'</span>, <span class="string">'X'</span>, <span class="string">'L'</span>, <span class="string">'C'</span>, <span class="string">'D'</span>, <span class="string">'M'</span></div><div class="line">    &#125;;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[] values = &#123;</div><div class="line">        <span class="number">1</span>, <span class="number">5</span>, <span class="number">10</span>, <span class="number">50</span>, <span class="number">100</span>, <span class="number">500</span>, <span class="number">1000</span></div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toRomaNum</span><span class="params">(<span class="keyword">int</span> digitNum)</span> </span>&#123;</div><div class="line">        StringBuilder sb = <span class="keyword">new</span> StringBuilder();</div><div class="line"></div><div class="line">        String s = Integer.toString(digitNum);</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); i++) &#123;</div><div class="line">            <span class="keyword">int</span> d = s.length() - i - <span class="number">1</span>;</div><div class="line"></div><div class="line">            <span class="keyword">char</span> ch = s.charAt(i);</div><div class="line"></div><div class="line">            <span class="keyword">switch</span> (ch) &#123;</div><div class="line">                <span class="keyword">case</span> <span class="string">'1'</span>:</div><div class="line">                    sb.append(signs[d * <span class="number">2</span>]);</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">case</span> <span class="string">'2'</span>:</div><div class="line">                    sb.append(signs[d * <span class="number">2</span>]);</div><div class="line">                    sb.append(signs[d * <span class="number">2</span>]);</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">case</span> <span class="string">'3'</span>:</div><div class="line">                    sb.append(signs[d * <span class="number">2</span>]);</div><div class="line">                    sb.append(signs[d * <span class="number">2</span>]);</div><div class="line">                    sb.append(signs[d * <span class="number">2</span>]);</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">case</span> <span class="string">'4'</span>:</div><div class="line">                    sb.append(signs[d * <span class="number">2</span>]);</div><div class="line">                    sb.append(signs[d * <span class="number">2</span> + <span class="number">1</span>]);</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">case</span> <span class="string">'5'</span>:</div><div class="line">                    sb.append(signs[d * <span class="number">2</span> + <span class="number">1</span>]);</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">case</span> <span class="string">'6'</span>:</div><div class="line">                    sb.append(signs[d * <span class="number">2</span> + <span class="number">1</span>]);</div><div class="line">                    sb.append(signs[d * <span class="number">2</span>]);</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">case</span> <span class="string">'7'</span>:</div><div class="line">                    sb.append(signs[d * <span class="number">2</span> + <span class="number">1</span>]);</div><div class="line">                    sb.append(signs[d * <span class="number">2</span>]);</div><div class="line">                    sb.append(signs[d * <span class="number">2</span>]);</div><div class="line">                <span class="keyword">case</span> <span class="string">'8'</span>:</div><div class="line">                    sb.append(signs[d * <span class="number">2</span> + <span class="number">1</span>]);</div><div class="line">                    sb.append(signs[d * <span class="number">2</span>]);</div><div class="line">                    sb.append(signs[d * <span class="number">2</span>]);</div><div class="line">                    sb.append(signs[d * <span class="number">2</span>]);</div><div class="line">                <span class="keyword">case</span> <span class="string">'9'</span>:</div><div class="line">                    sb.append(signs[d * <span class="number">2</span>]);</div><div class="line">                    sb.append(signs[d * <span class="number">2</span> + <span class="number">2</span>]);</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">default</span>:</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> sb.toString();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">toDigitNum</span><span class="params">(String romaNum)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span>[] n = <span class="keyword">new</span> <span class="keyword">int</span>[romaNum.length() * <span class="number">3</span>];</div><div class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; romaNum.length(); i++) &#123;</div><div class="line">            <span class="keyword">char</span> sign = romaNum.charAt(i);</div><div class="line"></div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; signs.length; j++) &#123;</div><div class="line">                <span class="keyword">if</span> (sign == signs[j]) &#123;</div><div class="line">                    n[i] = values[j];</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n.length; i++) &#123;</div><div class="line">            <span class="keyword">if</span> (n[i - <span class="number">1</span>] &lt; n[i]) &#123;</div><div class="line">                sum += n[i] - n[i - <span class="number">1</span>];</div><div class="line">                i++;</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                sum += n[i - <span class="number">1</span>];</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> sum;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        RomaNum rn = <span class="keyword">new</span> RomaNum();</div><div class="line"></div><div class="line">        System.out.println(rn.toRomaNum(<span class="number">2493</span>));</div><div class="line">        System.out.println(rn.toDigitNum(<span class="string">"MMMCCCXXXIII"</span>));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>예전 블로그에 있던 소스를 옮기고 있는데 지금 보니 무슨 생각으로 짰는지 모르겠다;; ㅎㄷㄷ</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://sarojaba.github.io/2015/01/07/로마숫자/" data-id="cj1uz2erf00ar0gzyxochm5wf" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://sarojaba.github.io/2015/01/07/로마숫자/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://sarojaba.github.io/2015/01/07/로마숫자/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-playn-game-loop" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -258,7 +670,7 @@
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/11/19/playn-game-loop/" data-id="cj1kpuqsr007flwzyrvivh25t" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/11/19/playn-game-loop/" data-id="cj1uz2epk007t0gzy6039918i" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -398,7 +810,7 @@
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/11/19/playn-개요/" data-id="cj1kpuqss007ilwzyawlhnh0e" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/11/19/playn-개요/" data-id="cj1uz2epm007x0gzyc2lsys1z" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -553,7 +965,7 @@
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/08/20/완전제곱수/" data-id="cj1kpuqvs00cylwzyluwuwa7x" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/08/20/완전제곱수/" data-id="cj1uz2esu00d30gzy8vg3j1nr" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -685,7 +1097,7 @@
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/08/13/삽입-정렬/" data-id="cj1kpuqvf00c6lwzyc7voxy8m" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/08/13/삽입-정렬/" data-id="cj1uz2es400c80gzyz5pbc7y1" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -861,7 +1273,7 @@
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/08/13/개미-수열/" data-id="cj1kpuqu6009tlwzya4illnig" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/08/13/개미-수열/" data-id="cj1uz2er1009z0gzykkj6fzq0" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1024,7 +1436,7 @@
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/08/01/피보나치-수열/" data-id="cj1kpuqxp00fwlwzybz3x604d" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/08/01/피보나치-수열/" data-id="cj1uz2eul00g20gzyor8n0k2y" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1158,7 +1570,7 @@
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/08/01/coffeescript-game-tutorial-the-mouse/" data-id="cj1kpuqpz002llwzy8nuifowy" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/08/01/coffeescript-game-tutorial-the-mouse/" data-id="cj1uz2emk00340gzy8hr4l8rx" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1236,408 +1648,6 @@
 
 
 
-    <article id="post-coffeescript-game-tutorial-the-keyboard" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2014/07/29/coffeescript-game-tutorial-the-keyboard/">Coffeescript Game Tutorial the Keyboard</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2014/07/29/coffeescript-game-tutorial-the-keyboard/">
-            <time datetime="2014-07-29T14:30:00.000Z" itemprop="datePublished">2014-07-29</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/CoffeScript/">CoffeScript</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/CoffeScript/">CoffeScript</a>, <a class="tag-link" href="/tags/Game/">Game</a>, <a class="tag-link" href="/tags/Programming/">Programming</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>키보드 이벤트를 추가한 코드이다.</p>
-<figure class="highlight coffee"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">rightDown = false</div><div class="line">leftDown = false</div><div class="line"></div><div class="line"># set rightDown or leftDown if the right or left key are down</div><div class="line">document.onkeydown = (evt) -&gt;</div><div class="line">switch evt.keyCode</div><div class="line">when 39 then rightDown = true</div><div class="line">when 37 then leftDown = true</div><div class="line"></div><div class="line"># and unset then when the right or left key is released</div><div class="line">document.onkeyup = (evt) -&gt;</div><div class="line">switch evt.keyCode</div><div class="line">when 39 then rightDown = false</div><div class="line">when 37 then leftDown = false</div><div class="line"></div><div class="line">draw = -&gt;</div><div class="line">clear()</div><div class="line">circle(x, y, 10)</div><div class="line"></div><div class="line"># move the paddle if left or right is currently pressed</div><div class="line">paddlex += 5 if rightDown</div><div class="line">paddlex -= 5 if leftDown</div><div class="line">rect(paddlex, HEIGHT-paddleh, paddlew, paddleh)</div><div class="line"></div><div class="line">dx = -dx if x + dx &gt; WIDTH or x + dx &lt; 0</div><div class="line">if y + dy &lt; 0 then dy = -dy</div><div class="line">else if y + dy &gt; HEIGHT</div><div class="line">if x &gt; paddlex and x &lt; paddlex + paddlew</div><div class="line">dy = -dy</div><div class="line">else</div><div class="line"># game over, so stop the animation</div><div class="line">clearInterval(intervalId)</div><div class="line"></div><div class="line">x += dx;</div><div class="line">y += dy;</div><div class="line"></div><div class="line">window.onload = -&gt;</div><div class="line">init()</div></pre></td></tr></table></figure>
-<p><a href="http://billmill.org/static/canvastutorial/keyboard.html" target="_blank" rel="external">Reference</a></p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://sarojaba.github.io/2014/07/29/coffeescript-game-tutorial-the-keyboard/" data-id="cj1kpuqpx002glwzy7b3s7svt" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://sarojaba.github.io/2014/07/29/coffeescript-game-tutorial-the-keyboard/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://sarojaba.github.io/2014/07/29/coffeescript-game-tutorial-the-keyboard/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-coffeescript-game-tutorial-add-a-paddle" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2014/07/29/coffeescript-game-tutorial-add-a-paddle/">Coffeescript Game Tutorial Add a Paddle</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2014/07/29/coffeescript-game-tutorial-add-a-paddle/">
-            <time datetime="2014-07-29T14:27:00.000Z" itemprop="datePublished">2014-07-29</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/CoffeeScript/">CoffeeScript</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/CoffeeScript/">CoffeeScript</a>, <a class="tag-link" href="/tags/Game/">Game</a>, <a class="tag-link" href="/tags/Programming/">Programming</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>화면 하단에 막대기를 추가한 코드이다.</p>
-<figure class="highlight coffee"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">paddlex = 0</div><div class="line">paddleh = 0</div><div class="line">paddlew = 0</div><div class="line"></div><div class="line">init_paddle = -&gt;</div><div class="line">paddlex = WIDTH / 2</div><div class="line">paddleh = 10</div><div class="line">paddlew = 75</div><div class="line"></div><div class="line">draw = -&gt;</div><div class="line">clear()</div><div class="line">circle(x, y, 10)</div><div class="line">rect(paddlex, HEIGHT - paddleh, paddlew, paddleh)</div><div class="line"></div><div class="line">dx = -dx if x + dx &gt; WIDTH or x + dx &lt; 0</div><div class="line">if y + dy &lt; 0</div><div class="line">dy = -dy</div><div class="line">else if y + dy &gt; HEIGHT</div><div class="line">if x &gt; paddlex and x &lt; paddlex + paddlew</div><div class="line">dy = -dy</div><div class="line">else</div><div class="line">clearInterval(intervalId)</div><div class="line"></div><div class="line">x += dx;</div><div class="line">y += dy;</div><div class="line"></div><div class="line">window.onload = -&gt;</div><div class="line">init()</div><div class="line">init_paddle()</div></pre></td></tr></table></figure>
-<p><a href="http://billmill.org/static/canvastutorial/paddle.html" target="_blank" rel="external">Reference</a></p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://sarojaba.github.io/2014/07/29/coffeescript-game-tutorial-add-a-paddle/" data-id="cj1kpuqpm001tlwzyzqpuv385" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://sarojaba.github.io/2014/07/29/coffeescript-game-tutorial-add-a-paddle/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://sarojaba.github.io/2014/07/29/coffeescript-game-tutorial-add-a-paddle/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-coffeescript-game-tutorial-bounce" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2014/07/29/coffeescript-game-tutorial-bounce/">Coffeescript Game Tutorial Bounce</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2014/07/29/coffeescript-game-tutorial-bounce/">
-            <time datetime="2014-07-28T18:45:00.000Z" itemprop="datePublished">2014-07-29</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/CoffeScript/">CoffeScript</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/CoffeScript/">CoffeScript</a>, <a class="tag-link" href="/tags/Game/">Game</a>, <a class="tag-link" href="/tags/Programming/">Programming</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>공 튀기는 코드이다.</p>
-<figure class="highlight coffee"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line">### BEGIN LIBRARY CODE ###</div><div class="line"></div><div class="line">x = 150</div><div class="line">y = 150</div><div class="line">dx = 2</div><div class="line">dy = 4</div><div class="line">ctx = null</div><div class="line">WIDTH = 0</div><div class="line">HEIGHT = 0</div><div class="line"></div><div class="line">init = -&gt;</div><div class="line">canvas = document.getElementById(&quot;myCanvas&quot;)</div><div class="line">ctx = canvas.getContext(&quot;2d&quot;)</div><div class="line">WIDTH = canvas.width</div><div class="line">HEIGHT = canvas.height</div><div class="line"></div><div class="line">setInterval(draw, 10)</div><div class="line"></div><div class="line">circle = (x, y, r) -&gt;</div><div class="line">ctx.beginPath()</div><div class="line">ctx.arc(x, y, r, 0, Math.PI*2, true)</div><div class="line">ctx.closePath()</div><div class="line">ctx.fill()</div><div class="line"></div><div class="line">rect = (x, y, w, h) -&gt;</div><div class="line">ctx.beginPath()</div><div class="line">ctx.rect(x, y, w, h)</div><div class="line">ctx.closePath()</div><div class="line">ctx.fill()</div><div class="line"></div><div class="line">clear = -&gt;</div><div class="line">ctx.clearRect(0, 0, WIDTH, HEIGHT)</div><div class="line"></div><div class="line">### END LIBRARY CODE ###</div><div class="line"></div><div class="line">draw = -&gt;</div><div class="line">clear()</div><div class="line">circle(x, y, 10)</div><div class="line"></div><div class="line">dx = -dx if x + dx &gt; WIDTH or x + dx &lt; 0</div><div class="line">dy = -dy if y + dy &gt; HEIGHT or y + dy &lt; 0</div><div class="line"></div><div class="line">x += dx;</div><div class="line">y += dy;</div><div class="line"></div><div class="line">window.onload = -&gt;</div><div class="line">init()</div></pre></td></tr></table></figure>
-<p><a href="http://billmill.org/static/canvastutorial/bounce.html" target="_blank" rel="external">Reference</a></p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://sarojaba.github.io/2014/07/29/coffeescript-game-tutorial-bounce/" data-id="cj1kpuqpq0021lwzy3zm5c2y1" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://sarojaba.github.io/2014/07/29/coffeescript-game-tutorial-bounce/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://sarojaba.github.io/2014/07/29/coffeescript-game-tutorial-bounce/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <nav id="page-nav">
         <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
@@ -1663,6 +1673,24 @@
                     <li>
                         
                         <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Movie/">Movie</a></p>
+                            <p class="item-title"><a href="/2015/12/13/암살교실/" class="title">암살교실</a></p>
+                            <p class="item-date"><time datetime="2015-12-13T10:06:00.000Z" itemprop="datePublished">2015-12-13</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Movie/">Movie</a></p>
+                            <p class="item-title"><a href="/2015/09/04/베테랑/" class="title">베테랑</a></p>
+                            <p class="item-date"><time datetime="2015-09-04T14:31:00.000Z" itemprop="datePublished">2015-09-04</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Algorithm/">Algorithm</a></p>
                             <p class="item-title"><a href="/2015/07/20/reverse-array-recursively/" class="title">Reverse Array Recursively</a></p>
                             <p class="item-date"><time datetime="2015-07-19T15:48:00.000Z" itemprop="datePublished">2015-07-20</time></p>
@@ -1678,24 +1706,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
-                            <p class="item-title"><a href="/2015/06/17/연속-부분-최대곱-public-class-max-public-static/" class="title">연속 부분 최대곱</a></p>
-                            <p class="item-date"><time datetime="2015-06-17T01:19:00.000Z" itemprop="datePublished">2015-06-17</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Algorithm/">Algorithm</a></p>
-                            <p class="item-title"><a href="/2015/06/08/후위-표현식/" class="title">후위 표현식</a></p>
-                            <p class="item-date"><time datetime="2015-06-07T15:34:00.000Z" itemprop="datePublished">2015-06-08</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1705,7 +1715,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">118</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Algorithm/">Algorithm</a><span class="category-list-count">27</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ceylon/">Ceylon</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeScript/">CoffeScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeeScript/">CoffeeScript</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Design-Pattern/">Design Pattern</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Eclipse/">Eclipse</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Java/">Java</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/LibGDX/">LibGDX</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/OpenGL/">OpenGL</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/PlayN/">PlayN</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Processing/">Processing</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Rust/">Rust</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ubuntu/">Ubuntu</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ukulele/">Ukulele</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">41</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">118</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Algorithm/">Algorithm</a><span class="category-list-count">28</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ceylon/">Ceylon</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeScript/">CoffeScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeeScript/">CoffeeScript</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Design-Pattern/">Design Pattern</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Eclipse/">Eclipse</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Java/">Java</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/LibGDX/">LibGDX</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/OpenGL/">OpenGL</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/PlayN/">PlayN</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Processing/">Processing</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Rust/">Rust</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ubuntu/">Ubuntu</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ukulele/">Ukulele</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1714,7 +1724,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/tags/1과-2의-합/" style="font-size: 10px;">1과 2의 합</a> <a href="/tags/Algorithm/" style="font-size: 18.46px;">Algorithm</a> <a href="/tags/Analog-Clock/" style="font-size: 10px;">Analog Clock</a> <a href="/tags/Android/" style="font-size: 11.54px;">Android</a> <a href="/tags/Apache-Commons/" style="font-size: 11.54px;">Apache Commons</a> <a href="/tags/Array/" style="font-size: 10px;">Array</a> <a href="/tags/B2G/" style="font-size: 10px;">B2G</a> <a href="/tags/Back-To-High-School-Physics/" style="font-size: 10px;">Back To High School Physics</a> <a href="/tags/Bling-Ring/" style="font-size: 10px;">Bling Ring</a> <a href="/tags/Book/" style="font-size: 10.77px;">Book</a> <a href="/tags/Breakout/" style="font-size: 10px;">Breakout</a> <a href="/tags/Bubble-Pop/" style="font-size: 10px;">Bubble Pop</a> <a href="/tags/C/" style="font-size: 10px;">C</a> <a href="/tags/C/" style="font-size: 11.54px;">C++</a> <a href="/tags/CSS/" style="font-size: 10.77px;">CSS</a> <a href="/tags/Canvas/" style="font-size: 11.54px;">Canvas</a> <a href="/tags/Captain-America/" style="font-size: 10px;">Captain America</a> <a href="/tags/Card/" style="font-size: 10px;">Card</a> <a href="/tags/Ceylon/" style="font-size: 14.62px;">Ceylon</a> <a href="/tags/CoffeScript/" style="font-size: 10.77px;">CoffeScript</a> <a href="/tags/CoffeeScript/" style="font-size: 13.85px;">CoffeeScript</a> <a href="/tags/Collection/" style="font-size: 10px;">Collection</a> <a href="/tags/Copy/" style="font-size: 10px;">Copy</a> <a href="/tags/Design-Pattern/" style="font-size: 10px;">Design Pattern</a> <a href="/tags/Documentation/" style="font-size: 10px;">Documentation</a> <a href="/tags/Eclipse/" style="font-size: 16.92px;">Eclipse</a> <a href="/tags/Enlightenment/" style="font-size: 10.77px;">Enlightenment</a> <a href="/tags/Escape-Sequence/" style="font-size: 10px;">Escape Sequence</a> <a href="/tags/FXML/" style="font-size: 10px;">FXML</a> <a href="/tags/Factory-Method/" style="font-size: 10px;">Factory Method</a> <a href="/tags/Fibonacci-Number/" style="font-size: 10px;">Fibonacci Number</a> <a href="/tags/Firefox-OS/" style="font-size: 10.77px;">Firefox OS</a> <a href="/tags/Fish-Monger/" style="font-size: 10px;">Fish Monger</a> <a href="/tags/GCC/" style="font-size: 10px;">GCC</a> <a href="/tags/GOF/" style="font-size: 10px;">GOF</a> <a href="/tags/Game/" style="font-size: 14.62px;">Game</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Histogram/" style="font-size: 10px;">Histogram</a> <a href="/tags/Hugh-Grant/" style="font-size: 10px;">Hugh Grant</a> <a href="/tags/ICPC/" style="font-size: 15.38px;">ICPC</a> <a href="/tags/Image-Processing/" style="font-size: 10.77px;">Image Processing</a> <a href="/tags/Iterator/" style="font-size: 10px;">Iterator</a> <a href="/tags/Jack-the-Giant-Slayer/" style="font-size: 10px;">Jack the Giant Slayer</a> <a href="/tags/Java/" style="font-size: 17.69px;">Java</a> <a href="/tags/JavaFX/" style="font-size: 10px;">JavaFX</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Julia-Roberts/" style="font-size: 10px;">Julia Roberts</a> <a href="/tags/Justin-Willman/" style="font-size: 10px;">Justin Willman</a> <a href="/tags/Lex/" style="font-size: 10px;">Lex</a> <a href="/tags/LibGDX/" style="font-size: 11.54px;">LibGDX</a> <a href="/tags/Linux/" style="font-size: 10.77px;">Linux</a> <a href="/tags/Magic/" style="font-size: 13.08px;">Magic</a> <a href="/tags/Man-of-Steel/" style="font-size: 10px;">Man of Steel</a> <a href="/tags/Marco-Tempest/" style="font-size: 10px;">Marco Tempest</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Math/" style="font-size: 10px;">Math</a> <a href="/tags/Mobile/" style="font-size: 10px;">Mobile</a> <a href="/tags/Moon/" style="font-size: 10px;">Moon</a> <a href="/tags/Movie/" style="font-size: 19.23px;">Movie</a> <a href="/tags/Mozilla/" style="font-size: 10px;">Mozilla</a> <a href="/tags/Notting-Hill/" style="font-size: 10px;">Notting Hill</a> <a href="/tags/Now-You-See-Me/" style="font-size: 10px;">Now You See Me</a> <a href="/tags/Oblivion/" style="font-size: 10px;">Oblivion</a> <a href="/tags/OpenGL/" style="font-size: 13.85px;">OpenGL</a> <a href="/tags/PKNU/" style="font-size: 10px;">PKNU</a> <a href="/tags/PlayN/" style="font-size: 10.77px;">PlayN</a> <a href="/tags/Processing/" style="font-size: 15.38px;">Processing</a> <a href="/tags/Programming/" style="font-size: 20px;">Programming</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Qt/" style="font-size: 10px;">Qt</a> <a href="/tags/Queue/" style="font-size: 10px;">Queue</a> <a href="/tags/RCP/" style="font-size: 16.15px;">RCP</a> <a href="/tags/Robots/" style="font-size: 10px;">Robots</a> <a href="/tags/Rust/" style="font-size: 10px;">Rust</a> <a href="/tags/Stream/" style="font-size: 10px;">Stream</a> <a href="/tags/String/" style="font-size: 12.31px;">String</a> <a href="/tags/Sublime-Text/" style="font-size: 10px;">Sublime Text</a> <a href="/tags/Swing/" style="font-size: 10px;">Swing</a> <a href="/tags/TED/" style="font-size: 10px;">TED</a> <a href="/tags/The-Ellen-Show/" style="font-size: 10px;">The Ellen Show</a> <a href="/tags/The-Fantastic-Four/" style="font-size: 10px;">The Fantastic Four</a> <a href="/tags/The-First-Avenger/" style="font-size: 10px;">The First Avenger</a> <a href="/tags/The-Host/" style="font-size: 10px;">The Host</a> <a href="/tags/Timsort/" style="font-size: 10px;">Timsort</a> <a href="/tags/Triangle/" style="font-size: 10px;">Triangle</a> <a href="/tags/Tutorial/" style="font-size: 16.15px;">Tutorial</a> <a href="/tags/UVa/" style="font-size: 10px;">UVa</a> <a href="/tags/Ubuntu/" style="font-size: 12.31px;">Ubuntu</a> <a href="/tags/Ukulele/" style="font-size: 10px;">Ukulele</a> <a href="/tags/Visual-Studio/" style="font-size: 10px;">Visual Studio</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/Yacc/" style="font-size: 10px;">Yacc</a> <a href="/tags/e17/" style="font-size: 10px;">e17</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/jQuery-Mobile/" style="font-size: 10px;">jQuery Mobile</a> <a href="/tags/mozilla/" style="font-size: 10px;">mozilla</a> <a href="/tags/감시자들/" style="font-size: 10px;">감시자들</a> <a href="/tags/광해/" style="font-size: 10px;">광해</a> <a href="/tags/김윤석/" style="font-size: 10px;">김윤석</a> <a href="/tags/나의-PS-파트너/" style="font-size: 10px;">나의 PS 파트너</a> <a href="/tags/남자사용설명서/" style="font-size: 10px;">남자사용설명서</a> <a href="/tags/노리개/" style="font-size: 10px;">노리개</a> <a href="/tags/더-웹툰/" style="font-size: 10px;">더 웹툰</a> <a href="/tags/미인도/" style="font-size: 10px;">미인도</a> <a href="/tags/바람과-함께-사라지다/" style="font-size: 10px;">바람과 함께 사라지다</a> <a href="/tags/바이러스/" style="font-size: 10px;">바이러스</a> <a href="/tags/서툰-사람들/" style="font-size: 10px;">서툰 사람들</a> <a href="/tags/설경구/" style="font-size: 10px;">설경구</a> <a href="/tags/신세계/" style="font-size: 10px;">신세계</a> <a href="/tags/아이언맨3/" style="font-size: 10px;">아이언맨3</a> <a href="/tags/여진구/" style="font-size: 10px;">여진구</a> <a href="/tags/연속-부분-최대곱/" style="font-size: 10px;">연속 부분 최대곱</a> <a href="/tags/완전제곱수/" style="font-size: 10px;">완전제곱수</a> <a href="/tags/의뢰인/" style="font-size: 10px;">의뢰인</a> <a href="/tags/인류멸망보고서/" style="font-size: 10px;">인류멸망보고서</a> <a href="/tags/정우성/" style="font-size: 10px;">정우성</a> <a href="/tags/진격의-거인/" style="font-size: 10px;">진격의 거인</a> <a href="/tags/째째한-로맨스/" style="font-size: 10px;">째째한 로맨스</a> <a href="/tags/코딩을-지탱하는-기술/" style="font-size: 10px;">코딩을 지탱하는 기술</a> <a href="/tags/한설희/" style="font-size: 10px;">한설희</a> <a href="/tags/한효주/" style="font-size: 10px;">한효주</a> <a href="/tags/혜화동/" style="font-size: 10px;">혜화동</a> <a href="/tags/화이/" style="font-size: 10px;">화이</a> <a href="/tags/후위-표현식/" style="font-size: 10px;">후위 표현식</a>
+            <a href="/tags/1과-2의-합/" style="font-size: 10px;">1과 2의 합</a> <a href="/tags/Algorithm/" style="font-size: 18.46px;">Algorithm</a> <a href="/tags/Analog-Clock/" style="font-size: 10px;">Analog Clock</a> <a href="/tags/Android/" style="font-size: 11.54px;">Android</a> <a href="/tags/Apache-Commons/" style="font-size: 11.54px;">Apache Commons</a> <a href="/tags/Array/" style="font-size: 10px;">Array</a> <a href="/tags/B2G/" style="font-size: 10px;">B2G</a> <a href="/tags/Back-To-High-School-Physics/" style="font-size: 10px;">Back To High School Physics</a> <a href="/tags/Bling-Ring/" style="font-size: 10px;">Bling Ring</a> <a href="/tags/Book/" style="font-size: 10.77px;">Book</a> <a href="/tags/Breakout/" style="font-size: 10px;">Breakout</a> <a href="/tags/Bubble-Pop/" style="font-size: 10px;">Bubble Pop</a> <a href="/tags/C/" style="font-size: 10px;">C</a> <a href="/tags/C/" style="font-size: 11.54px;">C++</a> <a href="/tags/CSS/" style="font-size: 10.77px;">CSS</a> <a href="/tags/Canvas/" style="font-size: 11.54px;">Canvas</a> <a href="/tags/Captain-America/" style="font-size: 10px;">Captain America</a> <a href="/tags/Card/" style="font-size: 10px;">Card</a> <a href="/tags/Ceylon/" style="font-size: 14.62px;">Ceylon</a> <a href="/tags/CoffeScript/" style="font-size: 10.77px;">CoffeScript</a> <a href="/tags/CoffeeScript/" style="font-size: 13.85px;">CoffeeScript</a> <a href="/tags/Collection/" style="font-size: 10px;">Collection</a> <a href="/tags/Copy/" style="font-size: 10px;">Copy</a> <a href="/tags/Design-Pattern/" style="font-size: 10px;">Design Pattern</a> <a href="/tags/Documentation/" style="font-size: 10px;">Documentation</a> <a href="/tags/Eclipse/" style="font-size: 16.92px;">Eclipse</a> <a href="/tags/Enlightenment/" style="font-size: 10.77px;">Enlightenment</a> <a href="/tags/Escape-Sequence/" style="font-size: 10px;">Escape Sequence</a> <a href="/tags/FXML/" style="font-size: 10px;">FXML</a> <a href="/tags/Factory-Method/" style="font-size: 10px;">Factory Method</a> <a href="/tags/Fibonacci-Number/" style="font-size: 10px;">Fibonacci Number</a> <a href="/tags/Firefox-OS/" style="font-size: 10.77px;">Firefox OS</a> <a href="/tags/Fish-Monger/" style="font-size: 10px;">Fish Monger</a> <a href="/tags/GCC/" style="font-size: 10px;">GCC</a> <a href="/tags/GOF/" style="font-size: 10px;">GOF</a> <a href="/tags/Game/" style="font-size: 14.62px;">Game</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Histogram/" style="font-size: 10px;">Histogram</a> <a href="/tags/Home/" style="font-size: 10px;">Home</a> <a href="/tags/Hugh-Grant/" style="font-size: 10px;">Hugh Grant</a> <a href="/tags/ICPC/" style="font-size: 15.38px;">ICPC</a> <a href="/tags/Image-Processing/" style="font-size: 10.77px;">Image Processing</a> <a href="/tags/Iterator/" style="font-size: 10px;">Iterator</a> <a href="/tags/Jack-the-Giant-Slayer/" style="font-size: 10px;">Jack the Giant Slayer</a> <a href="/tags/Java/" style="font-size: 17.69px;">Java</a> <a href="/tags/JavaFX/" style="font-size: 10px;">JavaFX</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Julia-Roberts/" style="font-size: 10px;">Julia Roberts</a> <a href="/tags/Justin-Willman/" style="font-size: 10px;">Justin Willman</a> <a href="/tags/Lex/" style="font-size: 10px;">Lex</a> <a href="/tags/LibGDX/" style="font-size: 11.54px;">LibGDX</a> <a href="/tags/Linux/" style="font-size: 10.77px;">Linux</a> <a href="/tags/Magic/" style="font-size: 13.08px;">Magic</a> <a href="/tags/Man-of-Steel/" style="font-size: 10px;">Man of Steel</a> <a href="/tags/Marco-Tempest/" style="font-size: 10px;">Marco Tempest</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Math/" style="font-size: 10px;">Math</a> <a href="/tags/Mobile/" style="font-size: 10px;">Mobile</a> <a href="/tags/Moon/" style="font-size: 10px;">Moon</a> <a href="/tags/Movie/" style="font-size: 19.23px;">Movie</a> <a href="/tags/Mozilla/" style="font-size: 10px;">Mozilla</a> <a href="/tags/Notting-Hill/" style="font-size: 10px;">Notting Hill</a> <a href="/tags/Now-You-See-Me/" style="font-size: 10px;">Now You See Me</a> <a href="/tags/Oblivion/" style="font-size: 10px;">Oblivion</a> <a href="/tags/OpenGL/" style="font-size: 13.85px;">OpenGL</a> <a href="/tags/PKNU/" style="font-size: 10px;">PKNU</a> <a href="/tags/PlayN/" style="font-size: 10.77px;">PlayN</a> <a href="/tags/Processing/" style="font-size: 15.38px;">Processing</a> <a href="/tags/Programming/" style="font-size: 20px;">Programming</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Qt/" style="font-size: 10px;">Qt</a> <a href="/tags/Queue/" style="font-size: 10px;">Queue</a> <a href="/tags/RCP/" style="font-size: 16.15px;">RCP</a> <a href="/tags/Robots/" style="font-size: 10px;">Robots</a> <a href="/tags/Rust/" style="font-size: 10px;">Rust</a> <a href="/tags/Stream/" style="font-size: 10px;">Stream</a> <a href="/tags/String/" style="font-size: 12.31px;">String</a> <a href="/tags/Sublime-Text/" style="font-size: 10px;">Sublime Text</a> <a href="/tags/Swing/" style="font-size: 10px;">Swing</a> <a href="/tags/TED/" style="font-size: 10px;">TED</a> <a href="/tags/The-Ellen-Show/" style="font-size: 10px;">The Ellen Show</a> <a href="/tags/The-Fantastic-Four/" style="font-size: 10px;">The Fantastic Four</a> <a href="/tags/The-First-Avenger/" style="font-size: 10px;">The First Avenger</a> <a href="/tags/The-Host/" style="font-size: 10px;">The Host</a> <a href="/tags/Timsort/" style="font-size: 10px;">Timsort</a> <a href="/tags/Triangle/" style="font-size: 10px;">Triangle</a> <a href="/tags/Tutorial/" style="font-size: 16.15px;">Tutorial</a> <a href="/tags/UVa/" style="font-size: 10px;">UVa</a> <a href="/tags/Ubuntu/" style="font-size: 12.31px;">Ubuntu</a> <a href="/tags/Ukulele/" style="font-size: 10px;">Ukulele</a> <a href="/tags/Visual-Studio/" style="font-size: 10px;">Visual Studio</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/Yacc/" style="font-size: 10px;">Yacc</a> <a href="/tags/e17/" style="font-size: 10px;">e17</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/jQuery-Mobile/" style="font-size: 10px;">jQuery Mobile</a> <a href="/tags/mozilla/" style="font-size: 10px;">mozilla</a> <a href="/tags/감시자들/" style="font-size: 10px;">감시자들</a> <a href="/tags/광해/" style="font-size: 10px;">광해</a> <a href="/tags/김윤석/" style="font-size: 10px;">김윤석</a> <a href="/tags/나의-PS-파트너/" style="font-size: 10px;">나의 PS 파트너</a> <a href="/tags/남자사용설명서/" style="font-size: 10px;">남자사용설명서</a> <a href="/tags/노리개/" style="font-size: 10px;">노리개</a> <a href="/tags/더-웹툰/" style="font-size: 10px;">더 웹툰</a> <a href="/tags/미인도/" style="font-size: 10px;">미인도</a> <a href="/tags/바람과-함께-사라지다/" style="font-size: 10px;">바람과 함께 사라지다</a> <a href="/tags/바이러스/" style="font-size: 10px;">바이러스</a> <a href="/tags/베테랑/" style="font-size: 10px;">베테랑</a> <a href="/tags/서툰-사람들/" style="font-size: 10px;">서툰 사람들</a> <a href="/tags/설경구/" style="font-size: 10px;">설경구</a> <a href="/tags/신세계/" style="font-size: 10px;">신세계</a> <a href="/tags/아이언맨3/" style="font-size: 10px;">아이언맨3</a> <a href="/tags/암살교실/" style="font-size: 10px;">암살교실</a> <a href="/tags/여진구/" style="font-size: 10px;">여진구</a> <a href="/tags/연속-부분-최대곱/" style="font-size: 10px;">연속 부분 최대곱</a> <a href="/tags/완전제곱수/" style="font-size: 10px;">완전제곱수</a> <a href="/tags/의뢰인/" style="font-size: 10px;">의뢰인</a> <a href="/tags/인류멸망보고서/" style="font-size: 10px;">인류멸망보고서</a> <a href="/tags/정우성/" style="font-size: 10px;">정우성</a> <a href="/tags/진격의-거인/" style="font-size: 10px;">진격의 거인</a> <a href="/tags/째째한-로맨스/" style="font-size: 10px;">째째한 로맨스</a> <a href="/tags/코딩을-지탱하는-기술/" style="font-size: 10px;">코딩을 지탱하는 기술</a> <a href="/tags/한설희/" style="font-size: 10px;">한설희</a> <a href="/tags/한효주/" style="font-size: 10px;">한효주</a> <a href="/tags/혜화동/" style="font-size: 10px;">혜화동</a> <a href="/tags/화이/" style="font-size: 10px;">화이</a> <a href="/tags/후위-표현식/" style="font-size: 10px;">후위 표현식</a>
         </div>
     </div>
 

@@ -3,21 +3,21 @@
 <head>
     <meta charset="utf-8">
     
-    <title>사로자바의 블로그</title>
+    <title>게으른 개발자가 되자</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="공부한 내용들을 정리하는 곳">
 <meta property="og:type" content="website">
-<meta property="og:title" content="사로자바의 블로그">
+<meta property="og:title" content="게으른 개발자가 되자">
 <meta property="og:url" content="http://sarojaba.github.io/page/4/index.html">
-<meta property="og:site_name" content="사로자바의 블로그">
+<meta property="og:site_name" content="게으른 개발자가 되자">
 <meta property="og:description" content="공부한 내용들을 정리하는 곳">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="사로자바의 블로그">
+<meta name="twitter:title" content="게으른 개발자가 되자">
 <meta name="twitter:description" content="공부한 내용들을 정리하는 곳">
     
 
     
-        <link rel="alternate" href="/" title="사로자바의 블로그" type="application/atom+xml" />
+        <link rel="alternate" href="atom.xml" title="게으른 개발자가 되자" type="application/atom+xml" />
     
 
     
@@ -52,7 +52,7 @@
         <div class="outer">
             <a href="/" id="logo">
                 <i class="logo"></i>
-                <span class="site-title">사로자바의 블로그</span>
+                <span class="site-title">게으른 개발자가 되자</span>
             </a>
             <nav id="main-nav">
                 
@@ -151,18 +151,18 @@
     <div class="inner profile-inner">
         <div class="base-info profile-block">
             <img id="avatar" src="/css/images/avatar.png" />
-            <h2 id="name">사로자바</h2>
+            <h2 id="name">우준혁</h2>
             <h3 id="title">Software Developer</h3>
             <span id="location"><i class="fa fa-map-marker"></i>Suwon, South Korea</span>
             <a id="follow" target="_blank" href="https://github.com/sarojaba">FOLLOW</a>
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                164
+                167
                 <span>posts</span>
             </div>
             <div class="article-info-block">
-                125
+                128
                 <span>tags</span>
             </div>
         </div>
@@ -185,7 +185,7 @@
                     </td>
                     
                     <td>
-                        <a href="/" target="_blank" title="rss" class=tooltip>
+                        <a href="/atom.xml" target="_blank" title="rss" class=tooltip>
                             <i class="fa fa-rss"></i>
                         </a>
                     </td>
@@ -199,6 +199,413 @@
 
             
             <section id="main">
+    <article id="post-application-lifecycle-살펴보기" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2014/06/24/application-lifecycle-살펴보기/">Application Lifecycle 살펴보기</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2014/06/24/application-lifecycle-살펴보기/">
+            <time datetime="2014-06-23T16:13:00.000Z" itemprop="datePublished">2014-06-24</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/LibGDX/">LibGDX</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Android/">Android</a>, <a class="tag-link" href="/tags/Java/">Java</a>, <a class="tag-link" href="/tags/LibGDX/">LibGDX</a>, <a class="tag-link" href="/tags/Programming/">Programming</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>갑자기 만들고 싶은 게임이 생겼습니다. 취미로 간단히 만들거라 시간 단축이 필요했습니다.<br>안드로이드에서 돌아가는 게임 개발 프레임워크를 구글링 해보았습니다.<br>첫 페이지에서 눈에 띄는 것은 rokon 과 AndEngine.<br>rokon 페이지에 들어가니 개발이 종료되었다는 내용을 발견했습니다. 대신 rokon 개발자가 libgdx  라는 프레임워크를 추천해 놓았습니다. AndEngine은 배우기 쉽다는 내용도 있었습니다.<br>libgdx 프레임워크를 찾아들어가니 현재도 왕성한 오픈소스 활동을 하고 있었습니다.<br>무엇보다 다양한 플랫폼(윈도우, 리눅스, 맥, 안드로이드 등)을 지원한다는 것이 선택의 가장 큰 이유가 되었습니다.</p>
+<p>튜토리얼을 보기 전에 어플리케이션 라이프 사이클을 살펴보았습니다.<br>애플릿의 라이프 사이클과 비슷했기에 거리감은 없었습니다.</p>
+<img src="/2014/06/24/application-lifecycle-살펴보기/tumblr_inline_n7mq9nLnKY1rubmdv.png" alt="LibGDX Application Lifecycle" title="LibGDX Application Lifecycle">
+<p>코드로 보면 다음과 같습니다. ApplicationListener를 implements 하여 main에서 호출합니다. main에서 LwjglApplication 클래스는 JoglApplication 클래스로 변경하여 생성하여도 됩니다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyGame</span> <span class="keyword">implements</span> <span class="title">ApplicationListener</span> </span>&#123;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">create</span> <span class="params">()</span> </span>&#123;</div><div class="line">    <span class="comment">// STUB</span></div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">render</span> <span class="params">()</span> </span>&#123;</div><div class="line">    <span class="comment">// STUB</span></div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">resize</span> <span class="params">(<span class="keyword">int</span> width, <span class="keyword">int</span> height)</span> </span>&#123; </div><div class="line">    <span class="comment">// STUB</span></div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">pause</span> <span class="params">()</span> </span>&#123; </div><div class="line">    <span class="comment">// STUB</span></div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">resume</span> <span class="params">()</span> </span>&#123;</div><div class="line">    <span class="comment">// STUB</span></div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">dispose</span> <span class="params">()</span> </span>&#123;</div><div class="line">    <span class="comment">// STUB</span></div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.badlogic.gdx.backends.lwjgl.LwjglApplication;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyDesktopGame</span> </span>&#123;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">    <span class="keyword">new</span> LwjglApplication(<span class="keyword">new</span> MyGame(), <span class="string">"My Game"</span>, <span class="number">480</span>, <span class="number">320</span>, <span class="keyword">false</span>);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://sarojaba.github.io/2014/06/24/application-lifecycle-살펴보기/" data-id="cj1uz2ekr000z0gzytmbxco7m" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://sarojaba.github.io/2014/06/24/application-lifecycle-살펴보기/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://sarojaba.github.io/2014/06/24/application-lifecycle-살펴보기/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-serializationutils-클래스-살펴보기" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2014/06/04/serializationutils-클래스-살펴보기/">SerializationUtils 클래스 살펴보기</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2014/06/04/serializationutils-클래스-살펴보기/">
+            <time datetime="2014-06-04T13:17:00.000Z" itemprop="datePublished">2014-06-04</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Java/">Java</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Apache-Commons/">Apache Commons</a>, <a class="tag-link" href="/tags/Java/">Java</a>, <a class="tag-link" href="/tags/Programming/">Programming</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>Apache Commons Lang 컴포넌트의 SerializationUtils 클래스의 clone 메소드에 대해 살펴보자. clone 메소드를 이용하기 위해선 Serializable 인터페이스를 구현해줘야한다.</p>
+<p>기존의 Object 클래스의 clone 메소드를 오버라이드 한 예제이다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">      붕어빵 a = <span class="keyword">new</span> 붕어빵();</div><div class="line"></div><div class="line">      붕어빵 b = (붕어빵) a.clone();</div><div class="line"></div><div class="line">      System.out.println(a.price);</div><div class="line">      System.out.println(b.price);</div><div class="line"></div><div class="line">    &#125; <span class="keyword">catch</span> (CloneNotSupportedException e) &#123;</div><div class="line">      e.printStackTrace();</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> 붕어빵 <span class="keyword">implements</span> <span class="title">Cloneable</span> </span>&#123;</div><div class="line">  <span class="keyword">public</span> <span class="keyword">int</span> price = <span class="number">200</span>;</div><div class="line"></div><div class="line">  <span class="meta">@Override</span></div><div class="line">  <span class="function"><span class="keyword">protected</span> Object <span class="title">clone</span><span class="params">()</span> <span class="keyword">throws</span> CloneNotSupportedException </span>&#123;</div><div class="line">    붕어빵 obj = (붕어빵) <span class="keyword">super</span>.clone();</div><div class="line"></div><div class="line">    obj.price = price;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> obj;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>SerializtionUtils 클래스의 clone 메소드를 이용한 예제이다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.io.Serializable;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.apache.commons.lang3.SerializationUtils;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line"></div><div class="line">    붕어빵 a = <span class="keyword">new</span> 붕어빵();</div><div class="line"></div><div class="line">    붕어빵 b = SerializationUtils.clone(a);</div><div class="line"></div><div class="line">    System.out.println(a.price);</div><div class="line">    System.out.println(b.price);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> 붕어빵 <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</div><div class="line">  <span class="keyword">public</span> <span class="keyword">int</span> price = <span class="number">200</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>우와~ 이 얼마나 단순한가;; 난 이런거 좋아 ㅎㅎ</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://sarojaba.github.io/2014/06/04/serializationutils-클래스-살펴보기/" data-id="cj1uz2ept00880gzyp1igggvy" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://sarojaba.github.io/2014/06/04/serializationutils-클래스-살펴보기/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://sarojaba.github.io/2014/06/04/serializationutils-클래스-살펴보기/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-wordutils-클래스-살펴보기" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2014/06/04/wordutils-클래스-살펴보기/">WordUtils 클래스 살펴보기</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2014/06/04/wordutils-클래스-살펴보기/">
+            <time datetime="2014-06-04T12:43:00.000Z" itemprop="datePublished">2014-06-04</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Java/">Java</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Apache-Commons/">Apache Commons</a>, <a class="tag-link" href="/tags/Java/">Java</a>, <a class="tag-link" href="/tags/Programming/">Programming</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>Apache Commons Lang 컴포넌트의 WordUtils 클래스에 대해 알아보자.<br>말그대로 단어를 쉽게 다룰 수 있는 기능을 제공한다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> org.apache.commons.lang3.text.WordUtils;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">// capitalize 메소드는 단어의 첫 글자를 대문자로 치환한다.</span></div><div class="line">    System.out.println(WordUtils.capitalize(<span class="string">"hello world!"</span>));</div><div class="line"></div><div class="line">    <span class="comment">// initials 메소드는 단어들의 이니셜을 구한다.</span></div><div class="line">    <span class="comment">// 즉, 각 단어들의 첫글자만 남긴다.</span></div><div class="line">    System.out.println(WordUtils.initials(<span class="string">"Java development Kit"</span>));</div><div class="line"></div><div class="line">    <span class="comment">// wrap 메소드는 텍스트 편집기의 워드랩 기능을 제공한다.</span></div><div class="line">    <span class="comment">// 즉, 단어별로 한 라인의 남은 칸에 다 적히지 않으면 해당 단어를 다음 라인에 적는다.</span></div><div class="line">    System.out.println(WordUtils.wrap(<span class="string">"Hello world!"</span>, <span class="number">8</span> ));</div><div class="line">    System.out.println(WordUtils.wrap(<span class="string">"Hello world!"</span>, <span class="number">12</span>));</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>결과이다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Hello World!</div><div class="line">JdK</div><div class="line">Hello</div><div class="line">world!</div><div class="line">Hello world!</div></pre></td></tr></table></figure>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://sarojaba.github.io/2014/06/04/wordutils-클래스-살펴보기/" data-id="cj1uz2eqz009v0gzykgkqbkld" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://sarojaba.github.io/2014/06/04/wordutils-클래스-살펴보기/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://sarojaba.github.io/2014/06/04/wordutils-클래스-살펴보기/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-stringutils-클래스-이해하기" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -258,7 +665,7 @@
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/06/03/stringutils-클래스-이해하기/" data-id="cj1kpuqsy007ylwzyemzyx67c" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/06/03/stringutils-클래스-이해하기/" data-id="cj1uz2epw008d0gzyqtlf0los" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -394,7 +801,7 @@
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/06/01/coffeescript-이해하기/" data-id="cj1kpuqq0002olwzyngz11ue7" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/06/01/coffeescript-이해하기/" data-id="cj1uz2emm00380gzy18jvhmmb" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -540,7 +947,7 @@ elapsed = end.tv_usec - start.tv_usec;
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/06/01/c-알고리즘-수행시간-측정하기/" data-id="cj1kpuqp7001glwzynxjvy4ch" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/06/01/c-알고리즘-수행시간-측정하기/" data-id="cj1uz2elm00210gzy6b2jpju5" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -686,7 +1093,7 @@ elapsed = end.tv_usec - start.tv_usec;
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/06/01/eclipse-rcp-tutorial14/" data-id="cj1kpuqqn003ilwzyvw100a7h" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/06/01/eclipse-rcp-tutorial14/" data-id="cj1uz2ene00460gzydyqsakf8" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -842,7 +1249,7 @@ elapsed = end.tv_usec - start.tv_usec;
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/06/01/eclipse-rcp-tutorial13/" data-id="cj1kpuqqm003glwzyu9a1fuws" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/06/01/eclipse-rcp-tutorial13/" data-id="cj1uz2enc00430gzy28pg8xjj" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -984,7 +1391,7 @@ elapsed = end.tv_usec - start.tv_usec;
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/06/01/eclipse-rcp-tutorial12/" data-id="cj1kpuqqk003dlwzypbvzo601" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/06/01/eclipse-rcp-tutorial12/" data-id="cj1uz2en800400gzy3np8zdio" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1127,7 +1534,7 @@ elapsed = end.tv_usec - start.tv_usec;
 
 </div>
 
-    <a data-url="http://sarojaba.github.io/2014/05/31/eclipse-rcp-tutorial11/" data-id="cj1kpuqqi003alwzyo7foaqzn" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://sarojaba.github.io/2014/05/31/eclipse-rcp-tutorial11/" data-id="cj1uz2en5003w0gzynspqnrqf" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1205,481 +1612,6 @@ elapsed = end.tv_usec - start.tv_usec;
 
 
 
-    <article id="post-eclipse-rcp-tutorial10" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2014/05/31/eclipse-rcp-tutorial10/">Eclipse RCP Tutorial 10</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2014/05/31/eclipse-rcp-tutorial10/">
-            <time datetime="2014-05-31T11:34:00.000Z" itemprop="datePublished">2014-05-31</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Eclipse/">Eclipse</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Eclipse/">Eclipse</a>, <a class="tag-link" href="/tags/Programming/">Programming</a>, <a class="tag-link" href="/tags/RCP/">RCP</a>, <a class="tag-link" href="/tags/Tutorial/">Tutorial</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>작성일: 2010. 10. 27.</p>
-<p>원문: <a href="http://www.vogella.de/articles/EclipseRCP/article.html" target="_blank" rel="external">http://www.vogella.de/articles/EclipseRCP/article.html</a> Version 5.1</p>
-<h1 id="JFace-뷰어"><a href="#JFace-뷰어" class="headerlink" title="JFace 뷰어"></a>JFace 뷰어</h1><h2 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h2><p>JFace는 사용자 인터페이스를 생성시 자바 객체를 바로 사용할 수 있는 뷰어를 제공한다. 뷰어는 트리, 테이블, 리스트와 콤보박스가 가능하다. 다음에서 콤보 뷰어의 사용 예를 보여줄 것이다. 테이블 뷰어의 자세한 사용법은 Eclipse JFaces Tables 에서 찾을 수 있다.</p>
-<p>트리 뷰어의 간략한 사용 예는 JFace Tree Viewer 에서 찾을 수 있다.</p>
-<h2 id="콤보뷰어"><a href="#콤보뷰어" class="headerlink" title="콤보뷰어"></a>콤보뷰어</h2><p>새로운 RCP 프로젝트 <code>de.vogella.rcp.intro.jfaceviewer</code> 를 만들고 <code>RCP application with a view</code> 템플릿을 선택한다. 다음의 자바 클래스를 생성한다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> de.vogella.rcp.intro.jfaceviewer;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</div><div class="line">  <span class="keyword">private</span> String firstName;</div><div class="line">  <span class="keyword">private</span> String lastName;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(String firstName, String lastName)</span></span>&#123;</div><div class="line">    <span class="keyword">this</span>.firstName = firstName;</div><div class="line">    <span class="keyword">this</span>.lastName = lastName;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">getFirstName</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> firstName;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setFirstName</span><span class="params">(String firstName)</span> </span>&#123;</div><div class="line">    <span class="keyword">this</span>.firstName = firstName;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">getLastName</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> lastName;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setLastName</span><span class="params">(String lastName)</span> </span>&#123;</div><div class="line">    <span class="keyword">this</span>.lastName = lastName;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>View.java 를 다음과 같이 변경한다.</p>
-<pre><code class="java"><span class="keyword">package</span> de.vogella.rcp.intro.jfaceviewer;
-
-<span class="keyword">import</span> org.eclipse.jface.viewers.ArrayContentProvider;
-
-<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">View</span> <span class="keyword">extends</span> <span class="title">ViewPart</span> </span>{
-  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String ID = <span class="string">"de.vogella.rcp.intro.jfaceviewer.view"</span>;
-
-  <span class="keyword">private</span> ComboViewer viewer;
-
-  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">createPartControl</span><span class="params">(Composite parent)</span> </span>{
-    GridLayout layout = <span class="keyword">new</span> GridLayout(<span class="number">2</span>, <span class="keyword">false</span>);
-    parent.setLayout(layout);
-    Label label = <span class="keyword">new</span> Label(parent, SWT.NONE);
-    label.setText(<span class="string">"Select a person:"</span>);
-    viewer = <span class="keyword">new</span> ComboViewer(parent, SWT.READ_ONLY);
-    viewer.setContentProvider(<span class="keyword">new</span> ArrayContentProvider());
-    viewer.setLabelProvider(<span class="keyword">new</span> LabelProvider() {
-      <span class="meta">@Override</span>
-      <span class="function"><span class="keyword">public</span> String <span class="title">getText</span><span class="params">(Object element)</span> </span>{
-        <span class="keyword">if</span> (element <span class="keyword">instanceof</span> Person) {
-          Person person = (Person) element;
-          <span class="keyword">return</span> person.getFirstName();
-        }
-      <span class="keyword">return</span> <span class="keyword">super</span>.getText(element);
-      }
-    });
-    Person[] persons = <span class="keyword">new</span> Person[] { <span class="keyword">new</span> Person(<span class="string">"Lars"</span>, <span class="string">"Vogel"</span>),
-    <span class="keyword">new</span> Person(<span class="string">"Tim"</span>, <span class="string">"Taler"</span>), <span class="keyword">new</span> Person(<span class="string">"Jim"</span>, <span class="string">"Knopf"</span>) };
-    <span class="comment">// Set set the input to the viewer this input will be send to the</span>
-    <span class="comment">// content provider</span>
-    viewer.setInput(persons);
-    <span class="comment">// React to the selection of the viewer</span>
-    <span class="comment">// Note that the viewer return the real object and not just a string</span>
-    <span class="comment">// representation</span>
-    viewer.addSelectionChangedListener(<span class="keyword">new</span> ISelectionChangedListener() {
-      <span class="meta">@Override</span>
-      <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">selectionChanged</span><span class="params">(SelectionChangedEvent event)</span> </span>{
-        IStructuredSelection selection = (IStructuredSelection) event.getSelection();
-        System.out.println(((Person) selection.getFirstElement()).getLastName());
-      }
-    });
-    <span class="comment">// You can select a object directly via the domain object</span>
-    Person person = persons[<span class="number">0</span>];
-    viewer.setSelection(<span class="keyword">new</span> StructuredSelection(person));
-  }
-
-  <span class="comment">/**
-  * Passing the focus request to the viewer's control.
-  */</span>
-  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setFocus</span><span class="params">()</span> </span>{
-    viewer.getControl().setFocus();
-  }
-}
-</code></pre>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://sarojaba.github.io/2014/05/31/eclipse-rcp-tutorial10/" data-id="cj1kpuqqf0037lwzyncqvz49p" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://sarojaba.github.io/2014/05/31/eclipse-rcp-tutorial10/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://sarojaba.github.io/2014/05/31/eclipse-rcp-tutorial10/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-eclipse-rcp-tutorial9" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2014/05/31/eclipse-rcp-tutorial9/">Eclipse RCP Tutorial 9</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2014/05/31/eclipse-rcp-tutorial9/">
-            <time datetime="2014-05-31T11:27:00.000Z" itemprop="datePublished">2014-05-31</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Eclipse/">Eclipse</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Eclipse/">Eclipse</a>, <a class="tag-link" href="/tags/Programming/">Programming</a>, <a class="tag-link" href="/tags/RCP/">RCP</a>, <a class="tag-link" href="/tags/Tutorial/">Tutorial</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>작성일: 2010. 10. 27.</p>
-<p>원문: <a href="http://www.vogella.de/articles/EclipseRCP/article.html" target="_blank" rel="external">http://www.vogella.de/articles/EclipseRCP/article.html</a> Version 5.1</p>
-<h1 id="필드-어시스트와-레이블-데코레이터"><a href="#필드-어시스트와-레이블-데코레이터" class="headerlink" title="필드 어시스트와 레이블 데코레이터"></a>필드 어시스트와 레이블 데코레이터</h1><p>필드 어시스트는 텍스트 필드나 콤보 박스와 같이 단순 필드의 가능한 입력과 상태에 대한 정보를 제공하는데 사용될 수 있다. <code>org.eclipse.jface.fieldassist</code> 패키지는 ControlDecorations 와 Content Proposals 두 가지 방법으로 도움을 제공한다.</p>
-<p>콘트롤 장식은 콘트롤에 대한 부가적인 정보를 보여주기 위해 SWT 컨트롤에 이미지 장식을 두도록 한다. 이 장식은 사용자가 마우스를 올려 놓았을때 한번 보여지는 내용을 가지고 있을 수 있다. 화면 배치 중에 이 장식들을 보여주기 위한 충반한 공간이 있다고 확신해야 한다.</p>
-<p>컨텐트 제안은 필드에 사용자 입력에 대해 가능한 선택을 도와주도록 한다.</p>
-<p><code>de.vogella.rcp.intro.fieldassist</code> 로 새 프로젝트를 생성한다. 예제로 <code>RCP application with a view</code> 를 사용한다. 예제에서 컨텐트 제안은 <code>Cntrl+Space</code> 키 조합으로 특정 키(<code>.</code>, <code>#</code>)를 통해 활성화된다.</p>
-<p>다음으로 View.java를 바꾼다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> de.vogella.rcp.intro.fieldassist;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.eclipse.jface.bindings.keys.KeyStroke;</div><div class="line"><span class="keyword">import</span> org.eclipse.jface.bindings.keys.ParseException;</div><div class="line"><span class="keyword">import</span> org.eclipse.jface.fieldassist.ContentProposalAdapter;</div><div class="line"><span class="keyword">import</span> org.eclipse.jface.fieldassist.ControlDecoration;</div><div class="line"><span class="keyword">import</span> org.eclipse.jface.fieldassist.FieldDecorationRegistry;</div><div class="line"><span class="keyword">import</span> org.eclipse.jface.fieldassist.SimpleContentProposalProvider;</div><div class="line"><span class="keyword">import</span> org.eclipse.jface.fieldassist.TextContentAdapter;</div><div class="line"><span class="keyword">import</span> org.eclipse.swt.SWT;</div><div class="line"><span class="keyword">import</span> org.eclipse.swt.layout.GridData;</div><div class="line"><span class="keyword">import</span> org.eclipse.swt.layout.GridLayout;</div><div class="line"><span class="keyword">import</span> org.eclipse.swt.widgets.Composite;</div><div class="line"><span class="keyword">import</span> org.eclipse.swt.widgets.Label;</div><div class="line"><span class="keyword">import</span> org.eclipse.swt.widgets.Text;</div><div class="line"><span class="keyword">import</span> org.eclipse.ui.part.ViewPart;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">View</span> <span class="keyword">extends</span> <span class="title">ViewPart</span> </span>&#123;</div><div class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String ID = <span class="string">"de.vogella.rcp.intro.fieldassist.view"</span>;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">createPartControl</span><span class="params">(Composite parent)</span> </span>&#123;</div><div class="line">    GridLayout layout = <span class="keyword">new</span> GridLayout(<span class="number">2</span>,<span class="keyword">false</span>);</div><div class="line">    parent.setLayout(layout);</div><div class="line">    Label label = <span class="keyword">new</span> Label(parent, SWT.NONE);</div><div class="line">    label.setText(<span class="string">"Please select a value:   "</span>);</div><div class="line">    Text text = <span class="keyword">new</span> Text(parent, SWT.BORDER);</div><div class="line">    createDeco(text, <span class="string">"Use CNTL + SPACE to see possible values"</span>);</div><div class="line">    GridData data = <span class="keyword">new</span> GridData(GridData.FILL_HORIZONTAL);</div><div class="line">    text.setLayoutData(data);</div><div class="line">    ControlDecoration deco = <span class="keyword">new</span> ControlDecoration(text, SWT.LEFT);</div><div class="line">    deco.setDescriptionText(<span class="string">"Use CNTL + SPACE to see possible values"</span>);</div><div class="line">    deco.setImage(FieldDecorationRegistry.getDefault().getFieldDecoration(FieldDecorationRegistry.DEC_INFORMATION).getImage());</div><div class="line">    deco.setShowOnlyOnFocus(<span class="keyword">false</span>);</div><div class="line">    <span class="comment">// Help the user with the possible inputs</span></div><div class="line">    <span class="comment">// "." and "#" will also activate the content proposals</span></div><div class="line">    <span class="keyword">char</span>[] autoActivationCharacters = <span class="keyword">new</span> <span class="keyword">char</span>[] &#123; <span class="string">'.'</span>, <span class="string">'#'</span> &#125;;</div><div class="line">    KeyStroke keyStroke;</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">    <span class="comment">// </span></div><div class="line">    keyStroke = KeyStroke.getInstance(<span class="string">"Ctrl+Space"</span>);</div><div class="line">    <span class="comment">// assume that myTextControl has already been created in some way</span></div><div class="line">    ContentProposalAdapter adapter = <span class="keyword">new</span> ContentProposalAdapter(text,</div><div class="line">    <span class="keyword">new</span> TextContentAdapter(),</div><div class="line">    <span class="keyword">new</span> SimpleContentProposalProvider(<span class="keyword">new</span> String[] &#123;</div><div class="line">      <span class="string">"ProposalOne"</span>, <span class="string">"ProposalTwo"</span>, <span class="string">"ProposalThree"</span> &#125;),</div><div class="line">      keyStroke, autoActivationCharacters);</div><div class="line">    &#125; <span class="keyword">catch</span> (ParseException e) &#123;</div><div class="line">      e.printStackTrace();</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setFocus</span><span class="params">()</span> </span>&#123;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">createDeco</span><span class="params">(Text text, String s)</span></span>&#123;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>애플리케이션을 실행하고 콘트롤 장식과 컨텐트 제안이 작동하는지 확인한다.</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://sarojaba.github.io/2014/05/31/eclipse-rcp-tutorial9/" data-id="cj1kpuqra0049lwzyt2kma3v6" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://sarojaba.github.io/2014/05/31/eclipse-rcp-tutorial9/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://sarojaba.github.io/2014/05/31/eclipse-rcp-tutorial9/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-eclipse-rcp-tutorial8" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2014/05/31/eclipse-rcp-tutorial8/">Eclipse RCP Tutorial 8</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2014/05/31/eclipse-rcp-tutorial8/">
-            <time datetime="2014-05-31T11:24:00.000Z" itemprop="datePublished">2014-05-31</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Eclipse/">Eclipse</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Eclipse/">Eclipse</a>, <a class="tag-link" href="/tags/Programming/">Programming</a>, <a class="tag-link" href="/tags/RCP/">RCP</a>, <a class="tag-link" href="/tags/Tutorial/">Tutorial</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>작성일: 2010. 10. 27.</p>
-<p>원문: <a href="http://www.vogella.de/articles/EclipseRCP/article.html" target="_blank" rel="external">http://www.vogella.de/articles/EclipseRCP/article.html</a> Version 5.1</p>
-<h1 id="뷰"><a href="#뷰" class="headerlink" title="뷰"></a>뷰</h1><h2 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h2><p>뷰와 뷰 파트는 어플리케이션에서 정보를 보여주고 데이터를 변경하는 데에 사용된다. 다음은 어플리케이션에 뷰를 추가하는 방법을 설명한다. <code>de.vogella.rcp.intro.view</code> 라는 이름의 RCP 프로젝트를 생성하라. <code>Hello RCP</code> 템플릿을 사용하라.</p>
-<h2 id="뷰-생성하기"><a href="#뷰-생성하기" class="headerlink" title="뷰 생성하기"></a>뷰 생성하기</h2><p>플러그인에 <code>org.eclipse.ui.views</code> 확장을 추가한다. 새로운 뷰 확장에 마우스 오른쪽 클릭을 하고 New -&gt; View 를 선택한다. id 는 <code>de.vogella.rcp.intro.view.MyView</code>, 클래스는 <code>de.vogella.rcp.intro.view.MyView</code> 로 설정한다.</p>
-<p><code>class</code> 하이퍼링크를 클릭하여 <code>MyView</code> 클래스를 생성하고 다음의 코드를 작성하라. 그러면 뷰를 사용할 준비가 된다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> de.vogella.rcp.intro.view;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.eclipse.swt.SWT;</div><div class="line"><span class="keyword">import</span> org.eclipse.swt.widgets.Composite;</div><div class="line"><span class="keyword">import</span> org.eclipse.swt.widgets.Text;</div><div class="line"><span class="keyword">import</span> org.eclipse.ui.part.ViewPart;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyView</span> <span class="keyword">extends</span> <span class="title">ViewPart</span> </span>&#123;</div><div class="line">  <span class="meta">@Override</span></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">createPartControl</span><span class="params">(Composite parent)</span> </span>&#123;</div><div class="line">    Text text = <span class="keyword">new</span> Text(parent, SWT.BORDER);</div><div class="line">    text.setText(<span class="string">"Imagine a fantastic user interface here"</span>);</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  <span class="meta">@Override</span></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setFocus</span><span class="params">()</span> </span>&#123;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="퍼스펙티브에-뷰-추가하기"><a href="#퍼스펙티브에-뷰-추가하기" class="headerlink" title="퍼스펙티브에 뷰 추가하기"></a>퍼스펙티브에 뷰 추가하기</h2><p>당신의 퍼스펙티브에 뷰를 추가해야 한다. 플러그인에 “org.eclipse.ui.perspectiveExtensions” 확장을 추가한다.</p>
-<p>오른쪽 클릭을 하고 뷰를 선택한다. id 로 “de.vogella.rcp.intro.view.MyView” 를 기입한다. relative 는 현재 안보이는 편집 영역인 “org.eclipse.ui.editorss” 를 적고 “0.95f” 의 최대 비율을 선택함으로써 모든 여백을 사용한다.</p>
-<h2 id="결과"><a href="#결과" class="headerlink" title="결과"></a>결과</h2><p>결과를 보기 위해 어플리케이션을 실행한다.</p>
-<h2 id="코드를-통해-퍼스펙티브에-뷰를-추가하기"><a href="#코드를-통해-퍼스펙티브에-뷰를-추가하기" class="headerlink" title="코드를 통해 퍼스펙티브에 뷰를 추가하기"></a>코드를 통해 퍼스펙티브에 뷰를 추가하기</h2><p>나는 개인적으로 코드 상의 확장점을 더 선호한다. 하지만 “org.eclipse.ui.perspectiveExtensions” 확장점을 사용하는 대신 퍼스펙티브로 코드를 통해 뷰를 추가할 수도 있다. 다음의 변경된 “Perspective.java” 파일을 보자.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> de.vogella.rcp.intro.view;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.eclipse.ui.IPageLayout;</div><div class="line"><span class="keyword">import</span> org.eclipse.ui.IPerspectiveFactory;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Perspective</span> <span class="keyword">implements</span> <span class="title">IPerspectiveFactory</span> </span>&#123;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">createInitialLayout</span><span class="params">(IPageLayout layout)</span> </span>&#123;</div><div class="line">    layout.addView(<span class="string">"de.vogella.rcp.intro.view.MyView"</span>, IPageLayout.TOP,</div><div class="line">    IPageLayout.RATIO_MAX, IPageLayout.ID_EDITOR_AREA);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="에디터-뷰-상호작용"><a href="#에디터-뷰-상호작용" class="headerlink" title="에디터 / 뷰 상호작용"></a>에디터 / 뷰 상호작용</h2><p>이클립스 에디터를 사용하고 뷰와 에디터 사이의 통신을 하는 방법을 배우려면 Eclipse Editors 를 보아라.</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://sarojaba.github.io/2014/05/31/eclipse-rcp-tutorial8/" data-id="cj1kpuqr70045lwzy77xpacy7" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://sarojaba.github.io/2014/05/31/eclipse-rcp-tutorial8/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://sarojaba.github.io/2014/05/31/eclipse-rcp-tutorial8/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <nav id="page-nav">
         <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
     </nav>
@@ -1705,6 +1637,24 @@ elapsed = end.tv_usec - start.tv_usec;
                     <li>
                         
                         <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Movie/">Movie</a></p>
+                            <p class="item-title"><a href="/2015/12/13/암살교실/" class="title">암살교실</a></p>
+                            <p class="item-date"><time datetime="2015-12-13T10:06:00.000Z" itemprop="datePublished">2015-12-13</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Movie/">Movie</a></p>
+                            <p class="item-title"><a href="/2015/09/04/베테랑/" class="title">베테랑</a></p>
+                            <p class="item-date"><time datetime="2015-09-04T14:31:00.000Z" itemprop="datePublished">2015-09-04</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Algorithm/">Algorithm</a></p>
                             <p class="item-title"><a href="/2015/07/20/reverse-array-recursively/" class="title">Reverse Array Recursively</a></p>
                             <p class="item-date"><time datetime="2015-07-19T15:48:00.000Z" itemprop="datePublished">2015-07-20</time></p>
@@ -1720,24 +1670,6 @@ elapsed = end.tv_usec - start.tv_usec;
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
-                            <p class="item-title"><a href="/2015/06/17/연속-부분-최대곱-public-class-max-public-static/" class="title">연속 부분 최대곱</a></p>
-                            <p class="item-date"><time datetime="2015-06-17T01:19:00.000Z" itemprop="datePublished">2015-06-17</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Algorithm/">Algorithm</a></p>
-                            <p class="item-title"><a href="/2015/06/08/후위-표현식/" class="title">후위 표현식</a></p>
-                            <p class="item-date"><time datetime="2015-06-07T15:34:00.000Z" itemprop="datePublished">2015-06-08</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1747,7 +1679,7 @@ elapsed = end.tv_usec - start.tv_usec;
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">118</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Algorithm/">Algorithm</a><span class="category-list-count">27</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ceylon/">Ceylon</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeScript/">CoffeScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeeScript/">CoffeeScript</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Design-Pattern/">Design Pattern</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Eclipse/">Eclipse</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Java/">Java</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/LibGDX/">LibGDX</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/OpenGL/">OpenGL</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/PlayN/">PlayN</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Processing/">Processing</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Rust/">Rust</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ubuntu/">Ubuntu</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ukulele/">Ukulele</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Magic/">Magic</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Movie/">Movie</a><span class="category-list-count">41</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">118</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Algorithm/">Algorithm</a><span class="category-list-count">28</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ceylon/">Ceylon</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeScript/">CoffeScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/CoffeeScript/">CoffeeScript</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Design-Pattern/">Design Pattern</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Eclipse/">Eclipse</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Java/">Java</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/LibGDX/">LibGDX</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/OpenGL/">OpenGL</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/PlayN/">PlayN</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Processing/">Processing</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Rust/">Rust</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Ubuntu/">Ubuntu</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ukulele/">Ukulele</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1756,7 +1688,7 @@ elapsed = end.tv_usec - start.tv_usec;
     <div class="widget-wrap">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/tags/1과-2의-합/" style="font-size: 10px;">1과 2의 합</a> <a href="/tags/Algorithm/" style="font-size: 18.46px;">Algorithm</a> <a href="/tags/Analog-Clock/" style="font-size: 10px;">Analog Clock</a> <a href="/tags/Android/" style="font-size: 11.54px;">Android</a> <a href="/tags/Apache-Commons/" style="font-size: 11.54px;">Apache Commons</a> <a href="/tags/Array/" style="font-size: 10px;">Array</a> <a href="/tags/B2G/" style="font-size: 10px;">B2G</a> <a href="/tags/Back-To-High-School-Physics/" style="font-size: 10px;">Back To High School Physics</a> <a href="/tags/Bling-Ring/" style="font-size: 10px;">Bling Ring</a> <a href="/tags/Book/" style="font-size: 10.77px;">Book</a> <a href="/tags/Breakout/" style="font-size: 10px;">Breakout</a> <a href="/tags/Bubble-Pop/" style="font-size: 10px;">Bubble Pop</a> <a href="/tags/C/" style="font-size: 10px;">C</a> <a href="/tags/C/" style="font-size: 11.54px;">C++</a> <a href="/tags/CSS/" style="font-size: 10.77px;">CSS</a> <a href="/tags/Canvas/" style="font-size: 11.54px;">Canvas</a> <a href="/tags/Captain-America/" style="font-size: 10px;">Captain America</a> <a href="/tags/Card/" style="font-size: 10px;">Card</a> <a href="/tags/Ceylon/" style="font-size: 14.62px;">Ceylon</a> <a href="/tags/CoffeScript/" style="font-size: 10.77px;">CoffeScript</a> <a href="/tags/CoffeeScript/" style="font-size: 13.85px;">CoffeeScript</a> <a href="/tags/Collection/" style="font-size: 10px;">Collection</a> <a href="/tags/Copy/" style="font-size: 10px;">Copy</a> <a href="/tags/Design-Pattern/" style="font-size: 10px;">Design Pattern</a> <a href="/tags/Documentation/" style="font-size: 10px;">Documentation</a> <a href="/tags/Eclipse/" style="font-size: 16.92px;">Eclipse</a> <a href="/tags/Enlightenment/" style="font-size: 10.77px;">Enlightenment</a> <a href="/tags/Escape-Sequence/" style="font-size: 10px;">Escape Sequence</a> <a href="/tags/FXML/" style="font-size: 10px;">FXML</a> <a href="/tags/Factory-Method/" style="font-size: 10px;">Factory Method</a> <a href="/tags/Fibonacci-Number/" style="font-size: 10px;">Fibonacci Number</a> <a href="/tags/Firefox-OS/" style="font-size: 10.77px;">Firefox OS</a> <a href="/tags/Fish-Monger/" style="font-size: 10px;">Fish Monger</a> <a href="/tags/GCC/" style="font-size: 10px;">GCC</a> <a href="/tags/GOF/" style="font-size: 10px;">GOF</a> <a href="/tags/Game/" style="font-size: 14.62px;">Game</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Histogram/" style="font-size: 10px;">Histogram</a> <a href="/tags/Hugh-Grant/" style="font-size: 10px;">Hugh Grant</a> <a href="/tags/ICPC/" style="font-size: 15.38px;">ICPC</a> <a href="/tags/Image-Processing/" style="font-size: 10.77px;">Image Processing</a> <a href="/tags/Iterator/" style="font-size: 10px;">Iterator</a> <a href="/tags/Jack-the-Giant-Slayer/" style="font-size: 10px;">Jack the Giant Slayer</a> <a href="/tags/Java/" style="font-size: 17.69px;">Java</a> <a href="/tags/JavaFX/" style="font-size: 10px;">JavaFX</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Julia-Roberts/" style="font-size: 10px;">Julia Roberts</a> <a href="/tags/Justin-Willman/" style="font-size: 10px;">Justin Willman</a> <a href="/tags/Lex/" style="font-size: 10px;">Lex</a> <a href="/tags/LibGDX/" style="font-size: 11.54px;">LibGDX</a> <a href="/tags/Linux/" style="font-size: 10.77px;">Linux</a> <a href="/tags/Magic/" style="font-size: 13.08px;">Magic</a> <a href="/tags/Man-of-Steel/" style="font-size: 10px;">Man of Steel</a> <a href="/tags/Marco-Tempest/" style="font-size: 10px;">Marco Tempest</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Math/" style="font-size: 10px;">Math</a> <a href="/tags/Mobile/" style="font-size: 10px;">Mobile</a> <a href="/tags/Moon/" style="font-size: 10px;">Moon</a> <a href="/tags/Movie/" style="font-size: 19.23px;">Movie</a> <a href="/tags/Mozilla/" style="font-size: 10px;">Mozilla</a> <a href="/tags/Notting-Hill/" style="font-size: 10px;">Notting Hill</a> <a href="/tags/Now-You-See-Me/" style="font-size: 10px;">Now You See Me</a> <a href="/tags/Oblivion/" style="font-size: 10px;">Oblivion</a> <a href="/tags/OpenGL/" style="font-size: 13.85px;">OpenGL</a> <a href="/tags/PKNU/" style="font-size: 10px;">PKNU</a> <a href="/tags/PlayN/" style="font-size: 10.77px;">PlayN</a> <a href="/tags/Processing/" style="font-size: 15.38px;">Processing</a> <a href="/tags/Programming/" style="font-size: 20px;">Programming</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Qt/" style="font-size: 10px;">Qt</a> <a href="/tags/Queue/" style="font-size: 10px;">Queue</a> <a href="/tags/RCP/" style="font-size: 16.15px;">RCP</a> <a href="/tags/Robots/" style="font-size: 10px;">Robots</a> <a href="/tags/Rust/" style="font-size: 10px;">Rust</a> <a href="/tags/Stream/" style="font-size: 10px;">Stream</a> <a href="/tags/String/" style="font-size: 12.31px;">String</a> <a href="/tags/Sublime-Text/" style="font-size: 10px;">Sublime Text</a> <a href="/tags/Swing/" style="font-size: 10px;">Swing</a> <a href="/tags/TED/" style="font-size: 10px;">TED</a> <a href="/tags/The-Ellen-Show/" style="font-size: 10px;">The Ellen Show</a> <a href="/tags/The-Fantastic-Four/" style="font-size: 10px;">The Fantastic Four</a> <a href="/tags/The-First-Avenger/" style="font-size: 10px;">The First Avenger</a> <a href="/tags/The-Host/" style="font-size: 10px;">The Host</a> <a href="/tags/Timsort/" style="font-size: 10px;">Timsort</a> <a href="/tags/Triangle/" style="font-size: 10px;">Triangle</a> <a href="/tags/Tutorial/" style="font-size: 16.15px;">Tutorial</a> <a href="/tags/UVa/" style="font-size: 10px;">UVa</a> <a href="/tags/Ubuntu/" style="font-size: 12.31px;">Ubuntu</a> <a href="/tags/Ukulele/" style="font-size: 10px;">Ukulele</a> <a href="/tags/Visual-Studio/" style="font-size: 10px;">Visual Studio</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/Yacc/" style="font-size: 10px;">Yacc</a> <a href="/tags/e17/" style="font-size: 10px;">e17</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/jQuery-Mobile/" style="font-size: 10px;">jQuery Mobile</a> <a href="/tags/mozilla/" style="font-size: 10px;">mozilla</a> <a href="/tags/감시자들/" style="font-size: 10px;">감시자들</a> <a href="/tags/광해/" style="font-size: 10px;">광해</a> <a href="/tags/김윤석/" style="font-size: 10px;">김윤석</a> <a href="/tags/나의-PS-파트너/" style="font-size: 10px;">나의 PS 파트너</a> <a href="/tags/남자사용설명서/" style="font-size: 10px;">남자사용설명서</a> <a href="/tags/노리개/" style="font-size: 10px;">노리개</a> <a href="/tags/더-웹툰/" style="font-size: 10px;">더 웹툰</a> <a href="/tags/미인도/" style="font-size: 10px;">미인도</a> <a href="/tags/바람과-함께-사라지다/" style="font-size: 10px;">바람과 함께 사라지다</a> <a href="/tags/바이러스/" style="font-size: 10px;">바이러스</a> <a href="/tags/서툰-사람들/" style="font-size: 10px;">서툰 사람들</a> <a href="/tags/설경구/" style="font-size: 10px;">설경구</a> <a href="/tags/신세계/" style="font-size: 10px;">신세계</a> <a href="/tags/아이언맨3/" style="font-size: 10px;">아이언맨3</a> <a href="/tags/여진구/" style="font-size: 10px;">여진구</a> <a href="/tags/연속-부분-최대곱/" style="font-size: 10px;">연속 부분 최대곱</a> <a href="/tags/완전제곱수/" style="font-size: 10px;">완전제곱수</a> <a href="/tags/의뢰인/" style="font-size: 10px;">의뢰인</a> <a href="/tags/인류멸망보고서/" style="font-size: 10px;">인류멸망보고서</a> <a href="/tags/정우성/" style="font-size: 10px;">정우성</a> <a href="/tags/진격의-거인/" style="font-size: 10px;">진격의 거인</a> <a href="/tags/째째한-로맨스/" style="font-size: 10px;">째째한 로맨스</a> <a href="/tags/코딩을-지탱하는-기술/" style="font-size: 10px;">코딩을 지탱하는 기술</a> <a href="/tags/한설희/" style="font-size: 10px;">한설희</a> <a href="/tags/한효주/" style="font-size: 10px;">한효주</a> <a href="/tags/혜화동/" style="font-size: 10px;">혜화동</a> <a href="/tags/화이/" style="font-size: 10px;">화이</a> <a href="/tags/후위-표현식/" style="font-size: 10px;">후위 표현식</a>
+            <a href="/tags/1과-2의-합/" style="font-size: 10px;">1과 2의 합</a> <a href="/tags/Algorithm/" style="font-size: 18.46px;">Algorithm</a> <a href="/tags/Analog-Clock/" style="font-size: 10px;">Analog Clock</a> <a href="/tags/Android/" style="font-size: 11.54px;">Android</a> <a href="/tags/Apache-Commons/" style="font-size: 11.54px;">Apache Commons</a> <a href="/tags/Array/" style="font-size: 10px;">Array</a> <a href="/tags/B2G/" style="font-size: 10px;">B2G</a> <a href="/tags/Back-To-High-School-Physics/" style="font-size: 10px;">Back To High School Physics</a> <a href="/tags/Bling-Ring/" style="font-size: 10px;">Bling Ring</a> <a href="/tags/Book/" style="font-size: 10.77px;">Book</a> <a href="/tags/Breakout/" style="font-size: 10px;">Breakout</a> <a href="/tags/Bubble-Pop/" style="font-size: 10px;">Bubble Pop</a> <a href="/tags/C/" style="font-size: 10px;">C</a> <a href="/tags/C/" style="font-size: 11.54px;">C++</a> <a href="/tags/CSS/" style="font-size: 10.77px;">CSS</a> <a href="/tags/Canvas/" style="font-size: 11.54px;">Canvas</a> <a href="/tags/Captain-America/" style="font-size: 10px;">Captain America</a> <a href="/tags/Card/" style="font-size: 10px;">Card</a> <a href="/tags/Ceylon/" style="font-size: 14.62px;">Ceylon</a> <a href="/tags/CoffeScript/" style="font-size: 10.77px;">CoffeScript</a> <a href="/tags/CoffeeScript/" style="font-size: 13.85px;">CoffeeScript</a> <a href="/tags/Collection/" style="font-size: 10px;">Collection</a> <a href="/tags/Copy/" style="font-size: 10px;">Copy</a> <a href="/tags/Design-Pattern/" style="font-size: 10px;">Design Pattern</a> <a href="/tags/Documentation/" style="font-size: 10px;">Documentation</a> <a href="/tags/Eclipse/" style="font-size: 16.92px;">Eclipse</a> <a href="/tags/Enlightenment/" style="font-size: 10.77px;">Enlightenment</a> <a href="/tags/Escape-Sequence/" style="font-size: 10px;">Escape Sequence</a> <a href="/tags/FXML/" style="font-size: 10px;">FXML</a> <a href="/tags/Factory-Method/" style="font-size: 10px;">Factory Method</a> <a href="/tags/Fibonacci-Number/" style="font-size: 10px;">Fibonacci Number</a> <a href="/tags/Firefox-OS/" style="font-size: 10.77px;">Firefox OS</a> <a href="/tags/Fish-Monger/" style="font-size: 10px;">Fish Monger</a> <a href="/tags/GCC/" style="font-size: 10px;">GCC</a> <a href="/tags/GOF/" style="font-size: 10px;">GOF</a> <a href="/tags/Game/" style="font-size: 14.62px;">Game</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Histogram/" style="font-size: 10px;">Histogram</a> <a href="/tags/Home/" style="font-size: 10px;">Home</a> <a href="/tags/Hugh-Grant/" style="font-size: 10px;">Hugh Grant</a> <a href="/tags/ICPC/" style="font-size: 15.38px;">ICPC</a> <a href="/tags/Image-Processing/" style="font-size: 10.77px;">Image Processing</a> <a href="/tags/Iterator/" style="font-size: 10px;">Iterator</a> <a href="/tags/Jack-the-Giant-Slayer/" style="font-size: 10px;">Jack the Giant Slayer</a> <a href="/tags/Java/" style="font-size: 17.69px;">Java</a> <a href="/tags/JavaFX/" style="font-size: 10px;">JavaFX</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Julia-Roberts/" style="font-size: 10px;">Julia Roberts</a> <a href="/tags/Justin-Willman/" style="font-size: 10px;">Justin Willman</a> <a href="/tags/Lex/" style="font-size: 10px;">Lex</a> <a href="/tags/LibGDX/" style="font-size: 11.54px;">LibGDX</a> <a href="/tags/Linux/" style="font-size: 10.77px;">Linux</a> <a href="/tags/Magic/" style="font-size: 13.08px;">Magic</a> <a href="/tags/Man-of-Steel/" style="font-size: 10px;">Man of Steel</a> <a href="/tags/Marco-Tempest/" style="font-size: 10px;">Marco Tempest</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Math/" style="font-size: 10px;">Math</a> <a href="/tags/Mobile/" style="font-size: 10px;">Mobile</a> <a href="/tags/Moon/" style="font-size: 10px;">Moon</a> <a href="/tags/Movie/" style="font-size: 19.23px;">Movie</a> <a href="/tags/Mozilla/" style="font-size: 10px;">Mozilla</a> <a href="/tags/Notting-Hill/" style="font-size: 10px;">Notting Hill</a> <a href="/tags/Now-You-See-Me/" style="font-size: 10px;">Now You See Me</a> <a href="/tags/Oblivion/" style="font-size: 10px;">Oblivion</a> <a href="/tags/OpenGL/" style="font-size: 13.85px;">OpenGL</a> <a href="/tags/PKNU/" style="font-size: 10px;">PKNU</a> <a href="/tags/PlayN/" style="font-size: 10.77px;">PlayN</a> <a href="/tags/Processing/" style="font-size: 15.38px;">Processing</a> <a href="/tags/Programming/" style="font-size: 20px;">Programming</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Qt/" style="font-size: 10px;">Qt</a> <a href="/tags/Queue/" style="font-size: 10px;">Queue</a> <a href="/tags/RCP/" style="font-size: 16.15px;">RCP</a> <a href="/tags/Robots/" style="font-size: 10px;">Robots</a> <a href="/tags/Rust/" style="font-size: 10px;">Rust</a> <a href="/tags/Stream/" style="font-size: 10px;">Stream</a> <a href="/tags/String/" style="font-size: 12.31px;">String</a> <a href="/tags/Sublime-Text/" style="font-size: 10px;">Sublime Text</a> <a href="/tags/Swing/" style="font-size: 10px;">Swing</a> <a href="/tags/TED/" style="font-size: 10px;">TED</a> <a href="/tags/The-Ellen-Show/" style="font-size: 10px;">The Ellen Show</a> <a href="/tags/The-Fantastic-Four/" style="font-size: 10px;">The Fantastic Four</a> <a href="/tags/The-First-Avenger/" style="font-size: 10px;">The First Avenger</a> <a href="/tags/The-Host/" style="font-size: 10px;">The Host</a> <a href="/tags/Timsort/" style="font-size: 10px;">Timsort</a> <a href="/tags/Triangle/" style="font-size: 10px;">Triangle</a> <a href="/tags/Tutorial/" style="font-size: 16.15px;">Tutorial</a> <a href="/tags/UVa/" style="font-size: 10px;">UVa</a> <a href="/tags/Ubuntu/" style="font-size: 12.31px;">Ubuntu</a> <a href="/tags/Ukulele/" style="font-size: 10px;">Ukulele</a> <a href="/tags/Visual-Studio/" style="font-size: 10px;">Visual Studio</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/Yacc/" style="font-size: 10px;">Yacc</a> <a href="/tags/e17/" style="font-size: 10px;">e17</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/jQuery-Mobile/" style="font-size: 10px;">jQuery Mobile</a> <a href="/tags/mozilla/" style="font-size: 10px;">mozilla</a> <a href="/tags/감시자들/" style="font-size: 10px;">감시자들</a> <a href="/tags/광해/" style="font-size: 10px;">광해</a> <a href="/tags/김윤석/" style="font-size: 10px;">김윤석</a> <a href="/tags/나의-PS-파트너/" style="font-size: 10px;">나의 PS 파트너</a> <a href="/tags/남자사용설명서/" style="font-size: 10px;">남자사용설명서</a> <a href="/tags/노리개/" style="font-size: 10px;">노리개</a> <a href="/tags/더-웹툰/" style="font-size: 10px;">더 웹툰</a> <a href="/tags/미인도/" style="font-size: 10px;">미인도</a> <a href="/tags/바람과-함께-사라지다/" style="font-size: 10px;">바람과 함께 사라지다</a> <a href="/tags/바이러스/" style="font-size: 10px;">바이러스</a> <a href="/tags/베테랑/" style="font-size: 10px;">베테랑</a> <a href="/tags/서툰-사람들/" style="font-size: 10px;">서툰 사람들</a> <a href="/tags/설경구/" style="font-size: 10px;">설경구</a> <a href="/tags/신세계/" style="font-size: 10px;">신세계</a> <a href="/tags/아이언맨3/" style="font-size: 10px;">아이언맨3</a> <a href="/tags/암살교실/" style="font-size: 10px;">암살교실</a> <a href="/tags/여진구/" style="font-size: 10px;">여진구</a> <a href="/tags/연속-부분-최대곱/" style="font-size: 10px;">연속 부분 최대곱</a> <a href="/tags/완전제곱수/" style="font-size: 10px;">완전제곱수</a> <a href="/tags/의뢰인/" style="font-size: 10px;">의뢰인</a> <a href="/tags/인류멸망보고서/" style="font-size: 10px;">인류멸망보고서</a> <a href="/tags/정우성/" style="font-size: 10px;">정우성</a> <a href="/tags/진격의-거인/" style="font-size: 10px;">진격의 거인</a> <a href="/tags/째째한-로맨스/" style="font-size: 10px;">째째한 로맨스</a> <a href="/tags/코딩을-지탱하는-기술/" style="font-size: 10px;">코딩을 지탱하는 기술</a> <a href="/tags/한설희/" style="font-size: 10px;">한설희</a> <a href="/tags/한효주/" style="font-size: 10px;">한효주</a> <a href="/tags/혜화동/" style="font-size: 10px;">혜화동</a> <a href="/tags/화이/" style="font-size: 10px;">화이</a> <a href="/tags/후위-표현식/" style="font-size: 10px;">후위 표현식</a>
         </div>
     </div>
 
